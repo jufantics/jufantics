@@ -24,6 +24,25 @@
     --shadow:    0 8px 40px rgba(123,94,167,.13);
     --shadow-lg: 0 20px 60px rgba(123,94,167,.18);
   }
+  .tipo-cuento {
+display: flex;
+flex-direction: column;
+gap: 8px;
+margin-top: 8px;
+}
+
+.tipo-cuento label {
+display: flex;
+align-items: center;
+gap: 8px;
+cursor: pointer;
+font-size: 15px;
+}
+
+.tipo-cuento input[type="checkbox"] {
+margin: 0;
+transform: scale(1.1);
+}
 
   /* ─── RESET & BASE ──────────────────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
