@@ -3,1267 +3,1427 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="JUFANTICS — Cuentos personalizados para niños y familias. Historias únicas que nacen de la imaginación.">
 <title>JUFANTICS — Historias que nacen de la imaginación</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Nunito:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-  /* ─── VARIABLES ─────────────────────────────────────────────────── */
-  :root {
-    --celeste:   #A8D8EA;
-    --celeste-d: #7EC8E3;
-    --celeste-l: #E8F7FD;
-    --purple:    #7B5EA7;
-    --purple-d:  #5A3E8A;
-    --purple-l:  #F0EAFF;
-    --orange:    #F4845F;
-    --orange-l:  #FFF0EB;
-    --yellow:    #FFD166;
-    --white:     #FFFCF9;
-    --dark:      #2C2340;
-    --mid:       #7A6E8A;
-    --radius:    18px;
-    --shadow:    0 8px 40px rgba(123,94,167,.13);
-    --shadow-lg: 0 20px 60px rgba(123,94,167,.18);
-  }
-  .tipo-cuento {
-display: flex;
-flex-direction: column;
-gap: 8px;
-margin-top: 8px;
+/* ═══════════════════════════════════════════
+   VARIABLES & RESET
+═══════════════════════════════════════════ */
+:root {
+  --ink:        #1C1528;
+  --ink-mid:    #4A3F5C;
+  --ink-soft:   #8A7FA0;
+  --parchment:  #FAF6F0;
+  --parchment2: #F4EDE3;
+  --parchment3: #EDE3D6;
+  --sky:        #B8DDEF;
+  --sky-d:      #7DC0DC;
+  --sky-l:      #E8F5FB;
+  --rose:       #E8936A;
+  --rose-l:     #FBF0EB;
+  --gold:       #D4A843;
+  --gold-l:     #FDF6E3;
+  --sage:       #7BAF92;
+  --lavender:   #9B8EC4;
+  --lavender-l: #EDE8F7;
+  --radius:     16px;
+  --shadow:     0 4px 32px rgba(28,21,40,.10);
+  --shadow-lg:  0 16px 60px rgba(28,21,40,.16);
+  --wa-green:   #25D366;
+  --wa-number:  51992786715;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+button { font-family: inherit; }
+
+/* ═══════════════════════════════════════════
+   UTILITY CLASSES
+═══════════════════════════════════════════ */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 5%; }
+.section-pad { padding: 5rem 0; }
+
+.tag {
+  display: inline-block;
+  font-size: .7rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: .7rem;
+}
+.tag-rose   { color: var(--rose); }
+.tag-gold   { color: var(--gold); }
+.tag-sky    { color: var(--sky-d); }
+.tag-white  { color: rgba(255,255,255,.55); }
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700; line-height: 1.15;
+  color: var(--ink);
+}
+.title-xl { font-size: clamp(2.8rem, 6vw, 4.4rem); }
+.title-lg { font-size: clamp(1.9rem, 3.5vw, 2.7rem); }
+.title-white { color: #fff; }
+
+.body-text { color: var(--ink-mid); font-size: .97rem; line-height: 1.75; }
+.body-white { color: rgba(255,255,255,.6); }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .9rem 2rem; border-radius: 50px;
+  font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .95rem;
+  border: none; cursor: pointer;
+  transition: transform .2s, box-shadow .2s, background .2s, color .2s;
+}
+.btn:hover { transform: translateY(-3px); }
+.btn-dark {
+  background: var(--ink); color: var(--parchment);
+}
+.btn-dark:hover { background: var(--rose); box-shadow: 0 12px 32px rgba(232,147,106,.35); }
+.btn-outline {
+  background: transparent; color: var(--ink);
+  border: 2px solid rgba(28,21,40,.2);
+}
+.btn-outline:hover { background: var(--ink); color: var(--parchment); border-color: var(--ink); }
+.btn-white {
+  background: #fff; color: var(--ink);
+}
+.btn-white:hover { box-shadow: 0 12px 32px rgba(0,0,0,.15); }
+.btn-ghost-white {
+  background: transparent; color: #fff;
+  border: 2px solid rgba(255,255,255,.4);
+}
+.btn-ghost-white:hover { background: rgba(255,255,255,.12); }
+.btn-wa {
+  width: 100%; justify-content: center; padding: 1rem;
+  background: var(--wa-green); color: #fff;
+}
+.btn-wa:hover { background: #1da855; box-shadow: 0 10px 30px rgba(37,211,102,.4); }
+.btn-email {
+  width: 100%; justify-content: center; padding: .85rem;
+  background: var(--lavender); color: #fff; margin-top: .5rem;
+}
+.btn-email:hover { background: #7b6db0; box-shadow: 0 8px 24px rgba(155,142,196,.4); }
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* ═══════════════════════════════════════════
+   WHATSAPP FLOAT BUTTON
+═══════════════════════════════════════════ */
+.wa-float {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999;
+  width: 58px; height: 58px; border-radius: 50%;
+  background: var(--wa-green); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.7rem;
+  box-shadow: 0 6px 28px rgba(37,211,102,.5);
+  cursor: pointer;
+  transition: transform .2s;
+  animation: waPulse 2.5s ease-in-out infinite;
+}
+.wa-float:hover { transform: scale(1.1); animation: none; }
+@keyframes waPulse {
+  0%,100% { box-shadow: 0 6px 28px rgba(37,211,102,.5); }
+  50%      { box-shadow: 0 6px 44px rgba(37,211,102,.8); }
 }
 
-.tipo-cuento label {
-display: flex;
-align-items: center;
-gap: 8px;
-cursor: pointer;
-font-size: 15px;
+/* ═══════════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════════ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1rem 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background .35s, box-shadow .35s;
+}
+.nav.scrolled {
+  background: rgba(250,246,240,.96);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 2px 18px rgba(28,21,40,.08);
+  border-bottom: 1px solid rgba(212,168,67,.15);
+}
+.nav-brand { display: flex; flex-direction: column; }
+.nav-logo {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900; font-size: 1.5rem;
+  letter-spacing: -1px; line-height: 1;
+}
+.nav-logo .ju   { color: var(--sky-d); }
+.nav-logo .fan  { color: var(--rose); }
+.nav-logo .tics { color: var(--lavender); }
+.nav-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: .72rem;
+  color: var(--ink-soft);
+}
+.nav-links {
+  display: flex; gap: 2rem; align-items: center;
+}
+.nav-links a {
+  font-size: .82rem; font-weight: 500;
+  letter-spacing: .4px; text-transform: uppercase;
+  color: var(--ink-mid);
+  position: relative;
+  transition: color .2s;
+}
+.nav-links a::after {
+  content: ''; position: absolute;
+  bottom: -3px; left: 0; right: 0; height: 1.5px;
+  background: var(--rose);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .25s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-cta {
+  background: var(--ink); color: var(--parchment) !important;
+  padding: .5rem 1.3rem; border-radius: 50px;
+  font-weight: 700 !important;
+  transition: background .2s, transform .2s !important;
+}
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: var(--rose) !important; transform: translateY(-2px); }
+
+/* hamburger */
+.nav-toggle {
+  display: none;
+  flex-direction: column; gap: 5px;
+  cursor: pointer; padding: .3rem;
+}
+.nav-toggle span {
+  display: block; width: 22px; height: 2px;
+  background: var(--ink); border-radius: 2px;
+  transition: transform .3s, opacity .3s;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* mobile nav drawer */
+.nav-drawer {
+  display: none;
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--parchment);
+  z-index: 99;
+  flex-direction: column; align-items: center; justify-content: center;
+  gap: 2rem;
+}
+.nav-drawer.open { display: flex; }
+.nav-drawer a {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.3rem; font-weight: 800;
+  color: var(--ink);
+}
+.nav-drawer a:hover { color: var(--rose); }
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; gap: 3rem;
+  padding: 9rem 5% 5rem;
+  background: linear-gradient(145deg, var(--sky-l) 0%, var(--parchment) 55%, var(--rose-l) 100%);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -80px; right: -80px;
+  width: 550px; height: 550px;
+  background: radial-gradient(ellipse, rgba(184,221,239,.45) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: -40px; left: -60px;
+  width: 380px; height: 380px;
+  background: radial-gradient(ellipse, rgba(232,147,106,.18) 0%, transparent 70%);
+  pointer-events: none;
 }
 
-.tipo-cuento input[type="checkbox"] {
-margin: 0;
-transform: scale(1.1);
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: var(--gold-l);
+  border: 1px solid rgba(212,168,67,.3);
+  padding: .4rem 1rem; border-radius: 50px;
+  font-size: .72rem; font-weight: 700;
+  color: var(--gold); letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 1.4rem;
+}
+.hero-title em {
+  font-style: italic; color: var(--rose); position: relative;
+}
+.hero-title em::after {
+  content: '';
+  position: absolute; bottom: 2px; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--rose), transparent);
+}
+.hero-sub {
+  font-size: 1.05rem; color: var(--ink-mid); line-height: 1.75;
+  max-width: 480px; margin: 1.2rem 0 2rem;
+}
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.hero-trust {
+  display: flex; gap: 2rem; flex-wrap: wrap;
+  font-size: .82rem; color: var(--ink-soft);
+}
+.trust-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--sage); margin-right: .4rem; vertical-align: middle; }
+
+/* hero visual */
+.hero-visual {
+  display: flex; justify-content: center; align-items: center;
+  position: relative; z-index: 1;
+}
+.book-showcase { position: relative; width: 340px; height: 380px; }
+.open-book {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 270px; height: 190px;
+  display: flex; border-radius: 6px;
+  box-shadow: var(--shadow-lg);
+}
+.book-page {
+  flex: 1; padding: 1.1rem;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: .4rem;
+}
+.book-page.left  { background: linear-gradient(to right, #f2ece0, #faf7f2); border-radius: 4px 0 0 4px; }
+.book-page.right { background: linear-gradient(to left,  #f2ece0, #faf7f2); border-radius: 0 4px 4px 0; }
+.book-spine { width: 10px; background: linear-gradient(180deg, var(--lavender), var(--rose)); flex-shrink: 0; }
+.page-lines { display: flex; flex-direction: column; gap: 5px; width: 100%; }
+.page-line { height: 2px; border-radius: 1px; background: rgba(28,21,40,.1); }
+.page-line.s { width: 55%; } .page-line.m { width: 80%; }
+.page-emoji { font-size: 2rem; }
+.page-label { font-family: 'Cormorant Garamond',serif; font-size: .77rem; font-weight: 600; color: var(--ink-mid); text-align: center; line-height: 1.3; }
+
+.orbit-card {
+  position: absolute; background: #fff; border-radius: 12px;
+  padding: .85rem 1.1rem;
+  box-shadow: var(--shadow);
+  display: flex; align-items: center; gap: .6rem;
+  white-space: nowrap;
+}
+.oc-1 { top:  5px; left: -15px; animation: ocFloat 5s 0s   ease-in-out infinite; }
+.oc-2 { top: 25px; right: -25px; animation: ocFloat 5s -2s  ease-in-out infinite; }
+.oc-3 { bottom: 70px; left: -30px; animation: ocFloat 5s -3.5s ease-in-out infinite; }
+.oc-4 { bottom: 20px; right: -5px;  animation: ocFloat 5s -1s  ease-in-out infinite; }
+@keyframes ocFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-9px);} }
+.oc-icon { font-size: 1.3rem; }
+.oc-label { font-family: 'Nunito',sans-serif; font-weight: 800; font-size: .73rem; color: var(--ink); display: block; }
+.oc-sub   { font-size: .63rem; color: var(--ink-soft); }
+
+/* ═══════════════════════════════════════════
+   MEANING SECTION (dark)
+═══════════════════════════════════════════ */
+.meaning {
+  background: var(--ink);
+  position: relative; overflow: hidden;
+}
+.meaning::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 15% 50%, rgba(155,142,196,.1) 0%, transparent 55%),
+              radial-gradient(ellipse at 85% 50%, rgba(184,221,239,.07) 0%, transparent 55%);
+  pointer-events: none;
+}
+.meaning-inner { position: relative; z-index: 1; }
+.meaning-header { text-align: center; margin-bottom: 3rem; }
+.meaning-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1.3rem;
+}
+.mc {
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius); padding: 2.2rem 1.8rem;
+  text-align: center; position: relative; overflow: hidden;
+  transition: border-color .3s, transform .3s;
+}
+.mc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.mc.sky::before  { background: linear-gradient(90deg, var(--sky),      var(--sky-d)); }
+.mc.rose::before { background: linear-gradient(90deg, var(--rose),     #d4603a); }
+.mc.lav::before  { background: linear-gradient(90deg, var(--lavender), #7B5EA7); }
+.mc:hover { border-color: rgba(255,255,255,.18); transform: translateY(-5px); }
+.mc-letters {
+  font-family: 'Nunito',sans-serif; font-weight: 900; font-size: 3.8rem; line-height: 1; margin-bottom: .4rem;
+}
+.mc.sky  .mc-letters { color: var(--sky-d); }
+.mc.rose .mc-letters { color: var(--rose); }
+.mc.lav  .mc-letters { color: var(--lavender); }
+.mc-word { font-family: 'Nunito',sans-serif; font-weight: 800; font-size: .93rem; color: rgba(255,255,255,.9); margin-bottom: .7rem; }
+.mc-desc { font-size: .86rem; color: rgba(255,255,255,.5); line-height: 1.65; }
+
+/* ═══════════════════════════════════════════
+   HOW IT WORKS
+═══════════════════════════════════════════ */
+.how { background: var(--parchment2); }
+.steps-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem;
+  position: relative; margin-top: 3rem;
+}
+.steps-grid::before {
+  content: '';
+  position: absolute; top: 50px; left: 12%; right: 12%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sky-d) 20%, var(--lavender) 80%, transparent);
+  z-index: 0;
+}
+.step {
+  text-align: center; padding: 0 1rem;
+  position: relative; z-index: 1;
+}
+.step-circle {
+  width: 54px; height: 54px; border-radius: 50%; margin: 0 auto 1.2rem;
+  background: var(--parchment); box-shadow: var(--shadow);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; position: relative;
+  transition: transform .3s;
+}
+.step:hover .step-circle { transform: scale(1.1); }
+.step-num {
+  position: absolute; top: -4px; right: -4px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--ink); color: var(--parchment);
+  font-family: 'Nunito',sans-serif; font-weight: 900; font-size: .6rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.step-title {
+  font-family: 'Nunito',sans-serif; font-weight: 800; font-size: .97rem;
+  color: var(--ink); margin-bottom: .4rem;
+}
+.step-desc { font-size: .85rem; color: var(--ink-soft); line-height: 1.6; }
+
+/* ═══════════════════════════════════════════
+   CATALOG
+═══════════════════════════════════════════ */
+.catalog { background: var(--parchment); }
+.catalog-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1.6rem;
+  margin-top: 3rem;
+}
+.story-card {
+  border-radius: var(--radius); overflow: hidden;
+  background: #fff; box-shadow: var(--shadow);
+  border: 1px solid rgba(28,21,40,.04);
+  transition: transform .35s cubic-bezier(.2,.8,.3,1), box-shadow .35s;
+}
+.story-card:hover { transform: translateY(-8px) scale(1.015); box-shadow: var(--shadow-lg); }
+.sc-cover {
+  height: 185px; position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.sc-cover .badge {
+  position: absolute; top: 12px; left: 12px;
+  background: rgba(255,255,255,.2); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.3);
+  color: #fff; font-family: 'Nunito',sans-serif; font-weight: 700;
+  font-size: .67rem; letter-spacing: .8px; text-transform: uppercase;
+  padding: .25rem .8rem; border-radius: 50px;
+}
+.sc-emoji { font-size: 3.2rem; filter: drop-shadow(0 4px 12px rgba(0,0,0,.22)); position: relative; z-index: 1; }
+.cov-a { background: linear-gradient(145deg,#7B5EA7,#3D2B6B); }
+.cov-b { background: linear-gradient(145deg,#5AABCF,#2E7A9E); }
+.cov-c { background: linear-gradient(145deg,#E8936A,#C4623E); }
+.cov-d { background: linear-gradient(145deg,#D4A843,#A87820); }
+.cov-e { background: linear-gradient(145deg,#7BAF92,#4A8063); }
+.cov-f { background: linear-gradient(145deg,#9B8EC4,#6D5EA7); }
+.sc-body { padding: 1.4rem; }
+.sc-title {
+  font-family: 'Cormorant Garamond',serif;
+  font-weight: 700; font-size: 1.15rem; color: var(--ink);
+  line-height: 1.3; margin-bottom: .5rem;
+}
+.sc-desc { font-size: .84rem; color: var(--ink-soft); line-height: 1.6; margin-bottom: .9rem; }
+.sc-tags { display: flex; flex-wrap: wrap; gap: .35rem; }
+.tag-pill {
+  font-size: .68rem; font-weight: 700;
+  padding: .22rem .65rem; border-radius: 50px;
+}
+.tp-purple { background: var(--lavender-l); color: var(--lavender); }
+.tp-sky    { background: var(--sky-l);      color: var(--sky-d); }
+.tp-rose   { background: var(--rose-l);     color: var(--rose); }
+.tp-gold   { background: var(--gold-l);     color: var(--gold); }
+.tp-sage   { background: #EBF4EF;           color: var(--sage); }
+
+/* ═══════════════════════════════════════════
+   PRODUCTS / PRICING
+═══════════════════════════════════════════ */
+.products { background: var(--parchment2); }
+.products-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1.3rem;
+  margin-top: 3rem;
+}
+.prod-card {
+  background: var(--parchment);
+  border: 1px solid rgba(28,21,40,.07);
+  border-radius: var(--radius); padding: 1.8rem;
+  position: relative; overflow: hidden;
+  transition: transform .3s, box-shadow .3s;
+}
+.prod-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+}
+.prod-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+.prod-card.featured {
+  background: var(--ink); color: #fff;
+  border-color: transparent;
+}
+.pc-stripe-1::before { background: var(--sky-d); }
+.pc-stripe-2::before { background: var(--rose); }
+.pc-stripe-3::before { background: var(--lavender); }
+.pc-stripe-4::before { background: var(--gold); }
+.pc-stripe-5::before { background: var(--sage); }
+.prod-badge {
+  position: absolute; top: 14px; right: 14px;
+  font-size: .62rem; font-weight: 800; text-transform: uppercase;
+  padding: .25rem .75rem; border-radius: 50px;
+  background: var(--gold); color: var(--ink);
+}
+.prod-icon { font-size: 2rem; margin-bottom: .9rem; display: block; }
+.prod-name {
+  font-family: 'Nunito',sans-serif; font-weight: 900; font-size: 1rem;
+  margin-bottom: .45rem; color: inherit;
+}
+.prod-desc { font-size: .85rem; color: var(--ink-soft); line-height: 1.6; margin-bottom: 1.2rem; }
+.featured .prod-desc { color: rgba(255,255,255,.55); }
+.prod-price {
+  font-family: 'Cormorant Garamond',serif; font-weight: 700; font-size: 1.9rem;
+  color: var(--rose);
+}
+.featured .prod-price { color: var(--gold); }
+.prod-note { font-size: .76rem; color: var(--ink-soft); display: block; margin-top: .2rem; }
+.featured .prod-note { color: rgba(255,255,255,.4); }
+.prod-features {
+  margin-top: 1.1rem; padding-top: 1.1rem;
+  border-top: 1px solid rgba(28,21,40,.07);
+}
+.featured .prod-features { border-color: rgba(255,255,255,.1); }
+.prod-features li {
+  font-size: .82rem; color: var(--ink-mid); margin-bottom: .45rem;
+  display: flex; align-items: baseline; gap: .4rem;
+}
+.featured .prod-features li { color: rgba(255,255,255,.65); }
+.prod-features li::before { content: '✓'; color: var(--sage); font-weight: 800; flex-shrink: 0; }
+
+/* wide card (album) */
+.prod-card.wide { grid-column: span 2; display: flex; gap: 2rem; align-items: center; }
+.prod-card.wide .prod-main { flex: 1; }
+.prod-card.wide .prod-price-block { text-align: right; flex-shrink: 0; }
+
+/* ═══════════════════════════════════════════
+   BRIEF / CONTACT FORM
+═══════════════════════════════════════════ */
+.brief { background: var(--ink); position: relative; overflow: hidden; }
+.brief::before {
+  content: '';
+  position: absolute; top: 0; right: 0; width: 450px; height: 450px;
+  background: radial-gradient(ellipse, rgba(155,142,196,.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.brief::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; width: 380px; height: 380px;
+  background: radial-gradient(ellipse, rgba(184,221,239,.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.brief-grid {
+  display: grid; grid-template-columns: 1.05fr 1fr; gap: 5rem;
+  align-items: start; position: relative; z-index: 1;
+}
+.brief-qs { margin-top: 2rem; }
+.brief-q {
+  display: flex; gap: .9rem; align-items: flex-start;
+  padding: .85rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.brief-q:last-child { border-bottom: none; }
+.bq-num {
+  width: 30px; height: 30px; flex-shrink: 0;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 50%;
+  font-family: 'Nunito',sans-serif; font-weight: 900; font-size: .76rem;
+  color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+}
+.bq-text { color: rgba(255,255,255,.65); font-size: .9rem; line-height: 1.5; padding-top: .3rem; }
+.bq-text strong { color: var(--sky-d); font-weight: 700; }
+
+/* form box */
+.form-box {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--radius); padding: 2.2rem;
+}
+.form-box-title {
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 1.55rem; font-weight: 700; color: #fff; margin-bottom: .4rem;
+}
+.form-box-sub { font-size: .85rem; color: rgba(255,255,255,.4); margin-bottom: 1.8rem; }
+
+/* form fields */
+.form-group { margin-bottom: 1rem; }
+.form-group label {
+  display: block;
+  font-size: .7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(255,255,255,.4); margin-bottom: .4rem;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%; padding: .78rem 1rem;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px; color: #fff;
+  font-family: 'DM Sans',sans-serif; font-size: .92rem;
+  outline: none;
+  transition: border-color .2s, background .2s;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: rgba(255,255,255,.2); }
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: rgba(184,221,239,.5);
+  background: rgba(255,255,255,.1);
+}
+.form-group textarea { resize: vertical; min-height: 72px; }
+
+/* ─── CHECKBOX GRID (tipo de cuento) ─── */
+.checkbox-label {
+  display: block;
+  font-size: .7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(255,255,255,.4); margin-bottom: .6rem;
+}
+.checkbox-hint { font-size: .7rem; color: rgba(255,255,255,.3); margin-bottom: .7rem; display: block; }
+.checkbox-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: .5rem;
+}
+.check-item {
+  display: flex; align-items: center; gap: .55rem;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 9px; padding: .6rem .9rem;
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+  position: relative;
+}
+.check-item input[type="checkbox"] {
+  /* hide native */
+  position: absolute; opacity: 0; width: 0; height: 0;
+}
+.check-box {
+  width: 18px; height: 18px; flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,.25);
+  border-radius: 5px; background: transparent;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s, border-color .15s;
+}
+.check-box::after {
+  content: '✓';
+  font-size: .7rem; color: transparent;
+  font-weight: 900;
+  transition: color .15s;
+}
+.check-item input:checked ~ .check-box {
+  background: var(--sky-d); border-color: var(--sky-d);
+}
+.check-item input:checked ~ .check-box::after { color: #fff; }
+.check-item:has(input:checked) {
+  background: rgba(125,192,220,.15);
+  border-color: rgba(125,192,220,.35);
+}
+.check-item input:disabled ~ .check-box {
+  border-color: rgba(255,255,255,.1);
+  opacity: .5;
+}
+.check-item:has(input:disabled):not(:has(input:checked)) {
+  opacity: .55; cursor: not-allowed;
+}
+.check-text { font-size: .85rem; color: rgba(255,255,255,.75); line-height: 1; user-select: none; }
+
+/* Copyright notice inside form */
+.copyright-notice {
+  margin-top: 1rem; padding: .8rem 1rem;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+  font-size: .76rem; color: rgba(255,255,255,.4); line-height: 1.5;
+}
+.copyright-notice strong { color: rgba(255,255,255,.6); }
+
+.form-hint { font-size: .76rem; color: rgba(255,255,255,.35); margin-top: .5rem; font-style: italic; }
+
+/* ═══════════════════════════════════════════
+   PATRICIA
+═══════════════════════════════════════════ */
+.patricia { background: var(--parchment); }
+.pat-grid {
+  display: grid; grid-template-columns: 1fr 1.5fr; gap: 4.5rem;
+  align-items: center;
+}
+.pat-portrait {
+  width: 280px; height: 280px; border-radius: 50%;
+  background: linear-gradient(145deg, var(--sky-l), var(--lavender-l));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 7.5rem;
+  box-shadow: var(--shadow-lg), 0 0 0 12px var(--parchment2);
+  margin: 0 auto;
+  position: relative;
+  animation: gentleFloat 7s ease-in-out infinite;
+}
+@keyframes gentleFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+.pat-portrait-tag {
+  position: absolute; bottom: 0; right: -8px;
+  background: var(--rose); color: #fff;
+  font-family: 'Nunito',sans-serif; font-weight: 800; font-size: .76rem;
+  padding: .45rem 1rem; border-radius: 50px; box-shadow: var(--shadow);
+}
+.pat-name {
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 2.1rem; font-weight: 700; color: var(--ink); margin-bottom: .2rem;
+}
+.pat-role { color: var(--rose); font-size: .88rem; font-weight: 500; margin-bottom: 1.3rem; }
+.pat-text { color: var(--ink-mid); line-height: 1.8; margin-bottom: .9rem; font-size: .96rem; }
+.pat-quote {
+  font-family: 'Cormorant Garamond',serif;
+  font-style: italic; font-size: 1.2rem; color: var(--lavender);
+  line-height: 1.5; margin: 1.4rem 0;
+  padding-left: 1.2rem;
+  border-left: 3px solid var(--lavender-l);
+}
+.pat-chips { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.3rem; }
+.pat-chip {
+  background: var(--parchment2); color: var(--ink-mid);
+  border: 1px solid rgba(28,21,40,.08);
+  font-size: .76rem; font-weight: 600;
+  padding: .32rem .85rem; border-radius: 50px;
+  transition: background .2s, color .2s;
+}
+.pat-chip:hover { background: var(--lavender-l); color: var(--lavender); }
+
+/* ═══════════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════════ */
+.testi { background: var(--parchment2); }
+.testi-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem;
+  margin-top: 3rem;
+}
+.testi-card {
+  background: var(--parchment);
+  border: 1px solid rgba(28,21,40,.06);
+  border-radius: var(--radius); padding: 1.9rem;
+  position: relative;
+  transition: transform .3s, box-shadow .3s;
+}
+.testi-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.testi-card::before {
+  content: '"'; position: absolute;
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 5rem; line-height: 1; top: .4rem; left: 1.1rem;
+  color: rgba(28,21,40,.05);
+}
+.testi-stars { color: var(--gold); letter-spacing: 2px; font-size: .95rem; margin-bottom: .9rem; }
+.testi-text {
+  font-family: 'Cormorant Garamond',serif;
+  font-style: italic; font-size: 1.08rem;
+  color: var(--ink-mid); line-height: 1.7; margin-bottom: 1.3rem;
+}
+.testi-author { display: flex; align-items: center; gap: .75rem; }
+.testi-av {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+}
+.av-a { background: var(--sky-l); }
+.av-b { background: var(--rose-l); }
+.av-c { background: var(--lavender-l); }
+.testi-name { font-family: 'Nunito',sans-serif; font-weight: 800; font-size: .87rem; color: var(--ink); }
+.testi-role { font-size: .74rem; color: var(--ink-soft); }
+
+/* ═══════════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════════ */
+.cta-section {
+  background: linear-gradient(145deg, var(--rose-l), var(--sky-l) 50%, var(--lavender-l));
+  position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute; top: -40%; left: -5%;
+  width: 450px; height: 450px;
+  background: radial-gradient(circle, rgba(232,147,106,.15) 0%, transparent 70%);
+}
+.cta-center { text-align: center; max-width: 620px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-emoji { font-size: 2.8rem; display: block; margin-bottom: 1.1rem; }
+.cta-title em { font-style: italic; color: var(--rose); }
+.cta-sub { color: var(--ink-mid); font-size: 1rem; line-height: 1.75; margin: 1rem 0 2.2rem; }
+.cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,.5);
+  padding: 3.5rem 5% 0;
+}
+.footer-grid {
+  max-width: 1160px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.footer-brand { }
+.footer-logo {
+  font-family: 'Nunito',sans-serif; font-weight: 900; font-size: 1.55rem;
+  margin-bottom: .4rem;
+}
+.footer-logo .ju   { color: var(--sky-d); }
+.footer-logo .fan  { color: var(--rose); }
+.footer-logo .tics { color: var(--lavender); }
+.footer-tagline {
+  font-family: 'Cormorant Garamond',serif;
+  font-style: italic; font-size: .92rem;
+  color: rgba(255,255,255,.35); margin-bottom: 1.4rem; line-height: 1.55;
+}
+.footer-socials { display: flex; gap: .55rem; }
+.footer-social {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .9rem; cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+.footer-social:hover { background: var(--rose); transform: scale(1.1); }
+.footer-col h5 {
+  font-family: 'Nunito',sans-serif; font-weight: 800;
+  color: rgba(255,255,255,.8); font-size: .78rem;
+  letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.1rem;
+}
+.footer-col a {
+  display: block; font-size: .84rem;
+  color: rgba(255,255,255,.42); margin-bottom: .65rem;
+  transition: color .2s; cursor: pointer;
+}
+.footer-col a:hover { color: var(--sky-d); }
+
+/* copyright bar */
+.footer-copyright {
+  max-width: 1160px; margin: 0 auto;
+  padding: 1.5rem 0;
+}
+.copyright-bar {
+  background: rgba(212,168,67,.08);
+  border: 1px solid rgba(212,168,67,.15);
+  border-radius: 10px; padding: .9rem 1.4rem;
+  display: flex; align-items: flex-start; gap: .8rem;
+  margin-bottom: 1.3rem;
+}
+.copyright-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: .1rem; }
+.copyright-text { font-size: .8rem; color: rgba(255,255,255,.45); line-height: 1.55; }
+.copyright-text strong { color: rgba(255,255,255,.65); }
+.footer-bottom {
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: .6rem;
+  padding-bottom: 2rem; font-size: .76rem;
+}
+.footer-tics {
+  font-family: 'Nunito',sans-serif; font-weight: 700;
+  font-size: .68rem; letter-spacing: .5px;
+  color: rgba(255,255,255,.22);
 }
 
-  /* ─── RESET & BASE ──────────────────────────────────────────────── */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Lato', sans-serif;
-    background: var(--white);
-    color: var(--dark);
-    overflow-x: hidden;
-  }
-  img { max-width: 100%; }
-  a { text-decoration: none; color: inherit; }
-
-  /* ─── FLOATING STARS CANVAS ─────────────────────────────────────── */
-  #stars-canvas {
-    position: fixed; top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none; z-index: 0;
-    opacity: .45;
-  }
-
-  /* ─── NAV ───────────────────────────────────────────────────────── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1rem 5%;
-    background: rgba(255,252,249,.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(168,216,234,.3);
-    transition: box-shadow .3s;
-  }
-  nav.scrolled { box-shadow: 0 4px 24px rgba(123,94,167,.10); }
-  .nav-logo {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 900; font-size: 1.5rem;
-    color: var(--purple);
-    letter-spacing: -.5px;
-  }
-  .nav-logo span { color: var(--orange); }
-  .nav-links { display: flex; gap: 2rem; align-items: center; }
-  .nav-links a {
-    font-family: 'Lato', sans-serif;
-    font-size: .9rem; font-weight: 700;
-    color: var(--mid);
-    transition: color .2s;
-    text-transform: uppercase;
-    letter-spacing: .5px;
-  }
-  .nav-links a:hover { color: var(--purple); }
-  .nav-cta {
-    background: var(--orange) !important;
-    color: white !important;
-    padding: .55rem 1.3rem;
-    border-radius: 50px;
-    font-size: .85rem !important;
-    transition: transform .2s, box-shadow .2s !important;
-  }
-  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(244,132,95,.4) !important; }
-
-  /* ─── HERO ──────────────────────────────────────────────────────── */
-  #hero {
-    position: relative; z-index: 1;
-    min-height: 100vh;
-    display: flex; align-items: center;
-    padding: 7rem 5% 4rem;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0; z-index: -1;
-    background: linear-gradient(135deg, #E8F7FD 0%, #F0EAFF 40%, #FFF0EB 100%);
-  }
-  /* decorative blobs */
-  .blob {
-    position: absolute; border-radius: 50%;
-    filter: blur(60px); opacity: .35;
-    animation: floatBlob 8s ease-in-out infinite;
-  }
-  .blob-1 { width: 400px; height: 400px; background: var(--celeste); top: -80px; right: 5%; animation-delay: 0s; }
-  .blob-2 { width: 300px; height: 300px; background: var(--purple-l); bottom: 0; left: 10%; animation-delay: -3s; }
-  .blob-3 { width: 200px; height: 200px; background: var(--orange-l); top: 40%; right: 20%; animation-delay: -5s; }
-  @keyframes floatBlob {
-    0%,100% { transform: translate(0,0) scale(1); }
-    50% { transform: translate(20px,-20px) scale(1.07); }
-  }
-  .hero-inner {
-    max-width: 1200px; margin: 0 auto; width: 100%;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-  }
-  .hero-tag {
-    display: inline-block;
-    background: var(--purple-l);
-    color: var(--purple);
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800; font-size: .8rem;
-    padding: .4rem 1rem; border-radius: 50px;
-    letter-spacing: 1px; text-transform: uppercase;
-    margin-bottom: 1.2rem;
-    animation: fadeUp .7s ease both;
-  }
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.4rem, 5vw, 3.6rem);
-    font-weight: 700; line-height: 1.15;
-    color: var(--dark);
-    margin-bottom: 1rem;
-    animation: fadeUp .7s .1s ease both;
-  }
-  .hero-title em {
-    font-style: italic; color: var(--purple);
-    position: relative; display: inline-block;
-  }
-  .hero-title em::after {
-    content: '';
-    position: absolute; bottom: -4px; left: 0; right: 0; height: 3px;
-    background: var(--orange); border-radius: 2px;
-  }
-  .hero-subtitle {
-    font-size: 1.1rem; color: var(--mid); line-height: 1.7;
-    margin-bottom: 2rem;
-    animation: fadeUp .7s .2s ease both;
-  }
-  .hero-btns {
-    display: flex; gap: 1rem; flex-wrap: wrap;
-    animation: fadeUp .7s .3s ease both;
-  }
-  .btn-primary {
-    background: var(--orange);
-    color: white;
-    padding: .9rem 2rem; border-radius: 50px;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800; font-size: 1rem;
-    border: none; cursor: pointer;
-    transition: transform .2s, box-shadow .2s;
-    display: inline-flex; align-items: center; gap: .5rem;
-  }
-  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(244,132,95,.4); }
-  .btn-secondary {
-    background: transparent;
-    color: var(--purple);
-    padding: .9rem 2rem; border-radius: 50px;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800; font-size: 1rem;
-    border: 2px solid var(--purple);
-    cursor: pointer;
-    transition: background .2s, color .2s, transform .2s;
-  }
-  .btn-secondary:hover { background: var(--purple); color: white; transform: translateY(-3px); }
-
-  /* hero book illustration */
-  .hero-visual {
-    display: flex; justify-content: center; align-items: center;
-    animation: fadeUp .7s .15s ease both;
-  }
-  .book-stack {
-    position: relative; width: 340px; height: 380px;
-  }
-  .book {
-    position: absolute;
-    border-radius: 12px;
-    box-shadow: var(--shadow-lg);
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: .4rem;
-    font-family: 'Nunito', sans-serif; font-weight: 900;
-    color: white; text-align: center; padding: 1.5rem;
-  }
-  .book-1 {
-    width: 200px; height: 260px;
-    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-d) 100%);
-    top: 20px; left: 50%; transform: translateX(-50%) rotate(-8deg);
-    animation: bookFloat 6s ease-in-out infinite;
-  }
-  .book-2 {
-    width: 190px; height: 250px;
-    background: linear-gradient(135deg, var(--celeste-d) 0%, #5AABCF 100%);
-    top: 50px; left: 50%; transform: translateX(-50%) rotate(5deg);
-    animation: bookFloat 6s 2s ease-in-out infinite;
-  }
-  .book-3 {
-    width: 185px; height: 245px;
-    background: linear-gradient(135deg, var(--orange) 0%, #E8643A 100%);
-    top: 80px; left: 50%; transform: translateX(-50%) rotate(-2deg);
-    animation: bookFloat 6s 4s ease-in-out infinite;
-    z-index: 3;
-  }
-  @keyframes bookFloat {
-    0%,100% { transform: translateX(-50%) rotate(-2deg) translateY(0); }
-    50% { transform: translateX(-50%) rotate(-2deg) translateY(-12px); }
-  }
-  .book-1 { animation-name: bookFloat1; }
-  .book-2 { animation-name: bookFloat2; }
-  @keyframes bookFloat1 { 0%,100%{transform:translateX(-50%) rotate(-8deg) translateY(0);} 50%{transform:translateX(-50%) rotate(-8deg) translateY(-8px);} }
-  @keyframes bookFloat2 { 0%,100%{transform:translateX(-50%) rotate(5deg) translateY(0);} 50%{transform:translateX(-50%) rotate(5deg) translateY(-10px);} }
-  .book-emoji { font-size: 2.5rem; }
-  .book-title { font-size: .85rem; line-height: 1.3; }
-
-  /* floating elements */
-  .float-el {
-    position: absolute;
-    animation: floatEl 4s ease-in-out infinite;
-    font-size: 1.6rem;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,.12));
-  }
-  .fe-1 { top: 5%; left: 8%; animation-delay: 0s; }
-  .fe-2 { top: 20%; right: 8%; animation-delay: -1.5s; font-size: 1.3rem; }
-  .fe-3 { bottom: 25%; left: 5%; animation-delay: -3s; font-size: 1.2rem; }
-  .fe-4 { bottom: 10%; right: 12%; animation-delay: -2s; }
-  @keyframes floatEl { 0%,100%{transform:translateY(0) rotate(0);} 50%{transform:translateY(-12px) rotate(8deg);} }
-
-  /* stats strip */
-  .hero-stats {
-    margin-top: 2.5rem;
-    display: flex; gap: 2.5rem; flex-wrap: wrap;
-    animation: fadeUp .7s .4s ease both;
-  }
-  .stat { display: flex; flex-direction: column; }
-  .stat-num { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.8rem; color: var(--purple); }
-  .stat-label { font-size: .8rem; color: var(--mid); text-transform: uppercase; letter-spacing: .5px; }
-
-  /* ─── SECTIONS COMMON ───────────────────────────────────────────── */
-  section { position: relative; z-index: 1; }
-  .section-inner { max-width: 1200px; margin: 0 auto; padding: 5rem 5%; }
-  .section-tag {
-    display: inline-block;
-    font-family: 'Nunito', sans-serif; font-weight: 800;
-    font-size: .75rem; letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--orange); margin-bottom: .8rem;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-    font-weight: 700; color: var(--dark);
-    line-height: 1.25; margin-bottom: 1rem;
-  }
-  .section-sub {
-    font-size: 1.05rem; color: var(--mid); line-height: 1.7;
-    max-width: 560px;
-  }
-
-  /* ─── MEANING SECTION ───────────────────────────────────────────── */
-  #meaning { background: var(--dark); }
-  #meaning .section-title { color: white; }
-  #meaning .section-tag { color: var(--yellow); }
-  .meaning-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-    margin-top: 3rem;
-  }
-  .meaning-card {
-    border-radius: var(--radius);
-    padding: 2rem;
-    text-align: center;
-    transition: transform .3s;
-  }
-  .meaning-card:hover { transform: translateY(-6px); }
-  .meaning-card.ju { background: linear-gradient(135deg, var(--celeste-d), #5AABCF); }
-  .meaning-card.fan { background: linear-gradient(135deg, var(--orange), #E8643A); }
-  .meaning-card.tics { background: linear-gradient(135deg, var(--purple), var(--purple-d)); }
-  .meaning-letters {
-    font-family: 'Nunito', sans-serif; font-weight: 900;
-    font-size: 3.5rem; color: white;
-    text-shadow: 0 4px 20px rgba(0,0,0,.2);
-  }
-  .meaning-word {
-    font-family: 'Nunito', sans-serif; font-weight: 800;
-    font-size: 1rem; color: rgba(255,255,255,.9);
-    margin: .4rem 0;
-  }
-  .meaning-desc {
-    font-size: .9rem; color: rgba(255,255,255,.75); line-height: 1.6;
-  }
-
-  /* ─── HOW IT WORKS ──────────────────────────────────────────────── */
-  #how { background: var(--celeste-l); }
-  .steps-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
-    margin-top: 3rem; position: relative;
-  }
-  .steps-grid::before {
-    content: '';
-    position: absolute; top: 55px; left: 12%; right: 12%; height: 2px;
-    background: linear-gradient(90deg, var(--celeste-d), var(--purple-l));
-    z-index: 0;
-  }
-  .step {
-    background: white; border-radius: var(--radius);
-    padding: 2rem 1.5rem; text-align: center;
-    box-shadow: var(--shadow);
-    position: relative; z-index: 1;
-    transition: transform .3s, box-shadow .3s;
-  }
-  .step:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-  .step-num {
-    width: 52px; height: 52px;
-    background: var(--purple); color: white;
-    border-radius: 50%;
-    font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.3rem;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 1rem;
-    box-shadow: 0 4px 16px rgba(123,94,167,.4);
-  }
-  .step-emoji { font-size: 1.8rem; margin-bottom: .6rem; }
-  .step-title {
-    font-family: 'Nunito', sans-serif; font-weight: 800;
-    font-size: 1rem; color: var(--dark); margin-bottom: .5rem;
-  }
-  .step-desc { font-size: .88rem; color: var(--mid); line-height: 1.6; }
-
-  /* ─── CATALOG ───────────────────────────────────────────────────── */
-  #catalog { background: var(--white); }
-  .catalog-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
-  .stories-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem;
-  }
-  .story-card {
-    border-radius: var(--radius); overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: transform .3s, box-shadow .3s;
-    background: white;
-    cursor: pointer;
-  }
-  .story-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
-  .story-cover {
-    height: 200px;
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: .5rem;
-    position: relative; overflow: hidden;
-  }
-  .story-cover::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.2) 100%);
-  }
-  .cover-a { background: linear-gradient(135deg, #7B5EA7, #5A3E8A); }
-  .cover-b { background: linear-gradient(135deg, #A8D8EA, #5AABCF); }
-  .cover-c { background: linear-gradient(135deg, #F4845F, #E8643A); }
-  .cover-d { background: linear-gradient(135deg, #FFD166, #F4845F); }
-  .cover-e { background: linear-gradient(135deg, #5AABCF, #7B5EA7); }
-  .cover-f { background: linear-gradient(135deg, #7B5EA7, #F4845F); }
-  .story-icon { font-size: 3rem; position: relative; z-index: 1; }
-  .story-collection {
-    position: absolute; top: 12px; left: 12px; z-index: 2;
-    background: rgba(255,255,255,.25); backdrop-filter: blur(8px);
-    color: white; font-family: 'Nunito', sans-serif;
-    font-weight: 700; font-size: .7rem;
-    padding: .3rem .8rem; border-radius: 50px;
-    text-transform: uppercase; letter-spacing: .5px;
-  }
-  .story-body { padding: 1.4rem; }
-  .story-title {
-    font-family: 'Nunito', sans-serif; font-weight: 900;
-    font-size: 1rem; color: var(--dark); margin-bottom: .5rem;
-    line-height: 1.3;
-  }
-  .story-desc { font-size: .85rem; color: var(--mid); line-height: 1.6; margin-bottom: 1rem; }
-  .story-tag {
-    display: inline-block;
-    background: var(--purple-l); color: var(--purple);
-    font-family: 'Nunito', sans-serif; font-weight: 700;
-    font-size: .72rem; padding: .25rem .75rem; border-radius: 50px;
-  }
-
-  /* ─── PRODUCTS ──────────────────────────────────────────────────── */
-  #products { background: var(--purple-l); }
-  .products-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-    margin-top: 3rem;
-  }
-  .product-card {
-    background: white; border-radius: var(--radius);
-    padding: 2rem; box-shadow: var(--shadow);
-    transition: transform .3s, box-shadow .3s;
-    position: relative; overflow: hidden;
-  }
-  .product-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-  }
-  .product-card.p1::before { background: var(--celeste-d); }
-  .product-card.p2::before { background: var(--orange); }
-  .product-card.p3::before { background: var(--purple); }
-  .product-card.p4::before { background: var(--yellow); }
-  .product-card.p5::before { background: linear-gradient(90deg, var(--purple), var(--orange)); }
-  .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-  .product-icon { font-size: 2.2rem; margin-bottom: 1rem; }
-  .product-name {
-    font-family: 'Nunito', sans-serif; font-weight: 900;
-    font-size: 1.05rem; color: var(--dark); margin-bottom: .5rem;
-  }
-  .product-desc { font-size: .88rem; color: var(--mid); line-height: 1.6; margin-bottom: 1.2rem; }
-  .product-price {
-    font-family: 'Nunito', sans-serif; font-weight: 900;
-    font-size: 1.2rem; color: var(--purple);
-  }
-  .product-price span { font-size: .8rem; font-weight: 600; color: var(--mid); }
-  .product-badge {
-    position: absolute; top: 16px; right: 16px;
-    background: var(--yellow); color: var(--dark);
-    font-family: 'Nunito', sans-serif; font-weight: 800;
-    font-size: .65rem; padding: .3rem .7rem; border-radius: 50px;
-    text-transform: uppercase;
-  }
-
-  /* ─── BRIEF / FORM ──────────────────────────────────────────────── */
-  #brief { background: var(--dark); }
-  #brief .section-title { color: white; }
-  #brief .section-sub { color: rgba(255,255,255,.65); }
-  #brief .section-tag { color: var(--yellow); }
-  .brief-inner {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
-    margin-top: 3rem;
-  }
-  .brief-questions { }
-  .brief-q {
-    display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start;
-  }
-  .brief-q-num {
-    width: 36px; height: 36px; flex-shrink: 0;
-    background: var(--orange); color: white;
-    border-radius: 50%;
-    font-family: 'Nunito', sans-serif; font-weight: 900; font-size: .9rem;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .brief-q-text { color: rgba(255,255,255,.85); font-size: .95rem; line-height: 1.5; padding-top: .5rem; }
-  .brief-form {
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: var(--radius); padding: 2rem;
-  }
-  .brief-form h3 {
-    font-family: 'Nunito', sans-serif; font-weight: 800;
-    color: white; margin-bottom: 1.5rem; font-size: 1.1rem;
-  }
-  .form-group { margin-bottom: 1.1rem; }
-  .form-group label {
-    display: block; font-size: .82rem; color: rgba(255,255,255,.6);
-    margin-bottom: .4rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: .5px;
-  }
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%; padding: .75rem 1rem;
-    background: rgba(255,255,255,.08);
-    border: 1px solid rgba(255,255,255,.15);
-    border-radius: 10px; color: white;
-    font-family: 'Lato', sans-serif; font-size: .95rem;
-    outline: none; transition: border .2s;
-  }
-  .form-group input::placeholder,
-  .form-group textarea::placeholder { color: rgba(255,255,255,.3); }
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus { border-color: var(--celeste-d); }
-  .form-group textarea { resize: vertical; min-height: 80px; }
-  .form-group select { appearance: none; cursor: pointer; }
-  .form-group select option { background: var(--dark); }
-  .btn-wa {
-    width: 100%; padding: 1rem;
-    background: #25D366; color: white;
-    border: none; border-radius: 50px; cursor: pointer;
-    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1rem;
-    display: flex; align-items: center; justify-content: center; gap: .6rem;
-    transition: transform .2s, box-shadow .2s; margin-top: .5rem;
-  }
-  .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,.4); }
-
-  /* ─── PATRICIA ──────────────────────────────────────────────────── */
-  #patricia { background: var(--white); }
-  .patricia-inner {
-    display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: center;
-  }
-  .patricia-avatar {
-    position: relative;
-  }
-  .avatar-ring {
-    width: 300px; height: 300px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--celeste), var(--purple-l));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 8rem;
-    box-shadow: var(--shadow-lg);
-    position: relative;
-    animation: bookFloat 7s ease-in-out infinite;
-  }
-  .avatar-badge {
-    position: absolute; bottom: 10px; right: -10px;
-    background: var(--orange); color: white;
-    font-family: 'Nunito', sans-serif; font-weight: 800;
-    font-size: .8rem; padding: .5rem 1rem; border-radius: 50px;
-    box-shadow: 0 4px 16px rgba(244,132,95,.4);
-  }
-  .patricia-name {
-    font-family: 'Playfair Display', serif; font-weight: 700;
-    font-size: 1.8rem; color: var(--dark); margin-bottom: .3rem;
-  }
-  .patricia-role {
-    color: var(--purple); font-family: 'Nunito', sans-serif;
-    font-weight: 700; font-size: .95rem; margin-bottom: 1.5rem;
-  }
-  .patricia-text { color: var(--mid); line-height: 1.8; margin-bottom: 1.5rem; font-size: .98rem; }
-  .passion-tags { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.5rem; }
-  .passion-tag {
-    background: var(--purple-l); color: var(--purple);
-    font-family: 'Nunito', sans-serif; font-weight: 700;
-    font-size: .82rem; padding: .4rem 1rem; border-radius: 50px;
-  }
-
-  /* ─── TESTIMONIALS ──────────────────────────────────────────────── */
-  #testimonials { background: var(--celeste-l); }
-  .testimonials-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-    margin-top: 3rem;
-  }
-  .testi-card {
-    background: white; border-radius: var(--radius); padding: 2rem;
-    box-shadow: var(--shadow);
-    transition: transform .3s;
-  }
-  .testi-card:hover { transform: translateY(-4px); }
-  .stars { color: var(--yellow); font-size: 1.1rem; margin-bottom: 1rem; letter-spacing: 2px; }
-  .testi-text {
-    font-size: .95rem; color: var(--dark); line-height: 1.7;
-    font-style: italic; margin-bottom: 1.2rem;
-  }
-  .testi-author {
-    display: flex; align-items: center; gap: .8rem;
-  }
-  .testi-avatar {
-    width: 40px; height: 40px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem;
-  }
-  .ta-a { background: var(--celeste-l); }
-  .ta-b { background: var(--orange-l); }
-  .ta-c { background: var(--purple-l); }
-  .testi-name { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .9rem; color: var(--dark); }
-  .testi-role { font-size: .78rem; color: var(--mid); }
-
-  /* ─── CTA FINAL ─────────────────────────────────────────────────── */
-  #cta-final {
-    background: linear-gradient(135deg, var(--purple-d) 0%, var(--purple) 50%, #9B7EBD 100%);
-    position: relative; overflow: hidden;
-  }
-  #cta-final::before {
-    content: ''; position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-  .cta-inner {
-    text-align: center; max-width: 700px; margin: 0 auto; padding: 6rem 5%;
-    position: relative; z-index: 1;
-  }
-  .cta-emoji { font-size: 3rem; margin-bottom: 1rem; display: block; }
-  .cta-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700; color: white;
-    line-height: 1.2; margin-bottom: 1rem;
-  }
-  .cta-sub { color: rgba(255,255,255,.75); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2.5rem; }
-  .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-  .btn-white {
-    background: white; color: var(--purple);
-    padding: 1rem 2.2rem; border-radius: 50px;
-    font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1rem;
-    border: none; cursor: pointer;
-    transition: transform .2s, box-shadow .2s;
-  }
-  .btn-white:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,.2); }
-  .btn-ghost {
-    background: transparent; color: white;
-    padding: 1rem 2.2rem; border-radius: 50px;
-    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1rem;
-    border: 2px solid rgba(255,255,255,.5); cursor: pointer;
-    transition: background .2s, transform .2s;
-  }
-  .btn-ghost:hover { background: rgba(255,255,255,.15); transform: translateY(-3px); }
-
-  /* ─── FOOTER ─────────────────────────────────────────────────────── */
-  footer {
-    background: var(--dark); color: rgba(255,255,255,.6);
-    padding: 3rem 5% 2rem;
-    position: relative; z-index: 1;
-  }
-  .footer-inner {
-    max-width: 1200px; margin: 0 auto;
-    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem;
-    margin-bottom: 2.5rem;
-  }
-  .footer-logo {
-    font-family: 'Nunito', sans-serif; font-weight: 900;
-    font-size: 1.6rem; color: white; margin-bottom: .8rem;
-  }
-  .footer-logo span { color: var(--orange); }
-  .footer-tagline { font-size: .9rem; line-height: 1.6; margin-bottom: 1.5rem; }
-  .footer-social { display: flex; gap: .8rem; }
-  .social-btn {
-    width: 38px; height: 38px;
-    background: rgba(255,255,255,.08);
-    border-radius: 50%; border: 1px solid rgba(255,255,255,.12);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem; cursor: pointer;
-    transition: background .2s, transform .2s;
-  }
-  .social-btn:hover { background: var(--orange); transform: scale(1.1); }
-  .footer-col h4 {
-    font-family: 'Nunito', sans-serif; font-weight: 800;
-    color: white; font-size: .9rem; margin-bottom: 1.2rem;
-    text-transform: uppercase; letter-spacing: .5px;
-  }
-  .footer-col a {
-    display: block; font-size: .88rem; color: rgba(255,255,255,.55);
-    margin-bottom: .7rem; transition: color .2s; cursor: pointer;
-  }
-  .footer-col a:hover { color: var(--celeste-d); }
-  .footer-bottom {
-    max-width: 1200px; margin: 0 auto;
-    border-top: 1px solid rgba(255,255,255,.08);
-    padding-top: 1.5rem;
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: .82rem; flex-wrap: wrap; gap: .5rem;
-  }
-  .footer-meaning {
-    font-family: 'Nunito', sans-serif; font-weight: 700;
-    color: rgba(255,255,255,.4); font-size: .78rem; letter-spacing: .5px;
-  }
-
-  /* ─── WHATSAPP FLOAT ─────────────────────────────────────────────── */
-  .wa-float {
-    position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
-    width: 58px; height: 58px;
-    background: #25D366; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.7rem;
-    box-shadow: 0 6px 24px rgba(37,211,102,.5);
-    cursor: pointer;
-    animation: waPulse 2s infinite;
-    transition: transform .2s;
-  }
-  .wa-float:hover { transform: scale(1.12); }
-  @keyframes waPulse {
-    0%,100% { box-shadow: 0 6px 24px rgba(37,211,102,.5); }
-    50% { box-shadow: 0 6px 40px rgba(37,211,102,.8); }
-  }
-
-  /* ─── ANIMATIONS ─────────────────────────────────────────────────── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .reveal {
-    opacity: 0; transform: translateY(32px);
-    transition: opacity .7s ease, transform .7s ease;
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* ─── RESPONSIVE ─────────────────────────────────────────────────── */
-  @media (max-width: 900px) {
-    .hero-inner { grid-template-columns: 1fr; text-align: center; }
-    .hero-btns { justify-content: center; }
-    .hero-stats { justify-content: center; }
-    .hero-visual { order: -1; }
-    .book-stack { width: 260px; height: 280px; }
-    .meaning-grid { grid-template-columns: 1fr; }
-    .steps-grid { grid-template-columns: repeat(2,1fr); }
-    .steps-grid::before { display: none; }
-    .stories-grid { grid-template-columns: repeat(2,1fr); }
-    .products-grid { grid-template-columns: repeat(2,1fr); }
-    .brief-inner { grid-template-columns: 1fr; }
-    .patricia-inner { grid-template-columns: 1fr; text-align: center; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
-    .footer-bottom { flex-direction: column; text-align: center; }
-    .nav-links { display: none; }
-  }
-  @media (max-width: 600px) {
-    .stories-grid { grid-template-columns: 1fr; }
-    .products-grid { grid-template-columns: 1fr; }
-  }
-  /* ===== RESPONSIVE CELULAR PRODUCTOS ===== */
-
-@media (max-width: 768px){
-
-.products-grid{
-grid-template-columns: 1fr !important;
-gap:20px;
+/* ═══════════════════════════════════════════
+   RESPONSIVE — TABLET
+═══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .products-grid { grid-template-columns: repeat(2,1fr); }
+  .prod-card.wide { grid-column: span 2; }
 }
 
-.product-card{
-width:100%;
+/* ═══════════════════════════════════════════
+   RESPONSIVE — MOBILE
+═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* nav */
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+
+  /* hero */
+  .hero { grid-template-columns: 1fr; text-align: center; padding-top: 7rem; gap: 2rem; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
+  .hero-btns { justify-content: center; }
+  .hero-trust { justify-content: center; }
+  .hero-visual { order: -1; }
+  .book-showcase { width: 260px; height: 290px; }
+  .open-book { width: 210px; height: 150px; }
+  .orbit-card { padding: .65rem .85rem; }
+  .oc-1 { top: 0; left: -5px; }
+  .oc-2 { top: 15px; right: -10px; }
+  .oc-3 { bottom: 50px; left: -10px; }
+  .oc-4 { bottom: 10px; right: 0; }
+
+  /* meaning */
+  .meaning-grid { grid-template-columns: 1fr; }
+
+  /* steps */
+  .steps-grid { grid-template-columns: repeat(2,1fr); }
+  .steps-grid::before { display: none; }
+
+  /* catalog */
+  .catalog-grid { grid-template-columns: 1fr; }
+
+  /* products */
+  .products-grid { grid-template-columns: 1fr; }
+  .prod-card.wide { grid-column: span 1; flex-direction: column; gap: 1rem; }
+  .prod-card.wide .prod-price-block { text-align: left; }
+
+  /* brief */
+  .brief-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .checkbox-grid { grid-template-columns: 1fr; }
+
+  /* patricia */
+  .pat-grid { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
+  .pat-chips { justify-content: center; }
+  .pat-quote { text-align: left; }
+
+  /* testimonials */
+  .testi-grid { grid-template-columns: 1fr; }
+
+  /* footer */
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .footer-tics { text-align: center; }
 }
 
-.product-card.p5{
-grid-column: span 1 !important;
-}
-
-section{
-padding-left:15px;
-padding-right:15px;
-}
-
-}
-  /* ===== FIX RESPONSIVE PRODUCTOS MOVIL ===== */
-
-@media (max-width: 768px){
-
-section{
-overflow-x: hidden;
-}
-
-div{
-max-width:100%;
-}
-
-[class*="grid"]{
-display:flex !important;
-flex-direction:column !important;
-gap:20px !important;
-}
-
-[class*="card"]{
-width:100% !important;
-max-width:100% !important;
-}
-
-}
-  /* ===== FIX MOVIL PRODUCTOS JUFANTICS ===== */
-
-@media screen and (max-width: 768px){
-
-.products-grid,
-.product-grid,
-.cards,
-.grid,
-.container-grid,
-.format-grid{
-display:flex !important;
-flex-direction:column !important;
-gap:20px !important;
-}
-
-.product-card,
-.card,
-.box,
-.format-card{
-width:100% !important;
-max-width:100% !important;
-}
-
-.product-card.p5{
-grid-column: span 1 !important;
-}
-
+@media (max-width: 480px) {
+  .hero-title.title-xl { font-size: 2.3rem; }
+  .orbit-card { display: none; }
+  .cta-btns { flex-direction: column; align-items: center; }
+  .section-pad { padding: 3.5rem 0; }
 }
 </style>
 </head>
 <body>
 
-<!-- floating stars -->
-<canvas id="stars-canvas"></canvas>
+<!-- ══════ WHATSAPP FLOAT ══════ -->
+<a class="wa-float" href="https://wa.me/51992786715?text=Hola%20%F0%9F%91%8B%20Bienvenido%20a%20JUFANTICS%20%E2%9C%A8%0ACreamos%20cuentos%20personalizados%20%C3%BAnicos%20para%20ni%C3%B1os%20%F0%9F%92%9B%0A%0APara%20empezar%20cu%C3%A9ntanos%3A%0A%0A%F0%9F%93%8C%20Nombre%20del%20ni%C3%B1o%3A%0A%F0%9F%8E%82%20Edad%3A%0A%F0%9F%8E%AF%20Gustos%20%2F%20intereses%3A%0A%F0%9F%93%96%20Tipo%20de%20cuento%3A%0A%F0%9F%92%9B%20Mensaje%20o%20valor%20a%20transmitir%3A"
+   target="_blank" rel="noopener" title="Escríbenos por WhatsApp" aria-label="Contactar por WhatsApp">💬</a>
 
-<!-- WhatsApp Float -->
-<a href="https://wa.me/51992786715?text=Hola%20JUFANTICS%20✨%20Quiero%20pedir%20un%20cuento%20personalizado%0A%0ANombre%20del%20niño:%0AEdad:%0AIntereses:%0AEmoción%20a%20trabajar:%0ATipo%20de%20cuento:%0A(PDF%20/%20Video%20/%20Libro%20/%20Álbum)" target="_blank" class="wa-float" title="Escríbenos por WhatsApp">💬</a>
-
-<!-- NAV -->
-<nav id="navbar">
-  <div class="nav-logo">JU<span>FAN</span>TICS</div>
-  <div class="nav-links">
+<!-- ══════ NAV ══════ -->
+<nav class="nav" id="mainNav">
+  <div class="nav-brand">
+    <div class="nav-logo">
+      <span class="ju">JU</span><span class="fan">FAN</span><span class="tics">TICS</span>
+    </div>
+    <div class="nav-tagline">Historias que nacen de la imaginación</div>
+  </div>
+  <div class="nav-links" id="navLinks">
     <a href="#how">Cómo funciona</a>
     <a href="#catalog">Cuentos</a>
     <a href="#products">Productos</a>
     <a href="#patricia">Creadora</a>
-    <a href="#brief" class="nav-cta">Pedir mi cuento</a>
+    <a href="#brief" class="nav-cta">✨ Pedir mi cuento</a>
   </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- ────────────────── HERO ────────────────── -->
-<section id="hero">
-  <div class="hero-bg">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-  </div>
-  <span class="float-el fe-1">✨</span>
-  <span class="float-el fe-2">📖</span>
-  <span class="float-el fe-3">🌟</span>
-  <span class="float-el fe-4">💫</span>
+<!-- mobile drawer -->
+<div class="nav-drawer" id="navDrawer">
+  <a href="#how"       onclick="closeDrawer()">Cómo funciona</a>
+  <a href="#catalog"   onclick="closeDrawer()">Cuentos</a>
+  <a href="#products"  onclick="closeDrawer()">Productos</a>
+  <a href="#patricia"  onclick="closeDrawer()">Creadora</a>
+  <a href="#brief"     onclick="closeDrawer()">✨ Pedir mi cuento</a>
+</div>
 
-  <div class="hero-inner">
-    <div class="hero-text">
-      <div class="hero-tag">✦ Cuentos Personalizados para Niños y Familias</div>
-      <h1 class="hero-title">
-        Su historia ya existe.<br>
-        Solo falta <em>contarla</em>.
-      </h1>
-      <p class="hero-subtitle">
-        Creamos cuentos únicos con el nombre, la cara y el corazón de tu hijo.
-        Una historia que no encontrarás en ninguna librería del mundo —
-        porque fue creada exactamente para él.
-      </p>
-      <div class="hero-btns">
-        <a href="#brief" class="btn-primary">✨ Quiero mi cuento</a>
-        <a href="#catalog" class="btn-secondary">Ver ejemplos</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">6+</span>
-          <span class="stat-label">Cuentos en catálogo</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">100%</span>
-          <span class="stat-label">Personalizado</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">48h</span>
-          <span class="stat-label">Entrega PDF</span>
-        </div>
-      </div>
+<!-- ══════ HERO ══════ -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow">✦ Cuentos 100% personalizados · Lima, Perú</div>
+    <h1 class="title title-xl hero-title">
+      Su historia ya existe.<br>Solo falta <em>contarla</em>.
+    </h1>
+    <p class="hero-sub">
+      Creamos cuentos únicos con el nombre, la cara y el corazón de tu hijo.
+      Una historia que no encontrarás en ninguna librería del mundo —
+      porque fue creada exactamente para él.
+    </p>
+    <div class="hero-btns">
+      <a href="#brief" class="btn btn-dark">✨ Quiero mi cuento</a>
+      <a href="#catalog" class="btn btn-outline">📖 Ver ejemplos</a>
     </div>
-    <div class="hero-visual">
-      <div class="book-stack">
-        <div class="book book-1">
-          <span class="book-emoji">🦁</span>
-          <span class="book-title">El Gran Corazón del Capitán Julen</span>
+    <div class="hero-trust">
+      <span><span class="trust-dot"></span>100% personalizado</span>
+      <span><span class="trust-dot"></span>Entrega en 48 horas</span>
+      <span><span class="trust-dot"></span>PDF listo para leer</span>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="book-showcase">
+      <div class="open-book">
+        <div class="book-page left">
+          <div class="page-lines">
+            <div class="page-line m"></div><div class="page-line s"></div><div class="page-line m"></div>
+          </div>
+          <div class="page-emoji">🦁</div>
+          <div class="page-label">El Gran Corazón del Capitán Julen</div>
         </div>
-        <div class="book book-2">
-          <span class="book-emoji">🏖️</span>
-          <span class="book-title">Facundo y los Tesoros de la Costa</span>
+        <div class="book-spine"></div>
+        <div class="book-page right">
+          <div class="page-emoji">✨</div>
+          <div class="page-label">Una historia de valentía y amor</div>
+          <div class="page-lines">
+            <div class="page-line m"></div><div class="page-line s"></div><div class="page-line m"></div>
+          </div>
         </div>
-        <div class="book book-3">
-          <span class="book-emoji">🚀</span>
-          <span class="book-title">Thiago el Defensor del Universo</span>
-        </div>
+      </div>
+      <div class="orbit-card oc-1">
+        <span class="oc-icon">🎁</span>
+        <div><span class="oc-label">Regalo único</span><span class="oc-sub">Irrepetible</span></div>
+      </div>
+      <div class="orbit-card oc-2">
+        <span class="oc-icon">💛</span>
+        <div><span class="oc-label">Emocional</span><span class="oc-sub">Hecho para ti</span></div>
+      </div>
+      <div class="orbit-card oc-3">
+        <span class="oc-icon">📄</span>
+        <div><span class="oc-label">PDF en 48h</span><span class="oc-sub">Desde S/ 25</span></div>
+      </div>
+      <div class="orbit-card oc-4">
+        <span class="oc-icon">⭐</span>
+        <div><span class="oc-label">5 estrellas</span><span class="oc-sub">Familias felices</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ────────────────── JUFANTICS MEANING ────────────────── -->
-<section id="meaning">
-  <div class="section-inner">
-    <div class="section-tag reveal">✦ La marca</div>
-    <h2 class="section-title reveal">¿Qué significa JUFANTICS?</h2>
+<!-- ══════ MEANING ══════ -->
+<section class="meaning section-pad">
+  <div class="container meaning-inner">
+    <div class="meaning-header">
+      <div class="tag tag-gold reveal">✦ La marca</div>
+      <h2 class="title title-lg title-white reveal">¿Qué significa <span style="color:var(--gold)">JUFANTICS</span>?</h2>
+    </div>
     <div class="meaning-grid">
-      <div class="meaning-card ju reveal">
-        <div class="meaning-letters">JU</div>
-        <div class="meaning-word">Juego + Joaquín</div>
-        <div class="meaning-desc">El juego como lenguaje universal de la infancia, y homenaje a Joaquín — el primer nombre que inspiró esta marca.</div>
+      <div class="mc sky reveal">
+        <div class="mc-letters">JU</div>
+        <div class="mc-word">Juego + Joaquín</div>
+        <div class="mc-desc">El juego como lenguaje universal de la infancia, y homenaje a Joaquín — el primer nombre real que inspiró esta marca.</div>
       </div>
-      <div class="meaning-card fan reveal">
-        <div class="meaning-letters">FAN</div>
-        <div class="meaning-word">Fantasía + Familia + Facundo</div>
-        <div class="meaning-desc">El corazón de cada historia: imaginación desbordante, amor familiar, y homenaje a Facundo — el segundo nombre que dio vida a la marca.</div>
+      <div class="mc rose reveal">
+        <div class="mc-letters">FAN</div>
+        <div class="mc-word">Fantasía + Familia + Facundo</div>
+        <div class="mc-desc">El corazón de cada historia: imaginación desbordante, amor familiar, y homenaje a Facundo — el segundo nombre que dio vida a la marca.</div>
       </div>
-      <div class="meaning-card tics reveal">
-        <div class="meaning-letters">TICS</div>
-        <div class="meaning-word">Textos · Imágenes · Cuentos · Siempre</div>
-        <div class="meaning-desc">Nuestro compromiso eterno: crear historias con textos cuidados, imágenes que enamoran y cuentos que tocan el alma. Siempre.</div>
+      <div class="mc lav reveal">
+        <div class="mc-letters">TICS</div>
+        <div class="mc-word">Textos · Imágenes · Cuentos · Siempre</div>
+        <div class="mc-desc">Nuestro compromiso eterno: textos cuidados, imágenes que enamoran y cuentos que tocan el alma. Siempre, para cada familia.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ────────────────── HOW IT WORKS ────────────────── -->
-<section id="how">
-  <div class="section-inner">
-    <div class="section-tag reveal">✦ El proceso</div>
-    <h2 class="section-title reveal">Crear tu cuento es más fácil<br>de lo que imaginas</h2>
-    <p class="section-sub reveal">Sin complicaciones. Solo cuéntanos tu historia y nosotros hacemos la magia.</p>
+<!-- ══════ HOW IT WORKS ══════ -->
+<section class="how section-pad" id="how">
+  <div class="container">
+    <div class="tag tag-rose reveal">✦ El proceso</div>
+    <h2 class="title title-lg reveal">Crear tu cuento es más fácil<br>de lo que imaginas</h2>
+    <p class="body-text reveal" style="max-width:480px; margin-top:.7rem">Sin complicaciones. Solo cuéntanos sobre tu hijo y nosotros hacemos la magia.</p>
     <div class="steps-grid">
       <div class="step reveal">
-        <div class="step-num">1</div>
-        <div class="step-emoji">💬</div>
+        <div class="step-circle">💬<span class="step-num">1</span></div>
         <div class="step-title">Escríbenos</div>
-        <div class="step-desc">Contáctanos por WhatsApp o Instagram. Te recibimos con los brazos abiertos.</div>
+        <p class="step-desc">Contáctanos por WhatsApp o Instagram. Recibes el mensaje de bienvenida con las preguntas del briefing.</p>
       </div>
       <div class="step reveal">
-        <div class="step-num">2</div>
-        <div class="step-emoji">📝</div>
+        <div class="step-circle">📝<span class="step-num">2</span></div>
         <div class="step-title">Cuéntanos tu idea</div>
-        <div class="step-desc">Respondemos 7 preguntas simples sobre tu hijo, su familia y el mensaje que quieres transmitir.</div>
+        <p class="step-desc">7 preguntas simples sobre tu hijo, su familia y el mensaje que quieres transmitir.</p>
       </div>
       <div class="step reveal">
-        <div class="step-num">3</div>
-        <div class="step-emoji">✨</div>
+        <div class="step-circle">✨<span class="step-num">3</span></div>
         <div class="step-title">Creamos la magia</div>
-        <div class="step-desc">Patricia escribe y diseña tu cuento personalizado con amor, creatividad y calidad literaria.</div>
+        <p class="step-desc">Patricia escribe y diseña tu cuento con amor, calidad literaria y revisiones incluidas.</p>
       </div>
       <div class="step reveal">
-        <div class="step-num">4</div>
-        <div class="step-emoji">🎁</div>
+        <div class="step-circle">🎁<span class="step-num">4</span></div>
         <div class="step-title">Recibe tu historia</div>
-        <div class="step-desc">En 48 horas tienes tu cuento en PDF, listo para leer, compartir o regalar.</div>
+        <p class="step-desc">En 48 horas tu cuento en PDF, listo para leer, compartir o regalar para siempre.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ────────────────── CATALOG ────────────────── -->
-<section id="catalog">
-  <div class="section-inner">
-    <div class="catalog-header">
-      <div>
-        <div class="section-tag reveal">✦ Catálogo inicial</div>
-        <h2 class="section-title reveal">Primera Colección JUFANTICS</h2>
-        <p class="section-sub reveal">Historias que nacen de la imaginación — 6 títulos disponibles para regalar o personalizar.</p>
-      </div>
-    </div>
-    <div class="stories-grid">
-      <div class="story-card reveal">
-        <div class="story-cover cover-a">
-          <div class="story-collection">Aventura</div>
-          <div class="story-icon">🦁</div>
+<!-- ══════ CATALOG ══════ -->
+<section class="catalog section-pad" id="catalog">
+  <div class="container">
+    <div class="tag tag-rose reveal">✦ Primera Colección</div>
+    <h2 class="title title-lg reveal">Historias que ya<br>nacieron de la imaginación</h2>
+    <p class="body-text reveal" style="max-width:500px; margin:.6rem 0 0">Seis títulos listos para regalar o personalizar con el nombre de tu hijo.</p>
+    <div class="catalog-grid">
+      <article class="story-card reveal">
+        <div class="sc-cover cov-a"><div class="badge">Aventura</div><span class="sc-emoji">🦁</span></div>
+        <div class="sc-body">
+          <h3 class="sc-title">El Gran Corazón del Capitán Julen</h3>
+          <p class="sc-desc">Un héroe pequeño descubre que su mayor poder no es la fuerza, sino el amor que da a los demás.</p>
+          <div class="sc-tags"><span class="tag-pill tp-purple">Valentía</span><span class="tag-pill tp-sage">Generosidad</span></div>
         </div>
-        <div class="story-body">
-          <div class="story-title">El Gran Corazón del Capitán Julen</div>
-          <div class="story-desc">Un héroe pequeño descubre que su mayor poder no es la fuerza, sino el amor que da a los demás.</div>
-          <span class="story-tag">Valentía · Generosidad</span>
+      </article>
+      <article class="story-card reveal">
+        <div class="sc-cover cov-b"><div class="badge">Familiar</div><span class="sc-emoji">🌊</span></div>
+        <div class="sc-body">
+          <h3 class="sc-title">Mamá, Joaquín y Facundo: La Gran Aventura</h3>
+          <p class="sc-desc">Una madre y sus hijos descubren tesoros en los lugares más inesperados del mundo.</p>
+          <div class="sc-tags"><span class="tag-pill tp-sky">Familia</span><span class="tag-pill tp-gold">Exploración</span></div>
         </div>
-      </div>
-      <div class="story-card reveal">
-        <div class="story-cover cover-b">
-          <div class="story-collection">Familiar</div>
-          <div class="story-icon">🌊</div>
+      </article>
+      <article class="story-card reveal">
+        <div class="sc-cover cov-c"><div class="badge">Emocional</div><span class="sc-emoji">🦋</span></div>
+        <div class="sc-body">
+          <h3 class="sc-title">El Vuelo de la Resiliencia</h3>
+          <p class="sc-desc">La mariposa como metáfora del renacer. Para niños y familias que atraviesan momentos difíciles.</p>
+          <div class="sc-tags"><span class="tag-pill tp-rose">Resiliencia</span><span class="tag-pill tp-purple">Fuerza</span></div>
         </div>
-        <div class="story-body">
-          <div class="story-title">Mamá, Joaquín y Facundo: La Gran Aventura</div>
-          <div class="story-desc">Una madre y sus hijos descubren tesoros en los lugares más inesperados del mundo.</div>
-          <span class="story-tag">Familia · Exploración</span>
+      </article>
+      <article class="story-card reveal">
+        <div class="sc-cover cov-d"><div class="badge">Aventura Familiar</div><span class="sc-emoji">🏖️</span></div>
+        <div class="sc-body">
+          <h3 class="sc-title">Facundo y los Tesoros de la Costa</h3>
+          <p class="sc-desc">El verdadero tesoro no está en la arena, sino en los momentos compartidos con quienes amas.</p>
+          <div class="sc-tags"><span class="tag-pill tp-gold">Gratitud</span><span class="tag-pill tp-sage">Naturaleza</span></div>
         </div>
-      </div>
-      <div class="story-card reveal">
-        <div class="story-cover cover-c">
-          <div class="story-collection">Emocional</div>
-          <div class="story-icon">🦋</div>
+      </article>
+      <article class="story-card reveal">
+        <div class="sc-cover cov-e"><div class="badge">Fantasía</div><span class="sc-emoji">🚀</span></div>
+        <div class="sc-body">
+          <h3 class="sc-title">Thiago el Defensor del Universo</h3>
+          <p class="sc-desc">Una misión intergaláctica llena de humor, imaginación y responsabilidad.</p>
+          <div class="sc-tags"><span class="tag-pill tp-sky">Amistad</span><span class="tag-pill tp-purple">Responsabilidad</span></div>
         </div>
-        <div class="story-body">
-          <div class="story-title">El Vuelo de la Resiliencia</div>
-          <div class="story-desc">La mariposa como metáfora del renacer. Para niños y familias que atraviesan momentos difíciles.</div>
-          <span class="story-tag">Resiliencia · Fuerza</span>
+      </article>
+      <article class="story-card reveal">
+        <div class="sc-cover cov-f"><div class="badge">Educativo</div><span class="sc-emoji">⚽</span></div>
+        <div class="sc-body">
+          <h3 class="sc-title">Facundo y el Escuadrón Verde</h3>
+          <p class="sc-desc">Trabajo en equipo, amistad y pasión por el deporte. El juego se gana dentro del corazón.</p>
+          <div class="sc-tags"><span class="tag-pill tp-sage">Equipo</span><span class="tag-pill tp-rose">Valores</span></div>
         </div>
-      </div>
-      <div class="story-card reveal">
-        <div class="story-cover cover-d">
-          <div class="story-collection">Aventura Familiar</div>
-          <div class="story-icon">🏖️</div>
-        </div>
-        <div class="story-body">
-          <div class="story-title">Facundo y los Tesoros de la Costa</div>
-          <div class="story-desc">El verdadero tesoro no está en la arena, sino en los momentos compartidos con quienes amas.</div>
-          <span class="story-tag">Naturaleza · Gratitud</span>
-        </div>
-      </div>
-      <div class="story-card reveal">
-        <div class="story-cover cover-e">
-          <div class="story-collection">Fantasía</div>
-          <div class="story-icon">🚀</div>
-        </div>
-        <div class="story-body">
-          <div class="story-title">Thiago el Defensor del Universo</div>
-          <div class="story-desc">Una misión intergaláctica llena de humor, imaginación y la responsabilidad de proteger lo que amas.</div>
-          <span class="story-tag">Amistad · Responsabilidad</span>
-        </div>
-      </div>
-      <div class="story-card reveal">
-        <div class="story-cover cover-f">
-          <div class="story-collection">Educativo</div>
-          <div class="story-icon">⚽</div>
-        </div>
-        <div class="story-body">
-          <div class="story-title">Facundo y el Escuadrón Verde</div>
-          <div class="story-desc">Trabajo en equipo, amistad y pasión por el deporte. El juego se gana dentro del corazón.</div>
-          <span class="story-tag">Equipo · Valores</span>
-        </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ────────────────── PRODUCTS ────────────────── -->
-<section id="products">
-  <div class="section-inner">
-    <div class="section-tag reveal">✦ Productos</div>
-    <h2 class="section-title reveal">Elige el formato perfecto<br>para tu historia</h2>
-    <p class="section-sub reveal">Desde un PDF listo en 48h hasta un libro impreso que dura generaciones.</p>
+<!-- ══════ PRODUCTS ══════ -->
+<section class="products section-pad" id="products">
+  <div class="container">
+    <div class="tag tag-rose reveal">✦ Productos y precios</div>
+    <h2 class="title title-lg reveal">Elige el formato perfecto<br>para tu historia</h2>
+    <p class="body-text reveal" style="max-width:480px; margin:.6rem 0 0">Desde un PDF listo en 48h hasta un libro impreso que dura generaciones.</p>
     <div class="products-grid">
-      <div class="product-card p1 reveal">
-        <div class="product-badge">Más pedido</div>
-        <div class="product-icon">📄</div>
-        <div class="product-name">Cuento PDF Personalizado</div>
-        <div class="product-desc">Historia + portada personalizadas. 8–12 páginas. Diseño digital. Listo para leer o imprimir.</div>
-        <div class="product-price">S/ 25 – 40 <span>/ digital</span></div>
+
+      <div class="prod-card pc-stripe-1 reveal">
+        <div class="prod-badge">Más pedido</div>
+        <span class="prod-icon">📄</span>
+        <div class="prod-name">Cuento PDF Personalizado</div>
+        <p class="prod-desc">Historia + portada personalizadas. 8–12 páginas diseñadas. Listo para leer o imprimir.</p>
+        <div class="prod-price">S/ 25 – 40</div>
+        <span class="prod-note">Entrega en 48h · Digital</span>
+        <ul class="prod-features">
+          <li>Portada personalizada</li><li>Historia 100% original</li>
+          <li>8–12 páginas</li><li>2 revisiones incluidas</li>
+        </ul>
       </div>
-      <div class="product-card p2 reveal">
-        <div class="product-icon">🎬</div>
-        <div class="product-name">PDF + Video Narrado</div>
-        <div class="product-desc">Cuento personalizado + narración con voz + música de fondo. La experiencia cinematográfica.</div>
-        <div class="product-price">S/ 45 – 70 <span>/ digital</span></div>
+
+      <div class="prod-card featured pc-stripe-2 reveal">
+        <div class="prod-badge">⭐ Premium</div>
+        <span class="prod-icon">📚</span>
+        <div class="prod-name">Libro Impreso</div>
+        <p class="prod-desc">Tapa blanda o dura. Papel ilustración. Un tesoro físico para coleccionar.</p>
+        <div class="prod-price">S/ 80 – 180</div>
+        <span class="prod-note">Incluye PDF digital · Envío a domicilio</span>
+        <ul class="prod-features">
+          <li>Todo el cuento personalizado</li><li>Impresión profesional</li>
+          <li>Tapa blanda o dura</li><li>El regalo más especial</li>
+        </ul>
       </div>
-      <div class="product-card p3 reveal">
-        <div class="product-badge">Premium</div>
-        <div class="product-icon">📚</div>
-        <div class="product-name">Libro Impreso</div>
-        <div class="product-desc">Tapa blanda o dura. Impresión de alta calidad. Un tesoro físico para coleccionar siempre.</div>
-        <div class="product-price">S/ 80 – 180 <span>/ impreso</span></div>
+
+      <div class="prod-card pc-stripe-3 reveal">
+        <span class="prod-icon">🎬</span>
+        <div class="prod-name">PDF + Video Narrado</div>
+        <p class="prod-desc">Cuento + narración en voz + música de fondo. Experiencia cinematográfica.</p>
+        <div class="prod-price">S/ 45 – 70</div>
+        <span class="prod-note">PDF + Video MP4 · Digital</span>
+        <ul class="prod-features">
+          <li>Cuento PDF completo</li><li>Narración profesional</li>
+          <li>Música y efectos</li><li>Listo para compartir</li>
+        </ul>
       </div>
-      <div class="product-card p4 reveal">
-        <div class="product-icon">🗺️</div>
-        <div class="product-name">Álbum de Aventuras</div>
-        <div class="product-desc">Fotos reales de tu familia + historia personalizada + diseño emocional. Versión virtual o impresa.</div>
-        <div class="product-price">S/ 60 – 200 <span>/ virtual o impreso</span></div>
+
+      <div class="prod-card wide pc-stripe-4 reveal">
+        <div class="prod-main">
+          <span class="prod-icon">🗺️</span>
+          <div class="prod-name">Álbum de Aventuras Familiar</div>
+          <p class="prod-desc">Fotos reales de tu familia + historia personalizada + diseño emocional. Disponible virtual o impreso.</p>
+        </div>
+        <div class="prod-price-block">
+          <div class="prod-price">S/ 60 – 200</div>
+          <span class="prod-note">Virtual desde S/ 60 · Impreso desde S/ 120</span>
+        </div>
       </div>
-      <div class="product-card p5 reveal" style="grid-column: span 2;">
-        <div class="product-badge">⭐ Especial</div>
-        <div class="product-icon">💛</div>
-        <div class="product-name">Historia Emocional Personalizada</div>
-        <div class="product-desc">Cuentos diseñados para trabajar emociones específicas: miedos, autoestima, resiliencia, cambios familiares, hermanos. La herramienta más poderosa para el crecimiento de tu hijo.</div>
-        <div class="product-price">S/ 35 – 60 <span>/ digital</span></div>
+
+      <div class="prod-card pc-stripe-5 reveal" style="border-left:3px solid var(--rose);">
+        <span class="prod-icon">💛</span>
+        <div class="prod-name">Historia Emocional</div>
+        <p class="prod-desc">Para trabajar miedos, autoestima, resiliencia o cambios familiares.</p>
+        <div class="prod-price">S/ 35 – 60</div>
+        <span class="prod-note">Con guía para padres · Digital</span>
+        <ul class="prod-features">
+          <li>Cuento personalizado</li><li>Enfocado en una emoción</li>
+          <li>Guía de lectura para padres</li>
+        </ul>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ────────────────── BRIEF / CONTACT ────────────────── -->
-<section id="brief">
-  <div class="section-inner">
-    <div class="section-tag reveal">✦ Pedir mi cuento</div>
-    <h2 class="section-title reveal">Empieza aquí. Tu cuento<br>está a un mensaje de distancia.</h2>
-    <p class="section-sub reveal">Completa estas preguntas y te contactamos para crear la historia de tu familia.</p>
+<!-- ══════ BRIEF / FORM ══════ -->
+<section class="brief section-pad" id="brief">
+  <div class="container">
+    <div class="brief-grid">
 
-    <div class="brief-inner">
-      <div class="brief-questions reveal">
-        <h3 style="color:white; font-family:'Nunito',sans-serif; font-weight:800; margin-bottom:1.5rem; font-size:1.1rem;">Las 7 preguntas mágicas:</h3>
-        <div class="brief-q">
-          <div class="brief-q-num">1</div>
-          <div class="brief-q-text">¿Cuál es el <strong style="color:var(--celeste-d)">nombre del niño</strong>?</div>
-        </div>
-        <div class="brief-q">
-          <div class="brief-q-num">2</div>
-          <div class="brief-q-text">¿Qué <strong style="color:var(--celeste-d)">edad</strong> tiene?</div>
-        </div>
-        <div class="brief-q">
-          <div class="brief-q-num">3</div>
-          <div class="brief-q-text">¿Qué <strong style="color:var(--celeste-d)">le gusta</strong>? (deportes, animales, colores, héroes, etc.)</div>
-        </div>
-        <div class="brief-q">
-          <div class="brief-q-num">4</div>
-          <div class="brief-q-text">¿Cómo es su <strong style="color:var(--celeste-d)">familia</strong>? (mamá, papá, hermanos, mascotas)</div>
-        </div>
-        <div class="brief-q">
-          <div class="brief-q-num">5</div>
-          <div class="brief-q-text">¿Cuál es el <strong style="color:var(--celeste-d)">tema del cuento</strong> que desea?</div>
-        </div>
-        <div class="brief-q">
-          <div class="brief-q-num">6</div>
-          <div class="brief-q-text">¿Qué <strong style="color:var(--celeste-d)">mensaje o valor</strong> desea transmitir?</div>
-        </div>
-        <div class="brief-q">
-          <div class="brief-q-num">7</div>
-          <div class="brief-q-text">¿Hay una <strong style="color:var(--celeste-d)">foto o dibujo</strong> que quiera incluir o inspirar? (opcional)</div>
+      <!-- left: questions -->
+      <div>
+        <div class="tag tag-gold reveal">✦ Pedir mi cuento</div>
+        <h2 class="title title-lg title-white reveal" style="font-family:'Cormorant Garamond',serif;">
+          Empieza aquí.<br>Tu cuento está a un<br><em style="color:var(--rose)">mensaje</em> de distancia.
+        </h2>
+        <p class="body-text body-white reveal" style="margin-top:.9rem">
+          Completa el formulario y te enviamos la confirmación por WhatsApp y correo.
+        </p>
+        <div class="brief-qs reveal">
+          <div class="brief-q"><div class="bq-num">1</div><div class="bq-text">¿Cuál es el <strong>nombre del niño</strong>?</div></div>
+          <div class="brief-q"><div class="bq-num">2</div><div class="bq-text">¿Qué <strong>edad</strong> tiene?</div></div>
+          <div class="brief-q"><div class="bq-num">3</div><div class="bq-text">¿Qué <strong>le gusta</strong>? (deportes, animales, colores...)</div></div>
+          <div class="brief-q"><div class="bq-num">4</div><div class="bq-text">¿Cómo es su <strong>familia</strong>? (mamá, papá, hermanos...)</div></div>
+          <div class="brief-q"><div class="bq-num">5</div><div class="bq-text">¿Cuál es el <strong>tema del cuento</strong>?</div></div>
+          <div class="brief-q"><div class="bq-num">6</div><div class="bq-text">¿Qué <strong>mensaje o valor</strong> quieres transmitir?</div></div>
+          <div class="brief-q"><div class="bq-num">7</div><div class="bq-text">¿Hay una <strong>foto o dibujo</strong> de inspiración? (opcional)</div></div>
         </div>
       </div>
 
-      <div class="brief-form reveal">
-        <h3>Cuéntame sobre tu hijo ✨</h3>
-        <div class="form-group">
-          <label>Nombre del niño</label>
-          <input type="text" placeholder="Ej: Joaquín, Facundo, Valentina...">
+      <!-- right: form -->
+      <div class="reveal">
+        <div class="form-box">
+          <div class="form-box-title">Cuéntame sobre tu hijo ✨</div>
+          <div class="form-box-sub">Responde y recibe tu confirmación al instante.</div>
+
+          <div class="form-group">
+            <label for="fNombre">Nombre del niño</label>
+            <input type="text" id="fNombre" placeholder="Ej: Joaquín, Valentina, Facundo…" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="fEdad">Edad</label>
+            <input type="text" id="fEdad" placeholder="Ej: 5 años">
+          </div>
+          <div class="form-group">
+            <label for="fGusta">¿Qué le gusta?</label>
+            <input type="text" id="fGusta" placeholder="Ej: dinosaurios, fútbol, princesas…">
+          </div>
+
+          <!-- TIPO DE CUENTO — checkboxes múltiples (máx. 3) -->
+          <div class="form-group">
+            <span class="checkbox-label">Tipo de cuento</span>
+            <span class="checkbox-hint">Selecciona hasta 3 opciones</span>
+            <div class="checkbox-grid" id="checkboxGrid">
+              <label class="check-item">
+                <input type="checkbox" name="tipoCuento" value="Aventura">
+                <span class="check-box"></span>
+                <span class="check-text">🏔️ Aventura</span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" name="tipoCuento" value="Familiar">
+                <span class="check-box"></span>
+                <span class="check-text">👨‍👩‍👧 Familiar</span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" name="tipoCuento" value="Emocional">
+                <span class="check-box"></span>
+                <span class="check-text">💛 Emocional</span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" name="tipoCuento" value="Educativo">
+                <span class="check-box"></span>
+                <span class="check-text">📚 Educativo</span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" name="tipoCuento" value="Fantasía">
+                <span class="check-box"></span>
+                <span class="check-text">🌟 Fantasía</span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" name="tipoCuento" value="Historia Real">
+                <span class="check-box"></span>
+                <span class="check-text">📷 Historia Real</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="fMensaje">Mensaje o valor a transmitir</label>
+            <textarea id="fMensaje" placeholder="Ej: quiero que sepa que es valiente, que es amado…"></textarea>
+          </div>
+
+          <!-- Botón WhatsApp -->
+          <button class="btn btn-wa" id="btnWA" onclick="enviarWA()">
+            💬 Enviar por WhatsApp
+          </button>
+
+          <!-- Botón correo (mailto abre cliente de correo) -->
+          <button class="btn btn-email" id="btnEmail" onclick="enviarEmail()">
+            📧 Enviar también por correo
+          </button>
+
+          <div class="copyright-notice">
+            <strong>© Propiedad Intelectual JUFANTICS.</strong>
+            Todos los cuentos personalizados son propiedad intelectual de JUFANTICS y no pueden ser reproducidos, distribuidos ni adaptados sin autorización expresa.
+          </div>
+
+          <p class="form-hint">
+            Al enviar aceptas que tus datos sean usados únicamente para la creación de tu cuento personalizado.
+          </p>
         </div>
-        <div class="form-group">
-          <label>Edad</label>
-          <input type="text" placeholder="Ej: 5 años">
-        </div>
-        <div class="form-group">
-          <label>¿Qué le gusta?</label>
-          <input type="text" placeholder="Ej: dinosaurios, fútbol, princesas...">
-        </div>
-        <div class="form-group">
-          <label>Tipo de cuento</label>
-         <div class="tipo-cuento">
-
-<label><input type="checkbox" name="tipo" value="Aventura"> Aventura</label>
-
-<label><input type="checkbox" name="tipo" value="Familiar"> Familiar</label>
-
-<label><input type="checkbox" name="tipo" value="Emocional"> Emocional</label>
-
-<label><input type="checkbox" name="tipo" value="Educativo"> Educativo</label>
-
-<label><input type="checkbox" name="tipo" value="Fantasía"> Fantasía</label>
-
-</div>
-        </div>
-        <div class="form-group">
-          <label>Mensaje o valor a transmitir</label>
-          <textarea placeholder="Ej: que aprenda a ser valiente, que sepa que es amado..."></textarea>
-        </div>
-        <button class="btn-wa" onclick="enviarWhatsApp()">
-          💬 Enviar por WhatsApp
-        </button>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ────────────────── PATRICIA ────────────────── -->
-<section id="patricia">
-  <div class="section-inner">
-    <div class="patricia-inner">
-      <div class="patricia-avatar reveal" style="display:flex; justify-content:center;">
+<!-- ══════ PATRICIA ══════ -->
+<section class="patricia section-pad" id="patricia">
+  <div class="container">
+    <div class="pat-grid">
+      <div class="reveal" style="display:flex;justify-content:center;">
         <div style="position:relative;">
-          <div class="avatar-ring">✍️</div>
-          <div class="avatar-badge">Creadora & Fundadora</div>
+          <div class="pat-portrait">✍️</div>
+          <div class="pat-portrait-tag">Creadora & Fundadora</div>
         </div>
       </div>
       <div class="reveal">
-        <div class="section-tag">✦ Quién soy</div>
-        <div class="patricia-name">Patricia B. Albornoz</div>
-        <div class="patricia-role">Creadora de JUFANTICS · Escritora · Narradora de historias</div>
-        <p class="patricia-text">
-          Desde muy niña, la imaginación fue mi refugio y mi forma de entender el mundo.
-          Crecí rodeada de cuentos, leyendas y relatos que despertaron en mí una profunda
-          pasión por crear historias. Escribo desde los 7 años: cuentos, relatos y poemas
-          que fueron llenando cuadernos y corazones.
-        </p>
-        <p class="patricia-text">
-          Hoy, como madre, mujer y creadora, comparto esas historias con el mundo a través
-          de JUFANTICS — un espacio donde cada familia encuentra su propia magia contada
-          en palabras e imágenes únicas.
-        </p>
-        <p class="patricia-text" style="font-style:italic; color:var(--purple); font-size:1.05rem;">
-          "Porque cada persona tiene una historia... y cada historia merece ser contada."
-        </p>
-        <div class="passion-tags">
-          <span class="passion-tag">✨ Imaginación</span>
-          <span class="passion-tag">📖 Cuentos infantiles</span>
-          <span class="passion-tag">🎨 Ilustración</span>
-          <span class="passion-tag">🌿 Naturaleza</span>
-          <span class="passion-tag">💛 Familia</span>
-          <span class="passion-tag">📜 Leyendas peruanas</span>
-          <span class="passion-tag">🎭 Creatividad</span>
+        <div class="tag tag-rose">✦ Quién soy</div>
+        <div class="pat-name">Patricia B. Albornoz</div>
+        <div class="pat-role">Escritora · Narradora · Creadora de JUFANTICS</div>
+        <p class="pat-text">Desde muy niña, la imaginación fue mi refugio y mi forma de entender el mundo. Crecí rodeada de cuentos, leyendas y relatos que despertaron en mí una profunda pasión por crear historias. Escribo desde los 7 años: cuentos, relatos y poemas que fueron llenando cuadernos y corazones.</p>
+        <p class="pat-text">Hoy, como madre, mujer y creadora, comparto esas historias con el mundo a través de JUFANTICS — un espacio donde cada familia encuentra su propia magia.</p>
+        <div class="pat-quote">"Porque cada persona tiene una historia… y cada historia merece ser contada."</div>
+        <div class="pat-chips">
+          <span class="pat-chip">✨ Imaginación</span>
+          <span class="pat-chip">📖 Cuentos infantiles</span>
+          <span class="pat-chip">🎨 Ilustración</span>
+          <span class="pat-chip">🌿 Materiales naturales</span>
+          <span class="pat-chip">💛 Familia</span>
+          <span class="pat-chip">📜 Leyendas peruanas</span>
+          <span class="pat-chip">🎭 Creatividad</span>
+          <span class="pat-chip">🖊️ Poesía</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ────────────────── TESTIMONIALS ────────────────── -->
-<section id="testimonials">
-  <div class="section-inner">
-    <div class="section-tag reveal">✦ Lo que dicen las familias</div>
-    <h2 class="section-title reveal">Historias que ya cambiaron vidas</h2>
-    <p class="section-sub reveal">Cada cuento JUFANTICS se convierte en un recuerdo familiar para siempre.</p>
-    <div class="testimonials-grid">
+<!-- ══════ TESTIMONIALS ══════ -->
+<section class="testi section-pad" id="testi">
+  <div class="container">
+    <div class="tag tag-rose reveal">✦ Familias que ya vivieron la magia</div>
+    <h2 class="title title-lg reveal">Lo que dicen las familias JUFANTICS</h2>
+    <div class="testi-grid">
       <div class="testi-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="testi-text">"Mi hijo lloró de emoción cuando vio su nombre en la portada. Fue el regalo más especial que le he dado en su vida. JUFANTICS no es solo un cuento, es un tesoro."</p>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Mi hijo lloró de emoción cuando vio su nombre en la portada. Fue el regalo más especial de su vida. JUFANTICS no es solo un cuento, es un tesoro."</p>
         <div class="testi-author">
-          <div class="testi-avatar ta-a">👩</div>
-          <div>
-            <div class="testi-name">Mamá de Joaquín, 6 años</div>
-            <div class="testi-role">Lima, Perú</div>
-          </div>
+          <div class="testi-av av-a">👩</div>
+          <div><div class="testi-name">Mamá de Joaquín, 6 años</div><div class="testi-role">Lima, Perú</div></div>
         </div>
       </div>
       <div class="testi-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="testi-text">"Lo regalé en el cumpleaños de mi sobrina y toda la familia quedó emocionada. La historia era perfecta, como si Patricia la conociera de toda la vida. Hermoso."</p>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Lo regalé en el cumpleaños de mi sobrina y toda la familia quedó emocionada. La historia era perfecta, como si Patricia la conociera de toda la vida."</p>
         <div class="testi-author">
-          <div class="testi-avatar ta-b">👩‍🦱</div>
-          <div>
-            <div class="testi-name">Tía de Valentina, 4 años</div>
-            <div class="testi-role">Lima, Perú</div>
-          </div>
+          <div class="testi-av av-b">👩‍🦱</div>
+          <div><div class="testi-name">Tía de Valentina, 4 años</div><div class="testi-role">Lima, Perú</div></div>
         </div>
       </div>
       <div class="testi-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="testi-text">"El proceso fue súper fácil y el resultado superó todas mis expectativas. Mi hijo ahora pide que le leamos 'su cuento' todas las noches. Definitivamente lo recomiendo."</p>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"El proceso fue súper fácil y el resultado superó mis expectativas. Mi hijo pide que leamos 'su cuento' todas las noches. Lo recomiendo a todas las mamás."</p>
         <div class="testi-author">
-          <div class="testi-avatar ta-c">👨</div>
-          <div>
-            <div class="testi-name">Papá de Thiago, 7 años</div>
-            <div class="testi-role">Lima, Perú</div>
-          </div>
+          <div class="testi-av av-c">👨</div>
+          <div><div class="testi-name">Papá de Thiago, 7 años</div><div class="testi-role">Lima, Perú</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ────────────────── CTA FINAL ────────────────── -->
-<section id="cta-final">
-  <div class="cta-inner">
-    <span class="cta-emoji reveal">📖</span>
-    <h2 class="cta-title reveal">¿Listo para crear la historia<br>de tu familia?</h2>
-    <p class="cta-sub reveal">
-      Cada historia es única. La tuya merece ser contada.
-      Escríbenos hoy y en 48 horas tu hijo tendrá su propio cuento.
-    </p>
-    <div class="cta-btns reveal">
-      <a href="#brief" class="btn-white">✨ Crear mi cuento ahora</a>
-      <a href="https://wa.me/51992786715" target="_blank" class="btn-ghost">💬 WhatsApp directo</a>
+<!-- ══════ FINAL CTA ══════ -->
+<section class="cta-section section-pad">
+  <div class="container">
+    <div class="cta-center">
+      <span class="cta-emoji reveal">📖</span>
+      <h2 class="title title-lg reveal cta-title">¿Listo para crear la historia<br>de <em>tu familia</em>?</h2>
+      <p class="cta-sub reveal">Cada historia es única. La tuya merece ser contada.<br>Escríbenos hoy y en 48 horas tu hijo tendrá su propio cuento.</p>
+      <div class="cta-btns reveal">
+        <a href="#brief" class="btn btn-dark">✨ Crear mi cuento ahora</a>
+        <a href="https://wa.me/51992786715" target="_blank" rel="noopener" class="btn btn-outline">💬 WhatsApp directo</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ────────────────── FOOTER ────────────────── -->
+<!-- ══════ FOOTER ══════ -->
 <footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-logo">JU<span>FAN</span>TICS</div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <span class="ju">JU</span><span class="fan">FAN</span><span class="tics">TICS</span>
+      </div>
       <div class="footer-tagline">
         Textos · Imágenes · Cuentos · Siempre<br>
         Historias que nacen de la imaginación.
       </div>
-      <div class="footer-social">
-        <a href="#" class="social-btn" title="Instagram">📸</a>
-        <a href="#" class="social-btn" title="Facebook">💙</a>
-        <a href="#" class="social-btn" title="TikTok">🎵</a>
-        <a href="https://wa.me/51992786715" target="_blank" class="social-btn" title="WhatsApp">💬</a>
+      <div class="footer-socials">
+        <a href="#" class="footer-social" title="Instagram" aria-label="Instagram">📸</a>
+        <a href="#" class="footer-social" title="Facebook"  aria-label="Facebook">💙</a>
+        <a href="#" class="footer-social" title="TikTok"    aria-label="TikTok">🎵</a>
+        <a href="https://wa.me/51992786715" target="_blank" class="footer-social" title="WhatsApp" aria-label="WhatsApp">💬</a>
       </div>
     </div>
     <div class="footer-col">
-      <h4>Navegación</h4>
+      <h5>Navegación</h5>
       <a href="#how">Cómo funciona</a>
       <a href="#catalog">Catálogo de cuentos</a>
       <a href="#products">Productos y precios</a>
@@ -1271,123 +1431,179 @@ grid-column: span 1 !important;
       <a href="#brief">Pedir mi cuento</a>
     </div>
     <div class="footer-col">
-      <h4>Contacto</h4>
-      <a href="https://wa.me/51992786715" target="_blank">WhatsApp</a>
-      <a href="#">Instagram @jufantics</a>
-      <a href="#">Facebook JUFANTICS</a>
-      <a href="mailto:hola@jufantics.com">hola@jufantics.com</a>
+      <h5>Contacto</h5>
+      <a href="https://wa.me/51992786715" target="_blank" rel="noopener">WhatsApp +51 992 786 715</a>
+      <a href="mailto:jufantics@gmail.com">jufantics@gmail.com</a>
+      <a href="#" aria-label="Instagram">Instagram @jufantics</a>
+      <a href="#" aria-label="Facebook">Facebook JUFANTICS</a>
+      <a>Lima, Perú</a>
     </div>
   </div>
-  <div class="footer-bottom">
-    <span>© 2025 JUFANTICS · Patricia B. Albornoz · Todos los derechos reservados.</span>
-    <span class="footer-meaning">JU · Juego + Joaquín &nbsp;|&nbsp; FAN · Fantasía + Familia + Facundo &nbsp;|&nbsp; TICS · Textos · Imágenes · Cuentos · Siempre</span>
+
+  <div class="footer-copyright container">
+    <div class="copyright-bar">
+      <span class="copyright-icon">©</span>
+      <p class="copyright-text">
+        <strong>Propiedad Intelectual JUFANTICS.</strong>
+        Todos los cuentos personalizados creados por JUFANTICS son propiedad intelectual de Patricia B. Albornoz y no pueden ser reproducidos, distribuidos, modificados ni adaptados sin autorización expresa y por escrito. Queda prohibida su comercialización por terceros.
+      </p>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 JUFANTICS · Patricia B. Albornoz · Todos los derechos reservados.</span>
+      <span class="footer-tics">JU · Juego + Joaquín &nbsp;|&nbsp; FAN · Fantasía + Familia + Facundo &nbsp;|&nbsp; TICS · Textos · Imágenes · Cuentos · Siempre</span>
+    </div>
   </div>
 </footer>
 
+<!-- ══════════════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════════════ -->
 <script>
-  // ── Floating stars canvas ──────────────────────────────
-  const canvas = document.getElementById('stars-canvas');
-  const ctx = canvas.getContext('2d');
-  let stars = [];
+/* ── 1. NAV: solid on scroll + hamburger ─────────────────── */
+const nav       = document.getElementById('mainNav');
+const navToggle = document.getElementById('navToggle');
+const navDrawer = document.getElementById('navDrawer');
 
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+}, { passive: true });
 
-  function createStar() {
-    return {
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      size: Math.random() * 2.5 + 0.5,
-      opacity: Math.random() * 0.6 + 0.2,
-      speed: Math.random() * 0.3 + 0.05,
-      pulse: Math.random() * Math.PI * 2
-    };
-  }
-
-  for (let i = 0; i < 80; i++) stars.push(createStar());
-
-  function drawStars(t) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    stars.forEach(s => {
-      s.pulse += 0.015;
-      const op = s.opacity * (0.7 + 0.3 * Math.sin(s.pulse));
-      ctx.beginPath();
-      ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(168,216,234,${op})`;
-      ctx.fill();
-      s.y -= s.speed;
-      if (s.y < -5) { s.y = canvas.height + 5; s.x = Math.random() * canvas.width; }
-    });
-    requestAnimationFrame(drawStars);
-  }
-  drawStars();
-
-  // ── Nav scroll ─────────────────────────────────────────
-  const nav = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  });
-
-  // ── Scroll reveal ──────────────────────────────────────
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => observer.observe(el));
-
-  // ── WhatsApp form ──────────────────────────────────────
-  function enviarWhatsApp() {
-    const inputs = document.querySelectorAll('#brief input, #brief select, #brief textarea');
-    const nombre = inputs[0].value || '(sin nombre)';
-    const edad   = inputs[1].value || '(sin edad)';
-    const gusta  = inputs[2].value || '(sin especificar)';
- const tiposSeleccionados = document.querySelectorAll('input[name="tipo"]:checked');
-
-let tipo = [];
-
-tiposSeleccionados.forEach(t => {
-tipo.push(t.value);
+navToggle.addEventListener('click', () => {
+  const open = navToggle.classList.toggle('open');
+  navDrawer.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
 });
 
-tipo = tipo.length ? tipo.join(', ') : '(sin tipo)';
-    const msg    = inputs[4].value || '(sin mensaje)';
-
-    const text = `Hola JUFANTICS! 👋\n\nQuiero crear un cuento personalizado:\n\n📌 Nombre del niño: ${nombre}\n🎂 Edad: ${edad}\n🎯 Le gusta: ${gusta}\n📖 Tipo de cuento: ${tipo}\n💛 Mensaje a transmitir: ${msg}\n\n¡Quiero saber más!`;
-    const url = `https://wa.me/51992786715?text=${encodeURIComponent(text)}`;
-    window.open(url, '_blank');
-  }
-
-  // ── Smooth anchor scrolling ────────────────────────────
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-    });
-  });
-const checkboxes = document.querySelectorAll('input[name="tipo"]');
-
-checkboxes.forEach(box => {
-box.addEventListener('change', () => {
-
-const checked = document.querySelectorAll('input[name="tipo"]:checked');
-
-if(checked.length > 3){
-box.checked = false;
-alert("Puedes seleccionar máximo 3 opciones");
+function closeDrawer() {
+  navToggle.classList.remove('open');
+  navDrawer.classList.remove('open');
+  document.body.style.overflow = '';
 }
 
+/* ── 2. SCROLL REVEAL ───────────────────────────────────── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* ── 3. SMOOTH ANCHORS ──────────────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      closeDrawer();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
 });
 
-});
+/* ── 4. CHECKBOX LIMIT (máx. 3 opciones) ───────────────── */
+function initCheckboxLimit() {
+  const MAX = 3;
+  const grid = document.getElementById('checkboxGrid');
+  if (!grid) return;
+
+  grid.addEventListener('change', () => {
+    const all     = grid.querySelectorAll('input[type="checkbox"]');
+    const checked = [...all].filter(c => c.checked);
+    const count   = checked.length;
+
+    all.forEach(cb => {
+      if (!cb.checked) {
+        cb.disabled = count >= MAX;
+      }
+    });
+
+    // visual feedback on hint
+    const hint = grid.previousElementSibling;
+    if (hint && hint.classList.contains('checkbox-hint')) {
+      hint.textContent = count >= MAX
+        ? `✓ ${count} seleccionados (máximo alcanzado)`
+        : `Selecciona hasta ${MAX} opciones`;
+      hint.style.color = count >= MAX ? 'rgba(125,192,220,.8)' : 'rgba(255,255,255,.3)';
+    }
+  });
+}
+initCheckboxLimit();
+
+/* ── 5. COLLECT FORM DATA ───────────────────────────────── */
+function getFormData() {
+  const nombre = document.getElementById('fNombre').value.trim();
+  const edad   = document.getElementById('fEdad').value.trim();
+  const gusta  = document.getElementById('fGusta').value.trim();
+  const mensaje= document.getElementById('fMensaje').value.trim();
+
+  const tipos = [...document.querySelectorAll('input[name="tipoCuento"]:checked')]
+                  .map(c => c.value).join(', ') || '(no seleccionado)';
+
+  return { nombre, edad, gusta, tipos, mensaje };
+}
+
+function buildMessage({ nombre, edad, gusta, tipos, mensaje }) {
+  return [
+    'Hola 👋 Bienvenido a JUFANTICS ✨',
+    'Creamos cuentos personalizados únicos para niños 💛',
+    '',
+    'Para empezar cuéntanos:',
+    '',
+    '📌 Nombre del niño: ' + (nombre || '(sin nombre)'),
+    '🎂 Edad: '           + (edad   || '(sin especificar)'),
+    '🎯 Gustos / intereses: ' + (gusta  || '(sin especificar)'),
+    '📖 Tipo de cuento: ' + tipos,
+    '💛 Mensaje o valor a transmitir: ' + (mensaje || '(sin mensaje)'),
+  ].join('\n');
+}
+
+/* ── 6. ENVIAR POR WHATSAPP ─────────────────────────────── */
+function enviarWA() {
+  const data = getFormData();
+  const text = buildMessage(data);
+  window.open(
+    'https://wa.me/51992786715?text=' + encodeURIComponent(text),
+    '_blank', 'noopener,noreferrer'
+  );
+}
+
+/* ── 7. ENVIAR POR CORREO (mailto) ──────────────────────── */
+function enviarEmail() {
+  const data = getFormData();
+
+  const subject = encodeURIComponent('Pedido de cuento personalizado — ' + (data.nombre || 'JUFANTICS'));
+  const body = encodeURIComponent([
+    'Hola Patricia,',
+    '',
+    'Te envío los datos para mi cuento personalizado:',
+    '',
+    '📌 Nombre del niño: '         + (data.nombre  || '(sin nombre)'),
+    '🎂 Edad: '                    + (data.edad    || '(sin especificar)'),
+    '🎯 Gustos / intereses: '      + (data.gusta   || '(sin especificar)'),
+    '📖 Tipo de cuento: '          + data.tipos,
+    '💛 Mensaje o valor a transmitir: ' + (data.mensaje || '(sin mensaje)'),
+    '',
+    '¡Espero tu respuesta!',
+    '',
+    '---',
+    'Enviado desde jufantics.github.io/jufantics'
+  ].join('\n'));
+
+  window.location.href = 'mailto:jufantics@gmail.com?subject=' + subject + '&body=' + body;
+}
+
+/* ── 8. NAV "Pedir mi cuento" → correo directo ──────────── */
+// Si se quiere que el enlace del nav también abra el correo en lugar de scroll,
+// descomenta las siguientes líneas:
+// document.querySelector('.nav-cta').addEventListener('click', function(e) {
+//   e.preventDefault();
+//   enviarEmail();
+// });
+// Por defecto lleva al formulario (#brief) — comportamiento recomendado UX.
 </script>
 </body>
 </html>
