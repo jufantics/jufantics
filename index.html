@@ -722,6 +722,58 @@ padding-right:15px;
 }
 
 }
+  /* ===== FIX RESPONSIVE PRODUCTOS MOVIL ===== */
+
+@media (max-width: 768px){
+
+section{
+overflow-x: hidden;
+}
+
+div{
+max-width:100%;
+}
+
+[class*="grid"]{
+display:flex !important;
+flex-direction:column !important;
+gap:20px !important;
+}
+
+[class*="card"]{
+width:100% !important;
+max-width:100% !important;
+}
+
+}
+  /* ===== FIX MOVIL PRODUCTOS JUFANTICS ===== */
+
+@media screen and (max-width: 768px){
+
+.products-grid,
+.product-grid,
+.cards,
+.grid,
+.container-grid,
+.format-grid{
+display:flex !important;
+flex-direction:column !important;
+gap:20px !important;
+}
+
+.product-card,
+.card,
+.box,
+.format-card{
+width:100% !important;
+max-width:100% !important;
+}
+
+.product-card.p5{
+grid-column: span 1 !important;
+}
+
+}
 </style>
 </head>
 <body>
