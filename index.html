@@ -1331,7 +1331,15 @@ grid-column: span 1 !important;
     const nombre = inputs[0].value || '(sin nombre)';
     const edad   = inputs[1].value || '(sin edad)';
     const gusta  = inputs[2].value || '(sin especificar)';
-    const tipo   = inputs[3].value || '(sin tipo)';
+ const tiposSeleccionados = document.querySelectorAll('input[name="tipo"]:checked');
+
+let tipo = [];
+
+tiposSeleccionados.forEach(t => {
+tipo.push(t.value);
+});
+
+tipo = tipo.length ? tipo.join(', ') : '(sin tipo)';
     const msg    = inputs[4].value || '(sin mensaje)';
 
     const text = `Hola JUFANTICS! 👋\n\nQuiero crear un cuento personalizado:\n\n📌 Nombre del niño: ${nombre}\n🎂 Edad: ${edad}\n🎯 Le gusta: ${gusta}\n📖 Tipo de cuento: ${tipo}\n💛 Mensaje a transmitir: ${msg}\n\n¡Quiero saber más!`;
