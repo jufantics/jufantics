@@ -1346,6 +1346,21 @@ grid-column: span 1 !important;
       if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     });
   });
+const checkboxes = document.querySelectorAll('input[name="tipo"]');
+
+checkboxes.forEach(box => {
+box.addEventListener('change', () => {
+
+const checked = document.querySelectorAll('input[name="tipo"]:checked');
+
+if(checked.length > 3){
+box.checked = false;
+alert("Puedes seleccionar máximo 3 opciones");
+}
+
+});
+
+});
 </script>
 </body>
 </html>
