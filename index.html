@@ -699,6 +699,29 @@
     .stories-grid { grid-template-columns: 1fr; }
     .products-grid { grid-template-columns: 1fr; }
   }
+  /* ===== RESPONSIVE CELULAR PRODUCTOS ===== */
+
+@media (max-width: 768px){
+
+.products-grid{
+grid-template-columns: 1fr !important;
+gap:20px;
+}
+
+.product-card{
+width:100%;
+}
+
+.product-card.p5{
+grid-column: span 1 !important;
+}
+
+section{
+padding-left:15px;
+padding-right:15px;
+}
+
+}
 </style>
 </head>
 <body>
