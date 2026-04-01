@@ -1,38 +1,46 @@
+Jufantics web v2 · HTML
+Copiar
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="JUFANTICS — Cuentos personalizados para niños y familias. Historias únicas que nacen de la imaginación.">
 <title>JUFANTICS — Historias que nacen de la imaginación</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Nunito:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-:root{
-  --navy:#1F1D4E; --lav:#7B78C8; --lavl:#EDEAFF; --lavx:#F5F3FF;
-  --gold:#D4A020; --goldl:#FDF6E0;
-  --ink:#2D2B5E; --ink2:#4A4870; --ink3:#8A88A8;
-  --pch:#FAF8F2; --pch2:#F2EFE6; --pch3:#E4DFCF;
-  --r:14px; --sh:0 4px 28px rgba(31,29,78,.10); --sh2:0 12px 52px rgba(31,29,78,.18);
+ 
+/* ═══════════════════════════════════════════════════════
+   DESIGN DIRECTION: Magical storybook editorial
+   Warm parchment base · Ink-deep darks · Watercolor pops
+   Cormorant Garamond for poetry · Nunito for warmth
+   ═══════════════════════════════════════════════════════ */
+ 
+:root {
+  --ink:        #1C1528;
+  --ink-mid:    #4A3F5C;
+  --ink-soft:   #8A7FA0;
+  --parchment:  #FAF6F0;
+  --parchment2: #F4EDE3;
+  --parchment3: #EDE3D6;
+  --sky:        #B8DDEF;
+  --sky-d:      #7DC0DC;
+  --sky-l:      #E8F5FB;
+  --rose:       #E8936A;
+  --rose-l:     #FBF0EB;
+  --gold:       #D4A843;
+  --gold-l:     #FDF6E3;
+  --sage:       #7BAF92;
+  --lavender:   #9B8EC4;
+  --lavender-l: #EDE8F7;
+  --r:          16px;
+  --sh:         0 4px 32px rgba(28,21,40,.10);
+  --sh2:        0 16px 60px rgba(28,21,40,.16);
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:"DM Sans",sans-serif;background:var(--pch);color:var(--ink);overflow-x:hidden;line-height:1.6}
-a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
-
-/* ── WA FLOAT ── */
-.wa-fab{
-  position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;
-  width:56px;height:56px;border-radius:50%;
-  background:#25D366;display:flex;align-items:center;justify-content:center;
-  box-shadow:0 6px 24px rgba(37,211,102,.5);cursor:pointer;
-  transition:transform .2s;animation:waPulse 2.5s ease-in-out infinite;
-}
-.wa-fab:hover{transform:scale(1.1);animation:none}
-.wa-fab svg{width:28px;height:28px;fill:white}
-@keyframes waPulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.5)}50%{box-shadow:0 6px 40px rgba(37,211,102,.8)}}
+ 
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+ 
 
 /* ── NAV ── */
 .nav{
