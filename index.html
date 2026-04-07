@@ -206,16 +206,44 @@ img{max-width:100%;display:block}
 .sc-btn-w:hover{background:var(--nar);color:white}
 
 /* ── VISOR DE CUENTO ★ MODAL LIBRO ── */
-.viewer{position:fixed;inset:0;z-index:500;background:rgba(28,21,40,.93);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:1rem}
-.viewer.open{display:flex}
-.vbox{background:#fff;border-radius:20px;width:100%;max-width:860px;max-height:95vh;overflow:hidden;display:flex;flex-direction:column;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.5)}
-/* Header visor */
+.viewer{
+  position:fixed;
+  inset:0;
+  z-index:500;
+  background:rgba(28,21,40,.93);
+  backdrop-filter:blur(6px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:2vh 2vw;
+}
+.vbox{
+  background:#fff;
+  border-radius:20px;
+  width:min(96vw, 1200px);
+  height:min(94vh, 980px);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  box-shadow:0 30px 80px rgba(0,0,0,.5);
+}
 .vhdr{display:flex;align-items:center;padding:.85rem 1.2rem;background:var(--ink);gap:1rem}
 .vtitle{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:white;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .vclose{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.12);border:none;color:white;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;flex-shrink:0}
 .vclose:hover{background:rgba(255,255,255,.25)}
 /* Imagen */
-.vimg-wrap{flex:1;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#F5F5F0;position:relative;min-height:0}
+.vimg-wrap{
+  flex:1;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#F5F5F0;
+  position:relative;
+  min-height:420px;
+  padding:12px;
+}
 .vimg{max-width:100%;max-height:100%;object-fit:contain;display:block;user-select:none;pointer-events:none;transition:opacity .22s ease}
 .vimg.fade{opacity:0}
 /* Flechas */
