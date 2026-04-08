@@ -1,67 +1,224 @@
-<a href="../index.html" class="back">← Volver a JUFANTICS</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Blog JUFANTICS — Lecturas, crianza, emociones y cuentos personalizados para niños y familias.">
+<title>Blog JUFANTICS — Historias que inspiran</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
 
-<h1>Cómo la lectura puede sanar emociones en los niños</h1>
+:root{--sky:#5AABCF;--skyl:#E8F5FB;--nar:#E8936A;--narl:#FBF0EB;--lav:#9B8EC4;--lavl:#EDEAFF;--ink:#1C1528;--ink2:#4A3F5C;--ink3:#8A7FA0;--bg:#FAF6F0;--bg2:#F2EDE3;--bg3:#EDE3D6;--r:14px;--sh:0 4px 24px rgba(28,21,40,.09);--sh2:0 16px 56px rgba(28,21,40,.18)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1160px;margin:0 auto;padding:0 5%}
+.btn{display:inline-flex;align-items:center;gap:.45rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:.88rem;padding:.78rem 1.7rem;border-radius:50px;border:none;cursor:pointer;transition:transform .2s,background .2s;text-decoration:none}
+.btn:hover{transform:translateY(-2px)}
+.btn-p{background:var(--nar);color:#fff}.btn-p:hover{background:#d4783e}
+.wa-fab{position:fixed;bottom:1.5rem;right:1.5rem;z-index:900;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.5);cursor:pointer;text-decoration:none;transition:transform .2s}
+.wa-fab:hover{transform:scale(1.1)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.85rem 5%;display:flex;align-items:center;justify-content:space-between;transition:background .3s,box-shadow .3s}
+.nav.solid{background:rgba(250,246,240,.97);backdrop-filter:blur(14px);box-shadow:0 2px 16px rgba(28,21,40,.08)}
+.nav-brand{display:flex;align-items:center;gap:.52rem;text-decoration:none}
+.nav-logo{height:34px;width:auto}
+.nav-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:1.22rem;letter-spacing:-.4px;line-height:1;color:var(--ink)}
+.nj1{color:var(--sky)}.nj2{color:var(--nar)}.nj3{color:var(--lav)}
+.nav-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.67rem;color:var(--ink3);line-height:1}
+.nav-links{display:flex;gap:1.8rem;align-items:center}
+.nav-links a{font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink2);position:relative;transition:color .2s}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1.5px;background:var(--nar);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav-links a:hover{color:var(--ink)}.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{background:var(--nar)!important;color:#fff!important;padding:.46rem 1.15rem;border-radius:50px;font-weight:800!important;font-size:.76rem!important}
+.nav-cta::after{display:none!important}
+.nav-blog-active{color:var(--lav)!important}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem;background:none;border:none}
+.ham span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.drawer{display:none;position:fixed;inset:0;background:var(--bg);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.drawer.open{display:flex}
+.drawer a{font-family:'Nunito',sans-serif;font-size:1.4rem;font-weight:800;color:var(--ink)}
+.drawer a:hover{color:var(--nar)}
+footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3.5rem 5% 0}
+.fg2{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.fbrand{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem}
+.fblogo{height:33px;width:auto}
+.fbname{font-family:'Nunito',sans-serif;font-weight:900;font-size:1.18rem;letter-spacing:-.3px;color:white}
+.fb1{color:var(--sky)}.fb2{color:var(--nar)}.fb3{color:var(--lav)}
+.ftag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.88rem;color:rgba(255,255,255,.33);margin-bottom:1.2rem;line-height:1.5}
+.fsocs{display:flex;gap:.5rem}
+.fsoc{width:33px;height:33px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;text-decoration:none}
+.fsoc:hover{background:var(--nar);transform:scale(1.1)}
+.fcol h5{font-family:'Nunito',sans-serif;font-weight:800;color:rgba(255,255,255,.8);font-size:.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem}
+.fcol a{display:block;font-size:.81rem;color:rgba(255,255,255,.4);margin-bottom:.58rem;transition:color .2s;text-decoration:none}
+.fcol a:hover{color:var(--sky)}
+.fbot{padding:1.3rem 0 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;font-size:.73rem}
+.ftics{font-family:'Nunito',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.4px;color:rgba(255,255,255,.2)}
+@media(max-width:900px){.nav-links{display:none}.ham{display:flex}.fg2{grid-template-columns:1fr;gap:2rem}}
 
-<p><em>Cuando un niño no puede expresar lo que siente, una historia puede hacerlo por él.</em></p>
-
-<p>
-Hay emociones en la infancia que no saben cómo salir. Se esconden, se transforman en silencios, en rabietas, en miradas perdidas.  
-Y ahí, justo ahí… es donde aparece la magia de las historias.
-</p>
-
-<h2>La imaginación como refugio y escudo</h2>
-
-<p>
-Para un niño, la imaginación no es fantasía… es lenguaje.  
-Es su forma de entender el mundo, de procesar lo que siente, de construir sentido.
-</p>
-
-<p>
-Cuando un niño escucha o lee una historia, no solo observa… se identifica, siente, vive.  
-Y sin darse cuenta, empieza a sanar.
-</p>
-
-<div class="quote">
-“Las historias son las que nos pueden salvar y curar…”
-<br>— Tessa Hulls
+.blog-hero{padding:9rem 5% 5rem;background:linear-gradient(145deg,var(--lavl) 0%,var(--bg) 55%,var(--narl) 100%);text-align:center;position:relative;overflow:hidden}
+.blog-hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(155,142,196,.18) 0%,transparent 70%);pointer-events:none}
+.hero-eye{display:inline-flex;align-items:center;gap:.4rem;font-size:.71rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--lav);margin-bottom:1rem}
+.hero-eye::before{content:'✦'}
+.blog-h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.15;color:var(--ink);margin-bottom:.9rem}
+.blog-h1 em{font-style:italic;color:var(--lav)}
+.blog-sub{font-size:1.05rem;color:var(--ink2);line-height:1.75;max-width:540px;margin:0 auto 2rem}
+.back-link{display:inline-flex;align-items:center;gap:.45rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:.82rem;color:var(--ink2);padding:.52rem 1.1rem;border-radius:50px;background:white;box-shadow:var(--sh);border:1px solid var(--bg3);transition:color .2s,border-color .2s,transform .2s}
+.back-link:hover{color:var(--lav);border-color:var(--lav);transform:translateX(-3px)}
+.blog-sec{padding:4.5rem 0 6rem}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3rem}
+.bc{border-radius:16px;overflow:hidden;background:white;box-shadow:var(--sh);transition:transform .35s cubic-bezier(.2,.8,.3,1),box-shadow .35s;text-decoration:none;display:block}
+.bc:hover{transform:translateY(-10px);box-shadow:var(--sh2)}
+.bc-cover{height:200px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.bc-emoji{font-size:3.2rem;position:relative;z-index:1}
+.bc-cat{position:absolute;bottom:12px;left:12px;font-family:'Nunito',sans-serif;font-weight:700;font-size:.64rem;letter-spacing:.5px;text-transform:uppercase;padding:.24rem .78rem;border-radius:50px;background:white;color:var(--lav)}
+.bc-body{padding:1.5rem}
+.bc-date{font-size:.72rem;color:var(--ink3);margin-bottom:.45rem}
+.bc-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.18rem;color:var(--ink);line-height:1.3;margin-bottom:.55rem}
+.bc-excerpt{font-size:.84rem;color:var(--ink3);line-height:1.65;margin-bottom:1.1rem}
+.bc-read{font-family:'Nunito',sans-serif;font-weight:700;font-size:.78rem;color:var(--nar);display:flex;align-items:center;gap:.35rem}
+.bc-read::after{content:'→';transition:transform .2s}
+.bc:hover .bc-read::after{transform:translateX(4px)}
+.coming-card{border-radius:16px;background:var(--bg2);border:2px dashed var(--bg3);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 2rem;min-height:380px}
+.coming-ico{font-size:2.5rem;margin-bottom:1rem}
+.coming-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.05rem;color:var(--ink);margin-bottom:.4rem}
+.coming-sub{font-size:.86rem;color:var(--ink3);margin-bottom:1.2rem;max-width:240px}
+@media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.blog-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="wa-fab" href="https://wa.me/51992786715?text=Hola%20JUFANTICS%20%F0%9F%91%8B" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<nav class="nav" id="mainNav">
+  <a class="nav-brand" href="../">
+    <img src="../LOGO.png" class="nav-logo" alt="JUFANTICS" onerror="this.style.display='none'">
+    <div>
+      <div class="nav-name"><span class="nj1">JU</span><span class="nj2">FAN</span><span class="nj3">TICS</span></div>
+      <div class="nav-tag">Historias que nacen de la imaginación</div>
+    </div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="../#how">Cómo funciona</a>
+    <a href="../#cuentos">Cuentos</a>
+    <a href="../#brief">Pedir cuento</a>
+    <a href="../#patricia">Creadora</a>
+    <a href="index.html" class="nav-blog-active">Blog</a>
+    <a href="../#brief" class="nav-cta">✨ Quiero el mío</a>
+  </div>
+  <button class="ham" id="ham" aria-label="Menú"><span></span><span></span><span></span></button>
+</nav>
+<div class="drawer" id="drawer">
+  <a href="../" onclick="closeD()">Inicio</a>
+  <a href="../#cuentos" onclick="closeD()">Cuentos</a>
+  <a href="../#brief" onclick="closeD()">Pedir cuento</a>
+  <a href="index.html" onclick="closeD()">Blog</a>
+  <a href="../#brief" onclick="closeD()" class="btn btn-p" style="margin-top:.5rem">✨ Quiero el mío</a>
 </div>
 
-<h2>Poner nombre a lo invisible</h2>
-
-<p>
-Muchas veces los niños no saben decir “tengo miedo”, “me siento solo” o “esto me duele”.  
-Pero pueden reconocerlo en un personaje.
-</p>
-
-<p>
-Cuando un niño ve que alguien en una historia siente lo mismo que él… algo cambia.  
-Se siente comprendido.
-</p>
-
-<h2>El vínculo que sostiene el mundo</h2>
-
-<p>
-Leer juntos no es solo una actividad… es un momento emocional profundo.  
-Es conexión, es presencia, es amor.
-</p>
-
-<p>
-Un cuento leído por mamá o papá puede convertirse en un refugio emocional seguro.
-</p>
-
-<h2>Un susurro para el alma</h2>
-
-<p>
-Las historias no gritan… susurran.  
-Y en ese susurro, los niños encuentran respuestas que nadie más pudo darles.
-</p>
-
-<p>
-Porque una historia no solo se entiende… se siente.
-</p>
-
-<div class="cta">
-✨ En JUFANTICS creamos historias únicas donde cada niño puede verse, sentirse y sanar a través de la imaginación  
-<br>
-<a href="../index.html">Quiero crear mi cuento</a>
+<div class="blog-hero">
+  <div class="hero-eye">Blog JUFANTICS</div>
+  <h1 class="blog-h1">Historias que <em>inspiran</em></h1>
+  <p class="blog-sub">Consejos, reflexiones y recursos sobre crianza, lectura, emociones y el poder de las historias para sanar el corazón infantil.</p>
+  <a href="../" class="back-link">← Volver a JUFANTICS</a>
 </div>
+
+<section class="blog-sec">
+<div class="wrap">
+  <div style="margin-bottom:.5rem">
+    <p style="font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lav);margin-bottom:.4rem">✦ Artículos</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--ink)">Últimas publicaciones</h2>
+  </div>
+  <div class="blog-grid">
+
+    <a href="lectura-emocional.html" class="bc">
+      <div class="bc-cover" style="background:linear-gradient(145deg,#EDE8FF,#E8F5FB)">
+        <span class="bc-emoji">📖</span>
+        <span class="bc-cat">Lectura</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-date">📅 Julio 2025</div>
+        <div class="bc-title">Cuando las palabras abrazan: El poder sanador de los cuentos</div>
+        <div class="bc-excerpt">Cómo la lectura compartida se convierte en refugio emocional y puente irrompible entre padres e hijos.</div>
+        <div class="bc-read">Leer artículo</div>
+      </div>
+    </a>
+
+    <div class="coming-card">
+      <div class="coming-ico">✍️</div>
+      <div class="coming-title">Próximamente</div>
+      <div class="coming-sub">Cómo elegir el cuento adecuado para cada edad y etapa emocional de tu hijo.</div>
+      <a href="https://wa.me/51992786715?text=Quiero%20recibir%20los%20próximos%20artículos%20del%20blog%20JUFANTICS" target="_blank" class="btn btn-p" style="font-size:.8rem;padding:.65rem 1.3rem">💬 Notifícame</a>
+    </div>
+
+    <div class="coming-card">
+      <div class="coming-ico">🧠</div>
+      <div class="coming-title">Próximamente</div>
+      <div class="coming-sub">Cuentos para niños neurodivergentes: qué funciona y por qué importa la personalización.</div>
+      <a href="https://wa.me/51992786715?text=Quiero%20recibir%20los%20próximos%20artículos%20del%20blog%20JUFANTICS" target="_blank" class="btn btn-p" style="font-size:.8rem;padding:.65rem 1.3rem">💬 Notifícame</a>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;margin-top:5rem;padding:3.5rem;background:linear-gradient(145deg,var(--lavl),var(--bg));border-radius:20px">
+    <p style="font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lav);margin-bottom:.5rem">✦ Crea tu historia</p>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--ink);margin-bottom:.7rem">¿Tu hijo merece su propia historia?</h3>
+    <p style="font-size:.97rem;color:var(--ink2);line-height:1.75;max-width:500px;margin:0 auto 1.8rem">En JUFANTICS creamos cuentos personalizados únicos que abrazan el espíritu de cada niño.</p>
+    <div style="display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap">
+      <a href="../#brief" class="btn btn-p">✨ Crear mi cuento ahora</a>
+      <a href="../#cuentos" class="btn" style="background:white;color:var(--ink);border:2px solid var(--bg3)">📖 Ver cuentos</a>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+  <div class="fg2">
+    <div>
+      <div class="fbrand">
+        <img src="../LOGO.png" class="fblogo" alt="JUFANTICS" onerror="this.style.display='none'">
+        <div class="fbname"><span class="fb1">JU</span><span class="fb2">FAN</span><span class="fb3">TICS</span></div>
+      </div>
+      <div class="ftag">Textos · Imágenes · Cuentos · Siempre<br>Historias que nacen de la imaginación.</div>
+      <div class="fsocs">
+        <a href="#" class="fsoc" style="font-size:.82rem;color:white">📸</a>
+        <a href="#" class="fsoc" style="font-size:.82rem;color:white">💙</a>
+        <a href="https://wa.me/51992786715" target="_blank" class="fsoc"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      </div>
+    </div>
+    <div class="fcol">
+      <h5>Navegación</h5>
+      <a href="../">Inicio</a>
+      <a href="../#cuentos">Cuentos</a>
+      <a href="../#brief">Pedir cuento</a>
+      <a href="index.html">Blog</a>
+    </div>
+    <div class="fcol">
+      <h5>Contacto</h5>
+      <a href="https://wa.me/51992786715" target="_blank">💬 WhatsApp</a>
+      <a href="mailto:jufantics@gmail.com">📧 jufantics@gmail.com</a>
+      <a>📍 Lima, Perú</a>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© 2025 JUFANTICS · Patricia B. Albornoz · Lima, Perú</span>
+    <span class="ftics">JU·Juego+Joaquín | FAN·Fantasía+Familia+Facundo | TICS·Textos·Imágenes·Cuentos·Siempre</span>
+  </div>
+</div>
+</footer>
+<script>
+const $n=document.getElementById('mainNav');
+const $h=document.getElementById('ham');
+const $d=document.getElementById('drawer');
+window.addEventListener('scroll',()=>$n.classList.toggle('solid',scrollY>50),{passive:true});
+$h.addEventListener('click',()=>{const o=$h.classList.toggle('open');$d.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''});
+function closeD(){$h.classList.remove('open');$d.classList.remove('open');document.body.style.overflow=''}
+</script>
+</body>
+</html>
