@@ -905,19 +905,14 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
 @media (max-width: 400px) {
   .cat-grid { grid-template-columns: 1fr; }
 }
-/* ════════════════════════════════════════════════════════
-   JUFANTICS — CATÁLOGO NETFLIX + VISOR INMERSIVO
-   Pega SOLO este bloque dentro de tu <style> existente,
-   justo antes del cierre </style>
-════════════════════════════════════════════════════════ */
-
+</style>
 /* ── SECCIÓN ── */
 .catalog {
   background: var(--bg);
   padding: 5.5rem 0 6rem;
   position: relative;
 }
-
+ 
 .cat-head {
   display: flex;
   align-items: flex-end;
@@ -926,7 +921,7 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   gap: 1rem;
   flex-wrap: wrap;
 }
-
+ 
 .cat-head-left .eyebrow {
   font-size: .67rem;
   font-weight: 700;
@@ -936,7 +931,7 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   display: block;
   margin-bottom: .38rem;
 }
-
+ 
 .cat-head-left h2 {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 700;
@@ -944,7 +939,7 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   line-height: 1.1;
   color: var(--ink);
 }
-
+ 
 .cat-head-left p {
   font-size: .92rem;
   color: var(--ink3);
@@ -952,14 +947,14 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   max-width: 440px;
   line-height: 1.55;
 }
-
+ 
 /* ══ GRID NETFLIX ══ */
 .cat-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1.1rem;
 }
-
+ 
 /* ══ TARJETA ══ */
 .jf-card {
   position: relative;
@@ -975,7 +970,7 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
     z-index 0s .38s;
   isolation: isolate;
 }
-
+ 
 .jf-card:hover {
   transform: translateY(-12px) scale(1.04);
   box-shadow:
@@ -987,7 +982,7 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
     box-shadow .38s ease,
     z-index 0s 0s;
 }
-
+ 
 /* portada */
 .jf-card-img {
   position: absolute;
@@ -1001,11 +996,11 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   /* fallback si no carga */
   background: linear-gradient(145deg, #EDE8FF, #E8F5FB);
 }
-
+ 
 .jf-card:hover .jf-card-img {
   transform: scale(1.06);
 }
-
+ 
 /* gradiente inferior — siempre visible */
 .jf-card-shade {
   position: absolute;
@@ -1018,7 +1013,7 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   );
   z-index: 1;
 }
-
+ 
 /* badge categoría */
 .jf-card-badge {
   position: absolute;
@@ -1038,7 +1033,7 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   padding: .2rem .6rem;
   border-radius: 50px;
 }
-
+ 
 /* info inferior */
 .jf-card-body {
   position: absolute;
@@ -1048,7 +1043,7 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   z-index: 2;
   padding: 1.5rem .85rem .85rem;
 }
-
+ 
 .jf-card-title {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 700;
@@ -1062,7 +1057,7 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
+ 
 /* botones — solo visibles en hover */
 .jf-card-btns {
   display: flex;
@@ -1072,13 +1067,13 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   transition: opacity .22s ease, transform .22s ease;
   pointer-events: none;
 }
-
+ 
 .jf-card:hover .jf-card-btns {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
-
+ 
 .jf-btn-read {
   flex: 1;
   font-family: 'Nunito', sans-serif;
@@ -1097,12 +1092,12 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   transition: background .18s, color .18s;
   white-space: nowrap;
 }
-
+ 
 .jf-btn-read:hover {
   background: var(--lav);
   color: white;
 }
-
+ 
 .jf-btn-want {
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
@@ -1116,11 +1111,11 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   transition: background .18s;
   white-space: nowrap;
 }
-
+ 
 .jf-btn-want:hover {
   background: var(--nar);
 }
-
+ 
 /* ════════════════════════════════════════════════════════
    VISOR INMERSIVO
    CLAVE:
@@ -1137,17 +1132,17 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   display: none;
   flex-direction: column;
 }
-
+ 
 .jf-viewer.open {
   display: flex;
   animation: viewerIn .22s ease;
 }
-
+ 
 @keyframes viewerIn {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-
+ 
 /* ── header visor ── */
 .jf-vhdr {
   flex-shrink: 0;
@@ -1160,14 +1155,14 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255,255,255,.07);
 }
-
+ 
 .jf-vhdr-logo {
   height: 25px;
   width: auto;
   opacity: .88;
   flex-shrink: 0;
 }
-
+ 
 .jf-vtitle {
   font-family: 'Cormorant Garamond', serif;
   font-size: .98rem;
@@ -1178,7 +1173,7 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+ 
 .jf-vclose {
   width: 32px;
   height: 32px;
@@ -1194,13 +1189,13 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   flex-shrink: 0;
   transition: background .2s, color .2s;
 }
-
+ 
 .jf-vclose:hover {
   background: rgba(232,147,106,.75);
   color: white;
   border-color: transparent;
 }
-
+ 
 /* ── zona imagen — THE KEY ZONE ── */
 .jf-vbody {
   flex: 1;           /* toma todo el espacio disponible */
@@ -1212,7 +1207,7 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   overflow: hidden;
   padding: .4rem 0;
 }
-
+ 
 /* flechas */
 .jf-vnav {
   position: absolute;
@@ -1236,12 +1231,12 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
-
+ 
 .jf-vnav:hover { background: var(--lav); transform: translateY(-50%) scale(1.1); }
 .jf-vnav:disabled { opacity: .18; pointer-events: none; }
 .jf-vprev { left: .8rem; }
 .jf-vnext { right: .8rem; }
-
+ 
 /* ── LA IMAGEN ── */
 .jf-vimg {
   /* deja espacio a las flechas laterales */
@@ -1261,9 +1256,9 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   pointer-events: none;
   -webkit-user-drag: none;
 }
-
+ 
 .jf-vimg.fade { opacity: 0; }
-
+ 
 /* hint deslizar en móvil */
 .jf-vhint {
   position: absolute;
@@ -1283,14 +1278,14 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   white-space: nowrap;
   animation: hintOut 3.8s ease forwards;
 }
-
+ 
 @keyframes hintOut {
   0%   { opacity: 0; transform: translateX(-50%) translateY(5px); }
   10%  { opacity: 1; transform: translateX(-50%) translateY(0); }
   75%  { opacity: 1; }
   100% { opacity: 0; }
 }
-
+ 
 /* ── footer visor ── */
 .jf-vftr {
   flex-shrink: 0;
@@ -1303,23 +1298,23 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   -webkit-backdrop-filter: blur(14px);
   border-top: 1px solid rgba(255,255,255,.07);
 }
-
+ 
 .jf-vpbar-wrap { flex: 1; }
-
+ 
 .jf-vpbar {
   height: 3px;
   background: rgba(255,255,255,.1);
   border-radius: 2px;
   overflow: hidden;
 }
-
+ 
 .jf-vpfill {
   height: 100%;
   background: linear-gradient(90deg, var(--lav), var(--nar));
   border-radius: 2px;
   transition: width .3s ease;
 }
-
+ 
 .jf-vctr {
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
@@ -1329,7 +1324,7 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   text-align: right;
   white-space: nowrap;
 }
-
+ 
 .jf-vwant {
   font-family: 'Nunito', sans-serif;
   font-weight: 800;
@@ -1344,12 +1339,12 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   transition: background .2s, transform .18s;
   white-space: nowrap;
 }
-
+ 
 .jf-vwant:hover {
   background: #d4783e;
   transform: translateY(-1px);
 }
-
+ 
 /* ════════════════════════════════════════════════════════
    RESPONSIVE
 ════════════════════════════════════════════════════════ */
@@ -1357,7 +1352,7 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
 @media (max-width: 1024px) { .cat-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 680px)  { .cat-grid { grid-template-columns: repeat(2, 1fr); gap: .8rem; } }
 @media (max-width: 360px)  { .cat-grid { grid-template-columns: 1fr; } }
-
+ 
 @media (max-width: 680px) {
   .jf-card-title { font-size: .83rem; }
   .jf-vimg       { max-width: calc(100% - 4.5rem); }
@@ -1365,8 +1360,8 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
   .jf-vprev      { left: .35rem; }
   .jf-vnext      { right: .35rem; }
   .jf-vhdr-logo  { display: none; }
-}      
-</style>
+}
+   
 </head>
 <body>
 
