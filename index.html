@@ -905,6 +905,467 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
 @media (max-width: 400px) {
   .cat-grid { grid-template-columns: 1fr; }
 }
+/* ════════════════════════════════════════════════════════
+   JUFANTICS — CATÁLOGO NETFLIX + VISOR INMERSIVO
+   Pega SOLO este bloque dentro de tu <style> existente,
+   justo antes del cierre </style>
+════════════════════════════════════════════════════════ */
+
+/* ── SECCIÓN ── */
+.catalog {
+  background: var(--bg);
+  padding: 5.5rem 0 6rem;
+  position: relative;
+}
+
+.cat-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2.8rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cat-head-left .eyebrow {
+  font-size: .67rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--nar);
+  display: block;
+  margin-bottom: .38rem;
+}
+
+.cat-head-left h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.cat-head-left p {
+  font-size: .92rem;
+  color: var(--ink3);
+  margin-top: .4rem;
+  max-width: 440px;
+  line-height: 1.55;
+}
+
+/* ══ GRID NETFLIX ══ */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.1rem;
+}
+
+/* ══ TARJETA ══ */
+.jf-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 3 / 4;
+  background: var(--bg2);
+  box-shadow: 0 3px 16px rgba(28,21,40,.12);
+  transition:
+    transform .38s cubic-bezier(.15,.9,.3,1),
+    box-shadow .38s ease,
+    z-index 0s .38s;
+  isolation: isolate;
+}
+
+.jf-card:hover {
+  transform: translateY(-12px) scale(1.04);
+  box-shadow:
+    0 22px 52px rgba(28,21,40,.3),
+    0 0 0 1.5px rgba(155,142,196,.45);
+  z-index: 10;
+  transition:
+    transform .38s cubic-bezier(.15,.9,.3,1),
+    box-shadow .38s ease,
+    z-index 0s 0s;
+}
+
+/* portada */
+.jf-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform .5s ease;
+  /* fallback si no carga */
+  background: linear-gradient(145deg, #EDE8FF, #E8F5FB);
+}
+
+.jf-card:hover .jf-card-img {
+  transform: scale(1.06);
+}
+
+/* gradiente inferior — siempre visible */
+.jf-card-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 42%,
+    rgba(28,21,40,.45) 68%,
+    rgba(28,21,40,.93) 100%
+  );
+  z-index: 1;
+}
+
+/* badge categoría */
+.jf-card-badge {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  z-index: 3;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: .58rem;
+  letter-spacing: .9px;
+  text-transform: uppercase;
+  color: white;
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.28);
+  padding: .2rem .6rem;
+  border-radius: 50px;
+}
+
+/* info inferior */
+.jf-card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 1.5rem .85rem .85rem;
+}
+
+.jf-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: .93rem;
+  color: white;
+  line-height: 1.28;
+  margin-bottom: .58rem;
+  /* dos líneas máximo */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* botones — solo visibles en hover */
+.jf-card-btns {
+  display: flex;
+  gap: .35rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .22s ease, transform .22s ease;
+  pointer-events: none;
+}
+
+.jf-card:hover .jf-card-btns {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.jf-btn-read {
+  flex: 1;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: .68rem;
+  padding: .44rem .5rem;
+  border-radius: 50px;
+  background: white;
+  color: var(--ink);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .25rem;
+  transition: background .18s, color .18s;
+  white-space: nowrap;
+}
+
+.jf-btn-read:hover {
+  background: var(--lav);
+  color: white;
+}
+
+.jf-btn-want {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: .68rem;
+  padding: .44rem .6rem;
+  border-radius: 50px;
+  background: rgba(232,147,106,.88);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background .18s;
+  white-space: nowrap;
+}
+
+.jf-btn-want:hover {
+  background: var(--nar);
+}
+
+/* ════════════════════════════════════════════════════════
+   VISOR INMERSIVO
+   CLAVE:
+   • .jf-vbody  → flex:1 + min-height:0
+     ocupa TODO el espacio entre header y footer
+   • .jf-vimg   → max-height:100% + object-fit:contain
+     imagen siempre completa, sin cortes, sin deformación
+════════════════════════════════════════════════════════ */
+.jf-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(8, 5, 15, .97);
+  display: none;
+  flex-direction: column;
+}
+
+.jf-viewer.open {
+  display: flex;
+  animation: viewerIn .22s ease;
+}
+
+@keyframes viewerIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── header visor ── */
+.jf-vhdr {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .65rem 1.1rem;
+  background: rgba(20, 14, 32, .88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.jf-vhdr-logo {
+  height: 25px;
+  width: auto;
+  opacity: .88;
+  flex-shrink: 0;
+}
+
+.jf-vtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .98rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.9);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.jf-vclose {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.8);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background .2s, color .2s;
+}
+
+.jf-vclose:hover {
+  background: rgba(232,147,106,.75);
+  color: white;
+  border-color: transparent;
+}
+
+/* ── zona imagen — THE KEY ZONE ── */
+.jf-vbody {
+  flex: 1;           /* toma todo el espacio disponible */
+  min-height: 0;     /* sin esto el hijo no se encoje — imagen se cortaría */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: .4rem 0;
+}
+
+/* flechas */
+.jf-vnav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(20,14,32,.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(255,255,255,.15);
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, transform .2s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.jf-vnav:hover { background: var(--lav); transform: translateY(-50%) scale(1.1); }
+.jf-vnav:disabled { opacity: .18; pointer-events: none; }
+.jf-vprev { left: .8rem; }
+.jf-vnext { right: .8rem; }
+
+/* ── LA IMAGEN ── */
+.jf-vimg {
+  /* deja espacio a las flechas laterales */
+  max-width: calc(100% - 6rem);
+  /* nunca supera la altura del contenedor */
+  max-height: 100%;
+  /* mantiene proporción original */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 3px;
+  box-shadow: 0 8px 48px rgba(0,0,0,.65);
+  transition: opacity .2s ease;
+  /* evita clic derecho / guardar / arrastrar */
+  user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.jf-vimg.fade { opacity: 0; }
+
+/* hint deslizar en móvil */
+.jf-vhint {
+  position: absolute;
+  bottom: 3.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: .68rem;
+  color: rgba(255,255,255,.42);
+  background: rgba(20,14,32,.55);
+  backdrop-filter: blur(6px);
+  padding: .3rem .82rem;
+  border-radius: 50px;
+  pointer-events: none;
+  z-index: 10;
+  white-space: nowrap;
+  animation: hintOut 3.8s ease forwards;
+}
+
+@keyframes hintOut {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(5px); }
+  10%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  75%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ── footer visor ── */
+.jf-vftr {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  padding: .5rem 1.1rem;
+  background: rgba(20,14,32,.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+
+.jf-vpbar-wrap { flex: 1; }
+
+.jf-vpbar {
+  height: 3px;
+  background: rgba(255,255,255,.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.jf-vpfill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--lav), var(--nar));
+  border-radius: 2px;
+  transition: width .3s ease;
+}
+
+.jf-vctr {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: .74rem;
+  color: rgba(255,255,255,.42);
+  min-width: 44px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.jf-vwant {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: .73rem;
+  padding: .42rem .92rem;
+  border-radius: 50px;
+  background: var(--nar);
+  color: white;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background .2s, transform .18s;
+  white-space: nowrap;
+}
+
+.jf-vwant:hover {
+  background: #d4783e;
+  transform: translateY(-1px);
+}
+
+/* ════════════════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════════════════ */
+@media (max-width: 1280px) { .cat-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 1024px) { .cat-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 680px)  { .cat-grid { grid-template-columns: repeat(2, 1fr); gap: .8rem; } }
+@media (max-width: 360px)  { .cat-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 680px) {
+  .jf-card-title { font-size: .83rem; }
+  .jf-vimg       { max-width: calc(100% - 4.5rem); }
+  .jf-vnav       { width: 36px; height: 36px; font-size: 1.1rem; }
+  .jf-vprev      { left: .35rem; }
+  .jf-vnext      { right: .35rem; }
+  .jf-vhdr-logo  { display: none; }
+}      
 </style>
 
 </head>
