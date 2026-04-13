@@ -1105,190 +1105,274 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
      Rutas: assets/cuentos/[carpeta]/portada.jpg
             assets/cuentos/[carpeta]/pagina-1.jpg ...
      ═══════════════════════════════════════ -->
-<section class="catalog sec" id="cuentos">
+<!--
+═══════════════════════════════════════════════════════════
+  BLOQUE 1 — CATÁLOGO NETFLIX
+  Busca tu sección id="cuentos" y REEMPLÁZALA COMPLETA
+  con este bloque
+═══════════════════════════════════════════════════════════
+-->
+
+<section class="catalog" id="cuentos">
   <div class="wrap">
-    <div class="cat-header">
-      <div>
-        <span class="tag tag-nar reveal">✦ Catálogo</span>
-        <h2 class="h1 h1-lg reveal" style="margin-top:.3rem">Nuestros Cuentos</h2>
-        <p style="font-size:.96rem;color:var(--ink3);max-width:480px;margin-top:.4rem" class="reveal">
-          Haz clic para leer. Experiencia visual completa.
-        </p>
+
+    <div class="cat-head">
+      <div class="cat-head-left">
+        <span class="eyebrow">✦ Catálogo</span>
+        <h2>Nuestros Cuentos</h2>
+        <p>Haz clic para leer. Una experiencia visual completa e inmersiva.</p>
       </div>
-      <a href="#brief" class="btn btn-p reveal">✨ Quiero uno así</a>
+      <a href="#brief" class="btn btn-p">✨ Quiero uno así</a>
     </div>
 
     <div class="cat-grid">
 
-      <!-- Cada tarjeta: onclick llama abrirCuento(carpeta, paginasMax, titulo) -->
-
-      <div class="sc reveal" onclick="abrirCuento('capitan-julen',12,'Capitán Julen')">
-        <div class="sc-cover">
-          <span class="sc-badge">Aventura</span>
-          <img src="assets/cuentos/capitan-julen/portada.jpg" alt="Capitán Julen"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="sc-ph" style="display:none">
-            <div class="sc-ph-ico">🦁</div>
-            <div class="sc-ph-title">Capitán Julen</div>
-          </div>
-        </div>
-        <div class="sc-footer">
-          <div class="sc-title">Capitán Julen</div>
-          <div class="sc-actions">
-            <button class="sc-btn-v" onclick="event.stopPropagation();abrirCuento('capitan-julen',12,'Capitán Julen')">📖 Ver</button>
-            <button class="sc-btn-w" onclick="event.stopPropagation();quieroUno('Capitán Julen')">✨ Quiero uno</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="sc reveal" onclick="abrirCuento('cueva-cristal',10,'El Secreto de la Cueva de Cristal')">
-        <div class="sc-cover">
-          <span class="sc-badge">Fantasía</span>
-          <img src="assets/cuentos/cueva-cristal/portada.jpg" alt="Cueva de Cristal"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="sc-ph" style="display:none">
-            <div class="sc-ph-ico">💎</div>
-            <div class="sc-ph-title">El Secreto de la Cueva de Cristal</div>
-          </div>
-        </div>
-        <div class="sc-footer">
-          <div class="sc-title">El Secreto de la Cueva de Cristal</div>
-          <div class="sc-actions">
-            <button class="sc-btn-v" onclick="event.stopPropagation();abrirCuento('cueva-cristal',10,'El Secreto de la Cueva de Cristal')">📖 Ver</button>
-            <button class="sc-btn-w" onclick="event.stopPropagation();quieroUno('El Secreto de la Cueva de Cristal')">✨ Quiero uno</button>
+      <!-- 1 ─ Aventura Ninja -->
+      <div class="jf-card"
+           onclick="jfAbrir('aventura-ninja', 12, 'La Aventura Ninja')">
+        <img class="jf-card-img"
+             src="assets/cuentos/aventura-ninja/portada.jpg"
+             alt="La Aventura Ninja"
+             loading="lazy"
+             onerror="this.style.opacity='0'">
+        <div class="jf-card-shade"></div>
+        <span class="jf-card-badge">¡Nuevo!</span>
+        <div class="jf-card-body">
+          <div class="jf-card-title">La Aventura Ninja</div>
+          <div class="jf-card-btns">
+            <button class="jf-btn-read"
+              onclick="event.stopPropagation();jfAbrir('aventura-ninja',12,'La Aventura Ninja')">
+              📖 Leer
+            </button>
+            <button class="jf-btn-want"
+              onclick="event.stopPropagation();jfQuiero('La Aventura Ninja')">
+              ✨ Quiero uno
+            </button>
           </div>
         </div>
       </div>
 
-      <div class="sc reveal" onclick="abrirCuento('guardian-colores-infinitos',11,'El Guardián de los Colores Infinitos')">
-        <div class="sc-cover">
-          <span class="sc-badge">Mágico</span>
-          <img src="assets/cuentos/guardian-colores-infinitos/portada.jpg" alt="Guardián Colores"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="sc-ph" style="display:none">
-            <div class="sc-ph-ico">🌈</div>
-            <div class="sc-ph-title">El Guardián de los Colores Infinitos</div>
-          </div>
-        </div>
-        <div class="sc-footer">
-          <div class="sc-title">El Guardián de los Colores Infinitos</div>
-          <div class="sc-actions">
-            <button class="sc-btn-v" onclick="event.stopPropagation();abrirCuento('guardian-colores-infinitos',11,'El Guardián de los Colores Infinitos')">📖 Ver</button>
-            <button class="sc-btn-w" onclick="event.stopPropagation();quieroUno('El Guardián de los Colores Infinitos')">✨ Quiero uno</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="sc reveal" onclick="abrirCuento('escuadron-verde',13,'El Escuadrón Verde')">
-        <div class="sc-cover">
-          <span class="sc-badge">Educativo</span>
-          <img src="assets/cuentos/escuadron-verde/portada.jpg" alt="Escuadrón Verde"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="sc-ph" style="display:none">
-            <div class="sc-ph-ico">🌿</div>
-            <div class="sc-ph-title">El Escuadrón Verde</div>
-          </div>
-        </div>
-        <div class="sc-footer">
-          <div class="sc-title">El Escuadrón Verde</div>
-          <div class="sc-actions">
-            <button class="sc-btn-v" onclick="event.stopPropagation();abrirCuento('escuadron-verde',13,'El Escuadrón Verde')">📖 Ver</button>
-            <button class="sc-btn-w" onclick="event.stopPropagation();quieroUno('El Escuadrón Verde')">✨ Quiero uno</button>
+      <!-- 2 ─ Cueva de Cristal -->
+      <div class="jf-card"
+           onclick="jfAbrir('cueva-de-cristal', 10, 'El Secreto de la Cueva de Cristal')">
+        <img class="jf-card-img"
+             src="assets/cuentos/cueva-de-cristal/portada.jpg"
+             alt="El Secreto de la Cueva de Cristal"
+             loading="lazy"
+             onerror="this.style.opacity='0'">
+        <div class="jf-card-shade"></div>
+        <span class="jf-card-badge">Fantasía</span>
+        <div class="jf-card-body">
+          <div class="jf-card-title">El Secreto de la Cueva de Cristal</div>
+          <div class="jf-card-btns">
+            <button class="jf-btn-read"
+              onclick="event.stopPropagation();jfAbrir('cueva-de-cristal',10,'El Secreto de la Cueva de Cristal')">
+              📖 Leer
+            </button>
+            <button class="jf-btn-want"
+              onclick="event.stopPropagation();jfQuiero('El Secreto de la Cueva de Cristal')">
+              ✨ Quiero uno
+            </button>
           </div>
         </div>
       </div>
 
-      <div class="sc reveal" onclick="abrirCuento('familia',10,'Mamá, Joaquín y Facundo: La Gran Aventura')">
-        <div class="sc-cover">
-          <span class="sc-badge">Familiar</span>
-          <img src="assets/cuentos/familia/portada.jpg" alt="Familia"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="sc-ph" style="display:none">
-            <div class="sc-ph-ico">👨‍👩‍👦</div>
-            <div class="sc-ph-title">Mamá, Joaquín y Facundo: La Gran Aventura</div>
-          </div>
-        </div>
-        <div class="sc-footer">
-          <div class="sc-title">Mamá, Joaquín y Facundo: La Gran Aventura</div>
-          <div class="sc-actions">
-            <button class="sc-btn-v" onclick="event.stopPropagation();abrirCuento('familia',10,'Mamá, Joaquín y Facundo: La Gran Aventura')">📖 Ver</button>
-            <button class="sc-btn-w" onclick="event.stopPropagation();quieroUno('Mamá, Joaquín y Facundo')">✨ Quiero uno</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="sc reveal" onclick="abrirCuento('resiliencia',9,'El Vuelo de la Resiliencia')">
-        <div class="sc-cover">
-          <span class="sc-badge">Emocional</span>
-          <img src="assets/cuentos/resiliencia/portada.jpg" alt="Resiliencia"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="sc-ph" style="display:none">
-            <div class="sc-ph-ico">🦋</div>
-            <div class="sc-ph-title">El Vuelo de la Resiliencia</div>
-          </div>
-        </div>
-        <div class="sc-footer">
-          <div class="sc-title">El Vuelo de la Resiliencia</div>
-          <div class="sc-actions">
-            <button class="sc-btn-v" onclick="event.stopPropagation();abrirCuento('resiliencia',9,'El Vuelo de la Resiliencia')">📖 Ver</button>
-            <button class="sc-btn-w" onclick="event.stopPropagation();quieroUno('El Vuelo de la Resiliencia')">✨ Quiero uno</button>
+      <!-- 3 ─ Escuadrón Verde -->
+      <div class="jf-card"
+           onclick="jfAbrir('escuadron-verde', 13, 'El Escuadrón Verde')">
+        <img class="jf-card-img"
+             src="assets/cuentos/escuadron-verde/portada.jpg"
+             alt="El Escuadrón Verde"
+             loading="lazy"
+             onerror="this.style.opacity='0'">
+        <div class="jf-card-shade"></div>
+        <span class="jf-card-badge">Educativo</span>
+        <div class="jf-card-body">
+          <div class="jf-card-title">El Escuadrón Verde</div>
+          <div class="jf-card-btns">
+            <button class="jf-btn-read"
+              onclick="event.stopPropagation();jfAbrir('escuadron-verde',13,'El Escuadrón Verde')">
+              📖 Leer
+            </button>
+            <button class="jf-btn-want"
+              onclick="event.stopPropagation();jfQuiero('El Escuadrón Verde')">
+              ✨ Quiero uno
+            </button>
           </div>
         </div>
       </div>
 
-      <div class="sc reveal" onclick="abrirCuento('tesoros',10,'Facundo y los Tesoros de la Costa')">
-        <div class="sc-cover">
-          <span class="sc-badge">Aventura</span>
-          <img src="assets/cuentos/tesoros/portada.jpg" alt="Tesoros"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="sc-ph" style="display:none">
-            <div class="sc-ph-ico">🏖️</div>
-            <div class="sc-ph-title">Facundo y los Tesoros de la Costa</div>
-          </div>
-        </div>
-        <div class="sc-footer">
-          <div class="sc-title">Facundo y los Tesoros de la Costa</div>
-          <div class="sc-actions">
-            <button class="sc-btn-v" onclick="event.stopPropagation();abrirCuento('tesoros',10,'Facundo y los Tesoros de la Costa')">📖 Ver</button>
-            <button class="sc-btn-w" onclick="event.stopPropagation();quieroUno('Facundo y los Tesoros de la Costa')">✨ Quiero uno</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="sc reveal" onclick="abrirCuento('thiago',11,'Thiago: El Defensor de la Vida')">
-        <div class="sc-cover">
-          <span class="sc-badge">Fantasía</span>
-          <img src="assets/cuentos/thiago/portada.jpg" alt="Thiago"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="sc-ph" style="display:none">
-            <div class="sc-ph-ico">🚀</div>
-            <div class="sc-ph-title">Thiago: El Defensor de la Vida</div>
-          </div>
-        </div>
-        <div class="sc-footer">
-          <div class="sc-title">Thiago: El Defensor de la Vida</div>
-          <div class="sc-actions">
-            <button class="sc-btn-v" onclick="event.stopPropagation();abrirCuento('thiago',11,'Thiago: El Defensor de la Vida')">📖 Ver</button>
-            <button class="sc-btn-w" onclick="event.stopPropagation();quieroUno('Thiago: El Defensor de la Vida')">✨ Quiero uno</button>
+      <!-- 4 ─ Escuadrón Verde Guardianes -->
+      <div class="jf-card"
+           onclick="jfAbrir('escuadron-verde-guardianes-del-oceano', 12, 'Guardianes del Océano')">
+        <img class="jf-card-img"
+             src="assets/cuentos/escuadron-verde-guardianes-del-oceano/portada.jpg"
+             alt="Guardianes del Océano"
+             loading="lazy"
+             onerror="this.style.opacity='0'">
+        <div class="jf-card-shade"></div>
+        <span class="jf-card-badge">Aventura</span>
+        <div class="jf-card-body">
+          <div class="jf-card-title">Guardianes del Océano</div>
+          <div class="jf-card-btns">
+            <button class="jf-btn-read"
+              onclick="event.stopPropagation();jfAbrir('escuadron-verde-guardianes-del-oceano',12,'Guardianes del Océano')">
+              📖 Leer
+            </button>
+            <button class="jf-btn-want"
+              onclick="event.stopPropagation();jfQuiero('Guardianes del Océano')">
+              ✨ Quiero uno
+            </button>
           </div>
         </div>
       </div>
 
-      <div class="sc reveal" onclick="abrirCuento('ninja-lectura',12,'El Ninja de la Lectura')">
-        <div class="sc-cover">
-          <span class="sc-badge">¡Nuevo!</span>
-          <img src="assets/cuentos/ninja-lectura/portada.jpg" alt="Ninja de la Lectura"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="sc-ph" style="display:none">
-            <div class="sc-ph-ico">🥷</div>
-            <div class="sc-ph-title">El Ninja de la Lectura</div>
+      <!-- 5 ─ Gran Aventura Familiar -->
+      <div class="jf-card"
+           onclick="jfAbrir('gran-aventura-familiar', 10, 'La Gran Aventura Familiar')">
+        <img class="jf-card-img"
+             src="assets/cuentos/gran-aventura-familiar/portada.jpg"
+             alt="La Gran Aventura Familiar"
+             loading="lazy"
+             onerror="this.style.opacity='0'">
+        <div class="jf-card-shade"></div>
+        <span class="jf-card-badge">Familiar</span>
+        <div class="jf-card-body">
+          <div class="jf-card-title">La Gran Aventura Familiar</div>
+          <div class="jf-card-btns">
+            <button class="jf-btn-read"
+              onclick="event.stopPropagation();jfAbrir('gran-aventura-familiar',10,'La Gran Aventura Familiar')">
+              📖 Leer
+            </button>
+            <button class="jf-btn-want"
+              onclick="event.stopPropagation();jfQuiero('La Gran Aventura Familiar')">
+              ✨ Quiero uno
+            </button>
           </div>
         </div>
-        <div class="sc-footer">
-          <div class="sc-title">El Ninja de la Lectura</div>
-          <div class="sc-actions">
-            <button class="sc-btn-v" onclick="event.stopPropagation();abrirCuento('ninja-lectura',12,'El Ninja de la Lectura')">📖 Ver</button>
-            <button class="sc-btn-w" onclick="event.stopPropagation();quieroUno('El Ninja de la Lectura')">✨ Quiero uno</button>
+      </div>
+
+      <!-- 6 ─ Gran Corazón Capitán Julen -->
+      <div class="jf-card"
+           onclick="jfAbrir('gran-corazon-capitan-julen', 12, 'El Gran Corazón del Capitán Julen')">
+        <img class="jf-card-img"
+             src="assets/cuentos/gran-corazon-capitan-julen/portada.jpg"
+             alt="El Gran Corazón del Capitán Julen"
+             loading="lazy"
+             onerror="this.style.opacity='0'">
+        <div class="jf-card-shade"></div>
+        <span class="jf-card-badge">Aventura</span>
+        <div class="jf-card-body">
+          <div class="jf-card-title">El Gran Corazón del Capitán Julen</div>
+          <div class="jf-card-btns">
+            <button class="jf-btn-read"
+              onclick="event.stopPropagation();jfAbrir('gran-corazon-capitan-julen',12,'El Gran Corazón del Capitán Julen')">
+              📖 Leer
+            </button>
+            <button class="jf-btn-want"
+              onclick="event.stopPropagation();jfQuiero('El Gran Corazón del Capitán Julen')">
+              ✨ Quiero uno
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 ─ Guardián de los Colores -->
+      <div class="jf-card"
+           onclick="jfAbrir('guardian-colores-infinitos', 11, 'El Guardián de los Colores Infinitos')">
+        <img class="jf-card-img"
+             src="assets/cuentos/guardian-colores-infinitos/portada.jpg"
+             alt="El Guardián de los Colores Infinitos"
+             loading="lazy"
+             onerror="this.style.opacity='0'">
+        <div class="jf-card-shade"></div>
+        <span class="jf-card-badge">Mágico</span>
+        <div class="jf-card-body">
+          <div class="jf-card-title">El Guardián de los Colores Infinitos</div>
+          <div class="jf-card-btns">
+            <button class="jf-btn-read"
+              onclick="event.stopPropagation();jfAbrir('guardian-colores-infinitos',11,'El Guardián de los Colores Infinitos')">
+              📖 Leer
+            </button>
+            <button class="jf-btn-want"
+              onclick="event.stopPropagation();jfQuiero('El Guardián de los Colores Infinitos')">
+              ✨ Quiero uno
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 ─ Thiago -->
+      <div class="jf-card"
+           onclick="jfAbrir('thiago-defensor-universo', 11, 'Thiago: El Defensor del Universo')">
+        <img class="jf-card-img"
+             src="assets/cuentos/thiago-defensor-universo/portada.jpg"
+             alt="Thiago: El Defensor del Universo"
+             loading="lazy"
+             onerror="this.style.opacity='0'">
+        <div class="jf-card-shade"></div>
+        <span class="jf-card-badge">Fantasía</span>
+        <div class="jf-card-body">
+          <div class="jf-card-title">Thiago: El Defensor del Universo</div>
+          <div class="jf-card-btns">
+            <button class="jf-btn-read"
+              onclick="event.stopPropagation();jfAbrir('thiago-defensor-universo',11,'Thiago: El Defensor del Universo')">
+              📖 Leer
+            </button>
+            <button class="jf-btn-want"
+              onclick="event.stopPropagation();jfQuiero('Thiago: El Defensor del Universo')">
+              ✨ Quiero uno
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9 ─ Tesoros de la Costa -->
+      <div class="jf-card"
+           onclick="jfAbrir('tesoros-de-la-costa', 10, 'Tesoros de la Costa')">
+        <img class="jf-card-img"
+             src="assets/cuentos/tesoros-de-la-costa/portada.jpg"
+             alt="Tesoros de la Costa"
+             loading="lazy"
+             onerror="this.style.opacity='0'">
+        <div class="jf-card-shade"></div>
+        <span class="jf-card-badge">Aventura</span>
+        <div class="jf-card-body">
+          <div class="jf-card-title">Tesoros de la Costa</div>
+          <div class="jf-card-btns">
+            <button class="jf-btn-read"
+              onclick="event.stopPropagation();jfAbrir('tesoros-de-la-costa',10,'Tesoros de la Costa')">
+              📖 Leer
+            </button>
+            <button class="jf-btn-want"
+              onclick="event.stopPropagation();jfQuiero('Tesoros de la Costa')">
+              ✨ Quiero uno
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 ─ Vuelo de la Resiliencia -->
+      <div class="jf-card"
+           onclick="jfAbrir('vuelo-resiliencia-corazon-oro-hielo', 9, 'El Vuelo de la Resiliencia')">
+        <img class="jf-card-img"
+             src="assets/cuentos/vuelo-resiliencia-corazon-oro-hielo/portada.jpg"
+             alt="El Vuelo de la Resiliencia"
+             loading="lazy"
+             onerror="this.style.opacity='0'">
+        <div class="jf-card-shade"></div>
+        <span class="jf-card-badge">Emocional</span>
+        <div class="jf-card-body">
+          <div class="jf-card-title">El Vuelo de la Resiliencia</div>
+          <div class="jf-card-btns">
+            <button class="jf-btn-read"
+              onclick="event.stopPropagation();jfAbrir('vuelo-resiliencia-corazon-oro-hielo',9,'El Vuelo de la Resiliencia')">
+              📖 Leer
+            </button>
+            <button class="jf-btn-want"
+              onclick="event.stopPropagation();jfQuiero('El Vuelo de la Resiliencia')">
+              ✨ Quiero uno
+            </button>
           </div>
         </div>
       </div>
@@ -1296,6 +1380,48 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
     </div><!-- /cat-grid -->
   </div>
 </section>
+
+
+<!--
+═══════════════════════════════════════════════════════════
+  BLOQUE 2 — VISOR INMERSIVO
+  Pega este bloque INMEDIATAMENTE después del catálogo,
+  antes de tu sección #brief / formulario
+═══════════════════════════════════════════════════════════
+-->
+
+<div class="jf-viewer" id="jfViewer" role="dialog" aria-modal="true" aria-label="Visor de cuento">
+
+  <!-- header -->
+  <div class="jf-vhdr">
+    <img src="LOGO.png" class="jf-vhdr-logo" alt="JUFANTICS"
+         onerror="this.style.display='none'">
+    <div class="jf-vtitle" id="jfVTitle">—</div>
+    <button class="jf-vclose" id="jfVClose" aria-label="Cerrar">✕</button>
+  </div>
+
+  <!-- zona imagen — flex:1 + min-height:0 es la clave -->
+  <div class="jf-vbody" id="jfVBody">
+    <button class="jf-vnav jf-vprev" id="jfVPrev" aria-label="Página anterior">&#8249;</button>
+    <img class="jf-vimg" id="jfVImg"
+         src="" alt="Página del cuento"
+         draggable="false"
+         oncontextmenu="return false">
+    <button class="jf-vnav jf-vnext" id="jfVNext" aria-label="Página siguiente">&#8250;</button>
+  </div>
+
+  <!-- footer -->
+  <div class="jf-vftr">
+    <div class="jf-vpbar-wrap">
+      <div class="jf-vpbar">
+        <div class="jf-vpfill" id="jfVFill" style="width:0%"></div>
+      </div>
+    </div>
+    <div class="jf-vctr" id="jfVCtr">— / —</div>
+    <button class="jf-vwant" id="jfVWant">✨ Quiero uno así</button>
+  </div>
+
+</div>
 
 <!-- ═══════════════════════════════════════
      VISOR DE CUENTO
