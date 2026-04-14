@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="JUFANTICS — Cuentos personalizados únicos para niños y familias.">
+<meta name="description" content="JUFANTICS — Cuentos personalizados únicos para niños y familias. Historias que nacen de la imaginación.">
 <meta property="og:image" content="assets/hero-libro.jpg">
 <title>JUFANTICS — Historias que nacen de la imaginación</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+/* TOKENS */
 :root{
   --sky:#5AABCF;--skyl:#E8F5FB;
   --nar:#E8936A;--narl:#FBF0EB;
@@ -34,13 +35,13 @@ img{max-width:100%;display:block}
 .btn-p:hover{background:#d4783e}
 .btn-s{background:transparent;color:var(--ink);border:2px solid rgba(28,21,40,.2)}
 .btn-s:hover{border-color:var(--lav);color:var(--lav)}
- 
-/* WA */
+
+/* WA FLOAT */
 .wa-fab{position:fixed;bottom:1.5rem;right:1.5rem;z-index:900;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.5);cursor:pointer;text-decoration:none;animation:wap 2.5s ease-in-out infinite}
 .wa-fab:hover{animation:none;transform:scale(1.1)}
 .wa-fab svg{width:28px;height:28px;fill:white}
 @keyframes wap{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.5)}50%{box-shadow:0 6px 40px rgba(37,211,102,.8)}}
- 
+
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.85rem 5%;display:flex;align-items:center;justify-content:space-between;transition:background .3s,box-shadow .3s}
 .nav.solid{background:rgba(250,246,240,.97);backdrop-filter:blur(14px);box-shadow:0 2px 16px rgba(28,21,40,.08)}
@@ -66,14 +67,13 @@ img{max-width:100%;display:block}
 .drawer.open{display:flex}
 .drawer a{font-family:'Nunito',sans-serif;font-size:1.4rem;font-weight:800;color:var(--ink)}
 .drawer a:hover{color:var(--nar)}
- 
+
 /* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;padding:7rem 5% 4rem;background:linear-gradient(135deg,#EDE8FF 0%,var(--bg) 45%,#FBF0EB 100%);position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(155,142,196,.14) 0%,transparent 70%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(232,147,106,.09) 0%,transparent 70%);pointer-events:none}
 .hstar{position:absolute;animation:hfl 5s ease-in-out infinite;pointer-events:none;font-size:1.3rem}
-.hs1{top:12%;left:5%}.hs2{top:22%;right:4%;font-size:1rem;animation-delay:-1.8s}
-.hs3{bottom:28%;left:3%;font-size:1.1rem;animation-delay:-3.3s}.hs4{bottom:18%;right:7%;animation-delay:-1.1s}
+.hs1{top:12%;left:5%}.hs2{top:22%;right:4%;font-size:1rem;animation-delay:-1.8s}.hs3{bottom:28%;left:3%;font-size:1.1rem;animation-delay:-3.3s}.hs4{bottom:18%;right:7%;animation-delay:-1.1s}
 @keyframes hfl{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(12deg)}}
 .hero-left{position:relative;z-index:1}
 .hero-eye{display:inline-flex;align-items:center;gap:.4rem;font-size:.71rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--lav);margin-bottom:1.2rem}
@@ -84,41 +84,34 @@ img{max-width:100%;display:block}
 .hero-btns{display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:2.5rem}
 .hero-trust{display:flex;gap:1.8rem;flex-wrap:wrap;font-size:.79rem;color:var(--ink3)}
 .tdot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--lav);margin-right:.4rem;vertical-align:middle}
-/* libro hero */
 .hero-right{position:relative;z-index:1;height:500px;display:flex;align-items:center;justify-content:center}
 .hero-book-wrap{position:relative;animation:bookglow 6s ease-in-out infinite}
 @keyframes bookglow{
   0%,100%{transform:translateY(0) rotate(-1deg);filter:drop-shadow(0 24px 48px rgba(28,21,40,.22)) drop-shadow(0 0 30px rgba(155,142,196,.15))}
-  50%{transform:translateY(-14px) rotate(0deg);filter:drop-shadow(0 32px 56px rgba(28,21,40,.28)) drop-shadow(0 0 50px rgba(155,142,196,.25))}
-}
+  50%{transform:translateY(-14px) rotate(0deg);filter:drop-shadow(0 32px 56px rgba(28,21,40,.28)) drop-shadow(0 0 50px rgba(155,142,196,.25))}}
 .hero-book-img{width:auto;max-width:360px;max-height:460px;object-fit:contain;border-radius:8px;display:block}
 .bpart{position:absolute;font-size:1.1rem;animation:partf 4s ease-in-out infinite;pointer-events:none}
-.bp1{top:-10px;left:-20px}.bp2{top:20px;right:-25px;font-size:.9rem;animation-delay:-1.2s}
-.bp3{bottom:30px;left:-30px;animation-delay:-2.5s}.bp4{bottom:-5px;right:-15px;font-size:.85rem;animation-delay:-.8s}
-.bp5{top:50%;left:-40px;font-size:.8rem;animation-delay:-1.8s}
+.bp1{top:-10px;left:-20px}.bp2{top:20px;right:-25px;font-size:.9rem;animation-delay:-1.2s}.bp3{bottom:30px;left:-30px;animation-delay:-2.5s}.bp4{bottom:-5px;right:-15px;font-size:.85rem;animation-delay:-.8s}.bp5{top:50%;left:-40px;font-size:.8rem;animation-delay:-1.8s}
 @keyframes partf{0%,100%{transform:translateY(0) scale(1);opacity:.8}50%{transform:translateY(-8px) scale(1.1);opacity:1}}
 .fcard{position:absolute;background:white;border-radius:12px;padding:.62rem .9rem;box-shadow:var(--sh2);display:flex;align-items:center;gap:.5rem;white-space:nowrap;border:1px solid rgba(28,21,40,.04);animation:cfl 5s ease-in-out infinite}
 .fc-ico{font-size:1.2rem;flex-shrink:0}
 .fc-lbl{font-family:'Nunito',sans-serif;font-weight:800;font-size:.71rem;color:var(--ink);display:block;line-height:1.2}
 .fc-sub{font-size:.61rem;color:var(--ink3);display:block;line-height:1.2;margin-top:.04rem}
-.fc1{top:22px;left:-38px}.fc2{top:14px;right:-30px;animation-delay:-1.8s}
-.fc3{bottom:88px;left:-48px;animation-delay:-3.5s}.fc4{bottom:44px;right:-18px;animation-delay:-1.2s}
+.fc1{top:22px;left:-38px}.fc2{top:14px;right:-30px;animation-delay:-1.8s}.fc3{bottom:88px;left:-48px;animation-delay:-3.5s}.fc4{bottom:44px;right:-18px;animation-delay:-1.2s}
 @keyframes cfl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
- 
+
 /* MEANING */
 .meaning{background:var(--ink)}
 .mg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:3rem}
 .mc{border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:2rem 1.6rem;text-align:center;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
 .mc:hover{border-color:rgba(255,255,255,.2);transform:translateY(-5px)}
 .mc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.mc-sky::before{background:linear-gradient(90deg,var(--sky),#3A8FAF)}
-.mc-nar::before{background:linear-gradient(90deg,var(--nar),#c4623e)}
-.mc-lav::before{background:linear-gradient(90deg,var(--lav),#7B5EA7)}
+.mc-sky::before{background:linear-gradient(90deg,var(--sky),#3A8FAF)}.mc-nar::before{background:linear-gradient(90deg,var(--nar),#c4623e)}.mc-lav::before{background:linear-gradient(90deg,var(--lav),#7B5EA7)}
 .mc-let{font-family:'Nunito',sans-serif;font-weight:900;font-size:3.5rem;line-height:1;margin-bottom:.4rem}
 .mc-sky .mc-let{color:var(--sky)}.mc-nar .mc-let{color:var(--nar)}.mc-lav .mc-let{color:var(--lav)}
 .mc-word{font-family:'Nunito',sans-serif;font-weight:800;font-size:.9rem;color:rgba(255,255,255,.9);margin-bottom:.6rem}
 .mc-desc{font-size:.84rem;color:rgba(255,255,255,.48);line-height:1.65}
- 
+
 /* PILARES */
 .pillars{background:white}
 .pg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
@@ -132,10 +125,8 @@ img{max-width:100%;display:block}
 .pc-title{font-family:'Nunito',sans-serif;font-weight:900;font-size:.97rem;color:var(--ink);margin-bottom:.45rem}
 .pc-desc{font-size:.84rem;color:var(--ink2);line-height:1.65}
 .pc-badge{display:inline-block;margin-top:.8rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:.67rem;padding:.22rem .75rem;border-radius:50px}
-.pc-sky .pc-badge{background:rgba(90,171,207,.15);color:var(--sky)}
-.pc-nar .pc-badge{background:rgba(232,147,106,.15);color:var(--nar)}
-.pc-lav .pc-badge{background:rgba(155,142,196,.15);color:var(--lav)}
- 
+.pc-sky .pc-badge{background:rgba(90,171,207,.15);color:var(--sky)}.pc-nar .pc-badge{background:rgba(232,147,106,.15);color:var(--nar)}.pc-lav .pc-badge{background:rgba(155,142,196,.15);color:var(--lav)}
+
 /* HOW */
 .how{background:var(--bg2)}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;position:relative}
@@ -146,759 +137,181 @@ img{max-width:100%;display:block}
 .step-n{position:absolute;top:-4px;right:-4px;width:19px;height:19px;border-radius:50%;background:var(--ink);color:var(--bg);font-family:'Nunito',sans-serif;font-weight:900;font-size:.58rem;display:flex;align-items:center;justify-content:center}
 .step-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:.93rem;color:var(--ink);margin-bottom:.3rem}
 .step-desc{font-size:.82rem;color:var(--ink3);line-height:1.55}
- 
+
 /* CATÁLOGO NETFLIX */
-.catalog{background:var(--bg)}
-.cat-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;gap:1rem;flex-wrap:wrap}
-.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
-.sc{position:relative;border-radius:var(--r);overflow:hidden;cursor:pointer;background:var(--ink);box-shadow:var(--sh);transition:transform .4s cubic-bezier(.2,.8,.3,1),box-shadow .4s}
-.sc:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 24px 60px rgba(28,21,40,.22)}
-.sc-cover{position:relative;overflow:hidden;aspect-ratio:3/4;width:100%}
-.sc-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
-.sc:hover .sc-cover img{transform:scale(1.08)}
-.sc-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(145deg,#EDE8FF,var(--bg));gap:.5rem;padding:1.2rem;text-align:center}
-.sc-ph-ico{font-size:3rem}
-.sc-ph-title{font-family:'Cormorant Garamond',serif;font-size:.9rem;font-weight:700;color:var(--ink);line-height:1.3}
-.sc-badge{position:absolute;top:10px;left:10px;z-index:2;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.35);color:white;font-family:'Nunito',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.5px;text-transform:uppercase;padding:.22rem .72rem;border-radius:50px}
-.sc-footer{position:absolute;left:0;right:0;bottom:0;z-index:4;background:linear-gradient(180deg,transparent 0%,rgba(28,21,40,.92) 100%);padding:2.5rem 1rem 1rem}
-.sc-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1rem;color:white;line-height:1.3;margin-bottom:.6rem}
-.sc-actions{display:flex;gap:.45rem;flex-wrap:wrap}
-.sc-btn-v{flex:1;font-family:'Nunito',sans-serif;font-weight:800;font-size:.73rem;padding:.5rem .8rem;border-radius:50px;background:white;color:var(--ink);border:none;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:.3rem}
-.sc-btn-v:hover{background:var(--lav);color:white}
-.sc-btn-w{font-family:'Nunito',sans-serif;font-weight:700;font-size:.73rem;padding:.5rem .8rem;border-radius:50px;background:rgba(232,147,106,.9);color:white;border:none;cursor:pointer;transition:background .2s;white-space:nowrap}
-.sc-btn-w:hover{background:var(--nar)}
- 
-/* VISOR — imagen nunca se corta */
-.viewer{position:fixed;inset:0;z-index:500;background:rgba(12,9,20,.96);display:none;flex-direction:column}
-.viewer.open{display:flex}
-.vhdr{flex-shrink:0;display:flex;align-items:center;padding:.7rem 1rem;background:rgba(28,21,40,.85);backdrop-filter:blur(10px);gap:.8rem;border-bottom:1px solid rgba(255,255,255,.08)}
-.vhdr-logo{height:28px;width:auto}
-.vtitle{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:white;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.vclose{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.1);border:none;color:white;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;flex-shrink:0}
-.vclose:hover{background:rgba(255,255,255,.22)}
-/* CLAVE: flex:1 + min-height:0 → imagen nunca se corta */
-.vbody{flex:1;min-height:0;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.vnav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(28,21,40,.65);backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.15);color:white;font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;z-index:2;user-select:none}
-.vnav:hover{background:var(--lav);transform:translateY(-50%) scale(1.08)}
-.vnav:disabled{opacity:.2;cursor:default;pointer-events:none}
-.vprev{left:1rem}.vnext{right:1rem}
-/* imagen completa, sin cortes */
-.vimg{max-width:calc(100% - 7rem);max-height:100%;width:auto;height:auto;object-fit:contain;display:block;border-radius:4px;box-shadow:0 8px 48px rgba(0,0,0,.5);transition:opacity .22s ease;user-select:none;pointer-events:none;-webkit-user-drag:none}
-.vimg.fade{opacity:0}
-.vftr{flex-shrink:0;display:flex;align-items:center;gap:.9rem;padding:.6rem 1rem;background:rgba(28,21,40,.85);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.08)}
-.vpbar-wrap{flex:1}
-.vpbar{width:100%;height:3px;border-radius:2px;background:rgba(255,255,255,.12);overflow:hidden}
-.vpfill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--lav),var(--nar));transition:width .3s ease}
-.vctr{font-family:'Nunito',sans-serif;font-weight:700;font-size:.78rem;color:rgba(255,255,255,.5);white-space:nowrap}
-.vwant{font-family:'Nunito',sans-serif;font-weight:800;font-size:.76rem;padding:.48rem 1rem;border-radius:50px;background:var(--nar);color:white;border:none;cursor:pointer;transition:background .2s;white-space:nowrap;flex-shrink:0}
-.vwant:hover{background:#d4783e}
-.vhint{position:absolute;bottom:4.5rem;left:50%;transform:translateX(-50%);font-family:'Nunito',sans-serif;font-weight:700;font-size:.72rem;color:rgba(255,255,255,.5);background:rgba(28,21,40,.6);backdrop-filter:blur(6px);padding:.35rem .9rem;border-radius:50px;pointer-events:none;z-index:3;animation:hintin 3.5s ease forwards}
-@keyframes hintin{0%{opacity:0;transform:translateX(-50%) translateY(6px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}75%{opacity:1}100%{opacity:0}}
+.catalog{background:var(--bg);padding:5.5rem 0 6rem}
+.nx-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.8rem;gap:1rem;flex-wrap:wrap}
+.nx-eyebrow{font-size:.67rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--nar);display:block;margin-bottom:.35rem}
+.nx-head h2{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.1;color:var(--ink)}
+.nx-head p{font-size:.93rem;color:var(--ink3);margin-top:.4rem;max-width:440px}
+.nx-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.1rem}
+.nx-card{position:relative;border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:3/4;background:var(--bg2);box-shadow:0 3px 16px rgba(28,21,40,.12);isolation:isolate;transition:transform .38s cubic-bezier(.15,.9,.3,1),box-shadow .38s ease}
+.nx-card:hover{transform:translateY(-12px) scale(1.04);box-shadow:0 24px 56px rgba(28,21,40,.32),0 0 0 1.5px rgba(155,142,196,.4);z-index:10}
+.nx-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .5s ease}
+.nx-card:hover .nx-cover{transform:scale(1.06)}
+.nx-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,transparent 42%,rgba(28,21,40,.5) 68%,rgba(28,21,40,.94) 100%)}
+.nx-badge{position:absolute;top:9px;left:9px;z-index:3;font-family:'Nunito',sans-serif;font-weight:700;font-size:.58rem;letter-spacing:.9px;text-transform:uppercase;color:white;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.28);padding:.2rem .6rem;border-radius:50px}
+.nx-foot{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:1.5rem .85rem .85rem}
+.nx-card-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:.93rem;color:white;line-height:1.28;margin-bottom:.55rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.nx-btns{display:flex;gap:.35rem;opacity:0;transform:translateY(8px);transition:opacity .22s ease,transform .22s ease;pointer-events:none}
+.nx-card:hover .nx-btns{opacity:1;transform:translateY(0);pointer-events:auto}
+.nx-btn-leer{flex:1;font-family:'Nunito',sans-serif;font-weight:800;font-size:.68rem;padding:.44rem .5rem;border-radius:50px;background:white;color:var(--ink);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.25rem;transition:background .18s,color .18s;white-space:nowrap}
+.nx-btn-leer:hover{background:var(--lav);color:white}
+.nx-btn-quiero{font-family:'Nunito',sans-serif;font-weight:700;font-size:.68rem;padding:.44rem .6rem;border-radius:50px;background:rgba(232,147,106,.88);color:white;border:none;cursor:pointer;transition:background .18s;white-space:nowrap}
+.nx-btn-quiero:hover{background:var(--nar)}
 
-/* =============================================
-   FORMULARIO
-   ============================================= */
-.brief { background: var(--ink); position: relative; overflow: hidden; }
-.brief::before {
-  content: ''; position: absolute; top: 0; right: 0;
-  width: 400px; height: 400px;
-  background: radial-gradient(ellipse, rgba(155,142,196,.1) 0%, transparent 70%);
-  pointer-events: none;
-}
-.brief-in {
-  display: grid; grid-template-columns: 1.1fr 1fr;
-  gap: 4rem; align-items: start; position: relative; z-index: 1;
-}
-.bqs { margin-top: 2rem; }
-.bq {
-  display: flex; gap: .8rem; align-items: flex-start;
-  padding: .72rem 0; border-bottom: 1px solid rgba(255,255,255,.06);
-}
-.bq:last-child { border-bottom: none; }
-.bq-n {
-  width: 27px; height: 27px; flex-shrink: 0;
-  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
-  border-radius: 50%; font-family: 'Nunito', sans-serif;
-  font-weight: 900; font-size: .7rem; color: var(--nar);
-  display: flex; align-items: center; justify-content: center;
-}
-.bq-t { color: rgba(255,255,255,.62); font-size: .86rem; line-height: 1.5; padding-top: .28rem; }
-.bq-t strong { color: var(--sky); font-weight: 700; }
-.fbox {
-  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
-  border-radius: var(--r); padding: 2rem;
-}
-.fbox-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem; font-weight: 700; color: white; margin-bottom: .35rem;
-}
-.fbox-sub { font-size: .81rem; color: rgba(255,255,255,.38); margin-bottom: 1.5rem; }
-.fg { margin-bottom: .88rem; }
-.fg label {
-  display: block; font-size: .67rem; font-weight: 700;
-  letter-spacing: 1px; text-transform: uppercase;
-  color: rgba(255,255,255,.38); margin-bottom: .36rem;
-}
-.fg input, .fg textarea {
-  width: 100%; padding: .7rem .92rem;
-  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
-  border-radius: 9px; color: white;
-  font-family: 'DM Sans', sans-serif; font-size: .9rem;
-  outline: none; transition: border-color .2s, background .2s;
-}
-.fg input::placeholder, .fg textarea::placeholder { color: rgba(255,255,255,.2); }
-.fg input:focus, .fg textarea:focus {
-  border-color: rgba(155,142,196,.5); background: rgba(255,255,255,.1);
-}
-.fg textarea { resize: vertical; min-height: 66px; }
-.cblabel {
-  display: block; font-size: .67rem; font-weight: 700;
-  letter-spacing: 1px; text-transform: uppercase;
-  color: rgba(255,255,255,.38); margin-bottom: .36rem;
-}
-.cbhint { font-size: .66rem; color: rgba(255,255,255,.24); margin-bottom: .58rem; display: block; }
-.cbg { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
-.ci {
-  display: flex; align-items: center; gap: .48rem;
-  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
-  border-radius: 8px; padding: .5rem .82rem; cursor: pointer;
-  transition: background .2s, border-color .2s; position: relative;
-}
-.ci input[type=checkbox] { position: absolute; opacity: 0; width: 0; height: 0; }
-.cbox {
-  width: 16px; height: 16px; flex-shrink: 0;
-  border: 2px solid rgba(255,255,255,.24); border-radius: 4px;
-  background: transparent; display: flex; align-items: center; justify-content: center;
-  transition: background .15s, border-color .15s;
-}
-.cbox::after { content: '✓'; font-size: .6rem; color: transparent; font-weight: 900; transition: color .15s; }
-.ci input:checked ~ .cbox { background: var(--lav); border-color: var(--lav); }
-.ci input:checked ~ .cbox::after { color: white; }
-.ci:has(input:checked) { background: rgba(155,142,196,.15); border-color: rgba(155,142,196,.35); }
-.ci input:disabled ~ .cbox { border-color: rgba(255,255,255,.1); opacity: .5; }
-.cbtxt { font-size: .81rem; color: rgba(255,255,255,.7); line-height: 1; user-select: none; }
-.btn-wa {
-  width: 100%; justify-content: center; padding: .92rem;
-  background: #25D366; color: white;
-  font-family: 'Nunito', sans-serif; font-weight: 900; font-size: .93rem;
-  display: flex; align-items: center; gap: .5rem;
-  margin-top: .5rem; border: none; border-radius: 50px; cursor: pointer;
-  transition: transform .2s, box-shadow .2s, background .2s;
-}
-.btn-wa:hover { background: #1da855; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,.4); }
-.btn-mail {
-  width: 100%; justify-content: center; padding: .8rem;
-  background: var(--lav); color: white;
-  font-family: 'Nunito', sans-serif; font-weight: 900; font-size: .93rem;
-  display: flex; align-items: center; gap: .5rem;
-  margin-top: .44rem; border: none; border-radius: 50px; cursor: pointer;
-  transition: transform .2s, background .2s;
-}
-.btn-mail:hover { background: #7B5EA7; transform: translateY(-2px); }
-.fnote { font-size: .7rem; color: rgba(255,255,255,.26); margin-top: .5rem; font-style: italic; line-height: 1.5; }
+/* VISOR — imagen nunca cortada */
+.nx-viewer{position:fixed;inset:0;z-index:9999;background:rgba(8,5,15,.97);display:none;flex-direction:column}
+.nx-viewer.open{display:flex;animation:nxIn .2s ease}
+@keyframes nxIn{from{opacity:0}to{opacity:1}}
+.nx-vhdr{flex-shrink:0;display:flex;align-items:center;gap:.75rem;padding:.65rem 1.1rem;background:rgba(18,12,28,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nx-vlogo{height:25px;width:auto;opacity:.88;flex-shrink:0}
+.nx-vtitle{font-family:'Cormorant Garamond',serif;font-size:.98rem;font-weight:700;color:rgba(255,255,255,.9);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nx-vclose{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
+.nx-vclose:hover{background:rgba(232,147,106,.75);color:white;border-color:transparent}
+/* flex:1 + min-height:0 = imagen NUNCA se corta */
+.nx-vbody{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:.4rem 0}
+.nx-vnav{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:44px;height:44px;border-radius:50%;background:rgba(18,12,28,.65);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.15);color:white;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;user-select:none}
+.nx-vnav:hover{background:var(--lav);transform:translateY(-50%) scale(1.1)}
+.nx-vnav:disabled{opacity:.18;pointer-events:none}
+.nx-vprev{left:.8rem}.nx-vnext{right:.8rem}
+.nx-vimg{max-width:calc(100% - 6rem);max-height:100%;width:auto;height:auto;object-fit:contain;display:block;border-radius:3px;box-shadow:0 8px 48px rgba(0,0,0,.65);transition:opacity .2s ease;user-select:none;pointer-events:none;-webkit-user-drag:none}
+.nx-vimg.nx-fade{opacity:0}
+.nx-vhint{position:absolute;bottom:3.8rem;left:50%;transform:translateX(-50%);font-family:'Nunito',sans-serif;font-weight:700;font-size:.68rem;color:rgba(255,255,255,.42);background:rgba(18,12,28,.55);backdrop-filter:blur(6px);padding:.3rem .82rem;border-radius:50px;pointer-events:none;z-index:10;white-space:nowrap;animation:nxHint 3.8s ease forwards}
+@keyframes nxHint{0%{opacity:0;transform:translateX(-50%) translateY(5px)}10%{opacity:1;transform:translateX(-50%) translateY(0)}75%{opacity:1}100%{opacity:0}}
+.nx-vftr{flex-shrink:0;display:flex;align-items:center;gap:.8rem;padding:.5rem 1.1rem;background:rgba(18,12,28,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.07)}
+.nx-pbar-w{flex:1}
+.nx-pbar{height:3px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
+.nx-pfill{height:100%;background:linear-gradient(90deg,var(--lav),var(--nar));border-radius:2px;transition:width .3s ease}
+.nx-ctr{font-family:'Nunito',sans-serif;font-weight:700;font-size:.74rem;color:rgba(255,255,255,.42);min-width:44px;text-align:right;white-space:nowrap}
+.nx-vwant{font-family:'Nunito',sans-serif;font-weight:800;font-size:.73rem;padding:.42rem .92rem;border-radius:50px;background:var(--nar);color:white;border:none;cursor:pointer;flex-shrink:0;transition:background .2s,transform .18s;white-space:nowrap}
+.nx-vwant:hover{background:#d4783e;transform:translateY(-1px)}
 
-/* =============================================
-   PATRICIA (AUTORA)
-   ============================================= */
-.patricia { background: white; }
-.pat-g { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; }
-/* foto real */
-.pat-img-wrap {
-  display: flex; flex-direction: column; align-items: center; gap: .8rem;
-}
-.pat-photo {
-  width: 260px; height: 260px; border-radius: 50%;
-  object-fit: cover; object-position: center top;
-  box-shadow: var(--sh2), 0 0 0 10px var(--bg2);
-  display: block;
-  animation: pfloat 7s ease-in-out infinite;
-}
-/* fallback si no hay foto */
-.pat-photo-fallback {
-  width: 260px; height: 260px; border-radius: 50%;
-  background: linear-gradient(145deg, var(--skyl), var(--lavl));
-  display: none; align-items: center; justify-content: center;
-  font-size: 6.8rem; box-shadow: var(--sh2), 0 0 0 10px var(--bg2);
-  animation: pfloat 7s ease-in-out infinite;
-}
-@keyframes pfloat {
-  0%,100% { transform: translateY(0); }
-  50%      { transform: translateY(-10px); }
-}
-.pat-badge {
-  background: var(--nar); color: white;
-  font-family: 'Nunito', sans-serif; font-weight: 800;
-  font-size: .73rem; padding: .38rem .95rem; border-radius: 50px;
-  box-shadow: var(--sh); display: inline-block;
-}
-.pat-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.95rem; font-weight: 700; color: var(--ink); margin-bottom: .2rem;
-}
-.pat-role { color: var(--nar); font-size: .85rem; font-weight: 500; margin-bottom: 1.15rem; }
-.pat-text { color: var(--ink2); line-height: 1.8; margin-bottom: .75rem; font-size: .94rem; }
-.pat-quote {
-  font-family: 'Cormorant Garamond', serif; font-style: italic;
-  font-size: 1.12rem; color: var(--lav); line-height: 1.5;
-  margin: 1.15rem 0; padding-left: 1rem;
-  border-left: 3px solid var(--lavl);
-}
-.pat-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1.1rem; }
-.pat-chip {
-  background: var(--bg2); color: var(--ink2);
-  border: 1px solid var(--bg3); font-size: .73rem; font-weight: 600;
-  padding: .28rem .78rem; border-radius: 50px;
-  transition: background .2s, color .2s;
-}
-.pat-chip:hover { background: var(--lavl); color: var(--lav); }
+/* FORMULARIO */
+.brief{background:var(--ink);position:relative;overflow:hidden}
+.brief::before{content:'';position:absolute;top:0;right:0;width:400px;height:400px;background:radial-gradient(ellipse,rgba(155,142,196,.1) 0%,transparent 70%);pointer-events:none}
+.brief-in{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:start;position:relative;z-index:1}
+.bqs{margin-top:2rem}
+.bq{display:flex;gap:.8rem;align-items:flex-start;padding:.72rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.bq:last-child{border-bottom:none}
+.bq-n{width:27px;height:27px;flex-shrink:0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:50%;font-family:'Nunito',sans-serif;font-weight:900;font-size:.7rem;color:var(--nar);display:flex;align-items:center;justify-content:center}
+.bq-t{color:rgba(255,255,255,.62);font-size:.86rem;line-height:1.5;padding-top:.28rem}
+.bq-t strong{color:var(--sky);font-weight:700}
+.fbox{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:2rem}
+.fbox-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:white;margin-bottom:.35rem}
+.fbox-sub{font-size:.81rem;color:rgba(255,255,255,.38);margin-bottom:1.5rem}
+.fg{margin-bottom:.88rem}
+.fg label{display:block;font-size:.67rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:.36rem}
+.fg input,.fg textarea{width:100%;padding:.7rem .92rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:9px;color:white;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s,background .2s}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.2)}
+.fg input:focus,.fg textarea:focus{border-color:rgba(155,142,196,.5);background:rgba(255,255,255,.1)}
+.fg textarea{resize:vertical;min-height:66px}
+.cblabel{display:block;font-size:.67rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:.36rem}
+.cbhint{font-size:.66rem;color:rgba(255,255,255,.24);margin-bottom:.58rem;display:block}
+.cbg{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.ci{display:flex;align-items:center;gap:.48rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.5rem .82rem;cursor:pointer;transition:background .2s,border-color .2s;position:relative}
+.ci input[type=checkbox]{position:absolute;opacity:0;width:0;height:0}
+.cbox{width:16px;height:16px;flex-shrink:0;border:2px solid rgba(255,255,255,.24);border-radius:4px;background:transparent;display:flex;align-items:center;justify-content:center;transition:background .15s,border-color .15s}
+.cbox::after{content:'✓';font-size:.6rem;color:transparent;font-weight:900;transition:color .15s}
+.ci input:checked~.cbox{background:var(--lav);border-color:var(--lav)}
+.ci input:checked~.cbox::after{color:white}
+.ci:has(input:checked){background:rgba(155,142,196,.15);border-color:rgba(155,142,196,.35)}
+.ci input:disabled~.cbox{border-color:rgba(255,255,255,.1);opacity:.5}
+.cbtxt{font-size:.81rem;color:rgba(255,255,255,.7);line-height:1;user-select:none}
+.btn-wa{width:100%;justify-content:center;padding:.92rem;background:#25D366;color:white;font-family:'Nunito',sans-serif;font-weight:900;font-size:.93rem;display:flex;align-items:center;gap:.5rem;margin-top:.5rem;border:none;border-radius:50px;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.btn-wa:hover{background:#1da855;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.4)}
+.btn-mail{width:100%;justify-content:center;padding:.8rem;background:var(--lav);color:white;font-family:'Nunito',sans-serif;font-weight:900;font-size:.93rem;display:flex;align-items:center;gap:.5rem;margin-top:.44rem;border:none;border-radius:50px;cursor:pointer;transition:transform .2s,background .2s}
+.btn-mail:hover{background:#7B5EA7;transform:translateY(-2px)}
+.fnote{font-size:.7rem;color:rgba(255,255,255,.26);margin-top:.5rem;font-style:italic;line-height:1.5}
 
-/* =============================================
-   TESTIMONIOS
-   ============================================= */
-.testi { background: var(--bg2); }
-.tg { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.3rem; }
-.tc {
-  background: white; border: 1px solid var(--bg3);
-  border-radius: var(--r); padding: 1.8rem;
-  position: relative; transition: transform .3s, box-shadow .3s;
-}
-.tc:hover { transform: translateY(-5px); box-shadow: var(--sh); }
-.tc::before {
-  content: '\201C'; position: absolute;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 5rem; line-height: 1; top: .3rem; left: 1rem;
-  color: rgba(28,21,40,.05);
-}
-.tc-stars { color: #F9D423; letter-spacing: 2px; font-size: .92rem; margin-bottom: .8rem; }
-.tc-text {
-  font-family: 'Cormorant Garamond', serif; font-style: italic;
-  font-size: 1.04rem; color: var(--ink2); line-height: 1.7; margin-bottom: 1.15rem;
-}
-.tc-auth { display: flex; align-items: center; gap: .68rem; }
-.tc-av {
-  width: 37px; height: 37px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
-}
-.av1 { background: var(--skyl); } .av2 { background: var(--narl); } .av3 { background: var(--lavl); }
-.tc-name { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .83rem; color: var(--ink); }
-.tc-role { font-size: .71rem; color: var(--ink3); }
+/* PATRICIA */
+.patricia{background:white}
+.pat-g{display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:center}
+.pat-img-wrap{display:flex;flex-direction:column;align-items:center;gap:.8rem}
+.pat-photo{width:260px;height:260px;border-radius:50%;object-fit:cover;object-position:center top;box-shadow:var(--sh2),0 0 0 10px var(--bg2);display:block;animation:pfloat 7s ease-in-out infinite}
+.pat-photo-fb{width:260px;height:260px;border-radius:50%;background:linear-gradient(145deg,var(--skyl),var(--lavl));display:none;align-items:center;justify-content:center;font-size:6.8rem;box-shadow:var(--sh2),0 0 0 10px var(--bg2);animation:pfloat 7s ease-in-out infinite}
+@keyframes pfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.pat-badge{background:var(--nar);color:white;font-family:'Nunito',sans-serif;font-weight:800;font-size:.73rem;padding:.38rem .95rem;border-radius:50px;box-shadow:var(--sh);display:inline-block}
+.pat-name{font-family:'Cormorant Garamond',serif;font-size:1.95rem;font-weight:700;color:var(--ink);margin-bottom:.2rem}
+.pat-role{color:var(--nar);font-size:.85rem;font-weight:500;margin-bottom:1.15rem}
+.pat-text{color:var(--ink2);line-height:1.8;margin-bottom:.75rem;font-size:.94rem}
+.pat-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.12rem;color:var(--lav);line-height:1.5;margin:1.15rem 0;padding-left:1rem;border-left:3px solid var(--lavl)}
+.pat-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem}
+.pat-chip{background:var(--bg2);color:var(--ink2);border:1px solid var(--bg3);font-size:.73rem;font-weight:600;padding:.28rem .78rem;border-radius:50px;transition:background .2s,color .2s}
+.pat-chip:hover{background:var(--lavl);color:var(--lav)}
 
-/* =============================================
-   CTA FINAL
-   ============================================= */
-.cta {
-  background: linear-gradient(145deg, var(--lavl), var(--bg) 50%, var(--narl));
-  position: relative; overflow: hidden;
-}
-.cta-c { text-align: center; max-width: 590px; margin: 0 auto; position: relative; z-index: 1; }
-.cta-btns { display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; }
+/* TESTIMONIOS */
+.testi{background:var(--bg2)}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.tc{background:white;border:1px solid var(--bg3);border-radius:var(--r);padding:1.8rem;position:relative;transition:transform .3s,box-shadow .3s}
+.tc:hover{transform:translateY(-5px);box-shadow:var(--sh)}
+.tc::before{content:'\201C';position:absolute;font-family:'Cormorant Garamond',serif;font-size:5rem;line-height:1;top:.3rem;left:1rem;color:rgba(28,21,40,.05)}
+.tc-stars{color:#F9D423;letter-spacing:2px;font-size:.92rem;margin-bottom:.8rem}
+.tc-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.04rem;color:var(--ink2);line-height:1.7;margin-bottom:1.15rem}
+.tc-auth{display:flex;align-items:center;gap:.68rem}
+.tc-av{width:37px;height:37px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.av1{background:var(--skyl)}.av2{background:var(--narl)}.av3{background:var(--lavl)}
+.tc-name{font-family:'Nunito',sans-serif;font-weight:800;font-size:.83rem;color:var(--ink)}
+.tc-role{font-size:.71rem;color:var(--ink3)}
 
-/* =============================================
-   FOOTER
-   ============================================= */
-footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5% 0; }
-.fg2 {
-  display: grid; grid-template-columns: 2fr 1fr 1fr;
-  gap: 3rem; padding-bottom: 2.5rem;
-  border-bottom: 1px solid rgba(255,255,255,.07);
-}
-.fbrand { display: flex; align-items: center; gap: .5rem; margin-bottom: .5rem; }
-.fblogo { height: 33px; width: auto; }
-.fbname {
-  font-family: 'Nunito', sans-serif; font-weight: 900;
-  font-size: 1.18rem; letter-spacing: -.3px; color: white;
-}
-.fb1 { color: var(--sky); } .fb2 { color: var(--nar); } .fb3 { color: var(--lav); }
-.ftag {
-  font-family: 'Cormorant Garamond', serif; font-style: italic;
-  font-size: .88rem; color: rgba(255,255,255,.33);
-  margin-bottom: 1.2rem; line-height: 1.5;
-}
-.fsocs { display: flex; gap: .5rem; }
-.fsoc {
-  width: 33px; height: 33px; border-radius: 50%;
-  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; transition: background .2s, transform .2s;
-  font-size: .82rem; color: white; text-decoration: none;
-}
-.fsoc:hover { background: var(--nar); transform: scale(1.1); }
-.fcol h5 {
-  font-family: 'Nunito', sans-serif; font-weight: 800;
-  color: rgba(255,255,255,.8); font-size: .75rem;
-  letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem;
-}
-.fcol a {
-  display: block; font-size: .81rem; color: rgba(255,255,255,.4);
-  margin-bottom: .58rem; transition: color .2s; text-decoration: none;
-}
-.fcol a:hover { color: var(--sky); }
-.fbot {
-  padding: 1.3rem 0 2rem;
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: .5rem; font-size: .73rem;
-}
-.ftics {
-  font-family: 'Nunito', sans-serif; font-weight: 700;
-  font-size: .66rem; letter-spacing: .4px; color: rgba(255,255,255,.2);
-}
-.fcopy {
-  background: rgba(232,147,106,.08); border: 1px solid rgba(232,147,106,.15);
-  border-radius: 9px; padding: .78rem 1.2rem;
-  display: flex; align-items: flex-start; gap: .6rem; margin-bottom: 1rem;
-}
-.fcopy-t { font-size: .76rem; color: rgba(255,255,255,.4); line-height: 1.55; }
-.fcopy-t strong { color: rgba(255,255,255,.62); }
+/* CTA */
+.cta{background:linear-gradient(145deg,var(--lavl),var(--bg) 50%,var(--narl));position:relative;overflow:hidden}
+.cta-c{text-align:center;max-width:590px;margin:0 auto;position:relative;z-index:1}
+.cta-btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
 
-/* =============================================
-   RESPONSIVE
-   ============================================= */
-@media (max-width: 1024px) {
-  .cat-grid { grid-template-columns: repeat(3,1fr); }
-}
-@media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; text-align: center; padding-top: 6.5rem; gap: 2rem; }
-  .hero-sub, .hero-trust, .hero-btns { margin-left: auto; margin-right: auto; justify-content: center; }
-  .hero-right { order: -1; height: 380px; }
-  .mg, .tg   { grid-template-columns: 1fr 1fr; }
-  .pg, .steps { grid-template-columns: 1fr 1fr; }
-  .steps::after { display: none; }
-  .cat-grid  { grid-template-columns: repeat(2,1fr); }
-  .brief-in, .pat-g, .fg2 { grid-template-columns: 1fr; gap: 2.5rem; }
-  .nav-links { display: none; }
-  .ham       { display: flex; }
-  .vimg { max-width: calc(100% - 5rem); }
-  .vnav { width: 38px; height: 38px; font-size: 1.1rem; }
-  .vprev { left: .5rem; } .vnext { right: .5rem; }
-}
-@media (max-width: 600px) {
-  .mg, .tg, .pg { grid-template-columns: 1fr; }
-  .cat-grid { grid-template-columns: 1fr 1fr; gap: .9rem; }
-  .cta-btns { flex-direction: column; align-items: center; }
-  .cbg { grid-template-columns: 1fr; }
-  .hero-right { height: 300px; }
-  .hero-book-img { max-width: 240px; }
-  .fc1,.fc2,.fc3,.fc4 { display: none; }
-  .vimg { max-width: calc(100% - 4rem); }
-  .vnav { width: 34px; height: 34px; font-size: 1rem; }
-  .vprev { left: .3rem; } .vnext { right: .3rem; }
-}
-@media (max-width: 400px) {
-  .cat-grid { grid-template-columns: 1fr; }
-}
-/* ═══════════════════════════════════════════════════
-   JUFANTICS — CATÁLOGO + VISOR
-   Prefijo "nx-" en todas las clases nuevas.
-   No toca ninguna clase existente en tu web.
-═══════════════════════════════════════════════════ */
+/* FOOTER */
+footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3.5rem 5% 0}
+.fg2{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.fbrand{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem}
+.fblogo{height:33px;width:auto}
+.fbname{font-family:'Nunito',sans-serif;font-weight:900;font-size:1.18rem;letter-spacing:-.3px;color:white}
+.fb1{color:var(--sky)}.fb2{color:var(--nar)}.fb3{color:var(--lav)}
+.ftag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.88rem;color:rgba(255,255,255,.33);margin-bottom:1.2rem;line-height:1.5}
+.fsocs{display:flex;gap:.5rem}
+.fsoc{width:33px;height:33px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,transform .2s;font-size:.82rem;color:white;text-decoration:none}
+.fsoc:hover{background:var(--nar);transform:scale(1.1)}
+.fcol h5{font-family:'Nunito',sans-serif;font-weight:800;color:rgba(255,255,255,.8);font-size:.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem}
+.fcol a{display:block;font-size:.81rem;color:rgba(255,255,255,.4);margin-bottom:.58rem;transition:color .2s;text-decoration:none}
+.fcol a:hover{color:var(--sky)}
+.fbot{padding:1.3rem 0 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;font-size:.73rem}
+.ftics{font-family:'Nunito',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.4px;color:rgba(255,255,255,.2)}
+.fcopy{background:rgba(232,147,106,.08);border:1px solid rgba(232,147,106,.15);border-radius:9px;padding:.78rem 1.2rem;display:flex;align-items:flex-start;gap:.6rem;margin-bottom:1rem}
+.fcopy-t{font-size:.76rem;color:rgba(255,255,255,.4);line-height:1.55}
+.fcopy-t strong{color:rgba(255,255,255,.62)}
 
-/* ── Cabecera de sección ── */
-.nx-head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 2.8rem;
-  gap: 1rem;
-  flex-wrap: wrap;
+/* RESPONSIVE */
+@media(max-width:1280px){.nx-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:1024px){.nx-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;text-align:center;padding-top:6.5rem;gap:2rem}
+  .hero-sub,.hero-trust,.hero-btns{margin-left:auto;margin-right:auto;justify-content:center}
+  .hero-right{order:-1;height:360px}
+  .mg,.tg{grid-template-columns:1fr 1fr}
+  .pg,.steps{grid-template-columns:1fr 1fr}
+  .steps::after{display:none}
+  .brief-in,.pat-g,.fg2{grid-template-columns:1fr;gap:2.5rem}
+  .nav-links{display:none}.ham{display:flex}
+  .nx-vimg{max-width:calc(100% - 4.5rem)}
+  .nx-vnav{width:36px;height:36px;font-size:1.1rem}
+  .nx-vprev{left:.35rem}.nx-vnext{right:.35rem}
 }
-.nx-eyebrow {
-  font-size: .67rem;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--nar);
-  display: block;
-  margin-bottom: .35rem;
+@media(max-width:680px){.nx-grid{grid-template-columns:repeat(2,1fr);gap:.8rem}}
+@media(max-width:600px){
+  .mg,.tg,.pg{grid-template-columns:1fr}
+  .cta-btns{flex-direction:column;align-items:center}
+  .cbg{grid-template-columns:1fr}
+  .hero-right{height:300px}
+  .hero-book-img{max-width:240px}
+  .fc1,.fc2,.fc3,.fc4{display:none}
+  .nx-vlogo{display:none}
 }
-.nx-head h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 700;
-  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-  line-height: 1.1;
-  color: var(--ink);
-}
-.nx-head p {
-  font-size: .93rem;
-  color: var(--ink3);
-  margin-top: .4rem;
-  max-width: 440px;
-}
-
-/* ── Grid Netflix ── */
-.nx-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1.1rem;
-}
-
-/* ── Tarjeta ── */
-.nx-card {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
-  aspect-ratio: 3 / 4;
-  background: var(--bg2);
-  box-shadow: 0 3px 16px rgba(28,21,40,.12);
-  isolation: isolate;
-  transition:
-    transform .38s cubic-bezier(.15,.9,.3,1),
-    box-shadow .38s ease;
-}
-.nx-card:hover {
-  transform: translateY(-12px) scale(1.04);
-  box-shadow:
-    0 24px 56px rgba(28,21,40,.32),
-    0 0 0 1.5px rgba(155,142,196,.4);
-  z-index: 10;
-}
-
-/* Imagen portada */
-.nx-cover {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-  transition: transform .5s ease;
-}
-.nx-card:hover .nx-cover { transform: scale(1.06); }
-
-/* Degradado inferior */
-.nx-shade {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    to bottom,
-    transparent 42%,
-    rgba(28,21,40,.5) 68%,
-    rgba(28,21,40,.94) 100%
-  );
-}
-
-/* Badge categoría */
-.nx-badge {
-  position: absolute;
-  top: 9px;
-  left: 9px;
-  z-index: 3;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  font-size: .58rem;
-  letter-spacing: .9px;
-  text-transform: uppercase;
-  color: white;
-  background: rgba(255,255,255,.15);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,.28);
-  padding: .2rem .6rem;
-  border-radius: 50px;
-}
-
-/* Pie de tarjeta */
-.nx-foot {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  padding: 1.5rem .85rem .85rem;
-}
-.nx-card-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 700;
-  font-size: .93rem;
-  color: white;
-  line-height: 1.28;
-  margin-bottom: .55rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* Botones — aparecen solo al hover */
-.nx-btns {
-  display: flex;
-  gap: .35rem;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity .22s ease, transform .22s ease;
-  pointer-events: none;
-}
-.nx-card:hover .nx-btns {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-.nx-btn-leer {
-  flex: 1;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-  font-size: .68rem;
-  padding: .44rem .5rem;
-  border-radius: 50px;
-  background: white;
-  color: var(--ink);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .25rem;
-  transition: background .18s, color .18s;
-  white-space: nowrap;
-}
-.nx-btn-leer:hover { background: var(--lav); color: white; }
-
-.nx-btn-quiero {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  font-size: .68rem;
-  padding: .44rem .6rem;
-  border-radius: 50px;
-  background: rgba(232,147,106,.88);
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background .18s;
-  white-space: nowrap;
-}
-.nx-btn-quiero:hover { background: var(--nar); }
-
-/* ═══════════════════════════════════════════════════
-   VISOR DE CUENTO
-   ─────────────────────────────────────────────────
-   POR QUÉ LA IMAGEN NO SE CORTA:
-   • .nx-vbody tiene flex:1 + min-height:0
-     → ocupa TODO el espacio entre header y footer
-     → sin min-height:0, el hijo flex no se encoge
-       y la imagen se desborda por abajo
-   • .nx-vimg tiene max-height:100% + object-fit:contain
-     → la imagen nunca supera el contenedor
-     → mantiene su proporción sin distorsión
-═══════════════════════════════════════════════════ */
-.nx-viewer {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: rgba(8,5,15,.97);
-  display: none;
-  flex-direction: column;
-}
-.nx-viewer.open {
-  display: flex;
-  animation: nxIn .2s ease;
-}
-@keyframes nxIn { from { opacity: 0; } to { opacity: 1; } }
-
-/* Header visor */
-.nx-vhdr {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: .75rem;
-  padding: .65rem 1.1rem;
-  background: rgba(18,12,28,.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255,255,255,.07);
-}
-.nx-vlogo {
-  height: 25px;
-  width: auto;
-  opacity: .88;
-  flex-shrink: 0;
-}
-.nx-vtitle {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: .98rem;
-  font-weight: 700;
-  color: rgba(255,255,255,.9);
-  flex: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.nx-vclose {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.08);
-  color: rgba(255,255,255,.8);
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: background .2s;
-}
-.nx-vclose:hover {
-  background: rgba(232,147,106,.75);
-  color: white;
-  border-color: transparent;
-}
-
-/* Zona imagen — CRÍTICO */
-.nx-vbody {
-  flex: 1;        /* toma todo el espacio libre entre header y footer */
-  min-height: 0;  /* sin esto: la imagen se corta — regla obligatoria */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  padding: .4rem 0;
-}
-
-/* Flechas de navegación */
-.nx-vnav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(18,12,28,.65);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1.5px solid rgba(255,255,255,.15);
-  color: white;
-  font-size: 1.3rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background .2s, transform .2s;
-  user-select: none;
-}
-.nx-vnav:hover { background: var(--lav); transform: translateY(-50%) scale(1.1); }
-.nx-vnav:disabled { opacity: .18; pointer-events: none; }
-.nx-vprev { left: .8rem; }
-.nx-vnext { right: .8rem; }
-
-/* Imagen — NUNCA se corta */
-.nx-vimg {
-  max-width: calc(100% - 6rem);  /* deja espacio a las flechas */
-  max-height: 100%;               /* no supera el contenedor    */
-  width: auto;
-  height: auto;
-  object-fit: contain;            /* proporción original intacta */
-  display: block;
-  border-radius: 3px;
-  box-shadow: 0 8px 48px rgba(0,0,0,.65);
-  transition: opacity .2s ease;
-  user-select: none;
-  pointer-events: none;
-  -webkit-user-drag: none;
-}
-.nx-vimg.nx-fade { opacity: 0; }
-
-/* Hint swipe móvil */
-.nx-vhint {
-  position: absolute;
-  bottom: 3.8rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  font-size: .68rem;
-  color: rgba(255,255,255,.42);
-  background: rgba(18,12,28,.55);
-  backdrop-filter: blur(6px);
-  padding: .3rem .82rem;
-  border-radius: 50px;
-  pointer-events: none;
-  z-index: 10;
-  white-space: nowrap;
-  animation: nxHint 3.8s ease forwards;
-}
-@keyframes nxHint {
-  0%   { opacity: 0; transform: translateX(-50%) translateY(5px); }
-  10%  { opacity: 1; transform: translateX(-50%) translateY(0);   }
-  75%  { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-/* Footer visor */
-.nx-vftr {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: .8rem;
-  padding: .5rem 1.1rem;
-  background: rgba(18,12,28,.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-top: 1px solid rgba(255,255,255,.07);
-}
-.nx-pbar-w { flex: 1; }
-.nx-pbar {
-  height: 3px;
-  background: rgba(255,255,255,.1);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.nx-pfill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--lav), var(--nar));
-  border-radius: 2px;
-  transition: width .3s ease;
-}
-.nx-ctr {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  font-size: .74rem;
-  color: rgba(255,255,255,.42);
-  min-width: 44px;
-  text-align: right;
-  white-space: nowrap;
-}
-.nx-vwant {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-  font-size: .73rem;
-  padding: .42rem .92rem;
-  border-radius: 50px;
-  background: var(--nar);
-  color: white;
-  border: none;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: background .2s, transform .18s;
-  white-space: nowrap;
-}
-.nx-vwant:hover { background: #d4783e; transform: translateY(-1px); }
-
-/* ── Responsive ── */
-@media (max-width: 1280px) { .nx-grid { grid-template-columns: repeat(4,1fr); } }
-@media (max-width: 1024px) { .nx-grid { grid-template-columns: repeat(3,1fr); } }
-@media (max-width: 680px)  { .nx-grid { grid-template-columns: repeat(2,1fr); gap: .8rem; } }
-@media (max-width: 360px)  { .nx-grid { grid-template-columns: 1fr; } }
-@media (max-width: 680px) {
-  .nx-card-title { font-size: .83rem; }
-  .nx-vimg       { max-width: calc(100% - 4.5rem); }
-  .nx-vnav       { width: 36px; height: 36px; font-size: 1.1rem; }
-  .nx-vprev      { left: .35rem; }
-  .nx-vnext      { right: .35rem; }
-  .nx-vlogo      { display: none; }
-}
+@media(max-width:360px){.nx-grid{grid-template-columns:1fr}}
 </style>
-
 </head>
 <body>
 
-<!-- WA FLOTANTE -->
-<a class="wa-fab"
-   href="https://wa.me/51992786715?text=Hola%20JUFANTICS%20%F0%9F%91%8B%20quiero%20un%20cuento%20personalizado"
-   target="_blank" rel="noopener" aria-label="WhatsApp JUFANTICS">
+<!-- WA FLOAT -->
+<a class="wa-fab" href="https://wa.me/51992786715?text=Hola%20JUFANTICS%20%F0%9F%91%8B" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -916,1347 +329,479 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
     <a href="#cuentos">Cuentos</a>
     <a href="#brief">Pedir cuento</a>
     <a href="#patricia">Creadora</a>
-    <a href="blog/" target="_blank" rel="noopener">Blog</a>
+    <a href="blog.html">Blog</a>
     <a href="#brief" class="nav-cta">✨ Quiero el mío</a>
   </div>
-  <button class="ham" id="ham" aria-label="Menú">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="ham" id="ham" aria-label="Menú"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- DRAWER MÓVIL -->
 <div class="drawer" id="drawer">
-  <a href="#home"     onclick="closeD()">Inicio</a>
-  <a href="#cuentos"  onclick="closeD()">Cuentos</a>
-  <a href="#brief"    onclick="closeD()">Pedir cuento</a>
+  <a href="#home" onclick="closeD()">Inicio</a>
+  <a href="#cuentos" onclick="closeD()">Cuentos</a>
+  <a href="#brief" onclick="closeD()">Pedir cuento</a>
   <a href="#patricia" onclick="closeD()">Creadora</a>
-  <a href="blog/"     onclick="closeD()" target="_blank" rel="noopener">Blog</a>
-  <a href="#brief"    onclick="closeD()" class="btn btn-p" style="margin-top:.5rem">✨ Quiero el mío</a>
+  <a href="blog.html" onclick="closeD()">Blog</a>
+  <a href="#brief" onclick="closeD()" class="btn btn-p" style="margin-top:.5rem">✨ Quiero el mío</a>
 </div>
 
-<!-- ═══════════════════════════════════════
-     HERO
-     ═══════════════════════════════════════ -->
+<!-- ══ HERO ══ -->
+<section id="home">
+<div class="hero">
+  <span class="hstar hs1">✨</span><span class="hstar hs2">⭐</span>
+  <span class="hstar hs3">🌟</span><span class="hstar hs4">✦</span>
+  <div class="hero-left">
+    <div class="hero-eye">Cuentos 100% personalizados · Lima, Perú</div>
+    <h1 class="hero-h1">Su historia ya existe.<br>Solo falta <em>contarla</em>.</h1>
+    <p class="hero-sub">Creamos cuentos únicos con el nombre, la cara y el corazón de tu hijo. Una historia que no encontrarás en ninguna librería del mundo.</p>
+    <div class="hero-btns">
+      <a href="#cuentos" class="btn btn-p">📖 Descubrir historias</a>
+      <a href="#brief" class="btn btn-s">✨ Quiero el mío</a>
+    </div>
+    <div class="hero-trust">
+      <span><span class="tdot"></span>100% personalizado</span>
+      <span><span class="tdot"></span>Entrega en 48h</span>
+      <span><span class="tdot"></span>Experiencia visual</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="fcard fc1"><span class="fc-ico">🎁</span><div><span class="fc-lbl">Regalo único</span><span class="fc-sub">Irrepetible</span></div></div>
+    <div class="fcard fc2"><span class="fc-ico">💛</span><div><span class="fc-lbl">Emocional</span><span class="fc-sub">Para tu familia</span></div></div>
+    <div class="fcard fc3"><span class="fc-ico">📖</span><div><span class="fc-lbl">Cuento visual</span><span class="fc-sub">Sin descarga</span></div></div>
+    <div class="fcard fc4"><span class="fc-ico">⭐</span><div><span class="fc-lbl">5 estrellas</span><span class="fc-sub">Familias felices</span></div></div>
+    <div class="hero-book-wrap">
+      <span class="bpart bp1">✨</span><span class="bpart bp2">⭐</span>
+      <span class="bpart bp3">🌟</span><span class="bpart bp4">✦</span><span class="bpart bp5">💫</span>
+      <img src="assets/hero-libro.jpg" class="hero-book-img" alt="JUFANTICS — Libro personalizado"
+           onerror="this.src='assets/hero-libro.png';this.onerror=null">
+    </div>
+  </div>
+</div>
+</section>
 
-
-<!-- ═══════════════════════════════════════
-     SIGNIFICADO
-     ═══════════════════════════════════════ -->
+<!-- ══ MEANING ══ -->
 <section class="meaning sec">
-  <div class="wrap">
-    <div style="text-align:center;margin-bottom:3rem">
-      <span class="tag tag-sky reveal">✦ La marca</span>
-      <h2 class="h1 h1-lg reveal" style="color:white;margin-top:.3rem">
-        ¿Qué significa <span style="color:var(--nar)">JUFANTICS</span>?
-      </h2>
-    </div>
-    <div class="mg">
-      <div class="mc mc-sky reveal">
-        <div class="mc-let">JU</div>
-        <div class="mc-word">Juego + Joaquín</div>
-        <div class="mc-desc">El juego como lenguaje universal de la infancia, y homenaje a Joaquín — el primer nombre que inspiró esta marca.</div>
-      </div>
-      <div class="mc mc-nar reveal">
-        <div class="mc-let">FAN</div>
-        <div class="mc-word">Fantasía + Familia + Facundo</div>
-        <div class="mc-desc">El corazón de cada historia: imaginación desbordante, amor familiar, y homenaje a Facundo — el segundo nombre que dio vida a la marca.</div>
-      </div>
-      <div class="mc mc-lav reveal">
-        <div class="mc-let">TICS</div>
-        <div class="mc-word">Textos · Imágenes · Cuentos · Siempre</div>
-        <div class="mc-desc">Nuestro compromiso eterno: textos cuidados, imágenes que enamoran y cuentos que tocan el alma. Siempre, para cada familia.</div>
-      </div>
-    </div>
+<div class="wrap">
+  <div style="text-align:center;margin-bottom:3rem">
+    <span style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sky)">✦ La marca</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.12;color:white;margin-top:.3rem">¿Qué significa <span style="color:var(--nar)">JUFANTICS</span>?</h2>
   </div>
+  <div class="mg">
+    <div class="mc mc-sky reveal"><div class="mc-let">JU</div><div class="mc-word">Juego + Joaquín</div><div class="mc-desc">El juego como lenguaje universal de la infancia, y homenaje a Joaquín — el primer nombre que inspiró esta marca.</div></div>
+    <div class="mc mc-nar reveal"><div class="mc-let">FAN</div><div class="mc-word">Fantasía + Familia + Facundo</div><div class="mc-desc">El corazón de cada historia: imaginación desbordante, amor familiar, y homenaje a Facundo.</div></div>
+    <div class="mc mc-lav reveal"><div class="mc-let">TICS</div><div class="mc-word">Textos · Imágenes · Cuentos · Siempre</div><div class="mc-desc">Nuestro compromiso eterno: textos cuidados, imágenes que enamoran y cuentos que tocan el alma.</div></div>
+  </div>
+</div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     PILARES
-     ═══════════════════════════════════════ -->
+<!-- ══ PILARES ══ -->
 <section class="pillars sec">
-  <div class="wrap">
-    <div style="margin-bottom:3rem">
-      <span class="tag tag-nar reveal">✦ Lo que nos hace únicos</span>
-      <h2 class="h1 h1-lg reveal" style="margin-top:.3rem">Nuestros 3 servicios principales</h2>
-    </div>
-    <div class="pg">
-      <div class="pc pc-sky reveal">
-        <span class="pc-ico">🎨</span>
-        <div class="pc-title">De Dibujo a Realidad</div>
-        <div class="pc-desc">Los dibujos de tus hijos convertidos en libros únicos. Esos dibujos de la refri — ahora tienen historia.</div>
-        <span class="pc-badge">Pilar 1</span>
-      </div>
-      <div class="pc pc-nar reveal">
-        <span class="pc-ico">💛</span>
-        <div class="pc-title">Historias con Propósito</div>
-        <div class="pc-desc">Cuentos para fortalecer valores y emociones. Miedos, celos, autoestima — cada reto se convierte en crecimiento.</div>
-        <span class="pc-badge">Pilar 2</span>
-      </div>
-      <div class="pc pc-lav reveal">
-        <span class="pc-ico">📸</span>
-        <div class="pc-title">De Fotos a Bitácoras</div>
-        <div class="pc-desc">Fotos de viajes convertidas en Cuentos-Álbum épicos. Recuerdos reales narrados como aventura mágica irrepetible.</div>
-        <span class="pc-badge">Pilar 3</span>
-      </div>
-    </div>
+<div class="wrap">
+  <div style="margin-bottom:3rem">
+    <span style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--nar)">✦ Lo que nos hace únicos</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.12;color:var(--ink);margin-top:.3rem" class="reveal">Nuestros 3 servicios principales</h2>
   </div>
+  <div class="pg">
+    <div class="pc pc-sky reveal"><span class="pc-ico">🎨</span><div class="pc-title">De Dibujo a Realidad</div><div class="pc-desc">Los dibujos de tus hijos convertidos en libros únicos. Esos dibujos de la refri — ahora tienen historia.</div><span class="pc-badge">Pilar 1</span></div>
+    <div class="pc pc-nar reveal"><span class="pc-ico">💛</span><div class="pc-title">Historias con Propósito</div><div class="pc-desc">Cuentos para fortalecer valores y emociones. Miedos, celos, autoestima — cada reto se convierte en crecimiento.</div><span class="pc-badge">Pilar 2</span></div>
+    <div class="pc pc-lav reveal"><span class="pc-ico">📸</span><div class="pc-title">De Fotos a Bitácoras</div><div class="pc-desc">Fotos de viajes convertidas en Cuentos-Álbum épicos. Recuerdos reales narrados como aventura mágica.</div><span class="pc-badge">Pilar 3</span></div>
+  </div>
+</div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     CÓMO FUNCIONA
-     ═══════════════════════════════════════ -->
+<!-- ══ HOW ══ -->
 <section class="how sec" id="how">
-  <div class="wrap">
-    <div style="margin-bottom:3rem">
-      <span class="tag tag-lav reveal">✦ El proceso</span>
-      <h2 class="h1 h1-lg reveal" style="margin-top:.3rem">Crear tu cuento es más fácil<br>de lo que imaginas</h2>
-    </div>
-    <div class="steps">
-      <div class="step reveal">
-        <div class="step-circ">💬<span class="step-n">1</span></div>
-        <div class="step-title">Escríbenos</div>
-        <p class="step-desc">WhatsApp o Instagram. Respondemos en menos de 4h.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-circ">📝<span class="step-n">2</span></div>
-        <div class="step-title">Cuéntanos</div>
-        <p class="step-desc">7 preguntas sobre tu hijo, su familia y el mensaje a transmitir.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-circ">✨<span class="step-n">3</span></div>
-        <div class="step-title">Creamos</div>
-        <p class="step-desc">Patricia escribe y diseña con amor. Revisiones incluidas.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-circ">🎁<span class="step-n">4</span></div>
-        <div class="step-title">Disfrutas</div>
-        <p class="step-desc">Tu cuento en experiencia visual interactiva. Sin descargas forzadas.</p>
-      </div>
-    </div>
+<div class="wrap">
+  <div style="margin-bottom:3rem">
+    <span style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lav)">✦ El proceso</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.12;color:var(--ink);margin-top:.3rem" class="reveal">Crear tu cuento es más fácil<br>de lo que imaginas</h2>
   </div>
+  <div class="steps">
+    <div class="step reveal"><div class="step-circ">💬<span class="step-n">1</span></div><div class="step-title">Escríbenos</div><p class="step-desc">WhatsApp o Instagram. Respondemos en menos de 4h.</p></div>
+    <div class="step reveal"><div class="step-circ">📝<span class="step-n">2</span></div><div class="step-title">Cuéntanos</div><p class="step-desc">7 preguntas sobre tu hijo, su familia y el mensaje a transmitir.</p></div>
+    <div class="step reveal"><div class="step-circ">✨<span class="step-n">3</span></div><div class="step-title">Creamos</div><p class="step-desc">Patricia escribe y diseña con amor. Revisiones incluidas.</p></div>
+    <div class="step reveal"><div class="step-circ">🎁<span class="step-n">4</span></div><div class="step-title">Disfrutas</div><p class="step-desc">Tu cuento en experiencia visual interactiva.</p></div>
+  </div>
+</div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     CATÁLOGO NETFLIX
-     Rutas: assets/cuentos/[carpeta]/portada.jpg
-            assets/cuentos/[carpeta]/pagina-1.jpg ...
-     ═══════════════════════════════════════ -->
-<!--
-═══════════════════════════════════════════════════════════
-  BLOQUE 1 — CATÁLOGO NETFLIX
-  Busca tu sección id="cuentos" y REEMPLÁZALA COMPLETA
-  con este bloque
-═══════════════════════════════════════════════════════════
--->
-
+<!-- ══ CATÁLOGO NETFLIX ══ -->
 <section class="catalog" id="cuentos">
-  <div class="wrap">
+<div class="wrap">
+  <div class="nx-head">
+    <div>
+      <span class="nx-eyebrow">✦ Catálogo</span>
+      <h2>Nuestros Cuentos</h2>
+      <p>Haz clic para leer. Experiencia visual e inmersiva.</p>
+    </div>
+    <a href="#brief" class="btn btn-p">✨ Quiero uno así</a>
+  </div>
+  <div class="nx-grid">
 
-    <div class="cat-head">
-      <div class="cat-head-left">
-        <span class="eyebrow">✦ Catálogo</span>
-        <h2>Nuestros Cuentos</h2>
-        <p>Haz clic para leer. Una experiencia visual completa e inmersiva.</p>
+    <div class="nx-card" onclick="nxAbrir('aventura-ninja',12,'La Aventura Ninja')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/aventura-ninja/portada.jpg" alt="La Aventura Ninja" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">¡Nuevo!</span>
+      <div class="nx-foot"><div class="nx-card-title">La Aventura Ninja</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('aventura-ninja',12,'La Aventura Ninja')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('La Aventura Ninja')">✨ Quiero uno</button>
+        </div>
       </div>
-      <a href="#brief" class="btn btn-p">✨ Quiero uno así</a>
     </div>
 
-    <div class="cat-grid">
-
-      <!-- 1 ─ Aventura Ninja -->
-      <div class="jf-card"
-           onclick="jfAbrir('aventura-ninja', 12, 'La Aventura Ninja')">
-        <img class="jf-card-img"
-             src="assets/cuentos/aventura-ninja/portada.jpg"
-             alt="La Aventura Ninja"
-             loading="lazy"
-             onerror="this.style.opacity='0'">
-        <div class="jf-card-shade"></div>
-        <span class="jf-card-badge">¡Nuevo!</span>
-        <div class="jf-card-body">
-          <div class="jf-card-title">La Aventura Ninja</div>
-          <div class="jf-card-btns">
-            <button class="jf-btn-read"
-              onclick="event.stopPropagation();jfAbrir('aventura-ninja',12,'La Aventura Ninja')">
-              📖 Leer
-            </button>
-            <button class="jf-btn-want"
-              onclick="event.stopPropagation();jfQuiero('La Aventura Ninja')">
-              ✨ Quiero uno
-            </button>
-          </div>
+    <div class="nx-card" onclick="nxAbrir('cueva-de-cristal',10,'El Secreto de la Cueva de Cristal')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/cueva-de-cristal/portada.jpg" alt="El Secreto de la Cueva de Cristal" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Fantasía</span>
+      <div class="nx-foot"><div class="nx-card-title">El Secreto de la Cueva de Cristal</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('cueva-de-cristal',10,'El Secreto de la Cueva de Cristal')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('El Secreto de la Cueva de Cristal')">✨ Quiero uno</button>
         </div>
       </div>
+    </div>
 
-      <!-- 2 ─ Cueva de Cristal -->
-      <div class="jf-card"
-           onclick="jfAbrir('cueva-de-cristal', 10, 'El Secreto de la Cueva de Cristal')">
-        <img class="jf-card-img"
-             src="assets/cuentos/cueva-de-cristal/portada.jpg"
-             alt="El Secreto de la Cueva de Cristal"
-             loading="lazy"
-             onerror="this.style.opacity='0'">
-        <div class="jf-card-shade"></div>
-        <span class="jf-card-badge">Fantasía</span>
-        <div class="jf-card-body">
-          <div class="jf-card-title">El Secreto de la Cueva de Cristal</div>
-          <div class="jf-card-btns">
-            <button class="jf-btn-read"
-              onclick="event.stopPropagation();jfAbrir('cueva-de-cristal',10,'El Secreto de la Cueva de Cristal')">
-              📖 Leer
-            </button>
-            <button class="jf-btn-want"
-              onclick="event.stopPropagation();jfQuiero('El Secreto de la Cueva de Cristal')">
-              ✨ Quiero uno
-            </button>
-          </div>
+    <div class="nx-card" onclick="nxAbrir('escuadron-verde',13,'El Escuadrón Verde')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/escuadron-verde/portada.jpg" alt="El Escuadrón Verde" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Educativo</span>
+      <div class="nx-foot"><div class="nx-card-title">El Escuadrón Verde</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('escuadron-verde',13,'El Escuadrón Verde')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('El Escuadrón Verde')">✨ Quiero uno</button>
         </div>
       </div>
+    </div>
 
-      <!-- 3 ─ Escuadrón Verde -->
-      <div class="jf-card"
-           onclick="jfAbrir('escuadron-verde', 13, 'El Escuadrón Verde')">
-        <img class="jf-card-img"
-             src="assets/cuentos/escuadron-verde/portada.jpg"
-             alt="El Escuadrón Verde"
-             loading="lazy"
-             onerror="this.style.opacity='0'">
-        <div class="jf-card-shade"></div>
-        <span class="jf-card-badge">Educativo</span>
-        <div class="jf-card-body">
-          <div class="jf-card-title">El Escuadrón Verde</div>
-          <div class="jf-card-btns">
-            <button class="jf-btn-read"
-              onclick="event.stopPropagation();jfAbrir('escuadron-verde',13,'El Escuadrón Verde')">
-              📖 Leer
-            </button>
-            <button class="jf-btn-want"
-              onclick="event.stopPropagation();jfQuiero('El Escuadrón Verde')">
-              ✨ Quiero uno
-            </button>
-          </div>
+    <div class="nx-card" onclick="nxAbrir('escuadron-verde-guardianes-del-oceano',12,'Guardianes del Océano')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/escuadron-verde-guardianes-del-oceano/portada.jpg" alt="Guardianes del Océano" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Aventura</span>
+      <div class="nx-foot"><div class="nx-card-title">Guardianes del Océano</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('escuadron-verde-guardianes-del-oceano',12,'Guardianes del Océano')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('Guardianes del Océano')">✨ Quiero uno</button>
         </div>
       </div>
+    </div>
 
-      <!-- 4 ─ Escuadrón Verde Guardianes -->
-      <div class="jf-card"
-           onclick="jfAbrir('escuadron-verde-guardianes-del-oceano', 12, 'Guardianes del Océano')">
-        <img class="jf-card-img"
-             src="assets/cuentos/escuadron-verde-guardianes-del-oceano/portada.jpg"
-             alt="Guardianes del Océano"
-             loading="lazy"
-             onerror="this.style.opacity='0'">
-        <div class="jf-card-shade"></div>
-        <span class="jf-card-badge">Aventura</span>
-        <div class="jf-card-body">
-          <div class="jf-card-title">Guardianes del Océano</div>
-          <div class="jf-card-btns">
-            <button class="jf-btn-read"
-              onclick="event.stopPropagation();jfAbrir('escuadron-verde-guardianes-del-oceano',12,'Guardianes del Océano')">
-              📖 Leer
-            </button>
-            <button class="jf-btn-want"
-              onclick="event.stopPropagation();jfQuiero('Guardianes del Océano')">
-              ✨ Quiero uno
-            </button>
-          </div>
+    <div class="nx-card" onclick="nxAbrir('gran-aventura-familiar',10,'La Gran Aventura Familiar')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/gran-aventura-familiar/portada.jpg" alt="La Gran Aventura Familiar" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Familiar</span>
+      <div class="nx-foot"><div class="nx-card-title">La Gran Aventura Familiar</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('gran-aventura-familiar',10,'La Gran Aventura Familiar')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('La Gran Aventura Familiar')">✨ Quiero uno</button>
         </div>
       </div>
+    </div>
 
-      <!-- 5 ─ Gran Aventura Familiar -->
-      <div class="jf-card"
-           onclick="jfAbrir('gran-aventura-familiar', 10, 'La Gran Aventura Familiar')">
-        <img class="jf-card-img"
-             src="assets/cuentos/gran-aventura-familiar/portada.jpg"
-             alt="La Gran Aventura Familiar"
-             loading="lazy"
-             onerror="this.style.opacity='0'">
-        <div class="jf-card-shade"></div>
-        <span class="jf-card-badge">Familiar</span>
-        <div class="jf-card-body">
-          <div class="jf-card-title">La Gran Aventura Familiar</div>
-          <div class="jf-card-btns">
-            <button class="jf-btn-read"
-              onclick="event.stopPropagation();jfAbrir('gran-aventura-familiar',10,'La Gran Aventura Familiar')">
-              📖 Leer
-            </button>
-            <button class="jf-btn-want"
-              onclick="event.stopPropagation();jfQuiero('La Gran Aventura Familiar')">
-              ✨ Quiero uno
-            </button>
-          </div>
+    <div class="nx-card" onclick="nxAbrir('gran-corazon-capitan-julen',12,'El Gran Corazón del Capitán Julen')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/gran-corazon-capitan-julen/portada.jpg" alt="El Gran Corazón del Capitán Julen" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Aventura</span>
+      <div class="nx-foot"><div class="nx-card-title">El Gran Corazón del Capitán Julen</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('gran-corazon-capitan-julen',12,'El Gran Corazón del Capitán Julen')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('El Gran Corazón del Capitán Julen')">✨ Quiero uno</button>
         </div>
       </div>
+    </div>
 
-      <!-- 6 ─ Gran Corazón Capitán Julen -->
-      <div class="jf-card"
-           onclick="jfAbrir('gran-corazon-capitan-julen', 12, 'El Gran Corazón del Capitán Julen')">
-        <img class="jf-card-img"
-             src="assets/cuentos/gran-corazon-capitan-julen/portada.jpg"
-             alt="El Gran Corazón del Capitán Julen"
-             loading="lazy"
-             onerror="this.style.opacity='0'">
-        <div class="jf-card-shade"></div>
-        <span class="jf-card-badge">Aventura</span>
-        <div class="jf-card-body">
-          <div class="jf-card-title">El Gran Corazón del Capitán Julen</div>
-          <div class="jf-card-btns">
-            <button class="jf-btn-read"
-              onclick="event.stopPropagation();jfAbrir('gran-corazon-capitan-julen',12,'El Gran Corazón del Capitán Julen')">
-              📖 Leer
-            </button>
-            <button class="jf-btn-want"
-              onclick="event.stopPropagation();jfQuiero('El Gran Corazón del Capitán Julen')">
-              ✨ Quiero uno
-            </button>
-          </div>
+    <div class="nx-card" onclick="nxAbrir('guardian-colores-infinitos',11,'El Guardián de los Colores Infinitos')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/guardian-colores-infinitos/portada.jpg" alt="El Guardián de los Colores Infinitos" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Mágico</span>
+      <div class="nx-foot"><div class="nx-card-title">El Guardián de los Colores Infinitos</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('guardian-colores-infinitos',11,'El Guardián de los Colores Infinitos')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('El Guardián de los Colores Infinitos')">✨ Quiero uno</button>
         </div>
       </div>
+    </div>
 
-      <!-- 7 ─ Guardián de los Colores -->
-      <div class="jf-card"
-           onclick="jfAbrir('guardian-colores-infinitos', 11, 'El Guardián de los Colores Infinitos')">
-        <img class="jf-card-img"
-             src="assets/cuentos/guardian-colores-infinitos/portada.jpg"
-             alt="El Guardián de los Colores Infinitos"
-             loading="lazy"
-             onerror="this.style.opacity='0'">
-        <div class="jf-card-shade"></div>
-        <span class="jf-card-badge">Mágico</span>
-        <div class="jf-card-body">
-          <div class="jf-card-title">El Guardián de los Colores Infinitos</div>
-          <div class="jf-card-btns">
-            <button class="jf-btn-read"
-              onclick="event.stopPropagation();jfAbrir('guardian-colores-infinitos',11,'El Guardián de los Colores Infinitos')">
-              📖 Leer
-            </button>
-            <button class="jf-btn-want"
-              onclick="event.stopPropagation();jfQuiero('El Guardián de los Colores Infinitos')">
-              ✨ Quiero uno
-            </button>
-          </div>
+    <div class="nx-card" onclick="nxAbrir('thiago-defensor-universo',11,'Thiago: El Defensor del Universo')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/thiago-defensor-universo/portada.jpg" alt="Thiago: El Defensor del Universo" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Fantasía</span>
+      <div class="nx-foot"><div class="nx-card-title">Thiago: El Defensor del Universo</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('thiago-defensor-universo',11,'Thiago: El Defensor del Universo')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('Thiago: El Defensor del Universo')">✨ Quiero uno</button>
         </div>
       </div>
+    </div>
 
-      <!-- 8 ─ Thiago -->
-      <div class="jf-card"
-           onclick="jfAbrir('thiago-defensor-universo', 11, 'Thiago: El Defensor del Universo')">
-        <img class="jf-card-img"
-             src="assets/cuentos/thiago-defensor-universo/portada.jpg"
-             alt="Thiago: El Defensor del Universo"
-             loading="lazy"
-             onerror="this.style.opacity='0'">
-        <div class="jf-card-shade"></div>
-        <span class="jf-card-badge">Fantasía</span>
-        <div class="jf-card-body">
-          <div class="jf-card-title">Thiago: El Defensor del Universo</div>
-          <div class="jf-card-btns">
-            <button class="jf-btn-read"
-              onclick="event.stopPropagation();jfAbrir('thiago-defensor-universo',11,'Thiago: El Defensor del Universo')">
-              📖 Leer
-            </button>
-            <button class="jf-btn-want"
-              onclick="event.stopPropagation();jfQuiero('Thiago: El Defensor del Universo')">
-              ✨ Quiero uno
-            </button>
-          </div>
+    <div class="nx-card" onclick="nxAbrir('tesoros-de-la-costa',10,'Tesoros de la Costa')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/tesoros-de-la-costa/portada.jpg" alt="Tesoros de la Costa" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Aventura</span>
+      <div class="nx-foot"><div class="nx-card-title">Tesoros de la Costa</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('tesoros-de-la-costa',10,'Tesoros de la Costa')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('Tesoros de la Costa')">✨ Quiero uno</button>
         </div>
       </div>
+    </div>
 
-      <!-- 9 ─ Tesoros de la Costa -->
-      <div class="jf-card"
-           onclick="jfAbrir('tesoros-de-la-costa', 10, 'Tesoros de la Costa')">
-        <img class="jf-card-img"
-             src="assets/cuentos/tesoros-de-la-costa/portada.jpg"
-             alt="Tesoros de la Costa"
-             loading="lazy"
-             onerror="this.style.opacity='0'">
-        <div class="jf-card-shade"></div>
-        <span class="jf-card-badge">Aventura</span>
-        <div class="jf-card-body">
-          <div class="jf-card-title">Tesoros de la Costa</div>
-          <div class="jf-card-btns">
-            <button class="jf-btn-read"
-              onclick="event.stopPropagation();jfAbrir('tesoros-de-la-costa',10,'Tesoros de la Costa')">
-              📖 Leer
-            </button>
-            <button class="jf-btn-want"
-              onclick="event.stopPropagation();jfQuiero('Tesoros de la Costa')">
-              ✨ Quiero uno
-            </button>
-          </div>
+    <div class="nx-card" onclick="nxAbrir('vuelo-resiliencia-corazon-oro-hielo',9,'El Vuelo de la Resiliencia')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/vuelo-resiliencia-corazon-oro-hielo/portada.jpg" alt="El Vuelo de la Resiliencia" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Emocional</span>
+      <div class="nx-foot"><div class="nx-card-title">El Vuelo de la Resiliencia</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('vuelo-resiliencia-corazon-oro-hielo',9,'El Vuelo de la Resiliencia')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('El Vuelo de la Resiliencia')">✨ Quiero uno</button>
         </div>
       </div>
+    </div>
 
-      <!-- 10 ─ Vuelo de la Resiliencia -->
-      <div class="jf-card"
-           onclick="jfAbrir('vuelo-resiliencia-corazon-oro-hielo', 9, 'El Vuelo de la Resiliencia')">
-        <img class="jf-card-img"
-             src="assets/cuentos/vuelo-resiliencia-corazon-oro-hielo/portada.jpg"
-             alt="El Vuelo de la Resiliencia"
-             loading="lazy"
-             onerror="this.style.opacity='0'">
-        <div class="jf-card-shade"></div>
-        <span class="jf-card-badge">Emocional</span>
-        <div class="jf-card-body">
-          <div class="jf-card-title">El Vuelo de la Resiliencia</div>
-          <div class="jf-card-btns">
-            <button class="jf-btn-read"
-              onclick="event.stopPropagation();jfAbrir('vuelo-resiliencia-corazon-oro-hielo',9,'El Vuelo de la Resiliencia')">
-              📖 Leer
-            </button>
-            <button class="jf-btn-want"
-              onclick="event.stopPropagation();jfQuiero('El Vuelo de la Resiliencia')">
-              ✨ Quiero uno
-            </button>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /cat-grid -->
   </div>
+</div>
 </section>
 
-
-<!--
-═══════════════════════════════════════════════════════════
-  BLOQUE 2 — VISOR INMERSIVO
-  Pega este bloque INMEDIATAMENTE después del catálogo,
-  antes de tu sección #brief / formulario
-═══════════════════════════════════════════════════════════
--->
-
-<div class="jf-viewer" id="jfViewer" role="dialog" aria-modal="true" aria-label="Visor de cuento">
-
-  <!-- header -->
-  <div class="jf-vhdr">
-    <img src="LOGO.png" class="jf-vhdr-logo" alt="JUFANTICS"
-         onerror="this.style.display='none'">
-    <div class="jf-vtitle" id="jfVTitle">—</div>
-    <button class="jf-vclose" id="jfVClose" aria-label="Cerrar">✕</button>
-  </div>
-
-  <!-- zona imagen — flex:1 + min-height:0 es la clave -->
-  <div class="jf-vbody" id="jfVBody">
-    <button class="jf-vnav jf-vprev" id="jfVPrev" aria-label="Página anterior">&#8249;</button>
-    <img class="jf-vimg" id="jfVImg"
-         src="" alt="Página del cuento"
-         draggable="false"
-         oncontextmenu="return false">
-    <button class="jf-vnav jf-vnext" id="jfVNext" aria-label="Página siguiente">&#8250;</button>
-  </div>
-
-  <!-- footer -->
-  <div class="jf-vftr">
-    <div class="jf-vpbar-wrap">
-      <div class="jf-vpbar">
-        <div class="jf-vpfill" id="jfVFill" style="width:0%"></div>
-      </div>
-    </div>
-    <div class="jf-vctr" id="jfVCtr">— / —</div>
-    <button class="jf-vwant" id="jfVWant">✨ Quiero uno así</button>
-  </div>
-
-</div>
-
-<!-- ═══════════════════════════════════════
-     VISOR DE CUENTO
-     ═══════════════════════════════════════ -->
-<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Visor de cuento">
-  <!-- header -->
-  <div class="vhdr">
-    <img src="LOGO.png" class="vhdr-logo" alt="JUFANTICS" onerror="this.style.display='none'">
-    <div class="vtitle" id="vtitle">Cargando…</div>
-    <button class="vclose" id="vclose" aria-label="Cerrar visor">✕</button>
-  </div>
-  <!-- zona imagen — flex:1 + min-height:0 → imagen nunca se corta -->
-  <div class="vbody" id="vbody">
-    <button class="vnav vprev" id="vprev" aria-label="Página anterior">&#8249;</button>
-    <img class="vimg" id="vimg" src="" alt="Página del cuento"
-         draggable="false" oncontextmenu="return false">
-    <button class="vnav vnext" id="vnext" aria-label="Página siguiente">&#8250;</button>
-  </div>
-  <!-- footer: progreso + contador + CTA -->
-  <div class="vftr">
-    <div class="vpbar-wrap">
-      <div class="vpbar"><div class="vpfill" id="vpfill" style="width:0%"></div></div>
-    </div>
-    <div class="vctr" id="vctr">— / —</div>
-    <button class="vwant" id="vwant">✨ Quiero uno así</button>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════
-     FORMULARIO
-     ═══════════════════════════════════════ -->
-<!-- VISOR JUFANTICS — pegar justo antes de <section id="brief"> -->
-<div class="jf-viewer" id="jfViewer" role="dialog" aria-modal="true" aria-label="Leer cuento">
-
-  <!-- HEADER -->
-  <div class="jf-vhdr">
-    <img src="LOGO.png" class="jf-vhdr-logo" alt="JUFANTICS"
-         onerror="this.style.display='none'">
-    <div class="jf-vtitle" id="jfVTitle">—</div>
-    <button class="jf-vclose" id="jfVClose" aria-label="Cerrar visor">✕</button>
-  </div>
-
-  <!-- ZONA IMAGEN -->
-  <!-- flex:1 + min-height:0 → imagen SIEMPRE completa, nunca cortada -->
-  <div class="jf-vbody" id="jfVBody">
-    <button class="jf-vnav jf-vprev" id="jfVPrev" aria-label="Página anterior">&#8249;</button>
-    <img class="jf-vimg" id="jfVImg" src="" alt="Página del cuento"
-         draggable="false" oncontextmenu="return false">
-    <button class="jf-vnav jf-vnext" id="jfVNext" aria-label="Página siguiente">&#8250;</button>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="jf-vftr">
-    <div class="jf-vpbar-wrap">
-      <div class="jf-vpbar">
-        <div class="jf-vpfill" id="jfVFill" style="width:0%"></div>
-      </div>
-    </div>
-    <div class="jf-vctr" id="jfVCtr">— / —</div>
-    <button class="jf-vwant" id="jfVWant">✨ Quiero uno así</button>
-  </div>
-
-</div>
-<!-- FIN VISOR -->
-  <!-- ── VISOR ── pegar justo antes de <section id="brief"> ── -->
+<!-- ══ VISOR (1 solo, limpio) ══ -->
 <div class="nx-viewer" id="nxViewer" role="dialog" aria-modal="true" aria-label="Leer cuento">
-
   <div class="nx-vhdr">
-    <img src="LOGO.png" class="nx-vlogo" alt="JUFANTICS"
-         onerror="this.style.display='none'">
+    <img src="LOGO.png" class="nx-vlogo" alt="JUFANTICS" onerror="this.style.display='none'">
     <div class="nx-vtitle" id="nxVTitle">—</div>
     <button class="nx-vclose" id="nxVClose" aria-label="Cerrar">✕</button>
   </div>
-
   <div class="nx-vbody" id="nxVBody">
     <button class="nx-vnav nx-vprev" id="nxVPrev" aria-label="Anterior">&#8249;</button>
-    <img class="nx-vimg" id="nxVImg"
-         src="" alt="Página del cuento"
-         draggable="false" oncontextmenu="return false">
+    <img class="nx-vimg" id="nxVImg" src="" alt="Página" draggable="false" oncontextmenu="return false">
     <button class="nx-vnav nx-vnext" id="nxVNext" aria-label="Siguiente">&#8250;</button>
   </div>
-
   <div class="nx-vftr">
-    <div class="nx-pbar-w">
-      <div class="nx-pbar">
-        <div class="nx-pfill" id="nxVFill" style="width:0%"></div>
-      </div>
-    </div>
+    <div class="nx-pbar-w"><div class="nx-pbar"><div class="nx-pfill" id="nxVFill" style="width:0%"></div></div></div>
     <div class="nx-ctr" id="nxVCtr">— / —</div>
     <button class="nx-vwant" id="nxVWant">✨ Quiero uno así</button>
   </div>
-
 </div>
-<!-- ── FIN VISOR ── -->
-   <section class="brief sec" id="brief">
-  <div class="wrap">
-    <div class="brief-in">
-      <!-- preguntas -->
-      <div>
-        <span class="tag" style="color:var(--nar)">✦ Pedir mi cuento</span>
-        <h2 class="h1 h1-lg" style="color:white;margin:.6rem 0 .9rem;line-height:1.2">
-          Empieza aquí. Tu cuento está a un
-          <em style="color:var(--lav);font-style:italic"> mensaje</em> de distancia.
-        </h2>
-        <p style="color:rgba(255,255,255,.5);font-size:.92rem;line-height:1.75">
-          Completa el formulario y te enviamos la confirmación.
-        </p>
-        <div class="bqs">
-          <div class="bq"><div class="bq-n">1</div><div class="bq-t">¿Cuál es el <strong>nombre del niño</strong>?</div></div>
-          <div class="bq"><div class="bq-n">2</div><div class="bq-t">¿Qué <strong>edad</strong> tiene?</div></div>
-          <div class="bq"><div class="bq-n">3</div><div class="bq-t">¿Qué <strong>le gusta</strong>? (deportes, animales, colores…)</div></div>
-          <div class="bq"><div class="bq-n">4</div><div class="bq-t">¿Cómo es su <strong>familia</strong>? (mamá, papá, hermanos…)</div></div>
-          <div class="bq"><div class="bq-n">5</div><div class="bq-t">¿Cuál es el <strong>tema del cuento</strong>?</div></div>
-          <div class="bq"><div class="bq-n">6</div><div class="bq-t">¿Qué <strong>mensaje o valor</strong> quieres transmitir?</div></div>
-          <div class="bq"><div class="bq-n">7</div><div class="bq-t">¿Hay una <strong>foto o dibujo</strong> de inspiración? (opcional)</div></div>
-        </div>
+
+<!-- ══ FORMULARIO ══ -->
+<section class="brief sec" id="brief">
+<div class="wrap">
+  <div class="brief-in">
+    <div>
+      <span style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--nar)">✦ Pedir mi cuento</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;color:white;margin:.6rem 0 .9rem;line-height:1.2">Empieza aquí. Tu cuento está a un <em style="color:var(--lav);font-style:italic">mensaje</em> de distancia.</h2>
+      <p style="color:rgba(255,255,255,.5);font-size:.92rem;line-height:1.75">Completa el formulario y te enviamos la confirmación.</p>
+      <div class="bqs">
+        <div class="bq"><div class="bq-n">1</div><div class="bq-t">¿Cuál es el <strong>nombre del niño</strong>?</div></div>
+        <div class="bq"><div class="bq-n">2</div><div class="bq-t">¿Qué <strong>edad</strong> tiene?</div></div>
+        <div class="bq"><div class="bq-n">3</div><div class="bq-t">¿Qué <strong>le gusta</strong>? (deportes, animales, colores…)</div></div>
+        <div class="bq"><div class="bq-n">4</div><div class="bq-t">¿Cómo es su <strong>familia</strong>? (mamá, papá, hermanos…)</div></div>
+        <div class="bq"><div class="bq-n">5</div><div class="bq-t">¿Cuál es el <strong>tema del cuento</strong>?</div></div>
+        <div class="bq"><div class="bq-n">6</div><div class="bq-t">¿Qué <strong>mensaje o valor</strong> quieres transmitir?</div></div>
+        <div class="bq"><div class="bq-n">7</div><div class="bq-t">¿Hay una <strong>foto o dibujo</strong> de inspiración? (opcional)</div></div>
       </div>
-      <!-- formulario -->
-      <div>
-        <div class="fbox">
-          <div class="fbox-title">Cuéntame sobre tu hijo ✨</div>
-          <div class="fbox-sub">Responde y recibe tu confirmación al instante.</div>
-          <div class="fg">
-            <label for="fN">Nombre del niño</label>
-            <input type="text" id="fN" placeholder="Ej: Joaquín, Valentina, Facundo…" autocomplete="off">
+    </div>
+    <div>
+      <div class="fbox">
+        <div class="fbox-title">Cuéntame sobre tu hijo ✨</div>
+        <div class="fbox-sub">Responde y recibe tu confirmación al instante.</div>
+        <div class="fg"><label for="fN">Nombre del niño</label><input type="text" id="fN" placeholder="Ej: Joaquín, Valentina…" autocomplete="off"></div>
+        <div class="fg"><label for="fE">Edad</label><input type="text" id="fE" placeholder="Ej: 5 años"></div>
+        <div class="fg"><label for="fG">¿Qué le gusta?</label><input type="text" id="fG" placeholder="Ej: dinosaurios, fútbol, princesas…"></div>
+        <div class="fg">
+          <span class="cblabel">Tipo de cuento</span>
+          <span class="cbhint" id="cbH">Selecciona hasta 3 opciones</span>
+          <div class="cbg" id="cbG">
+            <label class="ci"><input type="checkbox" name="tipo" value="Aventura"><span class="cbox"></span><span class="cbtxt">🏔️ Aventura</span></label>
+            <label class="ci"><input type="checkbox" name="tipo" value="Familiar"><span class="cbox"></span><span class="cbtxt">👨‍👩‍👧 Familiar</span></label>
+            <label class="ci"><input type="checkbox" name="tipo" value="Emocional"><span class="cbox"></span><span class="cbtxt">💛 Emocional</span></label>
+            <label class="ci"><input type="checkbox" name="tipo" value="Educativo"><span class="cbox"></span><span class="cbtxt">📚 Educativo</span></label>
+            <label class="ci"><input type="checkbox" name="tipo" value="Fantasía"><span class="cbox"></span><span class="cbtxt">🌟 Fantasía</span></label>
+            <label class="ci"><input type="checkbox" name="tipo" value="Historia Real"><span class="cbox"></span><span class="cbtxt">📷 Historia Real</span></label>
           </div>
-          <div class="fg">
-            <label for="fE">Edad</label>
-            <input type="text" id="fE" placeholder="Ej: 5 años">
-          </div>
-          <div class="fg">
-            <label for="fG">¿Qué le gusta?</label>
-            <input type="text" id="fG" placeholder="Ej: dinosaurios, fútbol, princesas…">
-          </div>
-          <div class="fg">
-            <span class="cblabel">Tipo de cuento</span>
-            <span class="cbhint" id="cbH">Selecciona hasta 3 opciones</span>
-            <div class="cbg" id="cbG">
-              <label class="ci"><input type="checkbox" name="tipo" value="Aventura"><span class="cbox"></span><span class="cbtxt">🏔️ Aventura</span></label>
-              <label class="ci"><input type="checkbox" name="tipo" value="Familiar"><span class="cbox"></span><span class="cbtxt">👨‍👩‍👧 Familiar</span></label>
-              <label class="ci"><input type="checkbox" name="tipo" value="Emocional"><span class="cbox"></span><span class="cbtxt">💛 Emocional</span></label>
-              <label class="ci"><input type="checkbox" name="tipo" value="Educativo"><span class="cbox"></span><span class="cbtxt">📚 Educativo</span></label>
-              <label class="ci"><input type="checkbox" name="tipo" value="Fantasía"><span class="cbox"></span><span class="cbtxt">🌟 Fantasía</span></label>
-              <label class="ci"><input type="checkbox" name="tipo" value="Historia Real"><span class="cbox"></span><span class="cbtxt">📷 Historia Real</span></label>
-            </div>
-          </div>
-          <div class="fg">
-            <label for="fM">Mensaje o valor a transmitir</label>
-            <textarea id="fM" placeholder="Ej: que sepa que es valiente, que es amado…"></textarea>
-          </div>
-          <button class="btn-wa" onclick="envWA()">
-            <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:white;flex-shrink:0">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            Enviar por WhatsApp
-          </button>
-          <button class="btn-mail" onclick="envMail()">📧 Enviar también por correo</button>
-          <p class="fnote">Al enviar aceptas que tus datos sean usados únicamente para la creación de tu cuento. © 2025 JUFANTICS.</p>
         </div>
+        <div class="fg"><label for="fM">Mensaje o valor a transmitir</label><textarea id="fM" placeholder="Ej: que sepa que es valiente, que es amado…"></textarea></div>
+        <button class="btn-wa" onclick="envWA()">
+          <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:white;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enviar por WhatsApp
+        </button>
+        <button class="btn-mail" onclick="envMail()">📧 Enviar también por correo</button>
+        <p class="fnote">Al enviar aceptas que tus datos sean usados únicamente para la creación de tu cuento. © 2025 JUFANTICS.</p>
       </div>
     </div>
   </div>
+</div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     PATRICIA (AUTORA)
-     ═══════════════════════════════════════ -->
-
-  <div class="wrap">
-    <div class="pat-g">
-      <!-- foto -->
-      <div class="pat-img-wrap reveal">
-        <img
-         src="assets/autora/autora-patricia.jpg"
-          class="pat-photo"
-          alt="Patricia B. Albornoz — Creadora de JUFANTICS"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <!-- fallback emoji si no hay foto -->
-        <div class="pat-photo-fallback" style="display:none">✍️</div>
-        <span class="pat-badge">Creadora &amp; Fundadora</span>
-      </div>
-      <!-- texto -->
-      <div class="reveal">
-        <span class="tag tag-nar">✦ Quién soy</span>
-        <div class="pat-name" style="margin-top:.3rem">Patricia B. Albornoz</div>
-        <div class="pat-role">Escritora · Narradora · Creadora de JUFANTICS</div>
-        <p class="pat-text">Desde muy niña, la imaginación fue mi refugio y mi forma de entender el mundo. Crecí rodeada de cuentos, leyendas y relatos que despertaron en mí una profunda pasión por crear historias. Escribo desde los 7 años: cuentos, relatos y poemas que fueron llenando cuadernos y corazones.</p>
-        <p class="pat-text">Hoy, como madre, mujer y creadora, comparto esas historias con el mundo a través de JUFANTICS — un espacio donde cada familia encuentra su propia magia.</p>
-        <div class="pat-quote">"Porque cada persona tiene una historia… y cada historia merece ser contada."</div>
-        <div class="pat-chips">
-          <span class="pat-chip">✨ Imaginación</span>
-          <span class="pat-chip">📖 Cuentos infantiles</span>
-          <span class="pat-chip">🎨 Ilustración</span>
-          <span class="pat-chip">🌿 Naturaleza</span>
-          <span class="pat-chip">💛 Familia</span>
-          <span class="pat-chip">📜 Leyendas peruanas</span>
-          <span class="pat-chip">🧠 Neurodiversidad</span>
-          <span class="pat-chip">🖊️ Poesía</span>
-        </div>
+<!-- ══ PATRICIA ══ -->
+<section class="patricia sec" id="patricia">
+<div class="wrap">
+  <div class="pat-g">
+    <div class="pat-img-wrap reveal">
+      <img src="assets/autora/autora-patricia.jpg" class="pat-photo" alt="Patricia B. Albornoz"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="pat-photo-fb">✍️</div>
+      <span class="pat-badge">Creadora &amp; Fundadora</span>
+    </div>
+    <div class="reveal">
+      <span style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--nar)">✦ Quién soy</span>
+      <div class="pat-name" style="margin-top:.3rem">Patricia B. Albornoz</div>
+      <div class="pat-role">Escritora · Narradora · Creadora de JUFANTICS</div>
+      <p class="pat-text">Desde muy niña, la imaginación fue mi refugio y mi forma de entender el mundo. Crecí rodeada de cuentos, leyendas y relatos que despertaron en mí una profunda pasión por crear historias. Escribo desde los 7 años: cuentos, relatos y poemas que fueron llenando cuadernos y corazones.</p>
+      <p class="pat-text">Hoy, como madre, mujer y creadora, comparto esas historias con el mundo a través de JUFANTICS — un espacio donde cada familia encuentra su propia magia.</p>
+      <div class="pat-quote">"Porque cada persona tiene una historia… y cada historia merece ser contada."</div>
+      <div class="pat-chips">
+        <span class="pat-chip">✨ Imaginación</span><span class="pat-chip">📖 Cuentos infantiles</span>
+        <span class="pat-chip">🎨 Ilustración</span><span class="pat-chip">🌿 Naturaleza</span>
+        <span class="pat-chip">💛 Familia</span><span class="pat-chip">📜 Leyendas peruanas</span>
+        <span class="pat-chip">🧠 Neurodiversidad</span><span class="pat-chip">🖊️ Poesía</span>
       </div>
     </div>
   </div>
+</div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     TESTIMONIOS
-     ═══════════════════════════════════════ -->
+<!-- ══ TESTIMONIOS ══ -->
 <section class="testi sec">
-  <div class="wrap">
-    <div style="margin-bottom:3rem">
-      <span class="tag tag-lav reveal">✦ Familias que ya vivieron la magia</span>
-      <h2 class="h1 h1-lg reveal" style="margin-top:.3rem">Lo que dicen las familias JUFANTICS</h2>
-    </div>
-    <div class="tg">
-      <div class="tc reveal">
-        <div class="tc-stars">★★★★★</div>
-        <p class="tc-text">"Mi hijo lloró de emoción cuando vio su nombre en la portada. Fue el regalo más especial de su vida. JUFANTICS no es solo un cuento, es un tesoro."</p>
-        <div class="tc-auth">
-          <div class="tc-av av1">👩</div>
-          <div><div class="tc-name">Mamá de Joaquín, 6 años</div><div class="tc-role">Lima, Perú</div></div>
-        </div>
-      </div>
-      <div class="tc reveal">
-        <div class="tc-stars">★★★★★</div>
-        <p class="tc-text">"Lo regalé en el cumpleaños de mi sobrina y toda la familia quedó emocionada. La historia era perfecta, como si Patricia la conociera de toda la vida."</p>
-        <div class="tc-auth">
-          <div class="tc-av av2">👩‍🦱</div>
-          <div><div class="tc-name">Tía de Valentina, 4 años</div><div class="tc-role">Lima, Perú</div></div>
-        </div>
-      </div>
-      <div class="tc reveal">
-        <div class="tc-stars">★★★★★</div>
-        <p class="tc-text">"El proceso fue súper fácil y el resultado superó todas mis expectativas. Mi hijo pide su cuento todas las noches. Lo recomiendo a todas las mamás."</p>
-        <div class="tc-auth">
-          <div class="tc-av av3">👨</div>
-          <div><div class="tc-name">Papá de Thiago, 7 años</div><div class="tc-role">Lima, Perú</div></div>
-        </div>
-      </div>
-    </div>
+<div class="wrap">
+  <div style="margin-bottom:3rem">
+    <span style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lav)">✦ Familias que ya vivieron la magia</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.12;color:var(--ink);margin-top:.3rem" class="reveal">Lo que dicen las familias JUFANTICS</h2>
   </div>
+  <div class="tg">
+    <div class="tc reveal"><div class="tc-stars">★★★★★</div><p class="tc-text">"Mi hijo lloró de emoción cuando vio su nombre en la portada. Fue el regalo más especial de su vida. JUFANTICS no es solo un cuento, es un tesoro."</p><div class="tc-auth"><div class="tc-av av1">👩</div><div><div class="tc-name">Mamá de Joaquín, 6 años</div><div class="tc-role">Lima, Perú</div></div></div></div>
+    <div class="tc reveal"><div class="tc-stars">★★★★★</div><p class="tc-text">"Lo regalé en el cumpleaños de mi sobrina y toda la familia quedó emocionada. La historia era perfecta, como si Patricia la conociera de toda la vida."</p><div class="tc-auth"><div class="tc-av av2">👩‍🦱</div><div><div class="tc-name">Tía de Valentina, 4 años</div><div class="tc-role">Lima, Perú</div></div></div></div>
+    <div class="tc reveal"><div class="tc-stars">★★★★★</div><p class="tc-text">"El proceso fue súper fácil y el resultado superó todas mis expectativas. Mi hijo pide su cuento todas las noches. Lo recomiendo a todas las mamás."</p><div class="tc-auth"><div class="tc-av av3">👨</div><div><div class="tc-name">Papá de Thiago, 7 años</div><div class="tc-role">Lima, Perú</div></div></div></div>
+  </div>
+</div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     CTA FINAL
-     ═══════════════════════════════════════ -->
+<!-- ══ CTA ══ -->
 <section class="cta sec">
-  <div class="wrap">
-    <div class="cta-c">
-      <span style="font-size:2.8rem;display:block;margin-bottom:1rem" class="reveal">📖</span>
-      <h2 class="h1 h1-lg reveal" style="margin-bottom:.9rem">
-        ¿Listo para crear la historia<br>de <em style="color:var(--lav);font-style:italic">tu familia</em>?
-      </h2>
-      <p style="font-size:.97rem;color:var(--ink2);line-height:1.75;margin-bottom:2.2rem" class="reveal">
-        Cada historia es única. La tuya merece ser contada.
-      </p>
-      <div class="cta-btns reveal">
-        <a href="#brief" class="btn btn-p">✨ Crear mi cuento ahora</a>
-        <a href="https://wa.me/51992786715" target="_blank" rel="noopener"
-           class="btn btn-s" style="display:inline-flex;align-items:center;gap:.4rem">
-          💬 WhatsApp directo
-        </a>
-      </div>
+<div class="wrap">
+  <div class="cta-c">
+    <span style="font-size:2.8rem;display:block;margin-bottom:1rem" class="reveal">📖</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.12;color:var(--ink);margin-bottom:.9rem" class="reveal">¿Listo para crear la historia<br>de <em style="color:var(--lav);font-style:italic">tu familia</em>?</h2>
+    <p style="font-size:.97rem;color:var(--ink2);line-height:1.75;margin-bottom:2.2rem" class="reveal">Cada historia es única. La tuya merece ser contada.</p>
+    <div class="cta-btns reveal">
+      <a href="#brief" class="btn btn-p">✨ Crear mi cuento ahora</a>
+      <a href="https://wa.me/51992786715" target="_blank" rel="noopener" class="btn btn-s">💬 WhatsApp directo</a>
     </div>
   </div>
+</div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     FOOTER
-     ═══════════════════════════════════════ -->
+<!-- ══ FOOTER ══ -->
 <footer>
-  <div class="wrap">
-    <div class="fg2">
-      <div>
-        <div class="fbrand">
-          <img src="LOGO.png" class="fblogo" alt="JUFANTICS" onerror="this.style.display='none'">
-          <div class="fbname"><span class="fb1">JU</span><span class="fb2">FAN</span><span class="fb3">TICS</span></div>
-        </div>
-        <div class="ftag">Textos · Imágenes · Cuentos · Siempre<br>Historias que nacen de la imaginación.</div>
-        <div class="fsocs">
-          <a href="#" class="fsoc" aria-label="Instagram">📸</a>
-          <a href="#" class="fsoc" aria-label="Facebook">💙</a>
-          <a href="#" class="fsoc" aria-label="TikTok">🎵</a>
-          <a href="https://wa.me/51992786715" target="_blank" class="fsoc" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:white">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-      <div class="fcol">
-        <h5>Navegación</h5>
-        <a href="#how">Cómo funciona</a>
-        <a href="#cuentos">Cuentos</a>
-        <a href="#brief">Pedir cuento</a>
-        <a href="#patricia">Creadora</a>
-        <a href="blog/" target="_blank" rel="noopener">Blog</a>
-      </div>
-      <div class="fcol">
-        <h5>Contacto</h5>
-        <a href="https://wa.me/51992786715" target="_blank">💬 WhatsApp</a>
-        <a href="mailto:jufantics@gmail.com">📧 jufantics@gmail.com</a>
-        <a href="#">📸 @jufantics</a>
-        <a>📍 Lima, Perú</a>
+<div class="wrap">
+  <div class="fg2">
+    <div>
+      <div class="fbrand"><img src="LOGO.png" class="fblogo" alt="JUFANTICS" onerror="this.style.display='none'"><div class="fbname"><span class="fb1">JU</span><span class="fb2">FAN</span><span class="fb3">TICS</span></div></div>
+      <div class="ftag">Textos · Imágenes · Cuentos · Siempre<br>Historias que nacen de la imaginación.</div>
+      <div class="fsocs">
+        <a href="#" class="fsoc">📸</a><a href="#" class="fsoc">💙</a><a href="#" class="fsoc">🎵</a>
+        <a href="https://wa.me/51992786715" target="_blank" class="fsoc"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
       </div>
     </div>
-    <div class="fcopy">
-      <span style="font-size:.95rem;flex-shrink:0;margin-top:.05rem">©</span>
-      <p class="fcopy-t">
-        <strong>Propiedad Intelectual JUFANTICS.</strong>
-        Todos los cuentos son propiedad de Patricia B. Albornoz y no pueden reproducirse sin autorización. © 2025 JUFANTICS.
-      </p>
+    <div class="fcol">
+      <h5>Navegación</h5>
+      <a href="#how">Cómo funciona</a><a href="#cuentos">Cuentos</a>
+      <a href="#brief">Pedir cuento</a><a href="#patricia">Creadora</a><a href="blog.html">Blog</a>
     </div>
-    <div class="fbot">
-      <span>© 2025 JUFANTICS · Patricia B. Albornoz · Lima, Perú</span>
-      <span class="ftics">JU · Juego+Joaquín | FAN · Fantasía+Familia+Facundo | TICS · Textos·Imágenes·Cuentos·Siempre</span>
+    <div class="fcol">
+      <h5>Contacto</h5>
+      <a href="https://wa.me/51992786715" target="_blank">💬 WhatsApp</a>
+      <a href="mailto:jufantics@gmail.com">📧 jufantics@gmail.com</a>
+      <a href="#">📸 @jufantics</a><a>📍 Lima, Perú</a>
     </div>
   </div>
+  <div class="fcopy"><span style="font-size:.95rem;flex-shrink:0">©</span><p class="fcopy-t"><strong>Propiedad Intelectual JUFANTICS.</strong> Todos los cuentos son propiedad de Patricia B. Albornoz. No reproducir sin autorización. © 2025 JUFANTICS.</p></div>
+  <div class="fbot"><span>© 2025 JUFANTICS · Patricia B. Albornoz · Lima, Perú</span><span class="ftics">JU·Juego+Joaquín | FAN·Fantasía+Familia+Facundo | TICS·Textos·Imágenes·Cuentos·Siempre</span></div>
+</div>
 </footer>
 
-<!-- ═══════════════════════════════════════════════════════════
-     JAVASCRIPT — un solo bloque, limpio y completo
-     ═══════════════════════════════════════════════════════════ -->
-/* ═══════════════════════════════════════════════════
-   JUFANTICS — Catálogo + Visor
-   ───────────────────────────────────────────────────
-   IDs del HTML usados aquí:
-     nxViewer · nxVTitle · nxVImg · nxVFill
-     nxVCtr · nxVPrev · nxVNext · nxVClose
-     nxVWant · nxVBody
-   Clases usadas aquí:
-     nx-viewer · nx-vimg · nx-fade · nx-vhint · open
-   Funciones globales:
-     nxAbrir()  — llamada desde onclick="" en HTML
-     nxQuiero() — llamada desde onclick="" en HTML
-═══════════════════════════════════════════════════ */
-(function () {
+<script>
+/* NAV */
+var nav=document.getElementById('mainNav'),ham=document.getElementById('ham'),drawer=document.getElementById('drawer');
+window.addEventListener('scroll',function(){nav.classList.toggle('solid',window.scrollY>50);},{passive:true});
+ham.addEventListener('click',function(){var o=ham.classList.toggle('open');drawer.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';});
+function closeD(){ham.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();closeD();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+
+/* REVEAL */
+var ro=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');ro.unobserve(entry.target);}});},{threshold:0.1,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+
+/* CHECKBOXES */
+var cbGrid=document.getElementById('cbG'),cbHint=document.getElementById('cbH');
+if(cbGrid){cbGrid.addEventListener('change',function(){
+  var all=cbGrid.querySelectorAll('input[type=checkbox]');
+  var checked=Array.from(all).filter(function(c){return c.checked;});
+  all.forEach(function(cb){if(!cb.checked)cb.disabled=checked.length>=3;});
+  cbHint.textContent=checked.length>=3?'✓ '+checked.length+' seleccionados (máximo)':'Selecciona hasta 3 opciones';
+});}
+
+/* FORMULARIO */
+function getForm(){return{
+  nombre:document.getElementById('fN').value.trim()||'(sin nombre)',
+  edad:document.getElementById('fE').value.trim()||'(sin especificar)',
+  gusta:document.getElementById('fG').value.trim()||'(sin especificar)',
+  tipos:Array.from(document.querySelectorAll('input[name=tipo]:checked')).map(function(c){return c.value;}).join(', ')||'(no seleccionado)',
+  msg:document.getElementById('fM').value.trim()||'(sin mensaje)'
+};}
+function envWA(){var d=getForm();var t='Hola 👋 JUFANTICS ✨\n\n📌 Nombre: '+d.nombre+'\n🎂 Edad: '+d.edad+'\n🎯 Gustos: '+d.gusta+'\n📖 Tipo: '+d.tipos+'\n💛 Mensaje: '+d.msg;window.open('https://wa.me/51992786715?text='+encodeURIComponent(t),'_blank','noopener,noreferrer');}
+function envMail(){var d=getForm();var s=encodeURIComponent('Pedido JUFANTICS — '+d.nombre);var b=encodeURIComponent('Hola Patricia,\n\nNombre: '+d.nombre+'\nEdad: '+d.edad+'\nGustos: '+d.gusta+'\nTipo: '+d.tipos+'\nMensaje: '+d.msg);window.location.href='mailto:jufantics@gmail.com?subject='+s+'&body='+b;}
+
+/* VISOR — 1 solo, limpio */
+(function(){
   'use strict';
+  var viewer=document.getElementById('nxViewer'),elTitle=document.getElementById('nxVTitle'),
+      elImg=document.getElementById('nxVImg'),elFill=document.getElementById('nxVFill'),
+      elCtr=document.getElementById('nxVCtr'),elPrev=document.getElementById('nxVPrev'),
+      elNext=document.getElementById('nxVNext'),elClose=document.getElementById('nxVClose'),
+      elWant=document.getElementById('nxVWant'),elBody=document.getElementById('nxVBody');
+  var story='',page=1,total=1,detected=false;
 
-  /* ── referencias DOM ── */
-  var viewer  = document.getElementById('nxViewer');
-  var elTitle = document.getElementById('nxVTitle');
-  var elImg   = document.getElementById('nxVImg');
-  var elFill  = document.getElementById('nxVFill');
-  var elCtr   = document.getElementById('nxVCtr');
-  var elPrev  = document.getElementById('nxVPrev');
-  var elNext  = document.getElementById('nxVNext');
-  var elClose = document.getElementById('nxVClose');
-  var elWant  = document.getElementById('nxVWant');
-  var elBody  = document.getElementById('nxVBody');
-
-  /* ── estado ── */
-  var story    = '';
-  var page     = 1;
-  var total    = 1;
-  var detected = false;
-
-  /* ─────────────────────────────────
-     ABRIR CUENTO
-     carpeta : nombre exacto de carpeta
-     maxPags : estimado inicial
-     titulo  : texto del header
-  ───────────────────────────────── */
-  function nxAbrir(carpeta, maxPags, titulo) {
-    story    = carpeta;
-    total    = maxPags;
-    page     = 1;
-    detected = false;
-
-    elTitle.textContent = titulo;
-    elWant.onclick = function () { nxCerrar(); nxQuiero(titulo); };
-
-    document.body.style.overflow = 'hidden';
+  function nxAbrir(carpeta,maxPags,titulo){
+    story=carpeta;total=maxPags;page=1;detected=false;
+    elTitle.textContent=titulo;
+    elWant.onclick=function(){nxCerrar();nxQuiero(titulo);};
+    document.body.style.overflow='hidden';
     viewer.classList.add('open');
-
-    /* hint swipe — solo en pantallas pequeñas */
-    if (window.innerWidth <= 700) {
-      var old = elBody.querySelector('.nx-vhint');
-      if (old) old.remove();
-      var hint = document.createElement('div');
-      hint.className = 'nx-vhint';
-      hint.textContent = '← desliza para navegar →';
-      elBody.appendChild(hint);
-      setTimeout(function () { if (hint.parentNode) hint.remove(); }, 3900);
+    if(window.innerWidth<=700){
+      var old=elBody.querySelector('.nx-vhint');if(old)old.remove();
+      var hint=document.createElement('div');hint.className='nx-vhint';hint.textContent='← desliza para navegar →';
+      elBody.appendChild(hint);setTimeout(function(){if(hint.parentNode)hint.remove();},3900);
     }
-
     cargar(1);
   }
 
-  /* ─────────────────────────────────
-     CARGAR PÁGINA n
-     Usa preload para detectar si la
-     imagen existe antes de mostrarla.
-     Si da error → ajusta el total real.
-  ───────────────────────────────── */
-  function cargar(n) {
+  function cargar(n){
     elImg.classList.add('nx-fade');
-    setTimeout(function () {
-      var src = 'assets/cuentos/' + story + '/pagina-' + n + '.jpg';
-      var tmp = new Image();
-      tmp.onload = function () {
-        elImg.src = src;
-        elImg.classList.remove('nx-fade');
-        page = n;
-        sync();
-      };
-      tmp.onerror = function () {
-        if (!detected && n > 1) {
-          detected = true;
-          total    = n - 1;
-          sync();
-        }
-        elImg.classList.remove('nx-fade');
-      };
-      tmp.src = src;
-    }, 160);
+    setTimeout(function(){
+      var src='assets/cuentos/'+story+'/pagina-'+n+'.jpg';
+      var tmp=new Image();
+      tmp.onload=function(){elImg.src=src;elImg.classList.remove('nx-fade');page=n;sync();};
+      tmp.onerror=function(){if(!detected&&n>1){detected=true;total=n-1;sync();}elImg.classList.remove('nx-fade');};
+      tmp.src=src;
+    },160);
   }
 
-  /* barra de progreso + contador + estado flechas */
-  function sync() {
-    elCtr.textContent  = page + ' / ' + total;
-    elFill.style.width = ((page / total) * 100) + '%';
-    elPrev.disabled    = (page <= 1);
-    elNext.disabled    = (page >= total);
-  }
+  function sync(){elCtr.textContent=page+' / '+total;elFill.style.width=((page/total)*100)+'%';elPrev.disabled=(page<=1);elNext.disabled=(page>=total);}
 
-  /* ─────────────────────────────────
-     CERRAR VISOR
-  ───────────────────────────────── */
-  function nxCerrar() {
-    viewer.classList.remove('open');
-    document.body.style.overflow = '';
-    setTimeout(function () {
-      elImg.src           = '';
-      elFill.style.width  = '0%';
-      elCtr.textContent   = '— / —';
-      elTitle.textContent = '—';
-    }, 280);
-  }
+  function nxCerrar(){viewer.classList.remove('open');document.body.style.overflow='';setTimeout(function(){elImg.src='';elFill.style.width='0%';elCtr.textContent='— / —';elTitle.textContent='—';},280);}
 
-  /* ── botones de navegación ── */
-  elNext.addEventListener('click', function () {
-    if (page < total) cargar(page + 1);
+  elNext.addEventListener('click',function(){if(page<total)cargar(page+1);});
+  elPrev.addEventListener('click',function(){if(page>1)cargar(page-1);});
+  elClose.addEventListener('click',nxCerrar);
+  viewer.addEventListener('click',function(e){if(e.target===viewer)nxCerrar();});
+  document.addEventListener('keydown',function(e){
+    if(!viewer.classList.contains('open'))return;
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'){if(page<total)cargar(page+1);}
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){if(page>1)cargar(page-1);}
+    if(e.key==='Escape')nxCerrar();
   });
-  elPrev.addEventListener('click', function () {
-    if (page > 1) cargar(page - 1);
-  });
-  elClose.addEventListener('click', nxCerrar);
+  var tx=0,ty=0,swOk=false;
+  elBody.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;ty=e.touches[0].clientY;swOk=true;},{passive:true});
+  elBody.addEventListener('touchmove',function(e){if(!swOk)return;if(Math.abs(e.touches[0].clientY-ty)>Math.abs(e.touches[0].clientX-tx))swOk=false;},{passive:true});
+  elBody.addEventListener('touchend',function(e){
+    if(!swOk)return;swOk=false;
+    var dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+    if(Math.abs(dx)<42||Math.abs(dx)<Math.abs(dy))return;
+    if(dx<0&&page<total)cargar(page+1);if(dx>0&&page>1)cargar(page-1);
+  },{passive:true});
 
-  /* clic en el fondo oscuro */
-  viewer.addEventListener('click', function (e) {
-    if (e.target === viewer) nxCerrar();
-  });
-
-  /* ── teclado ── */
-  document.addEventListener('keydown', function (e) {
-    if (!viewer.classList.contains('open')) return;
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { if (page < total) cargar(page + 1); }
-    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   { if (page > 1)     cargar(page - 1); }
-    if (e.key === 'Escape') nxCerrar();
-  });
-
-  /* ── swipe táctil ── */
-  var tx = 0, ty = 0, swOk = false;
-  elBody.addEventListener('touchstart', function (e) {
-    tx = e.touches[0].clientX;
-    ty = e.touches[0].clientY;
-    swOk = true;
-  }, { passive: true });
-  elBody.addEventListener('touchmove', function (e) {
-    if (!swOk) return;
-    if (Math.abs(e.touches[0].clientY - ty) > Math.abs(e.touches[0].clientX - tx)) swOk = false;
-  }, { passive: true });
-  elBody.addEventListener('touchend', function (e) {
-    if (!swOk) return;
-    swOk = false;
-    var dx = e.changedTouches[0].clientX - tx;
-    var dy = e.changedTouches[0].clientY - ty;
-    if (Math.abs(dx) < 42 || Math.abs(dx) < Math.abs(dy)) return;
-    if (dx < 0 && page < total) cargar(page + 1);
-    if (dx > 0 && page > 1)     cargar(page - 1);
-  }, { passive: true });
-
-  /* ── exponer al scope global (para onclick="" en el HTML) ── */
-  window.nxAbrir = nxAbrir;
-
-  window.nxQuiero = function (titulo) {
-    var msg = 'Hola 👋 Vi el cuento "' + titulo + '" en JUFANTICS\n'
-            + 'y quiero uno así para mi hijo 💛\n\n'
-            + 'Nombre del niño:\nEdad:\nGustos:\nMensaje:';
-    window.open(
-      'https://wa.me/51992786715?text=' + encodeURIComponent(msg),
-      '_blank',
-      'noopener,noreferrer'
-    );
-  };
-
-}()); /* fin — nada contamina el scope global */
-   <script>
-/* ─── NAV ─── */
-var nav = document.getElementById('mainNav');
-var ham = document.getElementById('ham');
-var drawer = document.getElementById('drawer');
-
-window.addEventListener('scroll', function() {
-  nav.classList.toggle('solid', window.scrollY > 50);
-}, { passive: true });
-
-ham.addEventListener('click', function() {
-  var open = ham.classList.toggle('open');
-  drawer.classList.toggle('open', open);
-  document.body.style.overflow = open ? 'hidden' : '';
-});
-
-function closeD() {
-  ham.classList.remove('open');
-  drawer.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-/* ─── SMOOTH ANCHORS ─── */
-document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-  a.addEventListener('click', function(e) {
-    var target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      closeD();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-
-/* ─── REVEAL ON SCROLL ─── */
-var revealObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in');
-      revealObs.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -28px 0px' });
-
-document.querySelectorAll('.reveal').forEach(function(el) {
-  revealObs.observe(el);
-});
-
-/* ─── CHECKBOXES (máx 3) ─── */
-var cbGrid = document.getElementById('cbG');
-var cbHint = document.getElementById('cbH');
-if (cbGrid) {
-  cbGrid.addEventListener('change', function() {
-    var all     = cbGrid.querySelectorAll('input[type=checkbox]');
-    var checked = Array.from(all).filter(function(c) { return c.checked; });
-    all.forEach(function(cb) {
-      if (!cb.checked) cb.disabled = checked.length >= 3;
-    });
-    cbHint.textContent = checked.length >= 3
-      ? '✓ ' + checked.length + ' seleccionados (máximo)'
-      : 'Selecciona hasta 3 opciones';
-  });
-}
-
-/* ─── FORMULARIO ─── */
-function getForm() {
-  return {
-    nombre: document.getElementById('fN').value.trim() || '(sin nombre)',
-    edad:   document.getElementById('fE').value.trim() || '(sin especificar)',
-    gusta:  document.getElementById('fG').value.trim() || '(sin especificar)',
-    tipos:  Array.from(document.querySelectorAll('input[name=tipo]:checked'))
-              .map(function(c) { return c.value; }).join(', ') || '(no seleccionado)',
-    msg:    document.getElementById('fM').value.trim() || '(sin mensaje)'
-  };
-}
-
-function envWA() {
-  var d = getForm();
-  var t = [
-    'Hola 👋 Bienvenido a JUFANTICS ✨', '',
-    '📌 Nombre del niño: ' + d.nombre,
-    '🎂 Edad: '            + d.edad,
-    '🎯 Gustos: '          + d.gusta,
-    '📖 Tipo: '            + d.tipos,
-    '💛 Mensaje: '         + d.msg
-  ].join('\n');
-  window.open('https://wa.me/51992786715?text=' + encodeURIComponent(t), '_blank', 'noopener,noreferrer');
-}
-
-function envMail() {
-  var d = getForm();
-  var s = encodeURIComponent('Pedido JUFANTICS — ' + d.nombre);
-  var b = encodeURIComponent(
-    'Hola Patricia,\n\nQuiero un cuento para:\n\n' +
-    'Nombre: ' + d.nombre + '\n' +
-    'Edad: '   + d.edad   + '\n' +
-    'Gustos: ' + d.gusta  + '\n' +
-    'Tipo: '   + d.tipos  + '\n' +
-    'Mensaje: '+ d.msg    + '\n\n¡Espero tu respuesta!'
-  );
-  window.location.href = 'mailto:jufantics@gmail.com?subject=' + s + '&body=' + b;
-}
-
-/* ═════════════════════════════════════════════════════
-   VISOR DE CUENTO
-   ─ Pantalla completa (inset:0)
-   ─ .vbody con flex:1 + min-height:0
-   ─ .vimg con max-width:calc(100%-7rem) + max-height:100% + object-fit:contain
-     → imagen siempre completa, sin cortes, sin deformación
-   ─ Swipe táctil, teclado ← → Esc, auto-detección de páginas
-   ═════════════════════════════════════════════════════ */
-var viewer  = document.getElementById('viewer');
-var vTitleEl= document.getElementById('vtitle');
-var vImg    = document.getElementById('vimg');
-var vFill   = document.getElementById('vpfill');
-var vCtr    = document.getElementById('vctr');
-var vPrev   = document.getElementById('vprev');
-var vNext   = document.getElementById('vnext');
-var vClose  = document.getElementById('vclose');
-var vWant   = document.getElementById('vwant');
-var vBody   = document.getElementById('vbody');
-
-var vStory    = '';
-var vPage     = 1;
-var vTotal    = 1;
-var vDetected = false;
-
-function abrirCuento(carpeta, paginasMax, titulo) {
-  vStory    = carpeta;
-  vTotal    = paginasMax;
-  vPage     = 1;
-  vDetected = false;
-
-  vTitleEl.textContent = titulo;
-  vWant.onclick = function() { cerrarVisor(); quieroUno(titulo); };
-
-  document.body.style.overflow = 'hidden';
-  viewer.classList.add('open');
-
-  /* hint swipe en móvil */
-  if (window.innerWidth <= 768) {
-    var old = vBody.querySelector('.vhint');
-    if (old) old.remove();
-    var hint = document.createElement('div');
-    hint.className = 'vhint';
-    hint.textContent = '← desliza para navegar →';
-    vBody.appendChild(hint);
-    setTimeout(function() { hint.remove(); }, 3500);
-  }
-
-  cargarPagina(1);
-}
-
-function cargarPagina(n) {
-  vImg.classList.add('fade');
-
-  setTimeout(function() {
-    var src = 'assets/cuentos/' + vStory + '/pagina-' + n + '.jpg';
-    var tmp = new Image();
-
-    tmp.onload = function() {
-      vImg.src = src;
-      vImg.classList.remove('fade');
-      vPage = n;
-      actualizarUI();
-    };
-
-    tmp.onerror = function() {
-      /* imagen no existe → detectamos el total real */
-      if (!vDetected && n > 1) {
-        vDetected = true;
-        vTotal = n - 1;
-        actualizarUI();
-      }
-      vImg.classList.remove('fade');
-    };
-
-    tmp.src = src;
-  }, 150);
-}
-
-function actualizarUI() {
-  vCtr.textContent   = vPage + ' / ' + vTotal;
-  vFill.style.width  = ((vPage / vTotal) * 100) + '%';
-  vPrev.disabled     = (vPage <= 1);
-  vNext.disabled     = (vPage >= vTotal);
-}
-
-vNext.addEventListener('click', function() {
-  if (vPage < vTotal) cargarPagina(vPage + 1);
-});
-
-vPrev.addEventListener('click', function() {
-  if (vPage > 1) cargarPagina(vPage - 1);
-});
-
-function cerrarVisor() {
-  viewer.classList.remove('open');
-  document.body.style.overflow = '';
-  setTimeout(function() {
-    vImg.src           = '';
-    vFill.style.width  = '0%';
-    vCtr.textContent   = '— / —';
-  }, 300);
-}
-
-vClose.addEventListener('click', cerrarVisor);
-
-viewer.addEventListener('click', function(e) {
-  if (e.target === viewer) cerrarVisor();
-});
-
-/* Teclado */
-document.addEventListener('keydown', function(e) {
-  if (!viewer.classList.contains('open')) return;
-  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-    if (vPage < vTotal) cargarPagina(vPage + 1);
-  }
-  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-    if (vPage > 1) cargarPagina(vPage - 1);
-  }
-  if (e.key === 'Escape') cerrarVisor();
-});
-
-/* Swipe táctil — detección precisa horizontal */
-var tsX = 0, tsY = 0, swipeActive = false;
-
-vBody.addEventListener('touchstart', function(e) {
-  tsX = e.touches[0].clientX;
-  tsY = e.touches[0].clientY;
-  swipeActive = true;
-}, { passive: true });
-
-vBody.addEventListener('touchmove', function(e) {
-  if (!swipeActive) return;
-  var dx = Math.abs(e.touches[0].clientX - tsX);
-  var dy = Math.abs(e.touches[0].clientY - tsY);
-  if (dy > dx) swipeActive = false; /* scroll vertical → no es swipe */
-}, { passive: true });
-
-vBody.addEventListener('touchend', function(e) {
-  if (!swipeActive) return;
-  swipeActive = false;
-  var dx = e.changedTouches[0].clientX - tsX;
-  var dy = e.changedTouches[0].clientY - tsY;
-  if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
-  if (dx < 0 && vPage < vTotal) cargarPagina(vPage + 1); /* swipe izq → siguiente */
-  if (dx > 0 && vPage > 1)      cargarPagina(vPage - 1); /* swipe der → anterior */
-}, { passive: true });
-
-/* ─── QUIERO UNO ASÍ ─── */
-function quieroUno(titulo) {
-  var t = 'Hola 👋 Vi el cuento "' + titulo + '" en JUFANTICS y quiero uno así para mi hijo 💛\n\n' +
-          'Nombre del niño:\nEdad:\nGustos:\nMensaje:';
-  window.open('https://wa.me/51992786715?text=' + encodeURIComponent(t), '_blank', 'noopener,noreferrer');
-}
-</script>
-/* ═══════════════════════════════════════════════
-   JUFANTICS — Catálogo + Visor
-   IDs usados: jfViewer, jfVTitle, jfVImg,
-   jfVFill, jfVCtr, jfVPrev, jfVNext,
-   jfVClose, jfVWant, jfVBody
-   Clases usadas: jf-viewer, jf-vimg, jf-fade,
-   jf-vhint, open
-═══════════════════════════════════════════════ */
-(function () {
-  'use strict';
-
-  /* referencias */
-  var viewer  = document.getElementById('jfViewer');
-  var elTitle = document.getElementById('jfVTitle');
-  var elImg   = document.getElementById('jfVImg');
-  var elFill  = document.getElementById('jfVFill');
-  var elCtr   = document.getElementById('jfVCtr');
-  var elPrev  = document.getElementById('jfVPrev');
-  var elNext  = document.getElementById('jfVNext');
-  var elClose = document.getElementById('jfVClose');
-  var elWant  = document.getElementById('jfVWant');
-  var elBody  = document.getElementById('jfVBody');
-
-  /* estado */
-  var story    = '';
-  var page     = 1;
-  var total    = 1;
-  var detected = false;
-
-  /* ── abrir ── */
-  function jfAbrir(carpeta, maxPags, titulo) {
-    story    = carpeta;
-    total    = maxPags;
-    page     = 1;
-    detected = false;
-
-    elTitle.textContent = titulo;
-    elWant.onclick = function () { jfCerrar(); jfQuiero(titulo); };
-
-    document.body.style.overflow = 'hidden';
-    viewer.classList.add('open');
-
-    /* hint swipe en móvil */
-    if (window.innerWidth <= 700) {
-      var old = elBody.querySelector('.jf-vhint');
-      if (old) old.remove();
-      var hint = document.createElement('div');
-      hint.className = 'jf-vhint';
-      hint.textContent = '← desliza para navegar →';
-      elBody.appendChild(hint);
-      setTimeout(function () { if (hint.parentNode) hint.remove(); }, 3900);
-    }
-
-    cargar(1);
-  }
-
-  /* ── cargar página ── */
-  function cargar(n) {
-    elImg.classList.add('jf-fade');
-    setTimeout(function () {
-      var src = 'assets/cuentos/' + story + '/pagina-' + n + '.jpg';
-      var tmp = new Image();
-      tmp.onload = function () {
-        elImg.src = src;
-        elImg.classList.remove('jf-fade');
-        page = n;
-        sync();
-      };
-      tmp.onerror = function () {
-        /* página no existe → ajustamos el total real */
-        if (!detected && n > 1) { detected = true; total = n - 1; sync(); }
-        elImg.classList.remove('jf-fade');
-      };
-      tmp.src = src;
-    }, 160);
-  }
-
-  /* ── sincronizar barra y botones ── */
-  function sync() {
-    elCtr.textContent  = page + ' / ' + total;
-    elFill.style.width = ((page / total) * 100) + '%';
-    elPrev.disabled    = (page <= 1);
-    elNext.disabled    = (page >= total);
-  }
-
-  /* ── cerrar ── */
-  function jfCerrar() {
-    viewer.classList.remove('open');
-    document.body.style.overflow = '';
-    setTimeout(function () {
-      elImg.src          = '';
-      elFill.style.width = '0%';
-      elCtr.textContent  = '— / —';
-      elTitle.textContent = '—';
-    }, 280);
-  }
-
-  /* ── eventos botones ── */
-  elNext.addEventListener('click', function () {
-    if (page < total) cargar(page + 1);
-  });
-  elPrev.addEventListener('click', function () {
-    if (page > 1) cargar(page - 1);
-  });
-  elClose.addEventListener('click', jfCerrar);
-
-  /* clic en fondo oscuro */
-  viewer.addEventListener('click', function (e) {
-    if (e.target === viewer) jfCerrar();
-  });
-
-  /* teclado */
-  document.addEventListener('keydown', function (e) {
-    if (!viewer.classList.contains('open')) return;
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { if (page < total) cargar(page + 1); }
-    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   { if (page > 1)     cargar(page - 1); }
-    if (e.key === 'Escape') jfCerrar();
-  });
-
-  /* swipe táctil */
-  var tx = 0, ty = 0, ok = false;
-  elBody.addEventListener('touchstart', function (e) {
-    tx = e.touches[0].clientX; ty = e.touches[0].clientY; ok = true;
-  }, { passive: true });
-  elBody.addEventListener('touchmove', function (e) {
-    if (!ok) return;
-    if (Math.abs(e.touches[0].clientY - ty) > Math.abs(e.touches[0].clientX - tx)) ok = false;
-  }, { passive: true });
-  elBody.addEventListener('touchend', function (e) {
-    if (!ok) return; ok = false;
-    var dx = e.changedTouches[0].clientX - tx;
-    var dy = e.changedTouches[0].clientY - ty;
-    if (Math.abs(dx) < 42 || Math.abs(dx) < Math.abs(dy)) return;
-    if (dx < 0 && page < total) cargar(page + 1);
-    if (dx > 0 && page > 1)     cargar(page - 1);
-  }, { passive: true });
-
-  /* exponer al scope global (llamados desde onclick="") */
-  window.jfAbrir  = jfAbrir;
-  window.jfQuiero = function (titulo) {
-    var msg = 'Hola 👋 Vi el cuento "' + titulo + '" en JUFANTICS y quiero uno así 💛\n\n'
-            + 'Nombre del niño:\nEdad:\nGustos:\nMensaje:';
-    window.open('https://wa.me/51992786715?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
-  };
-
+  window.nxAbrir=nxAbrir;
+  window.nxQuiero=function(titulo){var msg='Hola 👋 Vi el cuento "'+titulo+'" en JUFANTICS y quiero uno así 💛\n\nNombre del niño:\nEdad:\nGustos:\nMensaje:';window.open('https://wa.me/51992786715?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');};
 }());
+</script>
 </body>
 </html>
