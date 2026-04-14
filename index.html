@@ -905,7 +905,410 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
 @media (max-width: 400px) {
   .cat-grid { grid-template-columns: 1fr; }
 }
+/* ═══════════════════════════════════════════════════
+   JUFANTICS — CATÁLOGO + VISOR
+   Prefijo "nx-" en todas las clases nuevas.
+   No toca ninguna clase existente en tu web.
+═══════════════════════════════════════════════════ */
 
+/* ── Cabecera de sección ── */
+.nx-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2.8rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.nx-eyebrow {
+  font-size: .67rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--nar);
+  display: block;
+  margin-bottom: .35rem;
+}
+.nx-head h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  line-height: 1.1;
+  color: var(--ink);
+}
+.nx-head p {
+  font-size: .93rem;
+  color: var(--ink3);
+  margin-top: .4rem;
+  max-width: 440px;
+}
+
+/* ── Grid Netflix ── */
+.nx-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.1rem;
+}
+
+/* ── Tarjeta ── */
+.nx-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 3 / 4;
+  background: var(--bg2);
+  box-shadow: 0 3px 16px rgba(28,21,40,.12);
+  isolation: isolate;
+  transition:
+    transform .38s cubic-bezier(.15,.9,.3,1),
+    box-shadow .38s ease;
+}
+.nx-card:hover {
+  transform: translateY(-12px) scale(1.04);
+  box-shadow:
+    0 24px 56px rgba(28,21,40,.32),
+    0 0 0 1.5px rgba(155,142,196,.4);
+  z-index: 10;
+}
+
+/* Imagen portada */
+.nx-cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform .5s ease;
+}
+.nx-card:hover .nx-cover { transform: scale(1.06); }
+
+/* Degradado inferior */
+.nx-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    transparent 42%,
+    rgba(28,21,40,.5) 68%,
+    rgba(28,21,40,.94) 100%
+  );
+}
+
+/* Badge categoría */
+.nx-badge {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  z-index: 3;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: .58rem;
+  letter-spacing: .9px;
+  text-transform: uppercase;
+  color: white;
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.28);
+  padding: .2rem .6rem;
+  border-radius: 50px;
+}
+
+/* Pie de tarjeta */
+.nx-foot {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 1.5rem .85rem .85rem;
+}
+.nx-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: .93rem;
+  color: white;
+  line-height: 1.28;
+  margin-bottom: .55rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Botones — aparecen solo al hover */
+.nx-btns {
+  display: flex;
+  gap: .35rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .22s ease, transform .22s ease;
+  pointer-events: none;
+}
+.nx-card:hover .nx-btns {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.nx-btn-leer {
+  flex: 1;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: .68rem;
+  padding: .44rem .5rem;
+  border-radius: 50px;
+  background: white;
+  color: var(--ink);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .25rem;
+  transition: background .18s, color .18s;
+  white-space: nowrap;
+}
+.nx-btn-leer:hover { background: var(--lav); color: white; }
+
+.nx-btn-quiero {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: .68rem;
+  padding: .44rem .6rem;
+  border-radius: 50px;
+  background: rgba(232,147,106,.88);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background .18s;
+  white-space: nowrap;
+}
+.nx-btn-quiero:hover { background: var(--nar); }
+
+/* ═══════════════════════════════════════════════════
+   VISOR DE CUENTO
+   ─────────────────────────────────────────────────
+   POR QUÉ LA IMAGEN NO SE CORTA:
+   • .nx-vbody tiene flex:1 + min-height:0
+     → ocupa TODO el espacio entre header y footer
+     → sin min-height:0, el hijo flex no se encoge
+       y la imagen se desborda por abajo
+   • .nx-vimg tiene max-height:100% + object-fit:contain
+     → la imagen nunca supera el contenedor
+     → mantiene su proporción sin distorsión
+═══════════════════════════════════════════════════ */
+.nx-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(8,5,15,.97);
+  display: none;
+  flex-direction: column;
+}
+.nx-viewer.open {
+  display: flex;
+  animation: nxIn .2s ease;
+}
+@keyframes nxIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Header visor */
+.nx-vhdr {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .65rem 1.1rem;
+  background: rgba(18,12,28,.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.nx-vlogo {
+  height: 25px;
+  width: auto;
+  opacity: .88;
+  flex-shrink: 0;
+}
+.nx-vtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .98rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.9);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nx-vclose {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.8);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background .2s;
+}
+.nx-vclose:hover {
+  background: rgba(232,147,106,.75);
+  color: white;
+  border-color: transparent;
+}
+
+/* Zona imagen — CRÍTICO */
+.nx-vbody {
+  flex: 1;        /* toma todo el espacio libre entre header y footer */
+  min-height: 0;  /* sin esto: la imagen se corta — regla obligatoria */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: .4rem 0;
+}
+
+/* Flechas de navegación */
+.nx-vnav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(18,12,28,.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(255,255,255,.15);
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, transform .2s;
+  user-select: none;
+}
+.nx-vnav:hover { background: var(--lav); transform: translateY(-50%) scale(1.1); }
+.nx-vnav:disabled { opacity: .18; pointer-events: none; }
+.nx-vprev { left: .8rem; }
+.nx-vnext { right: .8rem; }
+
+/* Imagen — NUNCA se corta */
+.nx-vimg {
+  max-width: calc(100% - 6rem);  /* deja espacio a las flechas */
+  max-height: 100%;               /* no supera el contenedor    */
+  width: auto;
+  height: auto;
+  object-fit: contain;            /* proporción original intacta */
+  display: block;
+  border-radius: 3px;
+  box-shadow: 0 8px 48px rgba(0,0,0,.65);
+  transition: opacity .2s ease;
+  user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+.nx-vimg.nx-fade { opacity: 0; }
+
+/* Hint swipe móvil */
+.nx-vhint {
+  position: absolute;
+  bottom: 3.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: .68rem;
+  color: rgba(255,255,255,.42);
+  background: rgba(18,12,28,.55);
+  backdrop-filter: blur(6px);
+  padding: .3rem .82rem;
+  border-radius: 50px;
+  pointer-events: none;
+  z-index: 10;
+  white-space: nowrap;
+  animation: nxHint 3.8s ease forwards;
+}
+@keyframes nxHint {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(5px); }
+  10%  { opacity: 1; transform: translateX(-50%) translateY(0);   }
+  75%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Footer visor */
+.nx-vftr {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  padding: .5rem 1.1rem;
+  background: rgba(18,12,28,.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+.nx-pbar-w { flex: 1; }
+.nx-pbar {
+  height: 3px;
+  background: rgba(255,255,255,.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.nx-pfill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--lav), var(--nar));
+  border-radius: 2px;
+  transition: width .3s ease;
+}
+.nx-ctr {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: .74rem;
+  color: rgba(255,255,255,.42);
+  min-width: 44px;
+  text-align: right;
+  white-space: nowrap;
+}
+.nx-vwant {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: .73rem;
+  padding: .42rem .92rem;
+  border-radius: 50px;
+  background: var(--nar);
+  color: white;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background .2s, transform .18s;
+  white-space: nowrap;
+}
+.nx-vwant:hover { background: #d4783e; transform: translateY(-1px); }
+
+/* ── Responsive ── */
+@media (max-width: 1280px) { .nx-grid { grid-template-columns: repeat(4,1fr); } }
+@media (max-width: 1024px) { .nx-grid { grid-template-columns: repeat(3,1fr); } }
+@media (max-width: 680px)  { .nx-grid { grid-template-columns: repeat(2,1fr); gap: .8rem; } }
+@media (max-width: 360px)  { .nx-grid { grid-template-columns: 1fr; } }
+@media (max-width: 680px) {
+  .nx-card-title { font-size: .83rem; }
+  .nx-vimg       { max-width: calc(100% - 4.5rem); }
+  .nx-vnav       { width: 36px; height: 36px; font-size: 1.1rem; }
+  .nx-vprev      { left: .35rem; }
+  .nx-vnext      { right: .35rem; }
+  .nx-vlogo      { display: none; }
+}
 </style>
 
 </head>
@@ -953,55 +1356,252 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
 <!-- ═══════════════════════════════════════
      HERO
      ═══════════════════════════════════════ -->
-<section id="home">
-  <div class="hero">
-    <span class="hstar hs1">✨</span>
-    <span class="hstar hs2">⭐</span>
-    <span class="hstar hs3">🌟</span>
-    <span class="hstar hs4">✦</span>
+<section id="cuentos" class="sec" style="background:var(--bg)">
+<div class="wrap">
 
-    <!-- IZQUIERDA: texto -->
-    <div class="hero-left">
-      <div class="hero-eye">Cuentos 100% personalizados · Lima, Perú</div>
-      <h1 class="hero-h1">Su historia ya existe.<br>Solo falta <em>contarla</em>.</h1>
-      <p class="hero-sub">Creamos cuentos únicos con el nombre, la cara y el corazón de tu hijo. Una historia que no encontrarás en ninguna librería del mundo.</p>
-      <div class="hero-btns">
-        <a href="#cuentos" class="btn btn-p">📖 Ver cuentos</a>
-        <a href="#brief"   class="btn btn-s">✨ Quiero el mío</a>
-      </div>
-      <div class="hero-trust">
-        <span><span class="tdot"></span>100% personalizado</span>
-        <span><span class="tdot"></span>Entrega en 48h</span>
-        <span><span class="tdot"></span>Experiencia visual</span>
+  <div class="nx-head">
+    <div>
+      <span class="nx-eyebrow">✦ Catálogo</span>
+      <h2>Nuestros Cuentos</h2>
+      <p>Haz clic para leer. Experiencia visual e inmersiva.</p>
+    </div>
+    <a href="#brief" class="btn btn-p">✨ Quiero uno así</a>
+  </div>
+
+  <div class="nx-grid">
+
+    <!-- 1 -->
+    <div class="nx-card" onclick="nxAbrir('aventura-ninja',12,'La Aventura Ninja')">
+      <img class="nx-cover" loading="lazy"
+           src="assets/cuentos/aventura-ninja/portada.jpg"
+           alt="La Aventura Ninja"
+           onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div>
+      <span class="nx-badge">¡Nuevo!</span>
+      <div class="nx-foot">
+        <div class="nx-card-title">La Aventura Ninja</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer"
+            onclick="event.stopPropagation();nxAbrir('aventura-ninja',12,'La Aventura Ninja')">
+            📖 Leer
+          </button>
+          <button class="nx-btn-quiero"
+            onclick="event.stopPropagation();nxQuiero('La Aventura Ninja')">
+            ✨ Quiero uno
+          </button>
+        </div>
       </div>
     </div>
 
-    <!-- DERECHA: imagen real del libro + tarjetas flotantes -->
-   <div class="hero-right">
-  <img src="assets/hero-libro.jpg" alt="Libro JUFANTICS">
+    <!-- 2 -->
+    <div class="nx-card" onclick="nxAbrir('cueva-de-cristal',10,'El Secreto de la Cueva de Cristal')">
+      <img class="nx-cover" loading="lazy"
+           src="assets/cuentos/cueva-de-cristal/portada.jpg"
+           alt="El Secreto de la Cueva de Cristal"
+           onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div>
+      <span class="nx-badge">Fantasía</span>
+      <div class="nx-foot">
+        <div class="nx-card-title">El Secreto de la Cueva de Cristal</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer"
+            onclick="event.stopPropagation();nxAbrir('cueva-de-cristal',10,'El Secreto de la Cueva de Cristal')">
+            📖 Leer
+          </button>
+          <button class="nx-btn-quiero"
+            onclick="event.stopPropagation();nxQuiero('El Secreto de la Cueva de Cristal')">
+            ✨ Quiero uno
+          </button>
+        </div>
+      </div>
+    </div>
 
-  <!-- tarjetas flotantes -->
-  <div class="fcard fc1">
-    <span class="fc-ico">🎁</span>
-    <div><span class="fc-lbl">Regalo único</span><span class="fc-sub">Irrepetible</span></div>
-  </div>
+    <!-- 3 -->
+    <div class="nx-card" onclick="nxAbrir('escuadron-verde',13,'El Escuadrón Verde')">
+      <img class="nx-cover" loading="lazy"
+           src="assets/cuentos/escuadron-verde/portada.jpg"
+           alt="El Escuadrón Verde"
+           onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div>
+      <span class="nx-badge">Educativo</span>
+      <div class="nx-foot">
+        <div class="nx-card-title">El Escuadrón Verde</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer"
+            onclick="event.stopPropagation();nxAbrir('escuadron-verde',13,'El Escuadrón Verde')">
+            📖 Leer
+          </button>
+          <button class="nx-btn-quiero"
+            onclick="event.stopPropagation();nxQuiero('El Escuadrón Verde')">
+            ✨ Quiero uno
+          </button>
+        </div>
+      </div>
+    </div>
 
-  <div class="fcard fc2">
-    <span class="fc-ico">💛</span>
-    <div><span class="fc-lbl">Emocional</span><span class="fc-sub">Para tu familia</span></div>
-  </div>
+    <!-- 4 -->
+    <div class="nx-card" onclick="nxAbrir('escuadron-verde-guardianes-del-oceano',12,'Guardianes del Océano')">
+      <img class="nx-cover" loading="lazy"
+           src="assets/cuentos/escuadron-verde-guardianes-del-oceano/portada.jpg"
+           alt="Guardianes del Océano"
+           onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div>
+      <span class="nx-badge">Aventura</span>
+      <div class="nx-foot">
+        <div class="nx-card-title">Guardianes del Océano</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer"
+            onclick="event.stopPropagation();nxAbrir('escuadron-verde-guardianes-del-oceano',12,'Guardianes del Océano')">
+            📖 Leer
+          </button>
+          <button class="nx-btn-quiero"
+            onclick="event.stopPropagation();nxQuiero('Guardianes del Océano')">
+            ✨ Quiero uno
+          </button>
+        </div>
+      </div>
+    </div>
 
-  <div class="fcard fc3">
-    <span class="fc-ico">📖</span>
-    <div><span class="fc-lbl">Cuento visual</span><span class="fc-sub">Sin descarga</span></div>
-  </div>
+    <!-- 5 -->
+    <div class="nx-card" onclick="nxAbrir('gran-aventura-familiar',10,'La Gran Aventura Familiar')">
+      <img class="nx-cover" loading="lazy"
+           src="assets/cuentos/gran-aventura-familiar/portada.jpg"
+           alt="La Gran Aventura Familiar"
+           onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div>
+      <span class="nx-badge">Familiar</span>
+      <div class="nx-foot">
+        <div class="nx-card-title">La Gran Aventura Familiar</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer"
+            onclick="event.stopPropagation();nxAbrir('gran-aventura-familiar',10,'La Gran Aventura Familiar')">
+            📖 Leer
+          </button>
+          <button class="nx-btn-quiero"
+            onclick="event.stopPropagation();nxQuiero('La Gran Aventura Familiar')">
+            ✨ Quiero uno
+          </button>
+        </div>
+      </div>
+    </div>
 
-  <div class="fcard fc4">
-    <span class="fc-ico">⭐</span>
-    <div><span class="fc-lbl">5 estrellas</span><span class="fc-sub">Familias felices</span></div>
-  </div>
+    <!-- 6 -->
+    <div class="nx-card" onclick="nxAbrir('gran-corazon-capitan-julen',12,'El Gran Corazón del Capitán Julen')">
+      <img class="nx-cover" loading="lazy"
+           src="assets/cuentos/gran-corazon-capitan-julen/portada.jpg"
+           alt="El Gran Corazón del Capitán Julen"
+           onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div>
+      <span class="nx-badge">Aventura</span>
+      <div class="nx-foot">
+        <div class="nx-card-title">El Gran Corazón del Capitán Julen</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer"
+            onclick="event.stopPropagation();nxAbrir('gran-corazon-capitan-julen',12,'El Gran Corazón del Capitán Julen')">
+            📖 Leer
+          </button>
+          <button class="nx-btn-quiero"
+            onclick="event.stopPropagation();nxQuiero('El Gran Corazón del Capitán Julen')">
+            ✨ Quiero uno
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="nx-card" onclick="nxAbrir('guardian-colores-infinitos',11,'El Guardián de los Colores Infinitos')">
+      <img class="nx-cover" loading="lazy"
+           src="assets/cuentos/guardian-colores-infinitos/portada.jpg"
+           alt="El Guardián de los Colores Infinitos"
+           onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div>
+      <span class="nx-badge">Mágico</span>
+      <div class="nx-foot">
+        <div class="nx-card-title">El Guardián de los Colores Infinitos</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer"
+            onclick="event.stopPropagation();nxAbrir('guardian-colores-infinitos',11,'El Guardián de los Colores Infinitos')">
+            📖 Leer
+          </button>
+          <button class="nx-btn-quiero"
+            onclick="event.stopPropagation();nxQuiero('El Guardián de los Colores Infinitos')">
+            ✨ Quiero uno
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="nx-card" onclick="nxAbrir('thiago-defensor-universo',11,'Thiago: El Defensor del Universo')">
+      <img class="nx-cover" loading="lazy"
+           src="assets/cuentos/thiago-defensor-universo/portada.jpg"
+           alt="Thiago: El Defensor del Universo"
+           onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div>
+      <span class="nx-badge">Fantasía</span>
+      <div class="nx-foot">
+        <div class="nx-card-title">Thiago: El Defensor del Universo</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer"
+            onclick="event.stopPropagation();nxAbrir('thiago-defensor-universo',11,'Thiago: El Defensor del Universo')">
+            📖 Leer
+          </button>
+          <button class="nx-btn-quiero"
+            onclick="event.stopPropagation();nxQuiero('Thiago: El Defensor del Universo')">
+            ✨ Quiero uno
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="nx-card" onclick="nxAbrir('tesoros-de-la-costa',10,'Tesoros de la Costa')">
+      <img class="nx-cover" loading="lazy"
+           src="assets/cuentos/tesoros-de-la-costa/portada.jpg"
+           alt="Tesoros de la Costa"
+           onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div>
+      <span class="nx-badge">Aventura</span>
+      <div class="nx-foot">
+        <div class="nx-card-title">Tesoros de la Costa</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer"
+            onclick="event.stopPropagation();nxAbrir('tesoros-de-la-costa',10,'Tesoros de la Costa')">
+            📖 Leer
+          </button>
+          <button class="nx-btn-quiero"
+            onclick="event.stopPropagation();nxQuiero('Tesoros de la Costa')">
+            ✨ Quiero uno
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="nx-card" onclick="nxAbrir('vuelo-resiliencia-corazon-oro-hielo',9,'El Vuelo de la Resiliencia')">
+      <img class="nx-cover" loading="lazy"
+           src="assets/cuentos/vuelo-resiliencia-corazon-oro-hielo/portada.jpg"
+           alt="El Vuelo de la Resiliencia"
+           onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div>
+      <span class="nx-badge">Emocional</span>
+      <div class="nx-foot">
+        <div class="nx-card-title">El Vuelo de la Resiliencia</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer"
+            onclick="event.stopPropagation();nxAbrir('vuelo-resiliencia-corazon-oro-hielo',9,'El Vuelo de la Resiliencia')">
+            📖 Leer
+          </button>
+          <button class="nx-btn-quiero"
+            onclick="event.stopPropagation();nxQuiero('El Vuelo de la Resiliencia')">
+            ✨ Quiero uno
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /nx-grid -->
 </div>
-  </div>
 </section>
 
 <!-- ═══════════════════════════════════════
@@ -1487,6 +2087,36 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
 
 </div>
 <!-- FIN VISOR -->
+  <!-- ── VISOR ── pegar justo antes de <section id="brief"> ── -->
+<div class="nx-viewer" id="nxViewer" role="dialog" aria-modal="true" aria-label="Leer cuento">
+
+  <div class="nx-vhdr">
+    <img src="LOGO.png" class="nx-vlogo" alt="JUFANTICS"
+         onerror="this.style.display='none'">
+    <div class="nx-vtitle" id="nxVTitle">—</div>
+    <button class="nx-vclose" id="nxVClose" aria-label="Cerrar">✕</button>
+  </div>
+
+  <div class="nx-vbody" id="nxVBody">
+    <button class="nx-vnav nx-vprev" id="nxVPrev" aria-label="Anterior">&#8249;</button>
+    <img class="nx-vimg" id="nxVImg"
+         src="" alt="Página del cuento"
+         draggable="false" oncontextmenu="return false">
+    <button class="nx-vnav nx-vnext" id="nxVNext" aria-label="Siguiente">&#8250;</button>
+  </div>
+
+  <div class="nx-vftr">
+    <div class="nx-pbar-w">
+      <div class="nx-pbar">
+        <div class="nx-pfill" id="nxVFill" style="width:0%"></div>
+      </div>
+    </div>
+    <div class="nx-ctr" id="nxVCtr">— / —</div>
+    <button class="nx-vwant" id="nxVWant">✨ Quiero uno así</button>
+  </div>
+
+</div>
+<!-- ── FIN VISOR ── -->
    <section class="brief sec" id="brief">
   <div class="wrap">
     <div class="brief-in">
@@ -1715,7 +2345,182 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 3.5rem 5%
 <!-- ═══════════════════════════════════════════════════════════
      JAVASCRIPT — un solo bloque, limpio y completo
      ═══════════════════════════════════════════════════════════ -->
-<script>
+/* ═══════════════════════════════════════════════════
+   JUFANTICS — Catálogo + Visor
+   ───────────────────────────────────────────────────
+   IDs del HTML usados aquí:
+     nxViewer · nxVTitle · nxVImg · nxVFill
+     nxVCtr · nxVPrev · nxVNext · nxVClose
+     nxVWant · nxVBody
+   Clases usadas aquí:
+     nx-viewer · nx-vimg · nx-fade · nx-vhint · open
+   Funciones globales:
+     nxAbrir()  — llamada desde onclick="" en HTML
+     nxQuiero() — llamada desde onclick="" en HTML
+═══════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+
+  /* ── referencias DOM ── */
+  var viewer  = document.getElementById('nxViewer');
+  var elTitle = document.getElementById('nxVTitle');
+  var elImg   = document.getElementById('nxVImg');
+  var elFill  = document.getElementById('nxVFill');
+  var elCtr   = document.getElementById('nxVCtr');
+  var elPrev  = document.getElementById('nxVPrev');
+  var elNext  = document.getElementById('nxVNext');
+  var elClose = document.getElementById('nxVClose');
+  var elWant  = document.getElementById('nxVWant');
+  var elBody  = document.getElementById('nxVBody');
+
+  /* ── estado ── */
+  var story    = '';
+  var page     = 1;
+  var total    = 1;
+  var detected = false;
+
+  /* ─────────────────────────────────
+     ABRIR CUENTO
+     carpeta : nombre exacto de carpeta
+     maxPags : estimado inicial
+     titulo  : texto del header
+  ───────────────────────────────── */
+  function nxAbrir(carpeta, maxPags, titulo) {
+    story    = carpeta;
+    total    = maxPags;
+    page     = 1;
+    detected = false;
+
+    elTitle.textContent = titulo;
+    elWant.onclick = function () { nxCerrar(); nxQuiero(titulo); };
+
+    document.body.style.overflow = 'hidden';
+    viewer.classList.add('open');
+
+    /* hint swipe — solo en pantallas pequeñas */
+    if (window.innerWidth <= 700) {
+      var old = elBody.querySelector('.nx-vhint');
+      if (old) old.remove();
+      var hint = document.createElement('div');
+      hint.className = 'nx-vhint';
+      hint.textContent = '← desliza para navegar →';
+      elBody.appendChild(hint);
+      setTimeout(function () { if (hint.parentNode) hint.remove(); }, 3900);
+    }
+
+    cargar(1);
+  }
+
+  /* ─────────────────────────────────
+     CARGAR PÁGINA n
+     Usa preload para detectar si la
+     imagen existe antes de mostrarla.
+     Si da error → ajusta el total real.
+  ───────────────────────────────── */
+  function cargar(n) {
+    elImg.classList.add('nx-fade');
+    setTimeout(function () {
+      var src = 'assets/cuentos/' + story + '/pagina-' + n + '.jpg';
+      var tmp = new Image();
+      tmp.onload = function () {
+        elImg.src = src;
+        elImg.classList.remove('nx-fade');
+        page = n;
+        sync();
+      };
+      tmp.onerror = function () {
+        if (!detected && n > 1) {
+          detected = true;
+          total    = n - 1;
+          sync();
+        }
+        elImg.classList.remove('nx-fade');
+      };
+      tmp.src = src;
+    }, 160);
+  }
+
+  /* barra de progreso + contador + estado flechas */
+  function sync() {
+    elCtr.textContent  = page + ' / ' + total;
+    elFill.style.width = ((page / total) * 100) + '%';
+    elPrev.disabled    = (page <= 1);
+    elNext.disabled    = (page >= total);
+  }
+
+  /* ─────────────────────────────────
+     CERRAR VISOR
+  ───────────────────────────────── */
+  function nxCerrar() {
+    viewer.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(function () {
+      elImg.src           = '';
+      elFill.style.width  = '0%';
+      elCtr.textContent   = '— / —';
+      elTitle.textContent = '—';
+    }, 280);
+  }
+
+  /* ── botones de navegación ── */
+  elNext.addEventListener('click', function () {
+    if (page < total) cargar(page + 1);
+  });
+  elPrev.addEventListener('click', function () {
+    if (page > 1) cargar(page - 1);
+  });
+  elClose.addEventListener('click', nxCerrar);
+
+  /* clic en el fondo oscuro */
+  viewer.addEventListener('click', function (e) {
+    if (e.target === viewer) nxCerrar();
+  });
+
+  /* ── teclado ── */
+  document.addEventListener('keydown', function (e) {
+    if (!viewer.classList.contains('open')) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { if (page < total) cargar(page + 1); }
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   { if (page > 1)     cargar(page - 1); }
+    if (e.key === 'Escape') nxCerrar();
+  });
+
+  /* ── swipe táctil ── */
+  var tx = 0, ty = 0, swOk = false;
+  elBody.addEventListener('touchstart', function (e) {
+    tx = e.touches[0].clientX;
+    ty = e.touches[0].clientY;
+    swOk = true;
+  }, { passive: true });
+  elBody.addEventListener('touchmove', function (e) {
+    if (!swOk) return;
+    if (Math.abs(e.touches[0].clientY - ty) > Math.abs(e.touches[0].clientX - tx)) swOk = false;
+  }, { passive: true });
+  elBody.addEventListener('touchend', function (e) {
+    if (!swOk) return;
+    swOk = false;
+    var dx = e.changedTouches[0].clientX - tx;
+    var dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) < 42 || Math.abs(dx) < Math.abs(dy)) return;
+    if (dx < 0 && page < total) cargar(page + 1);
+    if (dx > 0 && page > 1)     cargar(page - 1);
+  }, { passive: true });
+
+  /* ── exponer al scope global (para onclick="" en el HTML) ── */
+  window.nxAbrir = nxAbrir;
+
+  window.nxQuiero = function (titulo) {
+    var msg = 'Hola 👋 Vi el cuento "' + titulo + '" en JUFANTICS\n'
+            + 'y quiero uno así para mi hijo 💛\n\n'
+            + 'Nombre del niño:\nEdad:\nGustos:\nMensaje:';
+    window.open(
+      'https://wa.me/51992786715?text=' + encodeURIComponent(msg),
+      '_blank',
+      'noopener,noreferrer'
+    );
+  };
+
+}()); /* fin — nada contamina el scope global */
+   <script>
 /* ─── NAV ─── */
 var nav = document.getElementById('mainNav');
 var ham = document.getElementById('ham');
