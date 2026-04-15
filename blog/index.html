@@ -6,21 +6,34 @@
 <meta name="description" content="Blog JUFANTICS — Lecturas, crianza, emociones y cuentos personalizados para niños y familias.">
 <title>Blog JUFANTICS — Historias que inspiran</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-
-:root{--sky:#5AABCF;--skyl:#E8F5FB;--nar:#E8936A;--narl:#FBF0EB;--lav:#9B8EC4;--lavl:#EDEAFF;--ink:#1C1528;--ink2:#4A3F5C;--ink3:#8A7FA0;--bg:#FAF6F0;--bg2:#F2EDE3;--bg3:#EDE3D6;--r:14px;--sh:0 4px 24px rgba(28,21,40,.09);--sh2:0 16px 56px rgba(28,21,40,.18)}
+:root{
+  --sky:#5AABCF;--skyl:#E8F5FB;--nar:#E8936A;--narl:#FBF0EB;
+  --lav:#9B8EC4;--lavl:#EDEAFF;--ink:#1C1528;--ink2:#4A3F5C;--ink3:#8A7FA0;
+  --bg:#FAF6F0;--bg2:#F2EDE3;--bg3:#EDE3D6;
+  --r:14px;--sh:0 4px 24px rgba(28,21,40,.09);--sh2:0 16px 56px rgba(28,21,40,.18);
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.6}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
-.wrap{max-width:1160px;margin:0 auto;padding:0 5%}
-.btn{display:inline-flex;align-items:center;gap:.45rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:.88rem;padding:.78rem 1.7rem;border-radius:50px;border:none;cursor:pointer;transition:transform .2s,background .2s;text-decoration:none}
-.btn:hover{transform:translateY(-2px)}
-.btn-p{background:var(--nar);color:#fff}.btn-p:hover{background:#d4783e}
-.wa-fab{position:fixed;bottom:1.5rem;right:1.5rem;z-index:900;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.5);cursor:pointer;text-decoration:none;transition:transform .2s}
-.wa-fab:hover{transform:scale(1.1)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 5%}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* BOTONES */
+.btn-p{display:inline-flex;align-items:center;gap:.45rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:.88rem;padding:.78rem 1.7rem;border-radius:50px;border:none;cursor:pointer;text-decoration:none;background:var(--nar);color:#fff;transition:transform .2s,background .2s}
+.btn-p:hover{background:#d4783e;transform:translateY(-2px)}
+.btn-s{display:inline-flex;align-items:center;gap:.45rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:.88rem;padding:.78rem 1.7rem;border-radius:50px;border:2px solid rgba(28,21,40,.18);cursor:pointer;text-decoration:none;background:transparent;color:var(--ink);transition:transform .2s,border-color .2s,color .2s}
+.btn-s:hover{border-color:var(--lav);color:var(--lav);transform:translateY(-2px)}
+
+/* WA */
+.wa-fab{position:fixed;bottom:1.5rem;right:1.5rem;z-index:900;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.5);cursor:pointer;text-decoration:none}
+.wa-fab svg{width:28px;height:28px;fill:white}
+
+/* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.85rem 5%;display:flex;align-items:center;justify-content:space-between;transition:background .3s,box-shadow .3s}
 .nav.solid{background:rgba(250,246,240,.97);backdrop-filter:blur(14px);box-shadow:0 2px 16px rgba(28,21,40,.08)}
 .nav-brand{display:flex;align-items:center;gap:.52rem;text-decoration:none}
@@ -28,197 +41,431 @@ img{max-width:100%;display:block}
 .nav-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:1.22rem;letter-spacing:-.4px;line-height:1;color:var(--ink)}
 .nj1{color:var(--sky)}.nj2{color:var(--nar)}.nj3{color:var(--lav)}
 .nav-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.67rem;color:var(--ink3);line-height:1}
-.nav-links{display:flex;gap:1.8rem;align-items:center}
-.nav-links a{font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink2);position:relative;transition:color .2s}
-.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1.5px;background:var(--nar);transform:scaleX(0);transform-origin:left;transition:transform .25s}
-.nav-links a:hover{color:var(--ink)}.nav-links a:hover::after{transform:scaleX(1)}
-.nav-cta{background:var(--nar)!important;color:#fff!important;padding:.46rem 1.15rem;border-radius:50px;font-weight:800!important;font-size:.76rem!important}
-.nav-cta::after{display:none!important}
-.nav-blog-active{color:var(--lav)!important}
-.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem;background:none;border:none}
-.ham span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
-.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.ham.open span:nth-child(2){opacity:0}
-.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.drawer{display:none;position:fixed;inset:0;background:var(--bg);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
-.drawer.open{display:flex}
-.drawer a{font-family:'Nunito',sans-serif;font-size:1.4rem;font-weight:800;color:var(--ink)}
-.drawer a:hover{color:var(--nar)}
-footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3.5rem 5% 0}
-.fg2{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07)}
-.fbrand{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem}
-.fblogo{height:33px;width:auto}
-.fbname{font-family:'Nunito',sans-serif;font-weight:900;font-size:1.18rem;letter-spacing:-.3px;color:white}
-.fb1{color:var(--sky)}.fb2{color:var(--nar)}.fb3{color:var(--lav)}
-.ftag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.88rem;color:rgba(255,255,255,.33);margin-bottom:1.2rem;line-height:1.5}
-.fsocs{display:flex;gap:.5rem}
-.fsoc{width:33px;height:33px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;text-decoration:none}
-.fsoc:hover{background:var(--nar);transform:scale(1.1)}
-.fcol h5{font-family:'Nunito',sans-serif;font-weight:800;color:rgba(255,255,255,.8);font-size:.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem}
-.fcol a{display:block;font-size:.81rem;color:rgba(255,255,255,.4);margin-bottom:.58rem;transition:color .2s;text-decoration:none}
-.fcol a:hover{color:var(--sky)}
-.fbot{padding:1.3rem 0 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;font-size:.73rem}
-.ftics{font-family:'Nunito',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.4px;color:rgba(255,255,255,.2)}
-@media(max-width:900px){.nav-links{display:none}.ham{display:flex}.fg2{grid-template-columns:1fr;gap:2rem}}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.nav-back{display:inline-flex;align-items:center;gap:.4rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:.76rem;color:var(--ink2);padding:.46rem 1rem;border-radius:50px;border:2px solid rgba(28,21,40,.15);transition:border-color .2s,color .2s}
+.nav-back:hover{border-color:var(--lav);color:var(--lav)}
+.nav-cta{background:var(--nar);color:#fff;padding:.46rem 1.15rem;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:800;font-size:.76rem;transition:background .2s}
+.nav-cta:hover{background:#d4783e}
 
+/* HERO BLOG */
 .blog-hero{padding:9rem 5% 5rem;background:linear-gradient(145deg,var(--lavl) 0%,var(--bg) 55%,var(--narl) 100%);text-align:center;position:relative;overflow:hidden}
 .blog-hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(155,142,196,.18) 0%,transparent 70%);pointer-events:none}
-.hero-eye{display:inline-flex;align-items:center;gap:.4rem;font-size:.71rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--lav);margin-bottom:1rem}
-.hero-eye::before{content:'✦'}
+.blog-eye{display:inline-flex;align-items:center;gap:.4rem;font-size:.71rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--lav);margin-bottom:1rem}
+.blog-eye::before{content:'✦'}
 .blog-h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.15;color:var(--ink);margin-bottom:.9rem}
 .blog-h1 em{font-style:italic;color:var(--lav)}
 .blog-sub{font-size:1.05rem;color:var(--ink2);line-height:1.75;max-width:540px;margin:0 auto 2rem}
-.back-link{display:inline-flex;align-items:center;gap:.45rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:.82rem;color:var(--ink2);padding:.52rem 1.1rem;border-radius:50px;background:white;box-shadow:var(--sh);border:1px solid var(--bg3);transition:color .2s,border-color .2s,transform .2s}
-.back-link:hover{color:var(--lav);border-color:var(--lav);transform:translateX(-3px)}
+.blog-back{display:inline-flex;align-items:center;gap:.45rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:.82rem;color:var(--ink2);padding:.52rem 1.1rem;border-radius:50px;background:white;box-shadow:var(--sh);border:1px solid var(--bg3);transition:color .2s,border-color .2s,transform .2s}
+.blog-back:hover{color:var(--lav);border-color:var(--lav);transform:translateX(-3px)}
+
+/* GRID ARTÍCULOS */
 .blog-sec{padding:4.5rem 0 6rem}
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3rem}
-.bc{border-radius:16px;overflow:hidden;background:white;box-shadow:var(--sh);transition:transform .35s cubic-bezier(.2,.8,.3,1),box-shadow .35s;text-decoration:none;display:block}
+
+/* Tarjeta artículo */
+.bc{border-radius:16px;overflow:hidden;background:white;box-shadow:var(--sh);transition:transform .35s cubic-bezier(.2,.8,.3,1),box-shadow .35s;cursor:pointer}
 .bc:hover{transform:translateY(-10px);box-shadow:var(--sh2)}
-.bc-cover{height:200px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.bc-emoji{font-size:3.2rem;position:relative;z-index:1}
+.bc-img{height:220px;overflow:hidden;position:relative}
+.bc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.bc:hover .bc-img img{transform:scale(1.06)}
+.bc-img-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3.5rem}
 .bc-cat{position:absolute;bottom:12px;left:12px;font-family:'Nunito',sans-serif;font-weight:700;font-size:.64rem;letter-spacing:.5px;text-transform:uppercase;padding:.24rem .78rem;border-radius:50px;background:white;color:var(--lav)}
-.bc-body{padding:1.5rem}
+.bc-body{padding:1.6rem}
 .bc-date{font-size:.72rem;color:var(--ink3);margin-bottom:.45rem}
-.bc-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.18rem;color:var(--ink);line-height:1.3;margin-bottom:.55rem}
-.bc-excerpt{font-size:.84rem;color:var(--ink3);line-height:1.65;margin-bottom:1.1rem}
+.bc-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.2rem;color:var(--ink);line-height:1.3;margin-bottom:.6rem}
+.bc-excerpt{font-size:.87rem;color:var(--ink2);line-height:1.7;margin-bottom:1.1rem}
 .bc-read{font-family:'Nunito',sans-serif;font-weight:700;font-size:.78rem;color:var(--nar);display:flex;align-items:center;gap:.35rem}
 .bc-read::after{content:'→';transition:transform .2s}
 .bc:hover .bc-read::after{transform:translateX(4px)}
+
+/* PANEL ARTÍCULO */
+.art-panel{display:none;position:fixed;inset:0;z-index:400;background:rgba(28,21,40,.5);overflow-y:auto;padding:2rem 1rem}
+.art-panel.open{display:block}
+.art-box{max-width:800px;margin:0 auto;background:white;border-radius:20px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.3)}
+.art-close-wrap{display:flex;justify-content:flex-end;padding:1rem 1.5rem 0}
+.art-close{width:36px;height:36px;border-radius:50%;background:var(--bg2);border:none;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.art-close:hover{background:var(--bg3)}
+.art-hero-img{width:100%;height:300px;object-fit:cover;display:block}
+.art-hero-ph{width:100%;height:220px;display:flex;align-items:center;justify-content:center;font-size:4rem}
+.art-content{padding:2.5rem 3rem 3rem}
+.art-cat-badge{font-family:'Nunito',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--lav);background:var(--lavl);padding:.28rem .85rem;border-radius:50px;display:inline-block;margin-bottom:1rem}
+.art-content h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.7rem,4vw,2.5rem);color:var(--ink);line-height:1.2;margin-bottom:.7rem}
+.art-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--ink3);line-height:1.6;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--bg3)}
+.art-meta{display:flex;gap:1.5rem;font-size:.8rem;color:var(--ink3);margin-bottom:2rem;flex-wrap:wrap}
+/* Texto artículo — bien espaciado */
+.art-content p{font-size:1.02rem;color:var(--ink2);line-height:1.9;margin-bottom:1.6rem}
+.art-content h2{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.6rem;color:var(--ink);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--lavl)}
+.art-content strong{color:var(--ink);font-weight:700}
+.art-content em{font-style:italic;color:var(--lav)}
+.art-quote{margin:2rem 0;padding:1.5rem 1.8rem;background:linear-gradient(135deg,var(--lavl),var(--bg));border-left:4px solid var(--lav);border-radius:0 12px 12px 0}
+.art-quote p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.18rem;color:var(--ink);line-height:1.6;margin-bottom:.4rem!important}
+.art-quote cite{font-style:normal;font-size:.8rem;color:var(--ink3)}
+/* Autor */
+.art-author{margin:2.5rem 0 0;padding:1.5rem;background:var(--bg2);border-radius:14px;display:flex;gap:1.2rem;align-items:flex-start}
+.art-author-av{width:60px;height:60px;border-radius:50%;object-fit:cover;flex-shrink:0;border:3px solid white;box-shadow:var(--sh)}
+.art-author-av-ph{width:60px;height:60px;border-radius:50%;background:linear-gradient(145deg,var(--skyl),var(--lavl));display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0}
+.art-author-name{font-family:'Nunito',sans-serif;font-weight:800;font-size:.9rem;color:var(--ink);margin-bottom:.15rem}
+.art-author-role{font-size:.75rem;color:var(--lav);font-weight:600;margin-bottom:.5rem}
+.art-author-bio{font-size:.84rem;color:var(--ink2);line-height:1.65}
+/* CTA artículo */
+.art-cta{margin:2.5rem 0 0;padding:2rem;background:linear-gradient(145deg,var(--lavl),var(--narl));border-radius:14px;text-align:center}
+.art-cta h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;line-height:1.2}
+.art-cta p{font-size:.9rem;color:var(--ink2);margin-bottom:1.2rem}
+
+/* PRÓXIMAMENTE */
 .coming-card{border-radius:16px;background:var(--bg2);border:2px dashed var(--bg3);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 2rem;min-height:380px}
 .coming-ico{font-size:2.5rem;margin-bottom:1rem}
 .coming-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.05rem;color:var(--ink);margin-bottom:.4rem}
 .coming-sub{font-size:.86rem;color:var(--ink3);margin-bottom:1.2rem;max-width:240px}
+
+/* CTA FINAL */
+.blog-cta{text-align:center;padding:4rem;background:linear-gradient(145deg,var(--lavl),var(--bg));border-radius:20px;margin-top:4rem}
+.blog-cta h3{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--ink);margin-bottom:.7rem}
+.blog-cta p{font-size:.97rem;color:var(--ink2);line-height:1.75;max-width:500px;margin:0 auto 1.8rem}
+.cta-btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
+.foot-inner{max-width:1100px;margin:0 auto}
+.foot-brand{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem}
+.foot-logo{height:30px;width:auto}
+.foot-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:1.1rem;letter-spacing:-.3px;color:white}
+.fb1{color:var(--sky)}.fb2{color:var(--nar)}.fb3{color:var(--lav)}
+.foot-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:rgba(255,255,255,.33);margin-bottom:1.5rem}
+.foot-links{display:flex;gap:1.5rem;flex-wrap:wrap;font-size:.82rem;color:rgba(255,255,255,.4);margin-bottom:1.5rem}
+.foot-links a{transition:color .2s}
+.foot-links a:hover{color:var(--sky)}
+.foot-copy{font-size:.72rem;padding:1.2rem 0 2rem;border-top:1px solid rgba(255,255,255,.07)}
+
+/* RESPONSIVE */
 @media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.blog-grid{grid-template-columns:1fr}}
+@media(max-width:600px){
+  .blog-grid{grid-template-columns:1fr}
+  .art-content{padding:1.5rem 1.5rem 2rem}
+  .art-author{flex-direction:column}
+  .cta-btns{flex-direction:column;align-items:center}
+}
 </style>
 </head>
 <body>
-<a class="wa-fab" href="https://wa.me/51992786715?text=Hola%20JUFANTICS%20%F0%9F%91%8B" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+<!-- WA FLOAT -->
+<a class="wa-fab" href="https://wa.me/51992786715?text=Hola%20JUFANTICS%20%F0%9F%91%8B" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- NAV -->
 <nav class="nav" id="mainNav">
-  <a class="nav-brand" href="../">
-    <img src="../LOGO.png" class="nav-logo" alt="JUFANTICS" onerror="this.style.display='none'">
+  <a class="nav-brand" href="index.html">
+    <img src="LOGO.png" class="nav-logo" alt="JUFANTICS" onerror="this.style.display='none'">
     <div>
       <div class="nav-name"><span class="nj1">JU</span><span class="nj2">FAN</span><span class="nj3">TICS</span></div>
       <div class="nav-tag">Historias que nacen de la imaginación</div>
     </div>
   </a>
-  <div class="nav-links" id="navLinks">
-    <a href="../#how">Cómo funciona</a>
-    <a href="../#cuentos">Cuentos</a>
-    <a href="../#brief">Pedir cuento</a>
-    <a href="../#patricia">Creadora</a>
-    <a href="index.html" class="nav-blog-active">Blog</a>
-    <a href="../#brief" class="nav-cta">✨ Quiero el mío</a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">← Volver a JUFANTICS</a>
+    <a href="index.html#brief" class="nav-cta">✨ Quiero mi cuento</a>
   </div>
-  <button class="ham" id="ham" aria-label="Menú"><span></span><span></span><span></span></button>
 </nav>
-<div class="drawer" id="drawer">
-  <a href="../" onclick="closeD()">Inicio</a>
-  <a href="../#cuentos" onclick="closeD()">Cuentos</a>
-  <a href="../#brief" onclick="closeD()">Pedir cuento</a>
-  <a href="index.html" onclick="closeD()">Blog</a>
-  <a href="../#brief" onclick="closeD()" class="btn btn-p" style="margin-top:.5rem">✨ Quiero el mío</a>
-</div>
 
+<!-- HERO BLOG -->
 <div class="blog-hero">
-  <div class="hero-eye">Blog JUFANTICS</div>
+  <div class="blog-eye">Blog JUFANTICS</div>
   <h1 class="blog-h1">Historias que <em>inspiran</em></h1>
-  <p class="blog-sub">Consejos, reflexiones y recursos sobre crianza, lectura, emociones y el poder de las historias para sanar el corazón infantil.</p>
-  <a href="../" class="back-link">← Volver a JUFANTICS</a>
+  <p class="blog-sub">Consejos, reflexiones y recursos sobre crianza, lectura, emociones y el poder de los cuentos para sanar el corazón infantil.</p>
+  <a href="index.html" class="blog-back">← Volver a JUFANTICS</a>
 </div>
 
+<!-- ARTÍCULOS -->
 <section class="blog-sec">
 <div class="wrap">
-  <div style="margin-bottom:.5rem">
-    <p style="font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lav);margin-bottom:.4rem">✦ Artículos</p>
+  <div>
+    <p style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lav);margin-bottom:.4rem">✦ Artículos</p>
     <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--ink)">Últimas publicaciones</h2>
   </div>
   <div class="blog-grid">
 
-    <a href="lectura-emocional.html" class="bc">
-      <div class="bc-cover" style="background:linear-gradient(145deg,#EDE8FF,#E8F5FB)">
-        <span class="bc-emoji">📖</span>
+    <!-- Artículo 1 -->
+    <div class="bc reveal" onclick="abrirArt('art1')">
+      <div class="bc-img">
+        <img src="assets/blog/lectura-1.jpg" alt="Cuando las palabras abrazan"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="bc-img-ph" style="display:none;background:linear-gradient(145deg,#EDE8FF,#E8F5FB)">📖</div>
         <span class="bc-cat">Lectura</span>
       </div>
       <div class="bc-body">
         <div class="bc-date">📅 Julio 2025</div>
         <div class="bc-title">Cuando las palabras abrazan: El poder sanador de los cuentos</div>
-        <div class="bc-excerpt">Cómo la lectura compartida se convierte en refugio emocional y puente irrompible entre padres e hijos.</div>
+        <div class="bc-excerpt">Cómo la lectura compartida se convierte en refugio emocional y en un puente irrompible entre padres e hijos.</div>
         <div class="bc-read">Leer artículo</div>
       </div>
-    </a>
+    </div>
 
-    <div class="coming-card">
+    <!-- Artículo 2 -->
+    <div class="bc reveal" onclick="abrirArt('art2')">
+      <div class="bc-img">
+        <img src="assets/blog/lectura-2.jpg" alt="Cuentos para niños con TEA y TDAH"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="bc-img-ph" style="display:none;background:linear-gradient(145deg,#FBF0EB,#F2EDE3)">🧠</div>
+        <span class="bc-cat">Neurodiversidad</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-date">📅 Agosto 2025</div>
+        <div class="bc-title">Cuentos para niños con TEA y TDAH: qué funciona y por qué</div>
+        <div class="bc-excerpt">Cómo los cuentos personalizados ayudan a niños neurodivergentes a conectar con sus emociones.</div>
+        <div class="bc-read">Leer artículo</div>
+      </div>
+    </div>
+
+    <!-- Artículo 3 -->
+    <div class="bc reveal" onclick="abrirArt('art3')">
+      <div class="bc-img">
+        <img src="assets/blog/lectura-3.jpg" alt="5 razones para un cuento personalizado"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="bc-img-ph" style="display:none;background:linear-gradient(145deg,var(--lavl),#E8F5FB)">💛</div>
+        <span class="bc-cat">Crianza</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-date">📅 Septiembre 2025</div>
+        <div class="bc-title">5 razones para regalar un cuento personalizado a tu hijo</div>
+        <div class="bc-excerpt">Un regalo que se lee, se siente y se guarda para siempre.</div>
+        <div class="bc-read">Leer artículo</div>
+      </div>
+    </div>
+
+    <!-- Próximamente -->
+    <div class="coming-card reveal">
       <div class="coming-ico">✍️</div>
-      <div class="coming-title">Próximamente</div>
-      <div class="coming-sub">Cómo elegir el cuento adecuado para cada edad y etapa emocional de tu hijo.</div>
-      <a href="https://wa.me/51992786715?text=Quiero%20recibir%20los%20próximos%20artículos%20del%20blog%20JUFANTICS" target="_blank" class="btn btn-p" style="font-size:.8rem;padding:.65rem 1.3rem">💬 Notifícame</a>
-    </div>
-
-    <div class="coming-card">
-      <div class="coming-ico">🧠</div>
-      <div class="coming-title">Próximamente</div>
-      <div class="coming-sub">Cuentos para niños neurodivergentes: qué funciona y por qué importa la personalización.</div>
-      <a href="https://wa.me/51992786715?text=Quiero%20recibir%20los%20próximos%20artículos%20del%20blog%20JUFANTICS" target="_blank" class="btn btn-p" style="font-size:.8rem;padding:.65rem 1.3rem">💬 Notifícame</a>
+      <div class="coming-title">Más artículos muy pronto</div>
+      <div class="coming-sub">Estamos escribiendo nuevas historias sobre crianza y magia familiar.</div>
+      <a href="https://wa.me/51992786715?text=Quiero%20recibir%20artículos%20de%20JUFANTICS" target="_blank" class="btn-p" style="margin-top:0">💬 Notifícame</a>
     </div>
 
   </div>
 
-  <div style="text-align:center;margin-top:5rem;padding:3.5rem;background:linear-gradient(145deg,var(--lavl),var(--bg));border-radius:20px">
+  <!-- CTA FINAL -->
+  <div class="blog-cta reveal">
     <p style="font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lav);margin-bottom:.5rem">✦ Crea tu historia</p>
-    <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--ink);margin-bottom:.7rem">¿Tu hijo merece su propia historia?</h3>
-    <p style="font-size:.97rem;color:var(--ink2);line-height:1.75;max-width:500px;margin:0 auto 1.8rem">En JUFANTICS creamos cuentos personalizados únicos que abrazan el espíritu de cada niño.</p>
-    <div style="display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap">
-      <a href="../#brief" class="btn btn-p">✨ Crear mi cuento ahora</a>
-      <a href="../#cuentos" class="btn" style="background:white;color:var(--ink);border:2px solid var(--bg3)">📖 Ver cuentos</a>
+    <h3>¿Tu hijo merece su propia historia?</h3>
+    <p>En JUFANTICS creamos cuentos personalizados únicos que abrazan el espíritu de cada niño, celebrando su forma única de estar en el mundo.</p>
+    <div class="cta-btns">
+      <a href="index.html#brief" class="btn-p">✨ Crear mi cuento ahora</a>
+      <a href="index.html#cuentos" class="btn-s">📖 Ver cuentos</a>
     </div>
   </div>
-
 </div>
 </section>
 
-<footer>
-<div class="wrap">
-  <div class="fg2">
-    <div>
-      <div class="fbrand">
-        <img src="../LOGO.png" class="fblogo" alt="JUFANTICS" onerror="this.style.display='none'">
-        <div class="fbname"><span class="fb1">JU</span><span class="fb2">FAN</span><span class="fb3">TICS</span></div>
+<!-- ══ ARTÍCULO 1 ══ -->
+<div class="art-panel" id="art1">
+<div class="art-box">
+  <div class="art-close-wrap"><button class="art-close" onclick="cerrarArt('art1')">✕</button></div>
+  <img src="assets/blog/lectura-1.jpg" class="art-hero-img" alt="Cuando las palabras abrazan"
+       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+  <div class="art-hero-ph" style="display:none;background:linear-gradient(145deg,#EDE8FF,#E8F5FB)">📖</div>
+  <div class="art-content">
+    <span class="art-cat-badge">📖 Lectura &amp; Emociones</span>
+    <h1>Cuando las palabras abrazan: El poder sanador de los cuentos en el corazón infantil</h1>
+    <p class="art-subtitle">La lectura como el refugio donde las emociones encuentran su lugar.</p>
+    <div class="art-meta">
+      <span>📅 Julio 2025</span>
+      <span>✍️ Patricia B. Albornoz</span>
+      <span>⏱ 5 min de lectura</span>
+    </div>
+    <p>Hay días en los que el mundo se siente demasiado grande, demasiado ruidoso o simplemente incomprensible para un niño. En esos momentos, las emociones no siempre encuentran el camino hacia las palabras; se quedan enredadas en el pecho, manifestándose en silencios largos, rabietas inexplicables o una mirada perdida. Es ahí, en la penumbra de la duda, donde un cuento abierto se convierte en una linterna.</p>
+    <p>En <strong>JUFANTICS</strong>, creemos que un libro no es solo un objeto, sino un espacio seguro. Leer con un niño no es solo pasar páginas; es ofrecerle un mapa para navegar su propio universo interior.</p>
+    <h2>La imaginación como refugio y escudo</h2>
+    <p>Para un niño, especialmente para aquellos con una sensibilidad profunda o procesamientos distintos, la realidad puede ser abrumadora. Las historias actúan como una <em>"isla inesperada"</em>. En ese lugar, el niño no está solo. Si siente miedo, el protagonista de su cuento también lo siente. Si se siente diferente, encuentra en las páginas a otros seres que ven el mundo con colores que nadie más nota.</p>
+    <p>La imaginación no es una forma de escapar de la realidad, sino la herramienta más poderosa para <strong>transformarla</strong>.</p>
+    <h2>Poner nombre a lo invisible</h2>
+    <p>A veces, el mayor alivio para un corazón infantil es descubrir que lo que siente tiene un nombre y que no es "malo" sentirlo. Los cuentos ofrecen metáforas que sanan: la tristeza puede ser una nube gris que viene de visita, y el enojo puede ser un volcán que necesita aprender a respirar.</p>
+    <div class="art-quote">
+      <p>"Contar historias es una forma de curarnos, individual y colectivamente. Las historias son las que nos pueden salvar y reparar lo que parecía irreparable."</p>
+      <cite>— Tessa Hulls</cite>
+    </div>
+    <p>Cuando personalizamos una historia, ese efecto se multiplica. El niño se ve a sí mismo como el héroe de su propia sanación. No es solo "un niño" quien vence al dragón de la ansiedad, es <strong>él</strong>, con su nombre, sus pecas y su pijama favorito.</p>
+    <h2>El vínculo que sostiene el mundo</h2>
+    <p>El acto de leer juntos es, quizás, el ritual de crianza más sanador que existe. Es un momento de pausa total. El roce de los hombros, el tono de voz suave y el ritmo de la respiración compartida crean un puente emocional que dice: <em>"Aquí estás a salvo."</em></p>
+    <p>Para las familias que acompañan la neurodiversidad, este puente es vital. En la lectura no hay demandas, no hay expectativas; solo hay presencia y asombro.</p>
+    <div class="art-author">
+      <img src="assets/autora/autora-patricia.jpg" class="art-author-av" alt="Patricia"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="art-author-av-ph" style="display:none">✍️</div>
+      <div>
+        <div class="art-author-name">Patricia B. Albornoz</div>
+        <div class="art-author-role">Escritora · Narradora · Fundadora de JUFANTICS</div>
+        <p class="art-author-bio">Patricia escribe desde los 7 años. Creció rodeada de cuentos que despertaron en ella una profunda pasión por las historias. Hoy, como madre y creadora, JUFANTICS nació para que cada familia encuentre su propia magia.</p>
       </div>
-      <div class="ftag">Textos · Imágenes · Cuentos · Siempre<br>Historias que nacen de la imaginación.</div>
-      <div class="fsocs">
-        <a href="#" class="fsoc" style="font-size:.82rem;color:white">📸</a>
-        <a href="#" class="fsoc" style="font-size:.82rem;color:white">💙</a>
-        <a href="https://wa.me/51992786715" target="_blank" class="fsoc"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-      </div>
     </div>
-    <div class="fcol">
-      <h5>Navegación</h5>
-      <a href="../">Inicio</a>
-      <a href="../#cuentos">Cuentos</a>
-      <a href="../#brief">Pedir cuento</a>
-      <a href="index.html">Blog</a>
+    <div class="art-cta">
+      <h3>¿Tu pequeño ya tiene su propia historia sanadora?</h3>
+      <p>En JUFANTICS creamos cuentos que abrazan el espíritu único de cada niño.</p>
+      <a href="index.html#brief" class="btn-p" onclick="cerrarArt('art1')">✨ Crear su cuento ahora</a>
     </div>
-    <div class="fcol">
-      <h5>Contacto</h5>
-      <a href="https://wa.me/51992786715" target="_blank">💬 WhatsApp</a>
-      <a href="mailto:jufantics@gmail.com">📧 jufantics@gmail.com</a>
-      <a>📍 Lima, Perú</a>
-    </div>
-  </div>
-  <div class="fbot">
-    <span>© 2025 JUFANTICS · Patricia B. Albornoz · Lima, Perú</span>
-    <span class="ftics">JU·Juego+Joaquín | FAN·Fantasía+Familia+Facundo | TICS·Textos·Imágenes·Cuentos·Siempre</span>
   </div>
 </div>
+</div>
+
+<!-- ══ ARTÍCULO 2 ══ -->
+<div class="art-panel" id="art2">
+<div class="art-box">
+  <div class="art-close-wrap"><button class="art-close" onclick="cerrarArt('art2')">✕</button></div>
+  <img src="assets/blog/lectura-2.jpg" class="art-hero-img" alt="Neurodiversidad"
+       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+  <div class="art-hero-ph" style="display:none;background:linear-gradient(145deg,#FBF0EB,#F2EDE3)">🧠</div>
+  <div class="art-content">
+    <span class="art-cat-badge">🧠 Neurodiversidad</span>
+    <h1>Cuentos para niños con TEA y TDAH: qué funciona y por qué</h1>
+    <p class="art-subtitle">Cómo los cuentos personalizados ayudan a niños neurodivergentes a conectar con sus emociones.</p>
+    <div class="art-meta">
+      <span>📅 Agosto 2025</span>
+      <span>✍️ Patricia B. Albornoz</span>
+      <span>⏱ 6 min de lectura</span>
+    </div>
+    <p>Cada niño tiene su propia manera de procesar el mundo. Para los niños con Trastorno del Espectro Autista (TEA) o Trastorno por Déficit de Atención e Hiperactividad (TDAH), los cuentos no son solo entretenimiento: pueden ser una herramienta terapéutica poderosa cuando están bien diseñados.</p>
+    <h2>Por qué los cuentos personalizados marcan la diferencia</h2>
+    <p>Los niños neurodivergentes suelen conectar mejor con historias donde el protagonista tiene un nombre familiar, vive en un entorno conocido y enfrenta retos parecidos a los suyos. La personalización no es un capricho: es una estrategia de conexión emocional profunda.</p>
+    <p>Cuando un niño con TDAH ve a "Mateo" — su nombre — aprender a enfocar su energía para salvar el día, no solo lee una historia: <strong>se ve reflejado y validado</strong>.</p>
+    <div class="art-quote">
+      <p>"Los niños con TEA a menudo entienden mejor las emociones a través de personajes de cuentos que a través de situaciones reales. Las historias les dan tiempo y espacio para procesar."</p>
+      <cite>— Especialistas en desarrollo infantil</cite>
+    </div>
+    <h2>Elementos clave en un cuento para niños neurodivergentes</h2>
+    <p><strong>Narrativa clara y predecible:</strong> Las tramas con inicio, desarrollo y cierre claros ayudan a los niños con TEA a anticipar lo que viene, reduciendo la ansiedad.</p>
+    <p><strong>Personajes con emociones explícitas:</strong> "Sofía sintió miedo y su corazón latía muy rápido" es más efectivo que "Sofía estaba nerviosa".</p>
+    <p><strong>Rutinas representadas:</strong> Ver sus propias rutinas en el cuento genera familiaridad y calma.</p>
+    <h2>El momento de leer juntos</h2>
+    <p>Para familias que acompañan la neurodiversidad, el momento de lectura puede ser el más conectado del día. Sin pantallas, sin demandas, solo la voz familiar y una historia que dice: <em>"Eres suficiente. Eres especial. Eres el héroe."</em></p>
+    <div class="art-author">
+      <img src="assets/autora/autora-patricia.jpg" class="art-author-av" alt="Patricia"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="art-author-av-ph" style="display:none">✍️</div>
+      <div>
+        <div class="art-author-name">Patricia B. Albornoz</div>
+        <div class="art-author-role">Escritora · Fundadora de JUFANTICS</div>
+        <p class="art-author-bio">Especializada en cuentos para niños neurodivergentes. Cada historia JUFANTICS puede adaptarse a las necesidades únicas de tu hijo.</p>
+      </div>
+    </div>
+    <div class="art-cta">
+      <h3>¿Tu hijo merece una historia hecha para él?</h3>
+      <p>Creamos cuentos adaptados a las necesidades únicas de cada niño, incluyendo aquellos con TEA y TDAH.</p>
+      <a href="index.html#brief" class="btn-p" onclick="cerrarArt('art2')">✨ Crear su cuento ahora</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══ ARTÍCULO 3 ══ -->
+<div class="art-panel" id="art3">
+<div class="art-box">
+  <div class="art-close-wrap"><button class="art-close" onclick="cerrarArt('art3')">✕</button></div>
+  <img src="assets/blog/lectura-3.jpg" class="art-hero-img" alt="5 razones"
+       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+  <div class="art-hero-ph" style="display:none;background:linear-gradient(145deg,var(--lavl),#E8F5FB)">💛</div>
+  <div class="art-content">
+    <span class="art-cat-badge">💛 Crianza</span>
+    <h1>5 razones para regalar un cuento personalizado a tu hijo</h1>
+    <p class="art-subtitle">Un regalo que se lee, se siente y se guarda para siempre.</p>
+    <div class="art-meta">
+      <span>📅 Septiembre 2025</span>
+      <span>✍️ Patricia B. Albornoz</span>
+      <span>⏱ 4 min de lectura</span>
+    </div>
+    <p>En un mundo lleno de juguetes que se rompen y aplicaciones que se olvidan, hay un regalo que permanece: <strong>una historia creada especialmente para tu hijo</strong>.</p>
+    <h2>1. Fortalece su identidad y autoestima</h2>
+    <p>Cuando un niño se ve como el protagonista de su propia historia — con su nombre, sus características únicas, su familia — recibe un mensaje poderoso: <em>"Eres especial. Tu historia merece ser contada."</em></p>
+    <h2>2. Conecta a toda la familia</h2>
+    <p>El momento de leer juntos el cuento personalizado crea un recuerdo compartido. Los hermanos, los abuelos, los papás — todos forman parte de la historia.</p>
+    <h2>3. Transmite valores de manera natural</h2>
+    <p>¿Tu hijo está aprendiendo a gestionar sus miedos? Un cuento personalizado puede acompañar exactamente ese proceso, sin que se sienta como una lección.</p>
+    <h2>4. Dura toda la vida</h2>
+    <p>A diferencia de un juguete que se rompe, un cuento personalizado puede guardarse durante años. Muchos padres nos cuentan que sus hijos siguen atesorando sus cuentos JUFANTICS.</p>
+    <h2>5. Es único en el mundo</h2>
+    <p>No existe ni existirá otro igual. Esa es la magia. No es un producto de catálogo: es una creación que nació de escucharte a ti y de imaginar lo mejor para tu hijo.</p>
+    <div class="art-quote">
+      <p>"Mi hijo lloró de emoción cuando vio su nombre en la portada. Dijo: '¡Mamá, este cuento es MÍO!' Fue el momento más especial que hemos vivido juntos."</p>
+      <cite>— Mamá de Joaquín, 6 años · Lima, Perú</cite>
+    </div>
+    <div class="art-author">
+      <img src="assets/autora/autora-patricia.jpg" class="art-author-av" alt="Patricia"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="art-author-av-ph" style="display:none">✍️</div>
+      <div>
+        <div class="art-author-name">Patricia B. Albornoz</div>
+        <div class="art-author-role">Escritora · Fundadora de JUFANTICS</div>
+        <p class="art-author-bio">Creadora de cuentos que duran para siempre. Cada historia nace de creer que cada niño merece ser el héroe de su propia aventura.</p>
+      </div>
+    </div>
+    <div class="art-cta">
+      <h3>¿Listo para crear el cuento más especial?</h3>
+      <p>Escríbenos hoy y en 48 horas tu hijo tendrá su propio cuento único en el mundo.</p>
+      <a href="index.html#brief" class="btn-p" onclick="cerrarArt('art3')">✨ Crear su cuento ahora</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+<div class="foot-inner wrap">
+  <div class="foot-brand">
+    <img src="LOGO.png" class="foot-logo" alt="JUFANTICS" onerror="this.style.display='none'">
+    <div class="foot-name"><span class="fb1">JU</span><span class="fb2">FAN</span><span class="fb3">TICS</span></div>
+  </div>
+  <div class="foot-tag">Textos · Imágenes · Cuentos · Siempre — Historias que nacen de la imaginación.</div>
+  <div class="foot-links">
+    <a href="index.html">Inicio</a>
+    <a href="index.html#cuentos">Cuentos</a>
+    <a href="index.html#brief">Pedir cuento</a>
+    <a href="index.html#patricia">Creadora</a>
+    <a href="https://wa.me/51992786715" target="_blank">WhatsApp</a>
+    <a href="mailto:jufantics@gmail.com">jufantics@gmail.com</a>
+  </div>
+  <div class="foot-copy">© 2025 JUFANTICS · Patricia B. Albornoz · Lima, Perú · Todos los derechos reservados.</div>
+</div>
 </footer>
+
 <script>
-const $n=document.getElementById('mainNav');
-const $h=document.getElementById('ham');
-const $d=document.getElementById('drawer');
-window.addEventListener('scroll',()=>$n.classList.toggle('solid',scrollY>50),{passive:true});
-$h.addEventListener('click',()=>{const o=$h.classList.toggle('open');$d.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''});
-function closeD(){$h.classList.remove('open');$d.classList.remove('open');document.body.style.overflow=''}
+/* NAV */
+var nav = document.getElementById('mainNav');
+window.addEventListener('scroll', function() {
+  nav.classList.toggle('solid', window.scrollY > 50);
+}, { passive: true });
+
+/* REVEAL */
+var ro = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) { entry.target.classList.add('in'); ro.unobserve(entry.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) { ro.observe(el); });
+
+/* ARTÍCULOS */
+function abrirArt(id) {
+  var p = document.getElementById(id);
+  if (!p) return;
+  p.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  p.scrollTop = 0;
+}
+function cerrarArt(id) {
+  var p = document.getElementById(id);
+  if (!p) return;
+  p.classList.remove('open');
+  document.body.style.overflow = '';
+}
+/* Cerrar al clic fuera del art-box */
+document.querySelectorAll('.art-panel').forEach(function(panel) {
+  panel.addEventListener('click', function(e) {
+    if (e.target === panel) cerrarArt(panel.id);
+  });
+});
+/* Cerrar con Escape */
+document.addEventListener('keydown', function(e) {
+  if (e.key !== 'Escape') return;
+  document.querySelectorAll('.art-panel.open').forEach(function(p) { cerrarArt(p.id); });
+});
 </script>
 </body>
 </html>
