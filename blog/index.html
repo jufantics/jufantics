@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Blog JUFANTICS — Lecturas, crianza, emociones y cuentos personalizados para niños y familias.">
+<meta property="og:title" content="Blog JUFANTICS — Historias que inspiran">
+<meta property="og:description" content="Celebra el Día de la Tierra con una reflexión sobre lectura, infancia y amor por la naturaleza.">
+<meta property="og:image" content="assets/blog/lectura-8.jpg">
 <title>Blog JUFANTICS — Historias que inspiran</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -22,14 +25,17 @@ img{max-width:100%;display:block}
 .wrap{max-width:1100px;margin:0 auto;padding:0 5%}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
+
 /* BOTONES */
 .btn-p{display:inline-flex;align-items:center;gap:.45rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:.88rem;padding:.78rem 1.7rem;border-radius:50px;border:none;cursor:pointer;text-decoration:none;background:var(--nar);color:#fff;transition:transform .2s,background .2s}
 .btn-p:hover{background:#d4783e;transform:translateY(-2px)}
 .btn-s{display:inline-flex;align-items:center;gap:.45rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:.88rem;padding:.78rem 1.7rem;border-radius:50px;border:2px solid rgba(28,21,40,.18);cursor:pointer;text-decoration:none;background:transparent;color:var(--ink);transition:transform .2s,border-color .2s,color .2s}
 .btn-s:hover{border-color:var(--lav);color:var(--lav);transform:translateY(-2px)}
+
 /* WA */
 .wa-fab{position:fixed;bottom:1.5rem;right:1.5rem;z-index:900;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.5);cursor:pointer;text-decoration:none}
 .wa-fab svg{width:28px;height:28px;fill:white}
+
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.85rem 5%;display:flex;align-items:center;justify-content:space-between;transition:background .3s,box-shadow .3s}
 .nav.solid{background:rgba(250,246,240,.97);backdrop-filter:blur(14px);box-shadow:0 2px 16px rgba(28,21,40,.08)}
@@ -43,7 +49,8 @@ img{max-width:100%;display:block}
 .nav-back:hover{border-color:var(--lav);color:var(--lav)}
 .nav-cta{background:var(--nar);color:#fff;padding:.46rem 1.15rem;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:800;font-size:.76rem;transition:background .2s}
 .nav-cta:hover{background:#d4783e}
-/* HERO */
+
+/* HERO BLOG */
 .blog-hero{padding:9rem 5% 5rem;background:linear-gradient(145deg,var(--lavl) 0%,var(--bg) 55%,var(--narl) 100%);text-align:center;position:relative;overflow:hidden}
 .blog-hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(155,142,196,.18) 0%,transparent 70%);pointer-events:none}
 .blog-eye{display:inline-flex;align-items:center;gap:.4rem;font-size:.71rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--lav);margin-bottom:1rem}
@@ -53,25 +60,43 @@ img{max-width:100%;display:block}
 .blog-sub{font-size:1.05rem;color:var(--ink2);line-height:1.75;max-width:540px;margin:0 auto 2rem}
 .blog-back{display:inline-flex;align-items:center;gap:.45rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:.82rem;color:var(--ink2);padding:.52rem 1.1rem;border-radius:50px;background:white;box-shadow:var(--sh);border:1px solid var(--bg3);transition:color .2s,border-color .2s,transform .2s}
 .blog-back:hover{color:var(--lav);border-color:var(--lav);transform:translateX(-3px)}
-/* SECCIÓN */
+
+/* DESTAQUE — artículo principal (más reciente) */
 .blog-sec{padding:4.5rem 0 6rem}
-/* GRID 2x2 para 4 artículos */
-.blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.8rem;margin-top:3rem}
+.bc-featured{border-radius:18px;overflow:hidden;background:white;box-shadow:var(--sh);cursor:pointer;display:grid;grid-template-columns:1.1fr 1fr;transition:transform .35s cubic-bezier(.2,.8,.3,1),box-shadow .35s;margin-bottom:2.5rem}
+.bc-featured:hover{transform:translateY(-8px);box-shadow:var(--sh2)}
+.bc-featured .bc-img{height:100%;min-height:320px}
+.bc-featured .bc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.bc-featured:hover .bc-img img{transform:scale(1.05)}
+.bc-featured-body{padding:2.5rem}
+.bc-featured-body .bc-date{font-size:.74rem;color:var(--ink3);margin-bottom:.5rem}
+.bc-featured-body .bc-cat{display:inline-block;font-family:'Nunito',sans-serif;font-weight:700;font-size:.64rem;letter-spacing:.5px;text-transform:uppercase;padding:.24rem .78rem;border-radius:50px;background:var(--lavl);color:var(--lav);margin-bottom:.9rem}
+.bc-featured-body .bc-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.7rem;color:var(--ink);line-height:1.25;margin-bottom:.8rem}
+.bc-featured-body .bc-excerpt{font-size:.94rem;color:var(--ink2);line-height:1.8;margin-bottom:1.4rem}
+.bc-featured-body .bc-read{font-family:'Nunito',sans-serif;font-weight:700;font-size:.8rem;color:var(--nar);display:inline-flex;align-items:center;gap:.35rem}
+.bc-featured-body .bc-read::after{content:'→';transition:transform .2s}
+.bc-featured:hover .bc-read::after{transform:translateX(4px)}
+.new-badge{display:inline-block;background:linear-gradient(90deg,var(--nar),#c4623e);color:white;font-family:'Nunito',sans-serif;font-weight:800;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;padding:.2rem .65rem;border-radius:50px;margin-bottom:.6rem}
+
+/* GRID 4 artículos (2x2) */
+.blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.8rem}
+
 /* TARJETA */
 .bc{border-radius:16px;overflow:hidden;background:white;box-shadow:var(--sh);transition:transform .35s cubic-bezier(.2,.8,.3,1),box-shadow .35s;cursor:pointer}
 .bc:hover{transform:translateY(-10px);box-shadow:var(--sh2)}
-.bc-img{height:240px;overflow:hidden;position:relative}
+.bc-img{height:220px;overflow:hidden;position:relative}
 .bc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
 .bc:hover .bc-img img{transform:scale(1.06)}
 .bc-img-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem}
 .bc-cat{position:absolute;bottom:12px;left:12px;font-family:'Nunito',sans-serif;font-weight:700;font-size:.64rem;letter-spacing:.5px;text-transform:uppercase;padding:.24rem .78rem;border-radius:50px;background:white;color:var(--lav)}
-.bc-body{padding:1.8rem}
+.bc-body{padding:1.6rem}
 .bc-date{font-size:.72rem;color:var(--ink3);margin-bottom:.45rem}
-.bc-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.3rem;color:var(--ink);line-height:1.3;margin-bottom:.6rem}
-.bc-excerpt{font-size:.9rem;color:var(--ink2);line-height:1.7;margin-bottom:1.1rem}
-.bc-read{font-family:'Nunito',sans-serif;font-weight:700;font-size:.8rem;color:var(--nar);display:flex;align-items:center;gap:.35rem}
+.bc-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.22rem;color:var(--ink);line-height:1.3;margin-bottom:.6rem}
+.bc-excerpt{font-size:.88rem;color:var(--ink2);line-height:1.7;margin-bottom:1.1rem}
+.bc-read{font-family:'Nunito',sans-serif;font-weight:700;font-size:.78rem;color:var(--nar);display:flex;align-items:center;gap:.35rem}
 .bc-read::after{content:'→';transition:transform .2s}
 .bc:hover .bc-read::after{transform:translateX(4px)}
+
 /* PANEL ARTÍCULO OVERLAY */
 .art-panel{display:none;position:fixed;inset:0;z-index:400;background:rgba(28,21,40,.55);overflow-y:auto;padding:2rem 1rem}
 .art-panel.open{display:block}
@@ -88,8 +113,11 @@ img{max-width:100%;display:block}
 .art-meta{display:flex;gap:1.5rem;font-size:.8rem;color:var(--ink3);margin-bottom:2rem;flex-wrap:wrap}
 .art-content p{font-size:1.02rem;color:var(--ink2);line-height:1.9;margin-bottom:1.6rem}
 .art-content h2{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.6rem;color:var(--ink);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--lavl)}
+.art-content h3{font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;color:var(--ink);margin:1.5rem 0 .6rem}
 .art-content strong{color:var(--ink);font-weight:700}
 .art-content em{font-style:italic;color:var(--lav)}
+.art-content ul,.art-content ol{margin:0 0 1.4rem 1.5rem}
+.art-content li{font-size:1rem;color:var(--ink2);line-height:1.8;margin-bottom:.4rem}
 .art-quote{margin:2rem 0;padding:1.5rem 1.8rem;background:linear-gradient(135deg,var(--lavl),var(--bg));border-left:4px solid var(--lav);border-radius:0 12px 12px 0}
 .art-quote p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.18rem;color:var(--ink);line-height:1.6;margin-bottom:.4rem!important}
 .art-quote cite{font-style:normal;font-size:.8rem;color:var(--ink3)}
@@ -102,11 +130,15 @@ img{max-width:100%;display:block}
 .art-cta{margin:2.5rem 0 0;padding:2rem;background:linear-gradient(145deg,var(--lavl),var(--narl));border-radius:14px;text-align:center}
 .art-cta h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;line-height:1.2}
 .art-cta p{font-size:.9rem;color:var(--ink2);margin-bottom:1.2rem}
+.art-tip{background:linear-gradient(135deg,rgba(90,171,207,.08),var(--bg));border:1px solid rgba(90,171,207,.2);border-radius:12px;padding:1.2rem 1.5rem;margin:1.2rem 0}
+.art-tip p{margin-bottom:0!important;font-size:.96rem}
+
 /* CTA FINAL */
 .blog-cta{text-align:center;padding:4rem;background:linear-gradient(145deg,var(--lavl),var(--bg));border-radius:20px;margin-top:4rem}
 .blog-cta h3{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--ink);margin-bottom:.7rem}
 .blog-cta p{font-size:.97rem;color:var(--ink2);line-height:1.75;max-width:500px;margin:0 auto 1.8rem}
 .cta-btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+
 /* FOOTER */
 footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
 .foot-inner{max-width:1100px;margin:0 auto}
@@ -119,19 +151,26 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
 .foot-links a{transition:color .2s}
 .foot-links a:hover{color:var(--sky)}
 .foot-copy{font-size:.72rem;padding:1.2rem 0 2rem;border-top:1px solid rgba(255,255,255,.07)}
+
 /* RESPONSIVE */
-@media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){
+  .bc-featured{grid-template-columns:1fr}
+  .bc-featured .bc-img{min-height:240px}
+  .blog-grid{grid-template-columns:1fr 1fr}
+}
 @media(max-width:600px){
   .blog-grid{grid-template-columns:1fr}
   .art-content{padding:1.5rem 1.5rem 2rem}
   .art-author{flex-direction:column}
   .cta-btns{flex-direction:column;align-items:center}
+  .bc-featured-body{padding:1.5rem}
+  .bc-featured-body .bc-title{font-size:1.4rem}
 }
 </style>
 </head>
 <body>
 
-<!-- WA -->
+<!-- WA FLOAT -->
 <a class="wa-fab" href="https://wa.me/51992786715?text=Hola%20JUFANTICS" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
@@ -159,17 +198,36 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
   <a href="index.html" class="blog-back">← Volver a JUFANTICS</a>
 </div>
 
-<!-- GRID 4 ARTÍCULOS -->
+<!-- SECCIÓN ARTÍCULOS -->
 <section class="blog-sec">
 <div class="wrap">
+
   <div>
-    <p style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lav);margin-bottom:.4rem">✦ Artículos</p>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--ink)">Últimas publicaciones</h2>
+    <p style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lav);margin-bottom:.4rem">✦ Publicaciones</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--ink);margin-bottom:2rem">Últimas publicaciones</h2>
   </div>
 
+  <!-- ══ ARTÍCULO DESTACADO — Día de la Tierra (más reciente) ══ -->
+  <div class="bc-featured reveal" onclick="abrirArt('art5')">
+    <div class="bc-img">
+      <img src="assets/blog/lectura-8.jpg" alt="Día de la Tierra: leer también es sembrar amor por el planeta"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div style="display:none;width:100%;height:100%;min-height:320px;background:linear-gradient(145deg,#d4edda,#E8F5FB);align-items:center;justify-content:center;font-size:5rem">🌱</div>
+    </div>
+    <div class="bc-featured-body">
+      <span class="new-badge">✨ Nuevo</span>
+      <div class="bc-date">📅 22 de abril de 2026 · Día de la Tierra</div>
+      <div class="bc-cat">Naturaleza &amp; Valores</div>
+      <div class="bc-title">Día de la Tierra: leer también es sembrar amor por el planeta</div>
+      <div class="bc-excerpt">En JUFANTICS creemos que cada historia puede despertar imaginación, conciencia y amor por la vida. Celebramos la lectura como una forma hermosa de acercar a los niños a la naturaleza.</div>
+      <span class="bc-read">Leer artículo</span>
+    </div>
+  </div>
+
+  <!-- ══ GRID 4 ARTÍCULOS ANTERIORES ══ -->
   <div class="blog-grid">
 
-    <!-- TARJETA 1 -->
+    <!-- Artículo 1 -->
     <div class="bc reveal" onclick="abrirArt('art1')">
       <div class="bc-img">
         <img src="assets/blog/lectura-1.jpg" alt="Cuando las palabras abrazan"
@@ -185,7 +243,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
       </div>
     </div>
 
-    <!-- TARJETA 2 -->
+    <!-- Artículo 2 -->
     <div class="bc reveal" onclick="abrirArt('art2')">
       <div class="bc-img">
         <img src="assets/blog/lectura-2.jpg" alt="Cuentos para niños con TEA y TDAH"
@@ -201,10 +259,10 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
       </div>
     </div>
 
-    <!-- TARJETA 3 -->
+    <!-- Artículo 3 -->
     <div class="bc reveal" onclick="abrirArt('art3')">
       <div class="bc-img">
-        <img src="assets/blog/lectura-3.jpg" alt="5 razones para un cuento personalizado"
+        <img src="assets/blog/lectura-3.jpg" alt="5 razones para regalar un cuento personalizado"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="bc-img-ph" style="display:none;background:linear-gradient(145deg,var(--lavl),#E8F5FB)">💛</div>
         <span class="bc-cat">Crianza</span>
@@ -212,15 +270,15 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
       <div class="bc-body">
         <div class="bc-date">📅 Septiembre 2025</div>
         <div class="bc-title">5 razones para regalar un cuento personalizado a tu hijo</div>
-        <div class="bc-excerpt">Un regalo que se lee, se siente y se guarda para siempre. Descubre por qué cada familia lo atesora.</div>
+        <div class="bc-excerpt">Un regalo que se lee, se siente y se guarda para siempre.</div>
         <div class="bc-read">Leer artículo</div>
       </div>
     </div>
 
-    <!-- TARJETA 4 — NUEVO ARTÍCULO REAL -->
+    <!-- Artículo 4 -->
     <div class="bc reveal" onclick="abrirArt('art4')">
       <div class="bc-img">
-        <img src="assets/blog/lectura-4.jpg" alt="Leer en familia"
+        <img src="assets/blog/lectura-4.jpg" alt="El ritual de leer antes de dormir"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="bc-img-ph" style="display:none;background:linear-gradient(145deg,var(--narl),#FBF0EB)">🌙</div>
         <span class="bc-cat">Familia</span>
@@ -245,14 +303,115 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
       <a href="index.html#cuentos" class="btn-s">📖 Ver cuentos</a>
     </div>
   </div>
+
 </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     ARTÍCULO 1 — PANEL OVERLAY
-     Se abre al hacer clic en la tarjeta
-     Cierra con ✕, Escape o clic fuera
-══════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════
+     PANELES ARTÍCULOS
+     Orden: art5 (más reciente primero) luego art1-4
+══════════════════════════════════════════════════ -->
+
+<!-- ══ ARTÍCULO 5 — DÍA DE LA TIERRA (22 abril 2026) ══ -->
+<div class="art-panel" id="art5">
+<div class="art-box">
+  <div class="art-close-wrap">
+    <button class="art-close" onclick="cerrarArt('art5')" aria-label="Cerrar">✕</button>
+  </div>
+  <img src="assets/blog/lectura-8.jpg" class="art-hero-img" alt="Día de la Tierra"
+       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+  <div class="art-hero-ph" style="display:none;background:linear-gradient(145deg,#d4edda,#E8F5FB)">🌱</div>
+  <div class="art-content">
+    <span class="art-cat-badge">🌿 Naturaleza &amp; Valores</span>
+    <h1>Día de la Tierra: leer también es sembrar amor por el planeta</h1>
+    <p class="art-subtitle">En JUFANTICS creemos que cada historia puede despertar imaginación, conciencia y amor por la vida.</p>
+    <div class="art-meta">
+      <span>📅 22 de abril de 2026</span>
+      <span>✍️ Patricia B. Albornoz</span>
+      <span>⏱ 6 min de lectura</span>
+    </div>
+
+    <h2>La Tierra también nos cuenta historias</h2>
+    <p>Hoy celebramos el Día de la Tierra, una fecha que nos invita a detenernos, observar y recordar que el planeta que habitamos está lleno de vida, belleza y enseñanzas.</p>
+    <p>La Tierra también nos habla. Nos cuenta historias en el canto de los pájaros al amanecer, en el sonido del viento entre los árboles, en la lluvia que cae suave sobre la tierra, en las flores que brotan con paciencia y en cada pequeño rincón de naturaleza que espera ser amado, cuidado y protegido.</p>
+    <p>A veces olvidamos que los niños descubren el mundo no solo con los ojos, sino también con el corazón. Y una de las formas más hermosas de abrir ese corazón es a través de la lectura.</p>
+    <div class="art-tip">
+      <p>Un cuento puede convertir un árbol en un amigo. Una historia puede enseñar que el agua es valiosa. Un libro puede hacer que un niño mire una mariposa, una hoja o una semilla con asombro, ternura y respeto.</p>
+    </div>
+    <p>Por eso, en un día tan especial como este, queremos recordar algo simple pero poderoso: <strong>leer también es sembrar</strong>.</p>
+
+    <h2>Leer con los niños también es sembrar</h2>
+    <p>Cuando leemos con los niños, no solo compartimos palabras. Compartimos tiempo, emoción, imaginación y sentido. Sembramos preguntas. Sembramos curiosidad. Sembramos amor por la vida. Sembramos sensibilidad hacia lo que nos rodea.</p>
+    <p>Cada historia que llega al corazón de la infancia puede dejar una huella profunda. Y cuando un cuento habla de bosques, animales, ríos, estrellas, huertos, jardines o pequeños gestos de cuidado, esa huella puede convertirse en conciencia.</p>
+    <div class="art-quote">
+      <p>"La lectura tiene una magia especial: ayuda a que los niños comprendan grandes verdades desde la emoción. No desde el miedo. No desde la obligación. Sino desde el vínculo."</p>
+      <cite>— Patricia B. Albornoz, JUFANTICS</cite>
+    </div>
+    <p>Porque cuando un niño ama, cuida. Y cuando un niño imagina, también aprende a valorar. Leer juntos puede ser el primer paso para criar pequeños guardianes de la Tierra.</p>
+
+    <h2>Los cuentos pueden enseñar a cuidar el planeta</h2>
+    <p>A veces pensamos que enseñar sobre el planeta significa solo hablar de reciclaje, ahorro de agua o contaminación. Pero antes de cuidar la Tierra, hay algo aún más profundo que debe nacer: <strong>el vínculo</strong>. Nadie protege lo que no ama. Y nadie ama de verdad aquello que no conoce.</p>
+    <p>Ahí es donde entran los cuentos. Los cuentos acercan a los niños a la naturaleza de una forma sensible y significativa. A través de la lectura, los niños pueden aprender:</p>
+    <ul>
+      <li>que los árboles también son parte de nuestra historia</li>
+      <li>que los animales merecen respeto</li>
+      <li>que el agua es un tesoro</li>
+      <li>que cada flor, semilla y paisaje tiene valor</li>
+      <li>que los pequeños actos de cada día también transforman el mundo</li>
+    </ul>
+
+    <h2>Leer para despertar conciencia desde la infancia</h2>
+    <p>La infancia es una etapa donde todo deja marca. Las palabras, los recuerdos, las imágenes, las emociones y los momentos compartidos construyen una manera de mirar el mundo.</p>
+    <p>Por eso, motivar la lectura desde pequeños es también abrir una puerta a una vida más consciente, sensible y humana. Cuando un niño escucha una historia sobre la naturaleza, no solo está desarrollando comprensión lectora o imaginación. También está aprendiendo a sentir empatía, a observar con más atención y a reconocer que forma parte de algo mucho más grande.</p>
+    <p>El futuro del planeta también se construye en esos pequeños momentos cotidianos: en una lectura antes de dormir, en una conversación después de un cuento, en una pregunta inesperada, en una salida al parque después de leer una historia sobre árboles o animales.</p>
+
+    <h2>Pequeñas ideas para celebrar el Día de la Tierra leyendo en familia</h2>
+    <p>No hace falta hacer algo complicado. Lo importante es compartir, conversar y disfrutar juntos.</p>
+
+    <h3>🌿 1. Leer un cuento sobre naturaleza</h3>
+    <p>Busca una historia donde aparezcan árboles, animales, jardines, mares o aventuras en la naturaleza. Luego conversen sobre qué les gustó más y qué aprendieron.</p>
+
+    <h3>☀️ 2. Leer al aire libre</h3>
+    <p>Si es posible, salgan al jardín, al parque, al patio o cerca de una ventana con luz natural. Cambiar el espacio hace que el momento se sienta aún más especial.</p>
+
+    <h3>💬 3. Preguntar y escuchar</h3>
+    <p>Después de leer, puedes hacer preguntas simples: ¿Qué parte de la naturaleza te gustó más? ¿Cómo crees que podemos cuidar mejor la Tierra? ¿Qué harías tú para ayudar a los animales o a los árboles?</p>
+
+    <h3>🎨 4. Dibujar la historia</h3>
+    <p>Invita a los niños a dibujar el árbol, el bosque, el animal o el paisaje que imaginaron mientras leían. Así la lectura se vuelve también creación.</p>
+
+    <h3>🌱 5. Un pequeño gesto de amor por el planeta</h3>
+    <p>Después del cuento, hagan una acción simple: regar una planta, recoger papelitos, sembrar una semilla o apagar luces que no se usan. Así el mensaje del cuento se convierte en vida.</p>
+
+    <div class="art-quote">
+      <p>"Porque cada página puede abrir un mundo. Cada historia puede despertar una enseñanza. Y cada lectura compartida puede convertirse en un recuerdo inolvidable."</p>
+      <cite>— JUFANTICS</cite>
+    </div>
+
+    <div class="art-tip">
+      <p>💚 Hoy es un hermoso día para leer juntos, imaginar juntos y recordar que nuestro planeta también merece ser abrazado con palabras, acciones y amor. <em>Historias que nacen de la imaginación.</em></p>
+    </div>
+
+    <div class="art-author">
+      <img src="assets/autora/autora-patricia.jpg" class="art-author-av" alt="Patricia B. Albornoz"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="art-author-av-ph" style="display:none">✍️</div>
+      <div>
+        <div class="art-author-name">Patricia B. Albornoz</div>
+        <div class="art-author-role">Escritora · Narradora · Fundadora de JUFANTICS</div>
+        <p class="art-author-bio">En JUFANTICS creemos en los cuentos que abrazan la infancia, inspiran la imaginación y dejan semillas bonitas en el corazón. Historias que no solo entretienen, sino que también enseñan, acompañan y despiertan sensibilidad.</p>
+      </div>
+    </div>
+    <div class="art-cta">
+      <h3>¿Quieres seguir sembrando lectura y valores en la infancia?</h3>
+      <p>Descubre el universo JUFANTICS y crea un cuento único para tu hijo, lleno de amor, naturaleza y magia.</p>
+      <a href="index.html#brief" class="btn-p" onclick="cerrarArt('art5')">✨ Crear su cuento ahora</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══ ARTÍCULO 1 ══ -->
 <div class="art-panel" id="art1">
 <div class="art-box">
   <div class="art-close-wrap">
@@ -281,10 +440,10 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
       <p>"Contar historias es una forma de curarnos, individual y colectivamente. Las historias son las que nos pueden salvar y reparar lo que parecía irreparable."</p>
       <cite>— Tessa Hulls</cite>
     </div>
-    <p>Cuando personalizamos una historia, ese efecto se multiplica. El niño se ve a sí mismo como el héroe de su propia sanación. No es solo "un niño" quien vence al dragón de la ansiedad, es <strong>él</strong>, con su nombre, sus pecas y su pijama favorito. Eso construye una identidad fuerte y le recuerda que su voz tiene el poder de cambiar su entorno.</p>
+    <p>Cuando personalizamos una historia, ese efecto se multiplica. El niño se ve a sí mismo como el héroe de su propia sanación. No es solo "un niño" quien vence al dragón de la ansiedad, es <strong>él</strong>, con su nombre, sus pecas y su pijama favorito.</p>
     <h2>El vínculo que sostiene el mundo</h2>
     <p>El acto de leer juntos es, quizás, el ritual de crianza más sanador que existe. Es un momento de pausa total. El roce de los hombros, el tono de voz suave y el ritmo de la respiración compartida crean un puente emocional que dice: <em>"Aquí estás a salvo."</em></p>
-    <p>Para las familias que acompañan la neurodiversidad, este puente es vital. En la lectura no hay demandas, no hay expectativas de comportarse de cierta forma; solo hay presencia y asombro. Es un lenguaje universal donde el acompañamiento pesa más que cualquier diagnóstico.</p>
+    <p>Para las familias que acompañan la neurodiversidad, este puente es vital. En la lectura no hay demandas, no hay expectativas; solo hay presencia y asombro.</p>
     <div class="art-author">
       <img src="assets/autora/autora-patricia.jpg" class="art-author-av" alt="Patricia B. Albornoz"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -292,7 +451,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
       <div>
         <div class="art-author-name">Patricia B. Albornoz</div>
         <div class="art-author-role">Escritora · Narradora · Fundadora de JUFANTICS</div>
-        <p class="art-author-bio">Patricia escribe desde los 7 años. Creció rodeada de cuentos que despertaron en ella una profunda pasión por las historias. Hoy, como madre y creadora, JUFANTICS nació para que cada familia encuentre su propia magia.</p>
+        <p class="art-author-bio">Patricia escribe desde los 7 años. Creció rodeada de cuentos que despertaron en ella una profunda pasión por las historias. JUFANTICS nació para que cada familia encuentre su propia magia.</p>
       </div>
     </div>
     <div class="art-cta">
@@ -332,7 +491,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
     </div>
     <h2>Elementos clave en un cuento para niños neurodivergentes</h2>
     <p><strong>Narrativa clara y predecible:</strong> Las tramas con inicio, desarrollo y cierre claros ayudan a los niños con TEA a anticipar lo que viene, reduciendo la ansiedad.</p>
-    <p><strong>Personajes con emociones explícitas:</strong> "Sofía sintió miedo y su corazón latía muy rápido" es más efectivo que "Sofía estaba nerviosa". La especificidad ayuda a nombrar y reconocer emociones propias.</p>
+    <p><strong>Personajes con emociones explícitas:</strong> "Sofía sintió miedo y su corazón latía muy rápido" es más efectivo que "Sofía estaba nerviosa".</p>
     <p><strong>Rutinas representadas:</strong> Ver sus propias rutinas en el cuento genera familiaridad y calma.</p>
     <h2>El momento de leer juntos</h2>
     <p>Para familias que acompañan la neurodiversidad, el momento de lectura puede ser el más conectado del día. Sin pantallas, sin demandas, solo la voz familiar y una historia que dice: <em>"Eres suficiente. Eres especial. Eres el héroe."</em></p>
@@ -373,15 +532,15 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
       <span>✍️ Patricia B. Albornoz</span>
       <span>⏱ 4 min de lectura</span>
     </div>
-    <p>En un mundo lleno de juguetes que se rompen y aplicaciones que se olvidan, hay un regalo que permanece: <strong>una historia creada especialmente para tu hijo</strong>. Aquí te contamos por qué un cuento personalizado es el regalo más especial que puedes dar.</p>
+    <p>En un mundo lleno de juguetes que se rompen y aplicaciones que se olvidan, hay un regalo que permanece: <strong>una historia creada especialmente para tu hijo</strong>.</p>
     <h2>1. Fortalece su identidad y autoestima</h2>
-    <p>Cuando un niño se ve como el protagonista de su propia historia — con su nombre, sus características únicas, su familia — recibe un mensaje poderoso: <em>"Eres especial. Tu historia merece ser contada."</em> Eso construye autoconcepto desde los primeros años.</p>
+    <p>Cuando un niño se ve como el protagonista de su propia historia — con su nombre, sus características únicas, su familia — recibe un mensaje poderoso: <em>"Eres especial. Tu historia merece ser contada."</em></p>
     <h2>2. Conecta a toda la familia</h2>
-    <p>El momento de leer juntos el cuento personalizado crea un recuerdo compartido. Los hermanos, los abuelos, los papás — todos forman parte de la historia. Es un ritual de conexión que se repite noche a noche.</p>
+    <p>El momento de leer juntos el cuento personalizado crea un recuerdo compartido. Los hermanos, los abuelos, los papás — todos forman parte de la historia.</p>
     <h2>3. Transmite valores de manera natural</h2>
-    <p>¿Tu hijo está aprendiendo a gestionar sus miedos? ¿A ser más empático? ¿A superar un momento difícil? Un cuento personalizado puede acompañar exactamente ese proceso, sin que se sienta como una lección.</p>
+    <p>¿Tu hijo está aprendiendo a gestionar sus miedos? Un cuento personalizado puede acompañar exactamente ese proceso, sin que se sienta como una lección.</p>
     <h2>4. Dura toda la vida</h2>
-    <p>A diferencia de un juguete que se rompe o una app que se desinstala, un cuento personalizado puede guardarse durante años. Muchos padres nos cuentan que sus hijos, de adolescentes, siguen atesorando sus cuentos JUFANTICS.</p>
+    <p>A diferencia de un juguete que se rompe, un cuento personalizado puede guardarse durante años. Muchos padres nos cuentan que sus hijos siguen atesorando sus cuentos JUFANTICS.</p>
     <h2>5. Es único en el mundo</h2>
     <p>No existe ni existirá otro igual. Esa es la magia. No es un producto de catálogo: es una creación que nació de escucharte a ti y de imaginar lo mejor para tu hijo.</p>
     <div class="art-quote">
@@ -407,7 +566,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
 </div>
 </div>
 
-<!-- ══ ARTÍCULO 4 — NUEVO ══ -->
+<!-- ══ ARTÍCULO 4 ══ -->
 <div class="art-panel" id="art4">
 <div class="art-box">
   <div class="art-close-wrap">
@@ -426,22 +585,18 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
       <span>⏱ 5 min de lectura</span>
     </div>
     <p>Hay un momento del día que muchas familias subestiman: los minutos antes de que los niños cierren los ojos. La habitación a media luz, las cobijas acomodadas, la respiración que empieza a calmarse. Ese instante es quizás el más valioso del día — y si lo llenamos con una historia, lo transformamos en algo extraordinario.</p>
-    <p>El ritual de leer antes de dormir no es simplemente una rutina de sueño. Es una práctica de conexión, de contención emocional, de construcción de identidad. Y sus efectos van mucho más allá de aquella noche.</p>
     <h2>Lo que ocurre en el cerebro de un niño cuando escucha una historia</h2>
     <p>Cuando un niño escucha un cuento, su cerebro no solo procesa palabras: activa la imaginación, el lenguaje, las emociones y la memoria al mismo tiempo. Las neurociencias confirman que la narrativa es la forma más natural y poderosa de aprendizaje para el ser humano.</p>
-    <p>Antes de dormir, además, el cerebro está en un estado particularmente receptivo. Las historias que escuchamos justo antes de dormir se procesan con más profundidad durante el sueño. Un cuento de amor, de valentía o de superación puede acompañar los sueños y construir, de a poco, la forma en que el niño se ve a sí mismo.</p>
+    <p>Antes de dormir, además, el cerebro está en un estado particularmente receptivo. Las historias que escuchamos justo antes de dormir se procesan con más profundidad durante el sueño.</p>
     <h2>El vínculo que se teje en silencio</h2>
     <p>Más allá del beneficio cognitivo, leer antes de dormir es ante todo un <strong>acto de amor</strong>. Ese momento en que un adulto se sienta al borde de la cama, baja el ritmo del día y dice con su presencia: "Este rato es solo para ti."</p>
-    <p>Para los niños, especialmente aquellos que necesitan más seguridad emocional, esa constancia — leer juntos cada noche — construye un ancla. Un lugar seguro al que volver cada día, sin importar lo que haya pasado.</p>
     <div class="art-quote">
       <p>"El amor a los libros no se enseña, se contagia. Y la mejor forma de contagiarlo es leer juntos, en voz alta, con el corazón abierto."</p>
       <cite>— Patricia B. Albornoz, JUFANTICS</cite>
     </div>
-    <h2>Cómo empezar (o retomar) este ritual</h2>
+    <h2>Cómo empezar este ritual</h2>
     <p>No hace falta una biblioteca perfecta ni un cuento largo. Empieza con 5 minutos. Elige un libro que a tu hijo le guste, o pídele que elija. Lee en voz alta, con expresión, con pausa. Deja que pregunte. Deja que imagine.</p>
     <p>Y si quieres que ese ritual sea aún más especial, dale a tu hijo un cuento donde <em>él sea el héroe</em>. Un cuento hecho solo para él, con su nombre, su familia y su propia aventura. Esa es la magia de <strong>JUFANTICS</strong>.</p>
-    <h2>El cuento personalizado como ritual máximo</h2>
-    <p>Cuando el cuento de antes de dormir lleva el nombre de tu hijo en la portada, el ritual se convierte en algo completamente diferente. Ya no es "la hora del cuento". Es <em>su historia</em>. Y eso cambia todo.</p>
     <div class="art-author">
       <img src="assets/autora/autora-patricia.jpg" class="art-author-av" alt="Patricia B. Albornoz"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -477,12 +632,12 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
     <a href="https://wa.me/51992786715" target="_blank">WhatsApp</a>
     <a href="mailto:jufantics@gmail.com">jufantics@gmail.com</a>
   </div>
-  <div class="foot-copy">© 2025 JUFANTICS · Patricia B. Albornoz · Lima, Perú · Todos los derechos reservados.</div>
+  <div class="foot-copy">© 2026 JUFANTICS · Patricia B. Albornoz · Lima, Perú · Todos los derechos reservados.</div>
 </div>
 </footer>
 
 <script>
-/* NAV scroll */
+/* NAV */
 var nav = document.getElementById('mainNav');
 window.addEventListener('scroll', function() {
   nav.classList.toggle('solid', window.scrollY > 50);
@@ -496,7 +651,7 @@ var ro = new IntersectionObserver(function(entries) {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(function(el) { ro.observe(el); });
 
-/* ── ABRIR / CERRAR ARTÍCULO ── */
+/* ARTÍCULOS */
 function abrirArt(id) {
   var panel = document.getElementById(id);
   if (!panel) return;
@@ -504,27 +659,22 @@ function abrirArt(id) {
   document.body.style.overflow = 'hidden';
   panel.scrollTop = 0;
 }
-
 function cerrarArt(id) {
   var panel = document.getElementById(id);
   if (!panel) return;
   panel.classList.remove('open');
   document.body.style.overflow = '';
 }
-
-/* Cerrar al clic sobre el fondo oscuro (fuera del art-box) */
+/* Cerrar al clic sobre el fondo oscuro */
 document.querySelectorAll('.art-panel').forEach(function(panel) {
   panel.addEventListener('click', function(e) {
     if (e.target === panel) cerrarArt(panel.id);
   });
 });
-
-/* Cerrar con tecla Escape */
+/* Cerrar con Escape */
 document.addEventListener('keydown', function(e) {
   if (e.key !== 'Escape') return;
-  document.querySelectorAll('.art-panel.open').forEach(function(p) {
-    cerrarArt(p.id);
-  });
+  document.querySelectorAll('.art-panel.open').forEach(function(p) { cerrarArt(p.id); });
 });
 </script>
 </body>
