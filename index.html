@@ -327,6 +327,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3.5rem 5% 0}
   <div class="nav-links" id="navLinks">
     <a href="#how">Cómo funciona</a>
     <a href="#cuentos">Cuentos</a>
+    <a href="#libros">Libros</a>
     <a href="#brief">Pedir cuento</a>
     <a href="#patricia">Creadora</a>
     <a href="blog/" target="_blank" rel="noopener">Blog</a>
@@ -339,6 +340,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3.5rem 5% 0}
 <div class="drawer" id="drawer">
   <a href="#home" onclick="closeD()">Inicio</a>
   <a href="#cuentos" onclick="closeD()">Cuentos</a>
+  <a href="#libros" onclick="closeD()">Libros</a>
   <a href="#brief" onclick="closeD()">Pedir cuento</a>
   <a href="#patricia" onclick="closeD()">Creadora</a>
   <a href="blog/" onclick="closeD()">Blog</a>
@@ -544,6 +546,42 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3.5rem 5% 0}
         <div class="nx-btns">
           <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('vuelo-resiliencia-corazon-oro-hielo',9,'El Vuelo de la Resiliencia')">📖 Leer</button>
           <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('El Vuelo de la Resiliencia')">✨ Quiero uno</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ══ COLECCIÓN ORIGINAL (libros propios de la autora) ══ -->
+<section class="catalog" id="libros">
+<div class="wrap">
+  <div class="nx-head">
+    <div>
+      <span class="nx-eyebrow">✦ Colección Original</span>
+      <h2>Libros de la Autora</h2>
+      <p>Obras completas escritas por Patricia B. Albornoz. Léelas con la misma experiencia visual e inmersiva.</p>
+    </div>
+  </div>
+  <div class="nx-grid" style="grid-template-columns:repeat(2,minmax(0,1fr));max-width:640px">
+
+    <div class="nx-card" onclick="nxAbrir('juancito-medicina-del-viento',29,'Juancito y la Medicina del Viento')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/juancito-medicina-del-viento/portada.jpg" alt="Juancito y la Medicina del Viento" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Emocional</span>
+      <div class="nx-foot"><div class="nx-card-title">Juancito y la Medicina del Viento</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('juancito-medicina-del-viento',29,'Juancito y la Medicina del Viento')">📖 Leer</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="nx-card" onclick="nxAbrir('ukumari-sacha-chapaq',45,'Ukumari Sach\'a Chapaq y el Pacto con los Humanos')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/ukumari-sacha-chapaq/portada.jpg" alt="Ukumari Sach'a Chapaq y el Pacto con los Humanos" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Novela juvenil</span>
+      <div class="nx-foot"><div class="nx-card-title">Ukumari Sach'a Chapaq</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('ukumari-sacha-chapaq',45,'Ukumari Sach\'a Chapaq y el Pacto con los Humanos')">📖 Leer</button>
         </div>
       </div>
     </div>
