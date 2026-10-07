@@ -1,0 +1,829 @@
+{
+  "cueva-de-cristal": {
+    "voice": "Narradora en español peruano",
+    "pages": {
+      "1": {
+        "src": "assets/narration/cueva-de-cristal/pagina-1.mp3",
+        "label": "Escuchar página 1"
+      },
+      "11": {
+        "src": "assets/narration/cueva-de-cristal/pagina-11.mp3",
+        "label": "Escuchar página 11"
+      },
+      "2": {
+        "src": "assets/narration/cueva-de-cristal/pagina-2.mp3",
+        "label": "Escuchar página 2"
+      },
+      "3": {
+        "src": "assets/narration/cueva-de-cristal/pagina-3.mp3",
+        "label": "Escuchar página 3"
+      },
+      "9": {
+        "src": "assets/narration/cueva-de-cristal/pagina-9.mp3",
+        "label": "Escuchar página 9"
+      },
+      "10": {
+        "src": "assets/narration/cueva-de-cristal/pagina-10.mp3",
+        "label": "Escuchar página 10"
+      },
+      "4": {
+        "src": "assets/narration/cueva-de-cristal/pagina-4.mp3",
+        "label": "Escuchar página 4"
+      },
+      "5": {
+        "src": "assets/narration/cueva-de-cristal/pagina-5.mp3",
+        "label": "Escuchar página 5"
+      },
+      "7": {
+        "src": "assets/narration/cueva-de-cristal/pagina-7.mp3",
+        "label": "Escuchar página 7"
+      },
+      "8": {
+        "src": "assets/narration/cueva-de-cristal/pagina-8.mp3",
+        "label": "Escuchar página 8"
+      },
+      "6": {
+        "src": "assets/narration/cueva-de-cristal/pagina-6.mp3",
+        "label": "Escuchar página 6"
+      }
+    }
+  },
+  "juancito-medicina-del-viento": {
+    "voice": "Narradora en español peruano",
+    "pages": {
+      "19": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-19.mp3",
+        "label": "Escuchar página 19"
+      },
+      "1": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-1.mp3",
+        "label": "Escuchar página 1"
+      },
+      "25": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-25.mp3",
+        "label": "Escuchar página 25"
+      },
+      "11": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-11.mp3",
+        "label": "Escuchar página 11"
+      },
+      "2": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-2.mp3",
+        "label": "Escuchar página 2"
+      },
+      "3": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-3.mp3",
+        "label": "Escuchar página 3"
+      },
+      "9": {
+        "src": "assets/narration/ilustracion.mp3",
+        "label": "Ilustración · pausa de lectura",
+        "illustration": true
+      },
+      "24": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-24.mp3",
+        "label": "Escuchar página 24"
+      },
+      "26": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-26.mp3",
+        "label": "Escuchar página 26"
+      },
+      "22": {
+        "src": "assets/narration/ilustracion.mp3",
+        "label": "Ilustración · pausa de lectura",
+        "illustration": true
+      },
+      "29": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-29.mp3",
+        "label": "Escuchar página 29"
+      },
+      "27": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-27.mp3",
+        "label": "Escuchar página 27"
+      },
+      "21": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-21.mp3",
+        "label": "Escuchar página 21"
+      },
+      "13": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-13.mp3",
+        "label": "Escuchar página 13"
+      },
+      "12": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-12.mp3",
+        "label": "Escuchar página 12"
+      },
+      "10": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-10.mp3",
+        "label": "Escuchar página 10"
+      },
+      "17": {
+        "src": "assets/narration/ilustracion.mp3",
+        "label": "Ilustración · pausa de lectura",
+        "illustration": true
+      },
+      "20": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-20.mp3",
+        "label": "Escuchar página 20"
+      },
+      "28": {
+        "src": "assets/narration/ilustracion.mp3",
+        "label": "Ilustración · pausa de lectura",
+        "illustration": true
+      },
+      "4": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-4.mp3",
+        "label": "Escuchar página 4"
+      },
+      "14": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-14.mp3",
+        "label": "Escuchar página 14"
+      },
+      "18": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-18.mp3",
+        "label": "Escuchar página 18"
+      },
+      "5": {
+        "src": "assets/narration/ilustracion.mp3",
+        "label": "Ilustración · pausa de lectura",
+        "illustration": true
+      },
+      "7": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-7.mp3",
+        "label": "Escuchar página 7"
+      },
+      "15": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-15.mp3",
+        "label": "Escuchar página 15"
+      },
+      "23": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-23.mp3",
+        "label": "Escuchar página 23"
+      },
+      "8": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-8.mp3",
+        "label": "Escuchar página 8"
+      },
+      "16": {
+        "src": "assets/narration/juancito-medicina-del-viento/pagina-16.mp3",
+        "label": "Escuchar página 16"
+      },
+      "6": {
+        "src": "assets/narration/ilustracion.mp3",
+        "label": "Ilustración · pausa de lectura",
+        "illustration": true
+      }
+    }
+  },
+  "vuelo-resiliencia-corazon-oro-hielo": {
+    "voice": "Narradora en español peruano",
+    "pages": {
+      "1": {
+        "src": "assets/narration/vuelo-resiliencia-corazon-oro-hielo/pagina-1.mp3",
+        "label": "Escuchar página 1"
+      },
+      "11": {
+        "src": "assets/narration/vuelo-resiliencia-corazon-oro-hielo/pagina-11.mp3",
+        "label": "Escuchar página 11"
+      },
+      "2": {
+        "src": "assets/narration/vuelo-resiliencia-corazon-oro-hielo/pagina-2.mp3",
+        "label": "Escuchar página 2"
+      },
+      "3": {
+        "src": "assets/narration/vuelo-resiliencia-corazon-oro-hielo/pagina-3.mp3",
+        "label": "Escuchar página 3"
+      },
+      "9": {
+        "src": "assets/narration/vuelo-resiliencia-corazon-oro-hielo/pagina-9.mp3",
+        "label": "Escuchar página 9"
+      },
+      "10": {
+        "src": "assets/narration/vuelo-resiliencia-corazon-oro-hielo/pagina-10.mp3",
+        "label": "Escuchar página 10"
+      },
+      "4": {
+        "src": "assets/narration/vuelo-resiliencia-corazon-oro-hielo/pagina-4.mp3",
+        "label": "Escuchar página 4"
+      },
+      "5": {
+        "src": "assets/narration/vuelo-resiliencia-corazon-oro-hielo/pagina-5.mp3",
+        "label": "Escuchar página 5"
+      },
+      "7": {
+        "src": "assets/narration/vuelo-resiliencia-corazon-oro-hielo/pagina-7.mp3",
+        "label": "Escuchar página 7"
+      },
+      "8": {
+        "src": "assets/narration/vuelo-resiliencia-corazon-oro-hielo/pagina-8.mp3",
+        "label": "Escuchar página 8"
+      },
+      "6": {
+        "src": "assets/narration/vuelo-resiliencia-corazon-oro-hielo/pagina-6.mp3",
+        "label": "Escuchar página 6"
+      }
+    }
+  },
+  "escuadron-verde-guardianes-del-oceano": {
+    "voice": "Narradora en español peruano",
+    "pages": {
+      "1": {
+        "src": "assets/narration/escuadron-verde-guardianes-del-oceano/pagina-1.mp3",
+        "label": "Escuchar página 1"
+      },
+      "11": {
+        "src": "assets/narration/escuadron-verde-guardianes-del-oceano/pagina-11.mp3",
+        "label": "Escuchar página 11"
+      },
+      "2": {
+        "src": "assets/narration/escuadron-verde-guardianes-del-oceano/pagina-2.mp3",
+        "label": "Escuchar página 2"
+      },
+      "3": {
+        "src": "assets/narration/escuadron-verde-guardianes-del-oceano/pagina-3.mp3",
+        "label": "Escuchar página 3"
+      },
+      "9": {
+        "src": "assets/narration/escuadron-verde-guardianes-del-oceano/pagina-9.mp3",
+        "label": "Escuchar página 9"
+      },
+      "13": {
+        "src": "assets/narration/escuadron-verde-guardianes-del-oceano/pagina-13.mp3",
+        "label": "Escuchar página 13"
+      },
+      "12": {
+        "src": "assets/narration/escuadron-verde-guardianes-del-oceano/pagina-12.mp3",
+        "label": "Escuchar página 12"
+      },
+      "10": {
+        "src": "assets/narration/escuadron-verde-guardianes-del-oceano/pagina-10.mp3",
+        "label": "Escuchar página 10"
+      },
+      "4": {
+        "src": "assets/narration/escuadron-verde-guardianes-del-oceano/pagina-4.mp3",
+        "label": "Escuchar página 4"
+      },
+      "14": {
+        "src": "assets/narration/escuadron-verde-guardianes-del-oceano/pagina-14.mp3",
+        "label": "Escuchar página 14"
+      },
+      "5": {
+        "src": "assets/narration/escuadron-verde-guardianes-del-oceano/pagina-5.mp3",
+        "label": "Escuchar página 5"
+      },
+      "7": {
+        "src": "assets/narration/escuadron-verde-guardianes-del-oceano/pagina-7.mp3",
+        "label": "Escuchar página 7"
+      },
+      "15": {
+        "src": "assets/narration/escuadron-verde-guardianes-del-oceano/pagina-15.mp3",
+        "label": "Escuchar página 15"
+      },
+      "8": {
+        "src": "assets/narration/escuadron-verde-guardianes-del-oceano/pagina-8.mp3",
+        "label": "Escuchar página 8"
+      },
+      "16": {
+        "src": "assets/narration/escuadron-verde-guardianes-del-oceano/pagina-16.mp3",
+        "label": "Escuchar página 16"
+      },
+      "6": {
+        "src": "assets/narration/escuadron-verde-guardianes-del-oceano/pagina-6.mp3",
+        "label": "Escuchar página 6"
+      }
+    }
+  },
+  "tesoros-de-la-costa": {
+    "voice": "Narradora en español peruano",
+    "pages": {
+      "1": {
+        "src": "assets/narration/tesoros-de-la-costa/pagina-1.mp3",
+        "label": "Escuchar página 1"
+      },
+      "11": {
+        "src": "assets/narration/tesoros-de-la-costa/pagina-11.mp3",
+        "label": "Escuchar página 11"
+      },
+      "2": {
+        "src": "assets/narration/tesoros-de-la-costa/pagina-2.mp3",
+        "label": "Escuchar página 2"
+      },
+      "3": {
+        "src": "assets/narration/tesoros-de-la-costa/pagina-3.mp3",
+        "label": "Escuchar página 3"
+      },
+      "9": {
+        "src": "assets/narration/tesoros-de-la-costa/pagina-9.mp3",
+        "label": "Escuchar página 9"
+      },
+      "12": {
+        "src": "assets/narration/tesoros-de-la-costa/pagina-12.mp3",
+        "label": "Escuchar página 12"
+      },
+      "10": {
+        "src": "assets/narration/tesoros-de-la-costa/pagina-10.mp3",
+        "label": "Escuchar página 10"
+      },
+      "4": {
+        "src": "assets/narration/tesoros-de-la-costa/pagina-4.mp3",
+        "label": "Escuchar página 4"
+      },
+      "5": {
+        "src": "assets/narration/tesoros-de-la-costa/pagina-5.mp3",
+        "label": "Escuchar página 5"
+      },
+      "7": {
+        "src": "assets/narration/tesoros-de-la-costa/pagina-7.mp3",
+        "label": "Escuchar página 7"
+      },
+      "8": {
+        "src": "assets/narration/tesoros-de-la-costa/pagina-8.mp3",
+        "label": "Escuchar página 8"
+      },
+      "6": {
+        "src": "assets/narration/tesoros-de-la-costa/pagina-6.mp3",
+        "label": "Escuchar página 6"
+      }
+    }
+  },
+  "guardian-colores-infinitos": {
+    "voice": "Narradora en español peruano",
+    "pages": {
+      "1": {
+        "src": "assets/narration/guardian-colores-infinitos/pagina-1.mp3",
+        "label": "Escuchar página 1"
+      },
+      "11": {
+        "src": "assets/narration/guardian-colores-infinitos/pagina-11.mp3",
+        "label": "Escuchar página 11"
+      },
+      "2": {
+        "src": "assets/narration/guardian-colores-infinitos/pagina-2.mp3",
+        "label": "Escuchar página 2"
+      },
+      "3": {
+        "src": "assets/narration/guardian-colores-infinitos/pagina-3.mp3",
+        "label": "Escuchar página 3"
+      },
+      "9": {
+        "src": "assets/narration/guardian-colores-infinitos/pagina-9.mp3",
+        "label": "Escuchar página 9"
+      },
+      "10": {
+        "src": "assets/narration/guardian-colores-infinitos/pagina-10.mp3",
+        "label": "Escuchar página 10"
+      },
+      "4": {
+        "src": "assets/narration/guardian-colores-infinitos/pagina-4.mp3",
+        "label": "Escuchar página 4"
+      },
+      "5": {
+        "src": "assets/narration/guardian-colores-infinitos/pagina-5.mp3",
+        "label": "Escuchar página 5"
+      },
+      "7": {
+        "src": "assets/narration/guardian-colores-infinitos/pagina-7.mp3",
+        "label": "Escuchar página 7"
+      },
+      "8": {
+        "src": "assets/narration/guardian-colores-infinitos/pagina-8.mp3",
+        "label": "Escuchar página 8"
+      },
+      "6": {
+        "src": "assets/narration/guardian-colores-infinitos/pagina-6.mp3",
+        "label": "Escuchar página 6"
+      }
+    }
+  },
+  "gran-aventura-familiar": {
+    "voice": "Narradora en español peruano",
+    "pages": {
+      "1": {
+        "src": "assets/narration/gran-aventura-familiar/pagina-1.mp3",
+        "label": "Escuchar página 1"
+      },
+      "11": {
+        "src": "assets/narration/gran-aventura-familiar/pagina-11.mp3",
+        "label": "Escuchar página 11"
+      },
+      "2": {
+        "src": "assets/narration/gran-aventura-familiar/pagina-2.mp3",
+        "label": "Escuchar página 2"
+      },
+      "3": {
+        "src": "assets/narration/gran-aventura-familiar/pagina-3.mp3",
+        "label": "Escuchar página 3"
+      },
+      "9": {
+        "src": "assets/narration/gran-aventura-familiar/pagina-9.mp3",
+        "label": "Escuchar página 9"
+      },
+      "10": {
+        "src": "assets/narration/gran-aventura-familiar/pagina-10.mp3",
+        "label": "Escuchar página 10"
+      },
+      "4": {
+        "src": "assets/narration/gran-aventura-familiar/pagina-4.mp3",
+        "label": "Escuchar página 4"
+      },
+      "5": {
+        "src": "assets/narration/gran-aventura-familiar/pagina-5.mp3",
+        "label": "Escuchar página 5"
+      },
+      "7": {
+        "src": "assets/narration/gran-aventura-familiar/pagina-7.mp3",
+        "label": "Escuchar página 7"
+      },
+      "8": {
+        "src": "assets/narration/gran-aventura-familiar/pagina-8.mp3",
+        "label": "Escuchar página 8"
+      },
+      "6": {
+        "src": "assets/narration/gran-aventura-familiar/pagina-6.mp3",
+        "label": "Escuchar página 6"
+      }
+    }
+  },
+  "gran-corazon-capitan-julen": {
+    "voice": "Narradora en español peruano",
+    "pages": {
+      "1": {
+        "src": "assets/narration/gran-corazon-capitan-julen/pagina-1.mp3",
+        "label": "Escuchar página 1"
+      },
+      "11": {
+        "src": "assets/narration/gran-corazon-capitan-julen/pagina-11.mp3",
+        "label": "Escuchar página 11"
+      },
+      "2": {
+        "src": "assets/narration/gran-corazon-capitan-julen/pagina-2.mp3",
+        "label": "Escuchar página 2"
+      },
+      "3": {
+        "src": "assets/narration/gran-corazon-capitan-julen/pagina-3.mp3",
+        "label": "Escuchar página 3"
+      },
+      "9": {
+        "src": "assets/narration/gran-corazon-capitan-julen/pagina-9.mp3",
+        "label": "Escuchar página 9"
+      },
+      "10": {
+        "src": "assets/narration/gran-corazon-capitan-julen/pagina-10.mp3",
+        "label": "Escuchar página 10"
+      },
+      "4": {
+        "src": "assets/narration/gran-corazon-capitan-julen/pagina-4.mp3",
+        "label": "Escuchar página 4"
+      },
+      "5": {
+        "src": "assets/narration/gran-corazon-capitan-julen/pagina-5.mp3",
+        "label": "Escuchar página 5"
+      },
+      "7": {
+        "src": "assets/narration/gran-corazon-capitan-julen/pagina-7.mp3",
+        "label": "Escuchar página 7"
+      },
+      "8": {
+        "src": "assets/narration/gran-corazon-capitan-julen/pagina-8.mp3",
+        "label": "Escuchar página 8"
+      },
+      "6": {
+        "src": "assets/narration/gran-corazon-capitan-julen/pagina-6.mp3",
+        "label": "Escuchar página 6"
+      }
+    }
+  },
+  "thiago-defensor-universo": {
+    "voice": "Narradora en español peruano",
+    "pages": {
+      "1": {
+        "src": "assets/narration/thiago-defensor-universo/pagina-1.mp3",
+        "label": "Escuchar página 1"
+      },
+      "11": {
+        "src": "assets/narration/thiago-defensor-universo/pagina-11.mp3",
+        "label": "Escuchar página 11"
+      },
+      "2": {
+        "src": "assets/narration/thiago-defensor-universo/pagina-2.mp3",
+        "label": "Escuchar página 2"
+      },
+      "3": {
+        "src": "assets/narration/thiago-defensor-universo/pagina-3.mp3",
+        "label": "Escuchar página 3"
+      },
+      "9": {
+        "src": "assets/narration/thiago-defensor-universo/pagina-9.mp3",
+        "label": "Escuchar página 9"
+      },
+      "13": {
+        "src": "assets/narration/thiago-defensor-universo/pagina-13.mp3",
+        "label": "Escuchar página 13"
+      },
+      "12": {
+        "src": "assets/narration/thiago-defensor-universo/pagina-12.mp3",
+        "label": "Escuchar página 12"
+      },
+      "10": {
+        "src": "assets/narration/thiago-defensor-universo/pagina-10.mp3",
+        "label": "Escuchar página 10"
+      },
+      "4": {
+        "src": "assets/narration/thiago-defensor-universo/pagina-4.mp3",
+        "label": "Escuchar página 4"
+      },
+      "5": {
+        "src": "assets/narration/thiago-defensor-universo/pagina-5.mp3",
+        "label": "Escuchar página 5"
+      },
+      "7": {
+        "src": "assets/narration/thiago-defensor-universo/pagina-7.mp3",
+        "label": "Escuchar página 7"
+      },
+      "8": {
+        "src": "assets/narration/thiago-defensor-universo/pagina-8.mp3",
+        "label": "Escuchar página 8"
+      },
+      "6": {
+        "src": "assets/narration/thiago-defensor-universo/pagina-6.mp3",
+        "label": "Escuchar página 6"
+      }
+    }
+  },
+  "ukumari-sacha-chapaq": {
+    "voice": "Narradora en español peruano",
+    "pages": {
+      "31": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-31.mp3",
+        "label": "Escuchar página 31"
+      },
+      "19": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-19.mp3",
+        "label": "Escuchar página 19"
+      },
+      "1": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-1.mp3",
+        "label": "Escuchar página 1"
+      },
+      "25": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-25.mp3",
+        "label": "Escuchar página 25"
+      },
+      "42": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-42.mp3",
+        "label": "Escuchar página 42"
+      },
+      "11": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-11.mp3",
+        "label": "Escuchar página 11"
+      },
+      "40": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-40.mp3",
+        "label": "Escuchar página 40"
+      },
+      "2": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-2.mp3",
+        "label": "Escuchar página 2"
+      },
+      "37": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-37.mp3",
+        "label": "Escuchar página 37"
+      },
+      "30": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-30.mp3",
+        "label": "Escuchar página 30"
+      },
+      "3": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-3.mp3",
+        "label": "Escuchar página 3"
+      },
+      "9": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-9.mp3",
+        "label": "Escuchar página 9"
+      },
+      "43": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-43.mp3",
+        "label": "Escuchar página 43"
+      },
+      "24": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-24.mp3",
+        "label": "Escuchar página 24"
+      },
+      "26": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-26.mp3",
+        "label": "Escuchar página 26"
+      },
+      "22": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-22.mp3",
+        "label": "Escuchar página 22"
+      },
+      "29": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-29.mp3",
+        "label": "Escuchar página 29"
+      },
+      "27": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-27.mp3",
+        "label": "Escuchar página 27"
+      },
+      "41": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-41.mp3",
+        "label": "Escuchar página 41"
+      },
+      "35": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-35.mp3",
+        "label": "Escuchar página 35"
+      },
+      "21": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-21.mp3",
+        "label": "Escuchar página 21"
+      },
+      "34": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-34.mp3",
+        "label": "Escuchar página 34"
+      },
+      "13": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-13.mp3",
+        "label": "Escuchar página 13"
+      },
+      "12": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-12.mp3",
+        "label": "Escuchar página 12"
+      },
+      "10": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-10.mp3",
+        "label": "Escuchar página 10"
+      },
+      "17": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-17.mp3",
+        "label": "Escuchar página 17"
+      },
+      "20": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-20.mp3",
+        "label": "Escuchar página 20"
+      },
+      "28": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-28.mp3",
+        "label": "Escuchar página 28"
+      },
+      "4": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-4.mp3",
+        "label": "Escuchar página 4"
+      },
+      "14": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-14.mp3",
+        "label": "Escuchar página 14"
+      },
+      "18": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-18.mp3",
+        "label": "Escuchar página 18"
+      },
+      "39": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-39.mp3",
+        "label": "Escuchar página 39"
+      },
+      "5": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-5.mp3",
+        "label": "Escuchar página 5"
+      },
+      "7": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-7.mp3",
+        "label": "Escuchar página 7"
+      },
+      "33": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-33.mp3",
+        "label": "Escuchar página 33"
+      },
+      "44": {
+        "src": "assets/narration/ilustracion.mp3",
+        "label": "Ilustración · pausa de lectura",
+        "illustration": true
+      },
+      "36": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-36.mp3",
+        "label": "Escuchar página 36"
+      },
+      "15": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-15.mp3",
+        "label": "Escuchar página 15"
+      },
+      "38": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-38.mp3",
+        "label": "Escuchar página 38"
+      },
+      "23": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-23.mp3",
+        "label": "Escuchar página 23"
+      },
+      "8": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-8.mp3",
+        "label": "Escuchar página 8"
+      },
+      "45": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-45.mp3",
+        "label": "Escuchar página 45"
+      },
+      "16": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-16.mp3",
+        "label": "Escuchar página 16"
+      },
+      "6": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-6.mp3",
+        "label": "Escuchar página 6"
+      },
+      "32": {
+        "src": "assets/narration/ukumari-sacha-chapaq/pagina-32.mp3",
+        "label": "Escuchar página 32"
+      }
+    }
+  },
+  "escuadron-verde": {
+    "voice": "Narradora en español peruano",
+    "pages": {
+      "1": {
+        "src": "assets/narration/escuadron-verde/pagina-1.mp3",
+        "label": "Escuchar página 1"
+      },
+      "11": {
+        "src": "assets/narration/escuadron-verde/pagina-11.mp3",
+        "label": "Escuchar página 11"
+      },
+      "2": {
+        "src": "assets/narration/escuadron-verde/pagina-2.mp3",
+        "label": "Escuchar página 2"
+      },
+      "3": {
+        "src": "assets/narration/escuadron-verde/pagina-3.mp3",
+        "label": "Escuchar página 3"
+      },
+      "9": {
+        "src": "assets/narration/escuadron-verde/pagina-9.mp3",
+        "label": "Escuchar página 9"
+      },
+      "13": {
+        "src": "assets/narration/escuadron-verde/pagina-13.mp3",
+        "label": "Escuchar página 13"
+      },
+      "12": {
+        "src": "assets/narration/escuadron-verde/pagina-12.mp3",
+        "label": "Escuchar página 12"
+      },
+      "10": {
+        "src": "assets/narration/escuadron-verde/pagina-10.mp3",
+        "label": "Escuchar página 10"
+      },
+      "4": {
+        "src": "assets/narration/escuadron-verde/pagina-4.mp3",
+        "label": "Escuchar página 4"
+      },
+      "5": {
+        "src": "assets/narration/escuadron-verde/pagina-5.mp3",
+        "label": "Escuchar página 5"
+      },
+      "7": {
+        "src": "assets/narration/escuadron-verde/pagina-7.mp3",
+        "label": "Escuchar página 7"
+      },
+      "8": {
+        "src": "assets/narration/escuadron-verde/pagina-8.mp3",
+        "label": "Escuchar página 8"
+      },
+      "6": {
+        "src": "assets/narration/escuadron-verde/pagina-6.mp3",
+        "label": "Escuchar página 6"
+      }
+    }
+  },
+  "aventura-ninja": {
+    "voice": "Narradora en español peruano",
+    "pages": {
+      "1": {
+        "src": "assets/narration/aventura-ninja/pagina-1.mp3",
+        "label": "Escuchar página 1"
+      },
+      "2": {
+        "src": "assets/narration/aventura-ninja/pagina-2.mp3",
+        "label": "Escuchar página 2"
+      },
+      "3": {
+        "src": "assets/narration/aventura-ninja/pagina-3.mp3",
+        "label": "Escuchar página 3"
+      },
+      "4": {
+        "src": "assets/narration/aventura-ninja/pagina-4.mp3",
+        "label": "Escuchar página 4"
+      },
+      "5": {
+        "src": "assets/narration/aventura-ninja/pagina-5.mp3",
+        "label": "Escuchar página 5"
+      },
+      "7": {
+        "src": "assets/narration/aventura-ninja/pagina-7.mp3",
+        "label": "Escuchar página 7"
+      },
+      "6": {
+        "src": "assets/narration/aventura-ninja/pagina-6.mp3",
+        "label": "Escuchar página 6"
+      }
+    }
+  }
+}
