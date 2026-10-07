@@ -1,23 +1,1058 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JUFANTICS — La imaginación cobra vida</title>
-  <meta name="description" content="Libros y cuentos con una historia propia. Creación editorial de Patricia B. Albornoz.">
-  <meta http-equiv="refresh" content="0; url=https://jufantics-revision-editorial.jufantics.chatgpt.site/">
-  <link rel="canonical" href="https://jufantics-revision-editorial.jufantics.chatgpt.site/">
-  <script>
-    (function () {
-      var target = "https://jufantics-revision-editorial.jufantics.chatgpt.site/";
-      if (location.hash) target += location.hash;
-      location.replace(target);
-    }());
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="JUFANTICS — Cuentos personalizados únicos para niños y familias. Historias que nacen de la imaginación.">
+<meta property="og:image" content="assets/hero-libro.jpg">
+<title>JUFANTICS — Historias que nacen de la imaginación</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* TOKENS */
+:root{
+  --sky:#5AABCF;--skyl:#E8F5FB;
+  --nar:#E8936A;--narl:#FBF0EB;
+  --lav:#9B8EC4;--lavl:#EDEAFF;
+  --ink:#1C1528;--ink2:#4A3F5C;--ink3:#8A7FA0;
+  --bg:#FAF6F0;--bg2:#F2EDE3;--bg3:#EDE3D6;
+  --r:14px;
+  --sh:0 4px 24px rgba(28,21,40,.09);
+  --sh2:0 16px 56px rgba(28,21,40,.18);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1160px;margin:0 auto;padding:0 5%}
+.sec{padding:5.5rem 0}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+.btn{display:inline-flex;align-items:center;gap:.45rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:.88rem;padding:.78rem 1.7rem;border-radius:50px;border:none;cursor:pointer;transition:transform .2s,background .2s;text-decoration:none}
+.btn:hover{transform:translateY(-2px)}
+.btn-p{background:var(--nar);color:#fff;box-shadow:0 6px 20px rgba(232,147,106,.35)}
+.btn-p:hover{background:#d4783e}
+.btn-s{background:transparent;color:var(--ink);border:2px solid rgba(28,21,40,.2)}
+.btn-s:hover{border-color:var(--lav);color:var(--lav)}
+
+/* WA FLOAT */
+.wa-fab{position:fixed;bottom:1.5rem;right:1.5rem;z-index:900;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.5);cursor:pointer;text-decoration:none;animation:wap 2.5s ease-in-out infinite}
+.wa-fab:hover{animation:none;transform:scale(1.1)}
+.wa-fab svg{width:28px;height:28px;fill:white}
+@keyframes wap{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.5)}50%{box-shadow:0 6px 40px rgba(37,211,102,.8)}}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.85rem 5%;display:flex;align-items:center;justify-content:space-between;transition:background .3s,box-shadow .3s}
+.nav.solid{background:rgba(250,246,240,.97);backdrop-filter:blur(14px);box-shadow:0 2px 16px rgba(28,21,40,.08)}
+.nav-brand{display:flex;align-items:center;gap:.52rem;cursor:pointer}
+.nav-logo{height:34px;width:auto}
+.nav-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:1.22rem;letter-spacing:-.4px;line-height:1;color:var(--ink)}
+.nj1{color:var(--sky)}.nj2{color:var(--nar)}.nj3{color:var(--lav)}
+.nav-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.67rem;color:var(--ink3);line-height:1}
+.nav-links{display:flex;gap:1.8rem;align-items:center}
+.nav-links a{font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink2);position:relative;transition:color .2s}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1.5px;background:var(--nar);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{background:var(--nar)!important;color:#fff!important;padding:.46rem 1.15rem;border-radius:50px;font-weight:800!important}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:#d4783e!important}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem;background:none;border:none}
+.ham span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.drawer{display:none;position:fixed;inset:0;background:var(--bg);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.drawer.open{display:flex}
+.drawer a{font-family:'Nunito',sans-serif;font-size:1.4rem;font-weight:800;color:var(--ink)}
+.drawer a:hover{color:var(--nar)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;padding:7rem 5% 4rem;background:linear-gradient(135deg,#EDE8FF 0%,var(--bg) 45%,#FBF0EB 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(155,142,196,.14) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(232,147,106,.09) 0%,transparent 70%);pointer-events:none}
+.hstar{position:absolute;animation:hfl 5s ease-in-out infinite;pointer-events:none;font-size:1.3rem}
+.hs1{top:12%;left:5%}.hs2{top:22%;right:4%;font-size:1rem;animation-delay:-1.8s}.hs3{bottom:28%;left:3%;font-size:1.1rem;animation-delay:-3.3s}.hs4{bottom:18%;right:7%;animation-delay:-1.1s}
+@keyframes hfl{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(12deg)}}
+.hero-left{position:relative;z-index:1}
+.hero-eye{display:inline-flex;align-items:center;gap:.4rem;font-size:.71rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--lav);margin-bottom:1.2rem}
+.hero-eye::before{content:'✦';font-size:.8rem}
+.hero-h1{font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.1;letter-spacing:-1px;color:var(--ink);margin-bottom:1rem}
+.hero-h1 em{font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--lav);font-size:1.06em;text-decoration:underline;text-decoration-color:var(--nar);text-underline-offset:5px;font-weight:700}
+.hero-sub{font-size:1rem;color:var(--ink2);line-height:1.75;max-width:430px;margin-bottom:2rem}
+.hero-btns{display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.hero-trust{display:flex;gap:1.8rem;flex-wrap:wrap;font-size:.79rem;color:var(--ink3)}
+.tdot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--lav);margin-right:.4rem;vertical-align:middle}
+.hero-right{position:relative;z-index:1;height:500px;display:flex;align-items:center;justify-content:center}
+.hero-book-wrap{position:relative;animation:bookglow 6s ease-in-out infinite}
+@keyframes bookglow{
+  0%,100%{transform:translateY(0) rotate(-1deg);filter:drop-shadow(0 24px 48px rgba(28,21,40,.22)) drop-shadow(0 0 30px rgba(155,142,196,.15))}
+  50%{transform:translateY(-14px) rotate(0deg);filter:drop-shadow(0 32px 56px rgba(28,21,40,.28)) drop-shadow(0 0 50px rgba(155,142,196,.25))}}
+.hero-book-img{width:auto;max-width:360px;max-height:460px;object-fit:contain;border-radius:8px;display:block}
+.bpart{position:absolute;font-size:1.1rem;animation:partf 4s ease-in-out infinite;pointer-events:none}
+.bp1{top:-10px;left:-20px}.bp2{top:20px;right:-25px;font-size:.9rem;animation-delay:-1.2s}.bp3{bottom:30px;left:-30px;animation-delay:-2.5s}.bp4{bottom:-5px;right:-15px;font-size:.85rem;animation-delay:-.8s}.bp5{top:50%;left:-40px;font-size:.8rem;animation-delay:-1.8s}
+@keyframes partf{0%,100%{transform:translateY(0) scale(1);opacity:.8}50%{transform:translateY(-8px) scale(1.1);opacity:1}}
+.fcard{position:absolute;background:white;border-radius:12px;padding:.62rem .9rem;box-shadow:var(--sh2);display:flex;align-items:center;gap:.5rem;white-space:nowrap;border:1px solid rgba(28,21,40,.04);animation:cfl 5s ease-in-out infinite}
+.fc-ico{font-size:1.2rem;flex-shrink:0}
+.fc-lbl{font-family:'Nunito',sans-serif;font-weight:800;font-size:.71rem;color:var(--ink);display:block;line-height:1.2}
+.fc-sub{font-size:.61rem;color:var(--ink3);display:block;line-height:1.2;margin-top:.04rem}
+.fc1{top:22px;left:-38px}.fc2{top:14px;right:-30px;animation-delay:-1.8s}.fc3{bottom:88px;left:-48px;animation-delay:-3.5s}.fc4{bottom:44px;right:-18px;animation-delay:-1.2s}
+@keyframes cfl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* MEANING */
+.meaning{background:var(--ink)}
+.mg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:3rem}
+.mc{border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:2rem 1.6rem;text-align:center;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.mc:hover{border-color:rgba(255,255,255,.2);transform:translateY(-5px)}
+.mc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.mc-sky::before{background:linear-gradient(90deg,var(--sky),#3A8FAF)}.mc-nar::before{background:linear-gradient(90deg,var(--nar),#c4623e)}.mc-lav::before{background:linear-gradient(90deg,var(--lav),#7B5EA7)}
+.mc-let{font-family:'Nunito',sans-serif;font-weight:900;font-size:3.5rem;line-height:1;margin-bottom:.4rem}
+.mc-sky .mc-let{color:var(--sky)}.mc-nar .mc-let{color:var(--nar)}.mc-lav .mc-let{color:var(--lav)}
+.mc-word{font-family:'Nunito',sans-serif;font-weight:800;font-size:.9rem;color:rgba(255,255,255,.9);margin-bottom:.6rem}
+.mc-desc{font-size:.84rem;color:rgba(255,255,255,.48);line-height:1.65}
+
+/* PILARES */
+.pillars{background:white}
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.pc{border-radius:var(--r);padding:2rem 1.6rem;position:relative;overflow:hidden;border:1px solid var(--bg3);transition:transform .3s,box-shadow .3s}
+.pc:hover{transform:translateY(-6px);box-shadow:var(--sh2)}
+.pc::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:var(--r) var(--r) 0 0}
+.pc-sky{background:var(--skyl)}.pc-sky::before{background:linear-gradient(90deg,var(--sky),#3A8FAF)}
+.pc-nar{background:var(--narl)}.pc-nar::before{background:linear-gradient(90deg,var(--nar),#c4623e)}
+.pc-lav{background:var(--lavl)}.pc-lav::before{background:linear-gradient(90deg,var(--lav),#7B5EA7)}
+.pc-ico{font-size:2rem;margin-bottom:.8rem;display:block}
+.pc-title{font-family:'Nunito',sans-serif;font-weight:900;font-size:.97rem;color:var(--ink);margin-bottom:.45rem}
+.pc-desc{font-size:.84rem;color:var(--ink2);line-height:1.65}
+.pc-badge{display:inline-block;margin-top:.8rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:.67rem;padding:.22rem .75rem;border-radius:50px}
+.pc-sky .pc-badge{background:rgba(90,171,207,.15);color:var(--sky)}.pc-nar .pc-badge{background:rgba(232,147,106,.15);color:var(--nar)}.pc-lav .pc-badge{background:rgba(155,142,196,.15);color:var(--lav)}
+
+/* HOW */
+.how{background:var(--bg2)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;position:relative}
+.steps::after{content:'';position:absolute;top:46px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--lav) 20%,var(--nar) 80%,transparent)}
+.step{text-align:center;padding:0 .8rem;position:relative;z-index:1}
+.step-circ{width:52px;height:52px;border-radius:50%;margin:0 auto 1.1rem;background:var(--bg);box-shadow:var(--sh);display:flex;align-items:center;justify-content:center;font-size:1.4rem;position:relative;transition:transform .3s}
+.step:hover .step-circ{transform:scale(1.1)}
+.step-n{position:absolute;top:-4px;right:-4px;width:19px;height:19px;border-radius:50%;background:var(--ink);color:var(--bg);font-family:'Nunito',sans-serif;font-weight:900;font-size:.58rem;display:flex;align-items:center;justify-content:center}
+.step-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:.93rem;color:var(--ink);margin-bottom:.3rem}
+.step-desc{font-size:.82rem;color:var(--ink3);line-height:1.55}
+
+/* CATÁLOGO NETFLIX */
+.catalog{background:var(--bg);padding:5.5rem 0 6rem}
+.nx-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.8rem;gap:1rem;flex-wrap:wrap}
+.nx-eyebrow{font-size:.67rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--nar);display:block;margin-bottom:.35rem}
+.nx-head h2{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.1;color:var(--ink)}
+.nx-head p{font-size:.93rem;color:var(--ink3);margin-top:.4rem;max-width:440px}
+.nx-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.1rem}
+.nx-card{position:relative;border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:3/4;background:var(--bg2);box-shadow:0 3px 16px rgba(28,21,40,.12);isolation:isolate;transition:transform .38s cubic-bezier(.15,.9,.3,1),box-shadow .38s ease}
+.nx-card:hover{transform:translateY(-12px) scale(1.04);box-shadow:0 24px 56px rgba(28,21,40,.32),0 0 0 1.5px rgba(155,142,196,.4);z-index:10}
+.nx-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .5s ease}
+.nx-card:hover .nx-cover{transform:scale(1.06)}
+.nx-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,transparent 42%,rgba(28,21,40,.5) 68%,rgba(28,21,40,.94) 100%)}
+.nx-badge{position:absolute;top:9px;left:9px;z-index:3;font-family:'Nunito',sans-serif;font-weight:700;font-size:.58rem;letter-spacing:.9px;text-transform:uppercase;color:white;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.28);padding:.2rem .6rem;border-radius:50px}
+.nx-foot{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:1.5rem .85rem .85rem}
+.nx-card-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:.93rem;color:white;line-height:1.28;margin-bottom:.55rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.nx-btns{display:flex;gap:.35rem;opacity:0;transform:translateY(8px);transition:opacity .22s ease,transform .22s ease;pointer-events:none}
+.nx-card:hover .nx-btns{opacity:1;transform:translateY(0);pointer-events:auto}
+.nx-btn-leer{flex:1;font-family:'Nunito',sans-serif;font-weight:800;font-size:.68rem;padding:.44rem .5rem;border-radius:50px;background:white;color:var(--ink);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.25rem;transition:background .18s,color .18s;white-space:nowrap}
+.nx-btn-leer:hover{background:var(--lav);color:white}
+.nx-btn-quiero{font-family:'Nunito',sans-serif;font-weight:700;font-size:.68rem;padding:.44rem .6rem;border-radius:50px;background:rgba(232,147,106,.88);color:white;border:none;cursor:pointer;transition:background .18s;white-space:nowrap}
+.nx-btn-quiero:hover{background:var(--nar)}
+
+/* VISOR — imagen nunca cortada */
+.nx-viewer{position:fixed;inset:0;z-index:9999;background:rgba(8,5,15,.97);display:none;flex-direction:column}
+.nx-viewer.open{display:flex;animation:nxIn .2s ease}
+@keyframes nxIn{from{opacity:0}to{opacity:1}}
+.nx-vhdr{flex-shrink:0;display:flex;align-items:center;gap:.75rem;padding:.65rem 1.1rem;background:rgba(18,12,28,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nx-vlogo{height:25px;width:auto;opacity:.88;flex-shrink:0}
+.nx-vtitle{font-family:'Cormorant Garamond',serif;font-size:.98rem;font-weight:700;color:rgba(255,255,255,.9);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nx-vclose{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
+.nx-vclose:hover{background:rgba(232,147,106,.75);color:white;border-color:transparent}
+/* flex:1 + min-height:0 = imagen NUNCA se corta */
+.nx-vbody{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:.4rem 0}
+.nx-vnav{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:44px;height:44px;border-radius:50%;background:rgba(18,12,28,.65);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.15);color:white;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;user-select:none}
+.nx-vnav:hover{background:var(--lav);transform:translateY(-50%) scale(1.1)}
+.nx-vnav:disabled{opacity:.18;pointer-events:none}
+.nx-vprev{left:.8rem}.nx-vnext{right:.8rem}
+.nx-vimg{max-width:calc(100% - 6rem);max-height:100%;width:auto;height:auto;object-fit:contain;display:block;border-radius:3px;box-shadow:0 8px 48px rgba(0,0,0,.65);transition:opacity .2s ease;user-select:none;pointer-events:none;-webkit-user-drag:none}
+.nx-vimg.nx-fade{opacity:0}
+.nx-vhint{position:absolute;bottom:3.8rem;left:50%;transform:translateX(-50%);font-family:'Nunito',sans-serif;font-weight:700;font-size:.68rem;color:rgba(255,255,255,.42);background:rgba(18,12,28,.55);backdrop-filter:blur(6px);padding:.3rem .82rem;border-radius:50px;pointer-events:none;z-index:10;white-space:nowrap;animation:nxHint 3.8s ease forwards}
+@keyframes nxHint{0%{opacity:0;transform:translateX(-50%) translateY(5px)}10%{opacity:1;transform:translateX(-50%) translateY(0)}75%{opacity:1}100%{opacity:0}}
+.nx-vftr{flex-shrink:0;display:flex;align-items:center;gap:.8rem;padding:.5rem 1.1rem;background:rgba(18,12,28,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.07)}
+.nx-pbar-w{flex:1}
+.nx-pbar{height:3px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
+.nx-pfill{height:100%;background:linear-gradient(90deg,var(--lav),var(--nar));border-radius:2px;transition:width .3s ease}
+.nx-ctr{font-family:'Nunito',sans-serif;font-weight:700;font-size:.74rem;color:rgba(255,255,255,.42);min-width:44px;text-align:right;white-space:nowrap}
+.nx-vwant{font-family:'Nunito',sans-serif;font-weight:800;font-size:.73rem;padding:.42rem .92rem;border-radius:50px;background:var(--nar);color:white;border:none;cursor:pointer;flex-shrink:0;transition:background .2s,transform .18s;white-space:nowrap}
+.nx-vwant:hover{background:#d4783e;transform:translateY(-1px)}
+
+/* FORMULARIO */
+.brief{background:var(--ink);position:relative;overflow:hidden}
+.brief::before{content:'';position:absolute;top:0;right:0;width:400px;height:400px;background:radial-gradient(ellipse,rgba(155,142,196,.1) 0%,transparent 70%);pointer-events:none}
+.brief-in{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:start;position:relative;z-index:1}
+.bqs{margin-top:2rem}
+.bq{display:flex;gap:.8rem;align-items:flex-start;padding:.72rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.bq:last-child{border-bottom:none}
+.bq-n{width:27px;height:27px;flex-shrink:0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:50%;font-family:'Nunito',sans-serif;font-weight:900;font-size:.7rem;color:var(--nar);display:flex;align-items:center;justify-content:center}
+.bq-t{color:rgba(255,255,255,.62);font-size:.86rem;line-height:1.5;padding-top:.28rem}
+.bq-t strong{color:var(--sky);font-weight:700}
+.fbox{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:2rem}
+.fbox-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:white;margin-bottom:.35rem}
+.fbox-sub{font-size:.81rem;color:rgba(255,255,255,.38);margin-bottom:1.5rem}
+.fg{margin-bottom:.88rem}
+.fg label{display:block;font-size:.67rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:.36rem}
+.fg input,.fg textarea{width:100%;padding:.7rem .92rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:9px;color:white;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s,background .2s}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.2)}
+.fg input:focus,.fg textarea:focus{border-color:rgba(155,142,196,.5);background:rgba(255,255,255,.1)}
+.fg textarea{resize:vertical;min-height:66px}
+.cblabel{display:block;font-size:.67rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:.36rem}
+.cbhint{font-size:.66rem;color:rgba(255,255,255,.24);margin-bottom:.58rem;display:block}
+.cbg{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.ci{display:flex;align-items:center;gap:.48rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.5rem .82rem;cursor:pointer;transition:background .2s,border-color .2s;position:relative}
+.ci input[type=checkbox]{position:absolute;opacity:0;width:0;height:0}
+.cbox{width:16px;height:16px;flex-shrink:0;border:2px solid rgba(255,255,255,.24);border-radius:4px;background:transparent;display:flex;align-items:center;justify-content:center;transition:background .15s,border-color .15s}
+.cbox::after{content:'✓';font-size:.6rem;color:transparent;font-weight:900;transition:color .15s}
+.ci input:checked~.cbox{background:var(--lav);border-color:var(--lav)}
+.ci input:checked~.cbox::after{color:white}
+.ci:has(input:checked){background:rgba(155,142,196,.15);border-color:rgba(155,142,196,.35)}
+.ci input:disabled~.cbox{border-color:rgba(255,255,255,.1);opacity:.5}
+.cbtxt{font-size:.81rem;color:rgba(255,255,255,.7);line-height:1;user-select:none}
+.btn-wa{width:100%;justify-content:center;padding:.92rem;background:#25D366;color:white;font-family:'Nunito',sans-serif;font-weight:900;font-size:.93rem;display:flex;align-items:center;gap:.5rem;margin-top:.5rem;border:none;border-radius:50px;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.btn-wa:hover{background:#1da855;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.4)}
+.btn-mail{width:100%;justify-content:center;padding:.8rem;background:var(--lav);color:white;font-family:'Nunito',sans-serif;font-weight:900;font-size:.93rem;display:flex;align-items:center;gap:.5rem;margin-top:.44rem;border:none;border-radius:50px;cursor:pointer;transition:transform .2s,background .2s}
+.btn-mail:hover{background:#7B5EA7;transform:translateY(-2px)}
+.fnote{font-size:.7rem;color:rgba(255,255,255,.26);margin-top:.5rem;font-style:italic;line-height:1.5}
+
+/* PATRICIA */
+.patricia{background:white}
+.pat-g{display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:center}
+.pat-img-wrap{display:flex;flex-direction:column;align-items:center;gap:.8rem}
+.pat-photo{width:260px;height:260px;border-radius:50%;object-fit:cover;object-position:center top;box-shadow:var(--sh2),0 0 0 10px var(--bg2);display:block;animation:pfloat 7s ease-in-out infinite}
+.pat-photo-fb{width:260px;height:260px;border-radius:50%;background:linear-gradient(145deg,var(--skyl),var(--lavl));display:none;align-items:center;justify-content:center;font-size:6.8rem;box-shadow:var(--sh2),0 0 0 10px var(--bg2);animation:pfloat 7s ease-in-out infinite}
+@keyframes pfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.pat-badge{background:var(--nar);color:white;font-family:'Nunito',sans-serif;font-weight:800;font-size:.73rem;padding:.38rem .95rem;border-radius:50px;box-shadow:var(--sh);display:inline-block}
+.pat-name{font-family:'Cormorant Garamond',serif;font-size:1.95rem;font-weight:700;color:var(--ink);margin-bottom:.2rem}
+.pat-role{color:var(--nar);font-size:.85rem;font-weight:500;margin-bottom:1.15rem}
+.pat-text{color:var(--ink2);line-height:1.8;margin-bottom:.75rem;font-size:.94rem}
+.pat-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.12rem;color:var(--lav);line-height:1.5;margin:1.15rem 0;padding-left:1rem;border-left:3px solid var(--lavl)}
+.pat-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem}
+.pat-chip{background:var(--bg2);color:var(--ink2);border:1px solid var(--bg3);font-size:.73rem;font-weight:600;padding:.28rem .78rem;border-radius:50px;transition:background .2s,color .2s}
+.pat-chip:hover{background:var(--lavl);color:var(--lav)}
+
+/* TESTIMONIOS */
+.testi{background:var(--bg2)}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.tc{background:white;border:1px solid var(--bg3);border-radius:var(--r);padding:1.8rem;position:relative;transition:transform .3s,box-shadow .3s}
+.tc:hover{transform:translateY(-5px);box-shadow:var(--sh)}
+.tc::before{content:'\201C';position:absolute;font-family:'Cormorant Garamond',serif;font-size:5rem;line-height:1;top:.3rem;left:1rem;color:rgba(28,21,40,.05)}
+.tc-stars{color:#F9D423;letter-spacing:2px;font-size:.92rem;margin-bottom:.8rem}
+.tc-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.04rem;color:var(--ink2);line-height:1.7;margin-bottom:1.15rem}
+.tc-auth{display:flex;align-items:center;gap:.68rem}
+.tc-av{width:37px;height:37px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.av1{background:var(--skyl)}.av2{background:var(--narl)}.av3{background:var(--lavl)}
+.tc-name{font-family:'Nunito',sans-serif;font-weight:800;font-size:.83rem;color:var(--ink)}
+.tc-role{font-size:.71rem;color:var(--ink3)}
+
+/* CTA */
+.cta{background:linear-gradient(145deg,var(--lavl),var(--bg) 50%,var(--narl));position:relative;overflow:hidden}
+.cta-c{text-align:center;max-width:590px;margin:0 auto;position:relative;z-index:1}
+.cta-btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3.5rem 5% 0}
+.fg2{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.fbrand{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem}
+.fblogo{height:33px;width:auto}
+.fbname{font-family:'Nunito',sans-serif;font-weight:900;font-size:1.18rem;letter-spacing:-.3px;color:white}
+.fb1{color:var(--sky)}.fb2{color:var(--nar)}.fb3{color:var(--lav)}
+.ftag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.88rem;color:rgba(255,255,255,.33);margin-bottom:1.2rem;line-height:1.5}
+.fsocs{display:flex;gap:.5rem}
+.fsoc{width:33px;height:33px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,transform .2s;font-size:.82rem;color:white;text-decoration:none}
+.fsoc:hover{background:var(--nar);transform:scale(1.1)}
+.fcol h5{font-family:'Nunito',sans-serif;font-weight:800;color:rgba(255,255,255,.8);font-size:.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem}
+.fcol a{display:block;font-size:.81rem;color:rgba(255,255,255,.4);margin-bottom:.58rem;transition:color .2s;text-decoration:none}
+.fcol a:hover{color:var(--sky)}
+.fbot{padding:1.3rem 0 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;font-size:.73rem}
+.ftics{font-family:'Nunito',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.4px;color:rgba(255,255,255,.2)}
+.fcopy{background:rgba(232,147,106,.08);border:1px solid rgba(232,147,106,.15);border-radius:9px;padding:.78rem 1.2rem;display:flex;align-items:flex-start;gap:.6rem;margin-bottom:1rem}
+.fcopy-t{font-size:.76rem;color:rgba(255,255,255,.4);line-height:1.55}
+.fcopy-t strong{color:rgba(255,255,255,.62)}
+
+/* RESPONSIVE */
+@media(max-width:1280px){.nx-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:1024px){.nx-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;text-align:center;padding-top:6.5rem;gap:2rem}
+  .hero-sub,.hero-trust,.hero-btns{margin-left:auto;margin-right:auto;justify-content:center}
+  .hero-right{order:-1;height:360px}
+  .mg,.tg{grid-template-columns:1fr 1fr}
+  .pg,.steps{grid-template-columns:1fr 1fr}
+  .steps::after{display:none}
+  .brief-in,.pat-g,.fg2{grid-template-columns:1fr;gap:2.5rem}
+  .nav-links{display:none}.ham{display:flex}
+  .nx-vimg{max-width:calc(100% - 4.5rem)}
+  .nx-vnav{width:36px;height:36px;font-size:1.1rem}
+  .nx-vprev{left:.35rem}.nx-vnext{right:.35rem}
+}
+@media(max-width:680px){.nx-grid{grid-template-columns:repeat(2,1fr);gap:.8rem}}
+@media(max-width:600px){
+  .mg,.tg,.pg{grid-template-columns:1fr}
+  .cta-btns{flex-direction:column;align-items:center}
+  .cbg{grid-template-columns:1fr}
+  .hero-right{height:300px}
+  .hero-book-img{max-width:240px}
+  .fc1,.fc2,.fc3,.fc4{display:none}
+  .nx-vlogo{display:none}
+}
+@media(max-width:360px){.nx-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-  <p>La web renovada de JUFANTICS está disponible en
-    <a href="https://jufantics-revision-editorial.jufantics.chatgpt.site/">este enlace</a>.
-  </p>
+
+<!-- WA FLOAT -->
+<a class="wa-fab" href="https://wa.me/51992786715?text=Hola%20JUFANTICS%20%F0%9F%91%8B" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <div class="nav-brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <img src="LOGO.png" class="nav-logo" alt="JUFANTICS" onerror="this.style.display='none'">
+    <div>
+      <div class="nav-name"><span class="nj1">JU</span><span class="nj2">FAN</span><span class="nj3">TICS</span></div>
+      <div class="nav-tag">Historias que nacen de la imaginación</div>
+    </div>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a href="#how">Cómo funciona</a>
+    <a href="#cuentos">Cuentos</a>
+    <a href="#libros">Libros</a>
+    <a href="#poemas">Poemas</a>
+    <a href="#brief">Pedir cuento</a>
+    <a href="#patricia">Creadora</a>
+    <a href="blog/" target="_blank" rel="noopener">Blog</a>
+    <a href="#brief" class="nav-cta">✨ Quiero el mío</a>
+  </div>
+  <button class="ham" id="ham" aria-label="Menú"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- DRAWER MÓVIL -->
+<div class="drawer" id="drawer">
+  <a href="#home" onclick="closeD()">Inicio</a>
+  <a href="#cuentos" onclick="closeD()">Cuentos</a>
+  <a href="#libros" onclick="closeD()">Libros</a>
+  <a href="#poemas" onclick="closeD()">Poemas</a>
+  <a href="#brief" onclick="closeD()">Pedir cuento</a>
+  <a href="#patricia" onclick="closeD()">Creadora</a>
+  <a href="blog/" onclick="closeD()">Blog</a>
+  <a href="#brief" onclick="closeD()" class="btn btn-p" style="margin-top:.5rem">✨ Quiero el mío</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section id="home">
+<div class="hero">
+  <span class="hstar hs1">✨</span><span class="hstar hs2">⭐</span>
+  <span class="hstar hs3">🌟</span><span class="hstar hs4">✦</span>
+  <div class="hero-left">
+    <div class="hero-eye">Cuentos 100% personalizados · Lima, Perú</div>
+    <h1 class="hero-h1">Su historia ya existe.<br>Solo falta <em>contarla</em>.</h1>
+    <p class="hero-sub">Creamos cuentos únicos con el nombre, la cara y el corazón de tu hijo. Una historia que no encontrarás en ninguna librería del mundo.</p>
+    <div class="hero-btns">
+      <a href="#cuentos" class="btn btn-p">📖 Descubrir historias</a>
+      <a href="#brief" class="btn btn-s">✨ Quiero el mío</a>
+    </div>
+    <div class="hero-trust">
+      <span><span class="tdot"></span>100% personalizado</span>
+      <span><span class="tdot"></span>Entrega en 48h</span>
+      <span><span class="tdot"></span>Experiencia visual</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="fcard fc1"><span class="fc-ico">🎁</span><div><span class="fc-lbl">Regalo único</span><span class="fc-sub">Irrepetible</span></div></div>
+    <div class="fcard fc2"><span class="fc-ico">💛</span><div><span class="fc-lbl">Emocional</span><span class="fc-sub">Para tu familia</span></div></div>
+    <div class="fcard fc3"><span class="fc-ico">📖</span><div><span class="fc-lbl">Cuento visual</span><span class="fc-sub">Sin descarga</span></div></div>
+    <div class="fcard fc4"><span class="fc-ico">⭐</span><div><span class="fc-lbl">5 estrellas</span><span class="fc-sub">Familias felices</span></div></div>
+    <div class="hero-book-wrap">
+      <span class="bpart bp1">✨</span><span class="bpart bp2">⭐</span>
+      <span class="bpart bp3">🌟</span><span class="bpart bp4">✦</span><span class="bpart bp5">💫</span>
+      <img src="assets/hero-libro.jpg" class="hero-book-img" alt="JUFANTICS — Libro personalizado"
+           onerror="this.src='assets/hero-libro.png';this.onerror=null">
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══ MEANING ══ -->
+<section class="meaning sec">
+<div class="wrap">
+  <div style="text-align:center;margin-bottom:3rem">
+    <span style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sky)">✦ La marca</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.12;color:white;margin-top:.3rem">¿Qué significa <span style="color:var(--nar)">JUFANTICS</span>?</h2>
+  </div>
+  <div class="mg">
+    <div class="mc mc-sky reveal"><div class="mc-let">JU</div><div class="mc-word">Juego + Joaquín</div><div class="mc-desc">El juego como lenguaje universal de la infancia, y homenaje a Joaquín — el primer nombre que inspiró esta marca.</div></div>
+    <div class="mc mc-nar reveal"><div class="mc-let">FAN</div><div class="mc-word">Fantasía + Familia + Facundo</div><div class="mc-desc">El corazón de cada historia: imaginación desbordante, amor familiar, y homenaje a Facundo.</div></div>
+    <div class="mc mc-lav reveal"><div class="mc-let">TICS</div><div class="mc-word">Textos · Imágenes · Cuentos · Siempre</div><div class="mc-desc">Nuestro compromiso eterno: textos cuidados, imágenes que enamoran y cuentos que tocan el alma.</div></div>
+  </div>
+</div>
+</section>
+
+<!-- ══ PILARES ══ -->
+<section class="pillars sec">
+<div class="wrap">
+  <div style="margin-bottom:3rem">
+    <span style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--nar)">✦ Lo que nos hace únicos</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.12;color:var(--ink);margin-top:.3rem" class="reveal">Nuestros 3 servicios principales</h2>
+  </div>
+  <div class="pg">
+    <div class="pc pc-sky reveal"><span class="pc-ico">🎨</span><div class="pc-title">De Dibujo a Realidad</div><div class="pc-desc">Los dibujos de tus hijos convertidos en libros únicos. Esos dibujos de la refri — ahora tienen historia.</div><span class="pc-badge">Pilar 1</span></div>
+    <div class="pc pc-nar reveal"><span class="pc-ico">💛</span><div class="pc-title">Historias con Propósito</div><div class="pc-desc">Cuentos para fortalecer valores y emociones. Miedos, celos, autoestima — cada reto se convierte en crecimiento.</div><span class="pc-badge">Pilar 2</span></div>
+    <div class="pc pc-lav reveal"><span class="pc-ico">📸</span><div class="pc-title">De Fotos a Bitácoras</div><div class="pc-desc">Fotos de viajes convertidas en Cuentos-Álbum épicos. Recuerdos reales narrados como aventura mágica.</div><span class="pc-badge">Pilar 3</span></div>
+  </div>
+</div>
+</section>
+
+<!-- ══ HOW ══ -->
+<section class="how sec" id="how">
+<div class="wrap">
+  <div style="margin-bottom:3rem">
+    <span style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lav)">✦ El proceso</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.12;color:var(--ink);margin-top:.3rem" class="reveal">Crear tu cuento es más fácil<br>de lo que imaginas</h2>
+  </div>
+  <div class="steps">
+    <div class="step reveal"><div class="step-circ">💬<span class="step-n">1</span></div><div class="step-title">Escríbenos</div><p class="step-desc">WhatsApp o Instagram. Respondemos en menos de 4h.</p></div>
+    <div class="step reveal"><div class="step-circ">📝<span class="step-n">2</span></div><div class="step-title">Cuéntanos</div><p class="step-desc">7 preguntas sobre tu hijo, su familia y el mensaje a transmitir.</p></div>
+    <div class="step reveal"><div class="step-circ">✨<span class="step-n">3</span></div><div class="step-title">Creamos</div><p class="step-desc">Patricia escribe y diseña con amor. Revisiones incluidas.</p></div>
+    <div class="step reveal"><div class="step-circ">🎁<span class="step-n">4</span></div><div class="step-title">Disfrutas</div><p class="step-desc">Tu cuento en experiencia visual interactiva.</p></div>
+  </div>
+</div>
+</section>
+
+<!-- ══ CATÁLOGO NETFLIX ══ -->
+<section class="catalog" id="cuentos">
+<div class="wrap">
+  <div class="nx-head">
+    <div>
+      <span class="nx-eyebrow">✦ Catálogo</span>
+      <h2>Nuestros Cuentos</h2>
+      <p>Haz clic para leer. Experiencia visual e inmersiva.</p>
+    </div>
+    <a href="#brief" class="btn btn-p">✨ Quiero uno así</a>
+  </div>
+  <div class="nx-grid">
+
+    <div class="nx-card" onclick="nxAbrir('aventura-ninja',12,'La Aventura Ninja')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/aventura-ninja/portada.jpg" alt="La Aventura Ninja" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">¡Nuevo!</span>
+      <div class="nx-foot"><div class="nx-card-title">La Aventura Ninja</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('aventura-ninja',12,'La Aventura Ninja')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('La Aventura Ninja')">✨ Quiero uno</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="nx-card" onclick="nxAbrir('cueva-de-cristal',10,'El Secreto de la Cueva de Cristal')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/cueva-de-cristal/portada.jpg" alt="El Secreto de la Cueva de Cristal" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Fantasía</span>
+      <div class="nx-foot"><div class="nx-card-title">El Secreto de la Cueva de Cristal</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('cueva-de-cristal',10,'El Secreto de la Cueva de Cristal')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('El Secreto de la Cueva de Cristal')">✨ Quiero uno</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="nx-card" onclick="nxAbrir('escuadron-verde',13,'El Escuadrón Verde')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/escuadron-verde/portada.jpg" alt="El Escuadrón Verde" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Educativo</span>
+      <div class="nx-foot"><div class="nx-card-title">El Escuadrón Verde</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('escuadron-verde',13,'El Escuadrón Verde')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('El Escuadrón Verde')">✨ Quiero uno</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="nx-card" onclick="nxAbrir('escuadron-verde-guardianes-del-oceano',16,'Guardianes del Océano')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/escuadron-verde-guardianes-del-oceano/portada.jpg" alt="Guardianes del Océano" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Aventura</span>
+      <div class="nx-foot"><div class="nx-card-title">Guardianes del Océano</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('escuadron-verde-guardianes-del-oceano',16,'Guardianes del Océano')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('Guardianes del Océano')">✨ Quiero uno</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="nx-card" onclick="nxAbrir('gran-aventura-familiar',10,'La Gran Aventura Familiar')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/gran-aventura-familiar/portada.jpg" alt="La Gran Aventura Familiar" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Familiar</span>
+      <div class="nx-foot"><div class="nx-card-title">La Gran Aventura Familiar</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('gran-aventura-familiar',10,'La Gran Aventura Familiar')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('La Gran Aventura Familiar')">✨ Quiero uno</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="nx-card" onclick="nxAbrir('gran-corazon-capitan-julen',12,'El Gran Corazón del Capitán Julen')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/gran-corazon-capitan-julen/portada.jpg" alt="El Gran Corazón del Capitán Julen" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Aventura</span>
+      <div class="nx-foot"><div class="nx-card-title">El Gran Corazón del Capitán Julen</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('gran-corazon-capitan-julen',12,'El Gran Corazón del Capitán Julen')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('El Gran Corazón del Capitán Julen')">✨ Quiero uno</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="nx-card" onclick="nxAbrir('guardian-colores-infinitos',11,'El Guardián de los Colores Infinitos')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/guardian-colores-infinitos/portada.jpg" alt="El Guardián de los Colores Infinitos" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Mágico</span>
+      <div class="nx-foot"><div class="nx-card-title">El Guardián de los Colores Infinitos</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('guardian-colores-infinitos',11,'El Guardián de los Colores Infinitos')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('El Guardián de los Colores Infinitos')">✨ Quiero uno</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="nx-card" onclick="nxAbrir('thiago-defensor-universo',11,'Thiago: El Defensor del Universo')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/thiago-defensor-universo/portada.jpg" alt="Thiago: El Defensor del Universo" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Fantasía</span>
+      <div class="nx-foot"><div class="nx-card-title">Thiago: El Defensor del Universo</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('thiago-defensor-universo',11,'Thiago: El Defensor del Universo')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('Thiago: El Defensor del Universo')">✨ Quiero uno</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="nx-card" onclick="nxAbrir('tesoros-de-la-costa',10,'Tesoros de la Costa')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/tesoros-de-la-costa/portada.jpg" alt="Tesoros de la Costa" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Aventura</span>
+      <div class="nx-foot"><div class="nx-card-title">Tesoros de la Costa</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('tesoros-de-la-costa',10,'Tesoros de la Costa')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('Tesoros de la Costa')">✨ Quiero uno</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="nx-card" onclick="nxAbrir('vuelo-resiliencia-corazon-oro-hielo',9,'El Vuelo de la Resiliencia')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/vuelo-resiliencia-corazon-oro-hielo/portada.jpg" alt="El Vuelo de la Resiliencia" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Emocional</span>
+      <div class="nx-foot"><div class="nx-card-title">El Vuelo de la Resiliencia</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('vuelo-resiliencia-corazon-oro-hielo',9,'El Vuelo de la Resiliencia')">📖 Leer</button>
+          <button class="nx-btn-quiero" onclick="event.stopPropagation();nxQuiero('El Vuelo de la Resiliencia')">✨ Quiero uno</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ══ COLECCIÓN ORIGINAL (libros propios de la autora) ══ -->
+<section class="catalog" id="libros">
+<div class="wrap">
+  <div class="nx-head">
+    <div>
+      <span class="nx-eyebrow">✦ Colección Original</span>
+      <h2>Libros de la Autora</h2>
+      <p>Obras completas escritas por Patricia B. Albornoz. Léelas con la misma experiencia visual e inmersiva.</p>
+    </div>
+  </div>
+  <div class="nx-grid" style="grid-template-columns:repeat(2,minmax(0,1fr));max-width:640px">
+
+    <div class="nx-card" onclick="nxAbrir('juancito-medicina-del-viento',29,'Juancito y la Medicina del Viento')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/juancito-medicina-del-viento/portada.jpg" alt="Juancito y la Medicina del Viento" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Emocional</span>
+      <div class="nx-foot"><div class="nx-card-title">Juancito y la Medicina del Viento</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('juancito-medicina-del-viento',29,'Juancito y la Medicina del Viento')">📖 Leer</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="nx-card" onclick="nxAbrir('ukumari-sacha-chapaq',45,'Ukumari Sach\'a Chapaq y el Pacto con los Humanos')">
+      <img class="nx-cover" loading="lazy" src="assets/cuentos/ukumari-sacha-chapaq/portada.jpg" alt="Ukumari Sach'a Chapaq y el Pacto con los Humanos" onerror="this.style.opacity='0'">
+      <div class="nx-shade"></div><span class="nx-badge">Novela juvenil</span>
+      <div class="nx-foot"><div class="nx-card-title">Ukumari Sach'a Chapaq</div>
+        <div class="nx-btns">
+          <button class="nx-btn-leer" onclick="event.stopPropagation();nxAbrir('ukumari-sacha-chapaq',45,'Ukumari Sach\'a Chapaq y el Pacto con los Humanos')">📖 Leer</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ══ VISOR (1 solo, limpio) ══ -->
+<div class="nx-viewer" id="nxViewer" role="dialog" aria-modal="true" aria-label="Leer cuento">
+  <div class="nx-vhdr">
+    <img src="LOGO.png" class="nx-vlogo" alt="JUFANTICS" onerror="this.style.display='none'">
+    <div class="nx-vtitle" id="nxVTitle">—</div>
+    <button class="nx-vclose" id="nxVClose" aria-label="Cerrar">✕</button>
+  </div>
+  <div class="nx-vbody" id="nxVBody">
+    <button class="nx-vnav nx-vprev" id="nxVPrev" aria-label="Anterior">&#8249;</button>
+    <img class="nx-vimg" id="nxVImg" src="" alt="Página" draggable="false" oncontextmenu="return false">
+    <button class="nx-vnav nx-vnext" id="nxVNext" aria-label="Siguiente">&#8250;</button>
+  </div>
+  <div class="nx-vftr">
+    <div class="nx-pbar-w"><div class="nx-pbar"><div class="nx-pfill" id="nxVFill" style="width:0%"></div></div></div>
+    <div class="nx-ctr" id="nxVCtr">— / —</div>
+    <button class="nx-vwant" id="nxVWant">✨ Quiero uno así</button>
+  </div>
+</div>
+
+<!-- ══ FORMULARIO ══ -->
+<section class="brief sec" id="brief">
+<div class="wrap">
+  <div class="brief-in">
+    <div>
+      <span style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--nar)">✦ Pedir mi cuento</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;color:white;margin:.6rem 0 .9rem;line-height:1.2">Empieza aquí. Tu cuento está a un <em style="color:var(--lav);font-style:italic">mensaje</em> de distancia.</h2>
+      <p style="color:rgba(255,255,255,.5);font-size:.92rem;line-height:1.75">Completa el formulario y te enviamos la confirmación.</p>
+      <div class="bqs">
+        <div class="bq"><div class="bq-n">1</div><div class="bq-t">¿Cuál es el <strong>nombre del niño</strong>?</div></div>
+        <div class="bq"><div class="bq-n">2</div><div class="bq-t">¿Qué <strong>edad</strong> tiene?</div></div>
+        <div class="bq"><div class="bq-n">3</div><div class="bq-t">¿Qué <strong>le gusta</strong>? (deportes, animales, colores…)</div></div>
+        <div class="bq"><div class="bq-n">4</div><div class="bq-t">¿Cómo es su <strong>familia</strong>? (mamá, papá, hermanos…)</div></div>
+        <div class="bq"><div class="bq-n">5</div><div class="bq-t">¿Cuál es el <strong>tema del cuento</strong>?</div></div>
+        <div class="bq"><div class="bq-n">6</div><div class="bq-t">¿Qué <strong>mensaje o valor</strong> quieres transmitir?</div></div>
+        <div class="bq"><div class="bq-n">7</div><div class="bq-t">¿Hay una <strong>foto o dibujo</strong> de inspiración? (opcional)</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="fbox">
+        <div class="fbox-title">Cuéntame sobre tu hijo ✨</div>
+        <div class="fbox-sub">Responde y recibe tu confirmación al instante.</div>
+        <div class="fg"><label for="fN">Nombre del niño</label><input type="text" id="fN" placeholder="Ej: Joaquín, Valentina…" autocomplete="off"></div>
+        <div class="fg"><label for="fE">Edad</label><input type="text" id="fE" placeholder="Ej: 5 años"></div>
+        <div class="fg"><label for="fG">¿Qué le gusta?</label><input type="text" id="fG" placeholder="Ej: dinosaurios, fútbol, princesas…"></div>
+        <div class="fg">
+          <span class="cblabel">Tipo de cuento</span>
+          <span class="cbhint" id="cbH">Selecciona hasta 3 opciones</span>
+          <div class="cbg" id="cbG">
+            <label class="ci"><input type="checkbox" name="tipo" value="Aventura"><span class="cbox"></span><span class="cbtxt">🏔️ Aventura</span></label>
+            <label class="ci"><input type="checkbox" name="tipo" value="Familiar"><span class="cbox"></span><span class="cbtxt">👨‍👩‍👧 Familiar</span></label>
+            <label class="ci"><input type="checkbox" name="tipo" value="Emocional"><span class="cbox"></span><span class="cbtxt">💛 Emocional</span></label>
+            <label class="ci"><input type="checkbox" name="tipo" value="Educativo"><span class="cbox"></span><span class="cbtxt">📚 Educativo</span></label>
+            <label class="ci"><input type="checkbox" name="tipo" value="Fantasía"><span class="cbox"></span><span class="cbtxt">🌟 Fantasía</span></label>
+            <label class="ci"><input type="checkbox" name="tipo" value="Historia Real"><span class="cbox"></span><span class="cbtxt">📷 Historia Real</span></label>
+          </div>
+        </div>
+        <div class="fg"><label for="fM">Mensaje o valor a transmitir</label><textarea id="fM" placeholder="Ej: que sepa que es valiente, que es amado…"></textarea></div>
+        <button class="btn-wa" onclick="envWA()">
+          <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:white;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enviar por WhatsApp
+        </button>
+        <button class="btn-mail" onclick="envMail()">📧 Enviar también por correo</button>
+        <p class="fnote">Al enviar aceptas que tus datos sean usados únicamente para la creación de tu cuento. © 2025 JUFANTICS.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══ PATRICIA ══ -->
+<section class="patricia sec" id="patricia">
+<div class="wrap">
+  <div class="pat-g">
+    <div class="pat-img-wrap reveal">
+      <img src="assets/autora/autora-patricia.jpg" class="pat-photo" alt="Patricia B. Albornoz"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="pat-photo-fb">✍️</div>
+      <span class="pat-badge">Creadora &amp; Fundadora</span>
+    </div>
+    <div class="reveal">
+      <span style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--nar)">✦ Quién soy</span>
+      <div class="pat-name" style="margin-top:.3rem">Patricia B. Albornoz</div>
+      <div class="pat-role">Escritora · Narradora · Creadora de JUFANTICS</div>
+      <p class="pat-text">Desde muy niña, la imaginación fue mi refugio y mi forma de entender el mundo. Crecí rodeada de cuentos, leyendas y relatos que despertaron en mí una profunda pasión por crear historias. Escribo desde los 7 años: cuentos, relatos y poemas que fueron llenando cuadernos y corazones.</p>
+      <p class="pat-text">Hoy, como madre, mujer y creadora, comparto esas historias con el mundo a través de JUFANTICS — un espacio donde cada familia encuentra su propia magia.</p>
+      <div class="pat-quote">"Porque cada persona tiene una historia… y cada historia merece ser contada."</div>
+      <div class="pat-chips">
+        <span class="pat-chip">✨ Imaginación</span><span class="pat-chip">📖 Cuentos infantiles</span>
+        <span class="pat-chip">🎨 Ilustración</span><span class="pat-chip">🌿 Naturaleza</span>
+        <span class="pat-chip">💛 Familia</span><span class="pat-chip">📜 Leyendas peruanas</span>
+        <span class="pat-chip">🧠 Neurodiversidad</span><span class="pat-chip">🖊️ Poesía</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══ POESÍA DE LA AUTORA ══ -->
+<style>
+.insp-card{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:white;border:1px solid var(--bg3);border-radius:14px;padding:.95rem 1.3rem;margin-bottom:.7rem;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s}
+.insp-card:hover{transform:translateX(4px);border-color:var(--lav);box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.insp-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.08rem;color:var(--ink)}
+.insp-author{font-size:.78rem;color:var(--ink3);margin-top:.15rem}
+.insp-go{font-size:.78rem;color:var(--lav);font-weight:700;white-space:nowrap}
+.poema-h3{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.45rem;color:var(--ink);margin-bottom:.4rem}
+.poema-nota{font-size:.82rem;color:var(--ink3);font-style:italic;margin-bottom:1.3rem}
+</style>
+<section class="sec" id="poemas" style="background:var(--bg2)">
+<div class="wrap">
+  <div style="text-align:center;max-width:680px;margin:0 auto 3rem" class="reveal">
+    <span style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--nar)">✦ Un rincón más íntimo</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.12;color:var(--ink);margin-top:.3rem">Mis Poemas</h2>
+    <p class="pat-text" style="margin-top:.8rem">Antes de JUFANTICS, hubo cuadernos. Aquí guardo algunos de los versos que escribí a lo largo de los años, y también los poemas de otros autores que marcaron mi manera de sentir la poesía.</p>
+  </div>
+
+  <div style="max-width:900px;margin:0 auto 3.5rem" class="reveal">
+    <img src="assets/autora/detras-de-las-paginas.jpg" alt="Detrás de las páginas — cuadernos antiguos de Patricia, 1992 a 1996" style="width:100%;border-radius:var(--r);display:block;box-shadow:0 12px 30px rgba(0,0,0,.08)">
+  </div>
+
+  <!-- Cuadernos antiguos -->
+  <div style="max-width:760px;margin:0 auto 4rem">
+    <span style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lav)">Cuadernos antiguos · 1992–1996</span>
+
+    <div class="poema-h3" style="margin-top:.6rem">Versos sueltos de mi cuaderno de 1992</div>
+    <p class="poema-nota">Fragmentos y versos que fui guardando en un cuaderno azul que firmé como "Mío · Patty". Algunos son míos; otros los escuché o leí alguna vez y los copié sin recordar de quién eran — los dejo tal como los encontré.</p>
+
+    <div class="tc"><p class="tc-text">"Juntos los dos en una noche intensa, solos, acompañados por la luna que brilla sobre Cunjiag, nos acompañan unas estrellas titilantes y el firmamento que brilla más que cualquier luz artificial. Así es el amor verdadero que te doy, y mi alma que te entrego para que te alumbre como la luna cuando se entrega a la eternidad de la oscuridad y siempre logra brillar. Este amor es solo para ti, mi amor eterno."</p></div>
+
+    <div class="tc"><p class="tc-text">"Me siento triste esta mañana porque tú ya no estás. Si estuvieras a mi lado, mi alma estaría feliz y no me separaría más de ti."</p></div>
+
+    <div class="tc"><p class="tc-text">"Me siento triste esta mañana porque tú no estás. Si estuvieras viendo, si estuvieras riendo junto a ti, no me sentiría así, y mi alma rebosaría de alegría."</p></div>
+
+    <div class="tc"><p class="tc-text">Este no recuerdo de quién es, pero lo guardo en mis recuerdos del ayer: "Cultivo una rosa blanca en julio como en enero, para un amigo sincero que me da su mano franca."</p></div>
+
+    <div class="tc"><p class="tc-text">"Si llegas a amar, deberás olvidarte de todo y solo dedicarte a ello, para no perder tu única oportunidad de tu verdadero amor."</p></div>
+
+    <div class="tc"><p class="tc-text">"¿Quieren estar contigo en un castillo bañado de oro y plata, y por los cantos ver que tienen seda fina? Así te veo a ti. Mi vida eterna te daría a ti."</p></div>
+
+    <div class="tc"><p class="tc-text">Este verso tampoco recuerdo de quién es, pero lo guardo en mis recuerdos del ayer: "Qué triste está la mañana, parece que va a llover; así se ponen mis ojos cuando te dejo de ver."</p></div>
+
+    <div class="tc"><p class="tc-text">"En la que mi vida canto y respaldo en ti, esas cuatro letras son muy verdaderas y francas: mamá."</p></div>
+
+    <div class="tc"><p class="tc-text">"Si se trata de ti, hasta la muerte rechazaría; y si se trata de otro, lo primero que haría sería llamar a la muerte."</p></div>
+
+    <div class="tc"><p class="tc-text">"Lo he soñado contigo y me veo feliz; y cuando dejo de soñarte, siento que me da pesadillas."</p></div>
+
+    <div class="tc"><p class="tc-text">"Cuando no estoy contigo me siento triste en mi corazón, y cuando tú estás es como si estuviera con una rosa roja tan bella en la mano; y el tiempo me parece que ya pasó y se acerca la primavera, pero en verdad casi ni siquiera ha terminado el invierno."</p></div>
+
+    <div class="tc" style="border-color:var(--lavl);background:var(--lavl)">
+      <p class="tc-text" style="color:var(--ink)">Acróstico al AMOR</p>
+      <p class="pat-text" style="margin-bottom:0">
+        <em>"Antes de<br>Marcharme, te digo<br>Orgullosamente, que siempre te he<br>recordado y te recordaré."</em>
+      </p>
+      <p class="pat-text" style="margin-top:.9rem;margin-bottom:0">
+        <em>"Cuando escribas A,<br>no te olvides de la M,<br>que después sigue en la O<br>y continúa el R."</em>
+      </p>
+    </div>
+
+    <div class="poema-h3" style="margin-top:2.8rem">El poemario para mi madre — cuaderno de 1994 a 1996</div>
+    <p class="poema-nota">Mi primer poemario, hecho para mi madre por su día... aunque se lo entregué recién en 1996. Lo escribí entre los 14 y los 16 años, y lo dejo tal cual — solo corregido en ortografía.</p>
+
+    <div class="tc">
+      <p class="tc-text" style="margin-bottom:.4rem"><strong style="font-style:normal;color:var(--nar)">MADRE</strong> <span style="font-size:.75rem;font-style:normal;color:var(--ink3)">(no recuerdo de quién es, pero sé que no es del todo mío)</span></p>
+      <p class="tc-text">Madre. Palabra sagrada.<br>Ya que madre solo hay una.<br>La que con esos nos daña,<br>la que nos canta en la cuna.<br><br>
+      La que nos enseña, mujer, que es toda ternura.<br>Nunca deben ser malas para con tu madre;<br>joven y fuerte eres, en tus brazos sostén a tu madre.<br><br>
+      Madre pura y bendita, la que con dulzura comprende nuestras palabras.<br>
+      Ya que con amor nos da todo lo que pedimos, queriendo que sonriamos.<br>
+      La que en silencio ¿te comprende todo? Solo con una sonrisa.<br>
+      ¡Eso es la madre! El amor de una madre.</p>
+    </div>
+
+    <div class="tc">
+      <p class="tc-text" style="margin-bottom:.4rem"><strong style="font-style:normal;color:var(--nar)">EL AMOR DE UNA MADRE</strong></p>
+      <p class="tc-text">El amor de una madre es más grande que el planeta, el más poderoso que el safari.<br><br>
+      El amor de una madre nos levanta de la arena, donde te estás arrastrando, del suelo de angustias.<br><br>
+      Llega la madre y a su hijo levanta, y le da su amor; este se repone y sale de las angustias.<br>
+      Y triunfa: el amor de una madre es más que todo eso.</p>
+    </div>
+
+    <div class="tc">
+      <p class="tc-text" style="margin-bottom:.4rem"><strong style="font-style:normal;color:var(--nar)">A MI MADRE</strong></p>
+      <p class="tc-text">Siempre he de llevar la cabeza en alto,<br>y aun frente al monarca mismo,<br>nunca mis ojos se bajarán.<br>Mas confieso, ¡oh, Madre mía!,<br>que si en tu presencia angelical<br>he de hallarme,<br>mi soberbia y altivez desaparecen<br>y humilde tiemblo a tu amoroso lado.<br><br>
+      ¿Será tu alma que en secreto<br>impulsa a que me rinda?<br>¿Tu alma noble que a lo alto el vuelo tiende<br>y lo entiende todo?<br>¿O será quizás el recuerdo<br>de que ingratamente hiero<br>tu corazón sensible y tierno<br>que me ama tanto?<br><br>
+      ¿O quizá, loca, abandone tu lado<br>y al mundo me lance<br>tras la divina ilusión<br>de amor que en mis ardientes sueños<br>realizar quería?<br>Buscaré el amor por todos<br>los caminos y seguiré buscando<br>hasta que, al fin, vuelva al hogar.<br><br>
+      Y la sorpresa feliz, madre querida,<br>será que veré en tus ojos brillar<br>el eterno, puro y santo amor<br>que tanto sueño y busco.</p>
+    </div>
+
+    <div class="tc">
+      <p class="tc-text" style="margin-bottom:.4rem"><strong style="font-style:normal;color:var(--nar)">MADRE</strong> <span style="font-size:.75rem;font-style:normal;color:var(--ink3)">— por el Día de las Madres</span></p>
+      <p class="tc-text">En este día especial<br>para ti, madre adorada,<br>te deseo que lo pases muy feliz,<br>como tanto lo deseaste.<br>Y no solo este día,<br>sino todos los días del año,<br>te lo desean cada día todas las almas<br>que al mundo trajiste.<br><br>
+      Porque tú fuiste quien<br>nos sacó adelante,<br>quien nos dio mucho ánimo,<br>quien dejó sus tierras por seguirnos,<br>quien dejó sus amigos para acompañarnos,<br>quien dejó su techo para buscar un hogar nuevo,<br>quien de su tierra se despidió<br>porque su alma extrañaba a sus retoños.<br><br>
+      Madre eres tú, que nos das valor para salir adelante;<br>nos enseñaste a no avergonzarnos de nada ni de nadie.<br>Con tu ejemplo nos enseñaste a ayudar al que lo necesita,<br>a dar una mano al caído,<br>levantarlo, sostenerlo e impulsarlo,<br>sin esperar nada a cambio.<br>Nos ayudas en los peores momentos,<br>nos miras y alegras en los mejores,<br>lloras con nuestras penas y desavenencias,<br>y celebras nuestros triunfos.<br><br>
+      Por eso y muchas cosas más, madre mía,<br>tus hijos te deseamos:<br>«Feliz Día de las Madres».</p>
+    </div>
+
+    <div class="tc">
+      <p class="tc-text" style="margin-bottom:.4rem"><strong style="font-style:normal;color:var(--nar)">TU MADRE</strong></p>
+      <p class="tc-text">¡Tú!... Dulce y bella,<br>con tus manos frías y lindas<br>nos has amado desde bebés.<br>Nos amaste aunque no podíamos decir bien «mamá»,<br>nos amas aunque con nuestra mala ortografía,<br>y nos amarás igual cuando con un título te reciba.<br>Estás con nosotros siempre,<br>aunque seamos luna llena,<br>aunque estemos bajo la nieve;<br>con tus manos frías y lindas nos abrazas y nos das calor.<br><br>
+      ¡Tú!... Dulce y bella,<br>aunque lejos estás,<br>no dejas de pensar en nosotros<br>y cada día nos quieres más.<br>Y con cada palabra tuya<br>las espinas salen del corazón,<br>y con tus labios rojos y claros<br>nos besas y nos perdonas todo,<br>y nos quieres más.<br><br>
+      ¡Tú!... Dulce y bella,<br>cada palabra fuerte que te decía, la comprendiste,<br>y con tu amor las heridas curaste.<br>Tu madre, dulce y bella como ninguna.</p>
+    </div>
+
+    <div class="tc">
+      <p class="tc-text" style="margin-bottom:.4rem"><strong style="font-style:normal;color:var(--nar)">NADA</strong></p>
+      <p class="tc-text">Nada se compara a ti,<br>ni las emociones más bellas,<br>ni la aventura más grande,<br>ni la ropa más fantasiosa y cara,<br>ni la estrella tan brillante.<br><br>
+      Nada se compara a ti,<br>ni las mejores canciones,<br>ni aquella rosa blanca del jardín del Edén,<br>ni el rubí tan bello del mejor castillo,<br>ni el oro tan brillante de cualquier rey,<br>ni aquella blanca paloma de la paz.<br><br>
+      Nada se compara a ti,<br>ni los tulipanes más bellos,<br>ni los héroes de guerra,<br>ni los poemas famosos,<br>ni la corona de un rey.<br><br>
+      Nada se compara a ti…<br>solo tú, cuando te miras en un espejo.</p>
+    </div>
+
+    <div class="tc">
+      <p class="tc-text" style="margin-bottom:.4rem"><strong style="font-style:normal;color:var(--nar)">DÉJAME VER</strong> <span style="font-size:.75rem;font-style:normal;color:var(--ink3)">— adaptación de "Déjame ver la risa enamorada", de Juan de Dios Peza</span></p>
+      <p class="tc-text">Déjame ver la risa de una madre<br>que entre sus labios rojos juguetea,<br>mientras que, libre y caprichosa,<br>ondea tu cabello al aire, despeinada.<br>Dame esa rosa pura y matizada<br>que, viviendo en tu seno, se recrea.<br>Deja que toda mi ventura sea abrazarte<br>en la luz de tu mirada.<br><br>
+      Eres para mi vida<br>tan hermosa y tan bella,<br>tan querida, que tu alma vuela<br>y mi alma presurosa en tu corazón vive.<br>Y mis manos tienen consuelo al tocarte<br>y esta rosa entregarte,<br>diciendo que dejaré mi vida y alma<br>en tus manos, mi querida madre.</p>
+    </div>
+
+    <div class="tc">
+      <p class="tc-text" style="margin-bottom:.4rem"><strong style="font-style:normal;color:var(--nar)">MADRE</strong> <span style="font-size:.75rem;font-style:normal;color:var(--ink3)">— también sé que es una adaptación, pero no anoté al autor original</span></p>
+      <p class="tc-text">No hay tema más hermoso para un canto<br>que hacer vibrar el numen de un poeta,<br>que este motivo, para mí tan santo,<br>pleno de luz e inspiración secreta.<br>Cuando el dolor acerbo nos persigue,<br>cuando todo nos culpa y nos abandona,<br>la madre es la única que hasta el fin nos sigue;<br>ella, como Jesús, siempre nos perdona.<br><br>
+      Madre es símbolo sagrado,<br>es una gema digna de reyes,<br>celestial definición que vibra en nuestros labios,<br>es poema a nuestra mente<br>y oración a nuestro corazón.<br>La madre es una mártir, siempre llena de abnegación,<br>suprema, alma sublime.<br>Quien olvida a la madre se condena,<br>quien venera a la madre se redime.</p>
+    </div>
+
+    <div class="tc" style="border-color:var(--lavl);background:var(--lavl)">
+      <p class="tc-text" style="margin-bottom:.4rem;color:var(--ink)"><strong style="font-style:normal;color:var(--nar)">MADRE MÍA</strong></p>
+      <p class="poema-nota" style="margin-bottom:.9rem">Es una adaptación de Federico Barreto. Cuando mi hermano se fue lejos a estudiar, encontré la carta de mi mamá en su mochila, y recordé este poema. Hay cosas que en verdad son palabras similares, planteadas distinto, pero que quieren decir lo mismo y más.</p>
+      <p class="tc-text">Madre, mi amor,<br>tu carta he encontrado entre mis cosas<br>y he llorado sobre ella tanto, tanto, tanto,<br>que sus renglones han desaparecido<br>bajo mis lágrimas, tristes y alegres a la vez.<br>Me sentí alegre porque sé que te importo,<br>me sentí triste porque ya no puedo abrazarte.<br><br>
+      «Hijo, me dices, con ferviente anhelo,<br>en esos signos que mi pecho eleva:<br>¡Dios te bendiga desde lo alto del cielo,<br>como yo te bendigo en cada aurora, con todo mi corazón!<br><br>
+      Hijo, sé bueno, y como bueno, honrado;<br>no te muestres jamás como la escoria,<br>y cuando bajes al sepulcro helado,<br>Dios, como premio, te dará la gloria.<br>Sé paladín de toda causa buena,<br>coloca la razón sobre el deseo,<br>y cada vez que andes por la arena,<br>álzate con más fuerza, como siempre.<br><br>
+      No envidies ni tengas rencor,<br>porque la envidia es ruin, tenlo presente,<br>y el rencor te destruye el alma<br>y tú vivirás como en un infierno.<br>Mas, por el contrario, vive con admiración,<br>inspírate en los que son buenos,<br>sigue a los que cambian el mundo para bien,<br>ama a los que te respetan como eres,<br>escucha al que te da su tiempo.<br><br>
+      Recuerda, hijito: el premio de la lucha es la victoria.<br>Combate cada batalla con el pecho erguido y decidido,<br>no vaciles nunca en conquistar la gloria;<br>quien no quiere empezar, ya está vencido.<br><br>
+      Si odias, depón tu encono envenenado;<br>si amas, mantén tu amor hasta la muerte;<br>y ya seas feliz o desgraciado,<br>aprende a escuchar a tu corazón y síguelo,<br>porque de nada vale el arrepentimiento en tu muerte.<br><br>
+      Ama a la patria con amor profundo,<br>ámala con intensa idolatría,<br>más que a mí misma, pues así<br>estarás amando a todos los que vivimos en ella.<br>¡Mira que es madre tuya y madre mía!<br><br>
+      Hijito lindo, respeta todos mis consejos<br>si quieres tener calma,<br>y hoy que me tienes lejos de tu vista,<br>no te olvides jamás que tienes a tu madre, que te ama».<br><br>
+      Todo eso me dices en tu carta bella,<br>y yo te juro, madre bendita,<br>que las lecciones que me das en ella<br>serán, desde hoy, la forma de mi vida.</p>
+    </div>
+
+    <div class="tc">
+      <p class="tc-text" style="margin-bottom:.4rem"><strong style="font-style:normal;color:var(--nar)">MADRE</strong> <span style="font-size:.75rem;font-style:normal;color:var(--ink3)">— adolescencia</span></p>
+      <p class="tc-text">No existe mujer tan buena en mi vida.<br>No sé si me comprendo yo<br>y pueda expresar lo que quiero decirte.<br>Quiero que me trates como a todos los demás,<br>que me dejes hacer lo que quiero<br>y decir lo que pienso;<br>pero no entendí que los frenos que me pones<br>son por el amor que me tienes.<br>¿Cómo imaginar que la vida es igual?<br>¿Cómo consolar a la niña que llora en mi corazón,<br>si la edad se llevó la risa?<br>El alejamiento entre tú y yo aumentó,<br>y mi risa ya no está en mi rostro.<br>Adolescencia, la llaman.<br><br>
+      ¿Cómo he de mentirme que mi niñez fue bella?<br>No lo fue del todo, pero fui feliz;<br>sí hubo momentos muy felices,<br>pero más hubo de tristeza y dolor.<br>Ahora lo veo, y lo que me pareció feliz no siempre lo fue;<br>mi niña traviesa le puso risa a la tristeza.<br>Por eso ahora toda palabra que me dices<br>me hiere, y no sé qué pensar de eso.<br><br>
+      Adolescencia, qué más puedo hacer;<br>pero ahí estás tú, madre.<br>Aunque yo te quiera lejos, a mi lado sigues.<br>No quiero escucharte, pero necesito tus palabras;<br>no quiero tus abrazos, pero tu presencia es necesaria.<br>Adolescencia: amigos, juegos, planes;<br>me sigues porque me quieres.<br>Te odio, y lo aceptas con amor;<br>gracias por seguirme a escondidas, aunque en secreto lo sabía.<br>Nos cuidaste desde tu lugar;<br>no sé si podrás perdonarme algún día.<br><br>
+      Adolescencia, no entiendo lo que me pasa,<br>no sé por qué ahora no quiero tus consejos,<br>pero tus palabras necesito.<br>Madre, no puedo hablar directo contigo ahora,<br>pero solo así puedo expresar mi sentimiento:<br>te amo, mamá.</p>
+    </div>
+
+    <div class="tc">
+      <p class="tc-text" style="margin-bottom:.4rem"><strong style="font-style:normal;color:var(--nar)">PALABRAS DE UNA HIJA</strong></p>
+      <p class="tc-text">Yo no sé si eres la madre que yo soñé,<br>yo no sé si quería tener este nombre,<br>yo no sé si quería venir a este mundo,<br>yo no sé si quería bautizarme,<br>tampoco sé si podré perdonar mis errores.<br>Yo no sé si me quieres como me quiero yo,<br>yo no sé si mis hermanos me quieren como los quiero yo.<br><br>
+      Pero lo que sí sé,<br>es que mi alma rebosa de alegría cuando te escucho<br>con esa voz dulce que mis oídos extrañan:<br>«Hija mía».</p>
+    </div>
+
+    <div class="tc" style="border-color:var(--lavl);background:var(--lavl)">
+      <p class="tc-text" style="margin-bottom:.4rem;color:var(--ink)"><strong style="font-style:normal;color:var(--nar)">VERDADES AMARGAS</strong> <span style="font-size:.75rem;font-style:normal;color:var(--ink3)">— Anónimo</span></p>
+      <p class="poema-nota" style="margin-bottom:.9rem">Puse este poema al final del poemario que le regalé a mi mamá. A los 16 años pasaba por una frustración personal y no entendía muchas cosas; lo veía todo desde mi propio yo frustrado de la adolescencia y el cambio radical que estaba viviendo. Y sí, seguramente estaba molesta, y como siempre, primero nos desbordamos con quien más amamos — para mí, en esa época, era mi mamá. Ahora que vuelvo a leer este poemario, me duele ver mi lado inmaduro, pero no quise cambiar nada, ya que fue mi yo de 14 a 16 años quien lo escribió, y no mi yo de ahora, adulta. Recuerdo que me sabía este poema de memoria, y muchas veces lo recité cuando estaba molesta por algo o por alguien. Bueno, es parte de mis recuerdos, y lo dejo tal cual está.</p>
+      <p class="tc-text">Yo no quiero ver lo que he mirado<br>a través del cristal de la experiencia.<br>El mundo es un mercado,<br>donde se compran honores, voluntades y conciencias.<br><br>
+      ¿Amigos? ¡...Es mentira, no hay amigos!<br>La amistad verdadera es ilusión,<br>ella cambia, se aleja y desaparece<br>con los giros que da la situación.<br><br>
+      Amigos complacientes solo tienen<br>los que gozan de ventura y calma,<br>pero aquellos a quienes acecha el infortunio<br>solo tienen tristezas en el alma.<br><br>
+      Si estamos bien, nos tratan con cariño,<br>nos buscan, nos invitan, nos adulan;<br>pero si acaso caemos, francamente,<br>solo por cumplimiento nos saludan.<br><br>
+      En este laberinto de la vida,<br>donde tanto domina la maldad,<br>todo tiene su precio estipulado:<br>amores, parentescos y amistad.<br><br>
+      El que nada atesora, nada vale,<br>y en toda reunión pasa por necio,<br>y por más nobles que sean sus hechos,<br>lo que alcanza es la burla y el desprecio.<br><br>
+      Lo que brilla, nomás, tiene cabida,<br>aunque brille por oro lo que es cobre.<br>Lo que no perdonamos en la vida<br>es el atroz delito de ser pobre.<br><br>
+      La corrupción, el vicio y hasta el crimen<br>pueden tener su puesto señalado;<br>las llagas del defecto no se miran<br>si las cubre un diamante bien cortado.<br><br>
+      La sociedad que adora su desdoro<br>persigue con gran saña al criminal,<br>mas si el puñal del asesino es de oro,<br>enmudece... ¡y el juez besa el puñal!<br><br>
+      Nada humano es perfecto y nada afable,<br>todo está con lo impuro entremezclado.<br>El mismo corazón, con ser tan noble,<br>¡cuántas veces se muestra enmascarado!<br><br>
+      Que existe la virtud, yo no lo niego,<br>pero siempre en conjunto defectuoso;<br>hay rasgos de virtud en el malvado,<br>hay rasgos de maldad en el virtuoso.<br><br>
+      Cuando veo a mi paso tanta infamia,<br>y que mancha mi planta tanto lodo,<br>ganas me dan de maldecir la vida,<br>ganas me dan de maldecirlo todo.<br><br>
+      A nadie ha de herir lo que aquí digo,<br>porque ceñido a la verdad estoy;<br>me dieron a libar hiel y veneno,<br>hiel y veneno en recompensa doy.<br><br>
+      Pero si tengo las palabras toscas<br>en estas líneas oscuras y sin nombre,<br>doblando las rodillas en el polvo,<br>pido perdón a Dios, pero no al hombre.</p>
+    </div>
+
+    <p class="poema-nota" style="margin-top:1rem;margin-bottom:0">✦ Es un avance — pronto subo el resto de mis cuadernos y más fotos de los recuerdos.</p>
+  </div>
+
+  <!-- Poemas que me inspiran -->
+  <div style="max-width:760px;margin:0 auto" class="reveal">
+    <span style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lav)">De otros autores</span>
+    <div class="poema-h3" style="margin-top:.6rem">Poemas que me inspiran</div>
+    <p class="poema-nota">Estos no son míos, pero marcaron mi forma de sentir la poesía. Aquí solo el título, el autor y un enlace para leerlos completos — el crédito es enteramente de sus autores.</p>
+
+    <a class="insp-card" href="https://www.google.com/search?q=poema+%22Final%22+Paul+Ge%CC%81raldy" target="_blank" rel="noopener">
+      <div><div class="insp-title">"Final"</div><div class="insp-author">Paul Géraldy</div></div>
+      <div class="insp-go">Leer →</div>
+    </a>
+    <a class="insp-card" href="https://www.google.com/search?q=poema+%22Me+contaron%22+Rafael+Peo%CC%81n" target="_blank" rel="noopener">
+      <div><div class="insp-title">"Me contaron"</div><div class="insp-author">Rafael Peón</div></div>
+      <div class="insp-go">Leer →</div>
+    </a>
+    <a class="insp-card" href="https://www.google.com/search?q=poema+%22Madre%22+Humberto+Solari" target="_blank" rel="noopener">
+      <div><div class="insp-title">"Madre"</div><div class="insp-author">Humberto Solari</div></div>
+      <div class="insp-go">Leer →</div>
+    </a>
+    <a class="insp-card" href="https://www.google.com/search?q=%22La+princesa+esta%CC%81+triste%22+Rube%CC%81n+Dari%CC%81o+Sonatina" target="_blank" rel="noopener">
+      <div><div class="insp-title">"La princesa está triste" (Sonatina)</div><div class="insp-author">Rubén Darío</div></div>
+      <div class="insp-go">Leer →</div>
+    </a>
+    <a class="insp-card" href="https://www.google.com/search?q=poema+%22La+sinfoni%CC%81a%22+Ferna%CC%81ndez+Mendiza%CC%81bal" target="_blank" rel="noopener">
+      <div><div class="insp-title">"La Sinfonía"</div><div class="insp-author">Fernández Mendizábal</div></div>
+      <div class="insp-go">Leer →</div>
+    </a>
+    <a class="insp-card" href="https://www.google.com/search?q=poema+%22Que%CC%81+la%CC%81stima%22+Leo%CC%81n+Felipe" target="_blank" rel="noopener">
+      <div><div class="insp-title">"Qué Lástima"</div><div class="insp-author">León Felipe</div></div>
+      <div class="insp-go">Leer →</div>
+    </a>
+
+    <p class="poema-nota" style="margin-top:1.2rem;margin-bottom:0">✦ Tengo una lista más larga — la iré agregando poco a poco.</p>
+  </div>
+</div>
+</section>
+
+<!-- ══ TESTIMONIOS ══ -->
+<section class="testi sec">
+<div class="wrap">
+  <div style="margin-bottom:3rem">
+    <span style="font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lav)">✦ Familias que ya vivieron la magia</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.12;color:var(--ink);margin-top:.3rem" class="reveal">Lo que dicen las familias JUFANTICS</h2>
+  </div>
+  <div class="tg">
+    <div class="tc reveal"><div class="tc-stars">★★★★★</div><p class="tc-text">"Mi hijo lloró de emoción cuando vio su nombre en la portada. Fue el regalo más especial de su vida. JUFANTICS no es solo un cuento, es un tesoro."</p><div class="tc-auth"><div class="tc-av av1">👩</div><div><div class="tc-name">Mamá de Joaquín, 6 años</div><div class="tc-role">Lima, Perú</div></div></div></div>
+    <div class="tc reveal"><div class="tc-stars">★★★★★</div><p class="tc-text">"Lo regalé en el cumpleaños de mi sobrina y toda la familia quedó emocionada. La historia era perfecta, como si Patricia la conociera de toda la vida."</p><div class="tc-auth"><div class="tc-av av2">👩‍🦱</div><div><div class="tc-name">Tía de Valentina, 4 años</div><div class="tc-role">Lima, Perú</div></div></div></div>
+    <div class="tc reveal"><div class="tc-stars">★★★★★</div><p class="tc-text">"El proceso fue súper fácil y el resultado superó todas mis expectativas. Mi hijo pide su cuento todas las noches. Lo recomiendo a todas las mamás."</p><div class="tc-auth"><div class="tc-av av3">👨</div><div><div class="tc-name">Papá de Thiago, 7 años</div><div class="tc-role">Lima, Perú</div></div></div></div>
+  </div>
+</div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta sec">
+<div class="wrap">
+  <div class="cta-c">
+    <span style="font-size:2.8rem;display:block;margin-bottom:1rem" class="reveal">📖</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.12;color:var(--ink);margin-bottom:.9rem" class="reveal">¿Listo para crear la historia<br>de <em style="color:var(--lav);font-style:italic">tu familia</em>?</h2>
+    <p style="font-size:.97rem;color:var(--ink2);line-height:1.75;margin-bottom:2.2rem" class="reveal">Cada historia es única. La tuya merece ser contada.</p>
+    <div class="cta-btns reveal">
+      <a href="#brief" class="btn btn-p">✨ Crear mi cuento ahora</a>
+      <a href="https://wa.me/51992786715" target="_blank" rel="noopener" class="btn btn-s">💬 WhatsApp directo</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+<div class="wrap">
+  <div class="fg2">
+    <div>
+      <div class="fbrand"><img src="LOGO.png" class="fblogo" alt="JUFANTICS" onerror="this.style.display='none'"><div class="fbname"><span class="fb1">JU</span><span class="fb2">FAN</span><span class="fb3">TICS</span></div></div>
+      <div class="ftag">Textos · Imágenes · Cuentos · Siempre<br>Historias que nacen de la imaginación.</div>
+      <div class="fsocs">
+        <a href="#" class="fsoc">📸</a><a href="#" class="fsoc">💙</a><a href="#" class="fsoc">🎵</a>
+        <a href="https://wa.me/51992786715" target="_blank" class="fsoc"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      </div>
+    </div>
+    <div class="fcol">
+      <h5>Navegación</h5>
+      <a href="#how">Cómo funciona</a><a href="#cuentos">Cuentos</a>
+      <a href="#brief">Pedir cuento</a><a href="#patricia">Creadora</a><a href="blog/">Blog</a>
+    </div>
+    <div class="fcol">
+      <h5>Contacto</h5>
+      <a href="https://wa.me/51992786715" target="_blank">💬 WhatsApp</a>
+      <a href="mailto:jufantics@gmail.com">📧 jufantics@gmail.com</a>
+      <a href="#">📸 @jufantics</a><a>📍 Lima, Perú</a>
+    </div>
+  </div>
+  <div class="fcopy"><span style="font-size:.95rem;flex-shrink:0">©</span><p class="fcopy-t"><strong>Propiedad Intelectual JUFANTICS.</strong> Todos los cuentos son propiedad de Patricia B. Albornoz. No reproducir sin autorización. © 2025 JUFANTICS.</p></div>
+  <div class="fbot"><span>© 2025 JUFANTICS · Patricia B. Albornoz · Lima, Perú</span><span class="ftics">JU·Juego+Joaquín | FAN·Fantasía+Familia+Facundo | TICS·Textos·Imágenes·Cuentos·Siempre</span></div>
+</div>
+</footer>
+
+<script>
+/* NAV */
+var nav=document.getElementById('mainNav'),ham=document.getElementById('ham'),drawer=document.getElementById('drawer');
+window.addEventListener('scroll',function(){nav.classList.toggle('solid',window.scrollY>50);},{passive:true});
+ham.addEventListener('click',function(){var o=ham.classList.toggle('open');drawer.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';});
+function closeD(){ham.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();closeD();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+
+/* REVEAL */
+var ro=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');ro.unobserve(entry.target);}});},{threshold:0.1,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+
+/* CHECKBOXES */
+var cbGrid=document.getElementById('cbG'),cbHint=document.getElementById('cbH');
+if(cbGrid){cbGrid.addEventListener('change',function(){
+  var all=cbGrid.querySelectorAll('input[type=checkbox]');
+  var checked=Array.from(all).filter(function(c){return c.checked;});
+  all.forEach(function(cb){if(!cb.checked)cb.disabled=checked.length>=3;});
+  cbHint.textContent=checked.length>=3?'✓ '+checked.length+' seleccionados (máximo)':'Selecciona hasta 3 opciones';
+});}
+
+/* FORMULARIO */
+function getForm(){return{
+  nombre:document.getElementById('fN').value.trim()||'(sin nombre)',
+  edad:document.getElementById('fE').value.trim()||'(sin especificar)',
+  gusta:document.getElementById('fG').value.trim()||'(sin especificar)',
+  tipos:Array.from(document.querySelectorAll('input[name=tipo]:checked')).map(function(c){return c.value;}).join(', ')||'(no seleccionado)',
+  msg:document.getElementById('fM').value.trim()||'(sin mensaje)'
+};}
+function envWA(){var d=getForm();var t='Hola 👋 JUFANTICS ✨\n\n📌 Nombre: '+d.nombre+'\n🎂 Edad: '+d.edad+'\n🎯 Gustos: '+d.gusta+'\n📖 Tipo: '+d.tipos+'\n💛 Mensaje: '+d.msg;window.open('https://wa.me/51992786715?text='+encodeURIComponent(t),'_blank','noopener,noreferrer');}
+function envMail(){var d=getForm();var s=encodeURIComponent('Pedido JUFANTICS — '+d.nombre);var b=encodeURIComponent('Hola Patricia,\n\nNombre: '+d.nombre+'\nEdad: '+d.edad+'\nGustos: '+d.gusta+'\nTipo: '+d.tipos+'\nMensaje: '+d.msg);window.location.href='mailto:jufantics@gmail.com?subject='+s+'&body='+b;}
+
+/* VISOR — 1 solo, limpio */
+(function(){
+  'use strict';
+  var viewer=document.getElementById('nxViewer'),elTitle=document.getElementById('nxVTitle'),
+      elImg=document.getElementById('nxVImg'),elFill=document.getElementById('nxVFill'),
+      elCtr=document.getElementById('nxVCtr'),elPrev=document.getElementById('nxVPrev'),
+      elNext=document.getElementById('nxVNext'),elClose=document.getElementById('nxVClose'),
+      elWant=document.getElementById('nxVWant'),elBody=document.getElementById('nxVBody');
+  var story='',page=1,total=1,detected=false;
+
+  function nxAbrir(carpeta,maxPags,titulo){
+    story=carpeta;total=maxPags;page=1;detected=false;
+    elTitle.textContent=titulo;
+    elWant.onclick=function(){nxCerrar();nxQuiero(titulo);};
+    document.body.style.overflow='hidden';
+    viewer.classList.add('open');
+    if(window.innerWidth<=700){
+      var old=elBody.querySelector('.nx-vhint');if(old)old.remove();
+      var hint=document.createElement('div');hint.className='nx-vhint';hint.textContent='← desliza para navegar →';
+      elBody.appendChild(hint);setTimeout(function(){if(hint.parentNode)hint.remove();},3900);
+    }
+    cargar(1);
+  }
+
+  function cargar(n){
+    elImg.classList.add('nx-fade');
+    setTimeout(function(){
+      var src='assets/cuentos/'+story+'/pagina-'+n+'.jpg';
+      var tmp=new Image();
+      tmp.onload=function(){elImg.src=src;elImg.classList.remove('nx-fade');page=n;sync();};
+      tmp.onerror=function(){if(!detected&&n>1){detected=true;total=n-1;sync();}elImg.classList.remove('nx-fade');};
+      tmp.src=src;
+    },160);
+  }
+
+  function sync(){elCtr.textContent=page+' / '+total;elFill.style.width=((page/total)*100)+'%';elPrev.disabled=(page<=1);elNext.disabled=(page>=total);}
+
+  function nxCerrar(){viewer.classList.remove('open');document.body.style.overflow='';setTimeout(function(){elImg.src='';elFill.style.width='0%';elCtr.textContent='— / —';elTitle.textContent='—';},280);}
+
+  elNext.addEventListener('click',function(){if(page<total)cargar(page+1);});
+  elPrev.addEventListener('click',function(){if(page>1)cargar(page-1);});
+  elClose.addEventListener('click',nxCerrar);
+  viewer.addEventListener('click',function(e){if(e.target===viewer)nxCerrar();});
+  document.addEventListener('keydown',function(e){
+    if(!viewer.classList.contains('open'))return;
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'){if(page<total)cargar(page+1);}
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){if(page>1)cargar(page-1);}
+    if(e.key==='Escape')nxCerrar();
+  });
+  var tx=0,ty=0,swOk=false;
+  elBody.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;ty=e.touches[0].clientY;swOk=true;},{passive:true});
+  elBody.addEventListener('touchmove',function(e){if(!swOk)return;if(Math.abs(e.touches[0].clientY-ty)>Math.abs(e.touches[0].clientX-tx))swOk=false;},{passive:true});
+  elBody.addEventListener('touchend',function(e){
+    if(!swOk)return;swOk=false;
+    var dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+    if(Math.abs(dx)<42||Math.abs(dx)<Math.abs(dy))return;
+    if(dx<0&&page<total)cargar(page+1);if(dx>0&&page>1)cargar(page-1);
+  },{passive:true});
+
+  window.nxAbrir=nxAbrir;
+  window.nxQuiero=function(titulo){var msg='Hola 👋 Vi el cuento "'+titulo+'" en JUFANTICS y quiero uno así 💛\n\nNombre del niño:\nEdad:\nGustos:\nMensaje:';window.open('https://wa.me/51992786715?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');};
+}());
+</script>
 </body>
 </html>
