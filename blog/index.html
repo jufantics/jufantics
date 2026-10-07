@@ -167,55 +167,99 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
   .bcf-body .bc-title{font-size:1.35rem}
 }
 
-/* FIX 2026-10-07 — imágenes del blog exportadas con franja gris inferior.
-   Conservamos la ilustración original y mostramos únicamente el área útil. */
-.bc-featured .bcf-img{
-  position:relative;
-  height:320px;
-  min-height:320px;
-  align-self:center;
-  background:#f3efe8;
-}
-.bcf-img img[src*="../assets/blog/2026-"],
-.bc-img img[src*="../assets/blog/2026-"]{
-  position:absolute;
-  top:0;
-  left:50%;
-  width:190%;
-  max-width:none;
-  height:auto;
-  object-fit:initial;
-  object-position:center top;
-  transform:translateX(-50%);
-  transform-origin:center top;
-}
-.bc-featured:hover .bcf-img img[src*="../assets/blog/2026-"]{
-  transform:translateX(-50%) scale(1.03);
-}
-.bc:hover .bc-img img[src*="../assets/blog/2026-"]{
-  transform:translateX(-50%) scale(1.03);
-}
-.art-hero-img[src*="../assets/blog/2026-"],
-.art-inner-img[src*="../assets/blog/2026-"]{
-  height:260px;
-  max-height:260px;
-  object-fit:cover;
-  object-position:center top;
-}
-@media(max-width:900px){
-  .bc-featured .bcf-img{height:260px;min-height:260px}
-  .bcf-img img[src*="../assets/blog/2026-"],
-  .bc-img img[src*="../assets/blog/2026-"]{width:175%}
-}
-@media(max-width:600px){
-  .bc-featured .bcf-img{height:220px;min-height:220px}
-  .bcf-img img[src*="../assets/blog/2026-"],
-  .bc-img img[src*="../assets/blog/2026-"]{width:165%}
-  .art-hero-img[src*="../assets/blog/2026-"],
-  .art-inner-img[src*="../assets/blog/2026-"]{height:220px;max-height:220px}
-}
 </style>
 <link rel="stylesheet" href="../assets/editorial.css">
+<style id="blog-image-fix-20261007">
+/* Corrección final de encuadre para los JPG 2026:
+   los archivos originales contienen media imagen útil + franja inferior inválida. */
+.bc-featured .bcf-img{
+  position:relative!important;
+  height:320px!important;
+  min-height:320px!important;
+  overflow:hidden!important;
+  background:#f7f4ef!important;
+}
+.bc-featured .bcf-img img[src*="/2026-"]{
+  position:absolute!important;
+  inset:0 auto auto 50%!important;
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  transform:translateX(-50%)!important;
+  object-fit:initial!important;
+}
+
+/* Tarjetas */
+.bc-img img[src*="/2026-"]{
+  position:absolute!important;
+  top:0!important;
+  left:0!important;
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  object-fit:initial!important;
+  transform:none!important;
+}
+
+/* Cabecera de los artículos: solo la mitad superior útil */
+.art-hero-img[src*="/2026-"]{
+  display:block!important;
+  width:100%!important;
+  height:260px!important;
+  max-height:none!important;
+  object-fit:cover!important;
+  object-position:center top!important;
+}
+
+/* Imágenes interiores individuales */
+.art-inner-img[src*="/2026-"]{
+  display:block!important;
+  width:100%!important;
+  height:260px!important;
+  max-height:260px!important;
+  object-fit:cover!important;
+  object-position:center top!important;
+  margin:1.5rem 0!important;
+  background:#f7f4ef!important;
+}
+
+/* Galerías de dos imágenes: evita mostrar la mitad gris del archivo */
+.article-gallery img[src*="/2026-"]{
+  display:block!important;
+  width:100%!important;
+  height:138px!important;
+  object-fit:cover!important;
+  object-position:center top!important;
+  background:#f7f4ef!important;
+}
+
+/* Nada de ampliación al pasar el mouse: evita que reaparezca la zona inválida */
+.bc-featured:hover .bcf-img img[src*="/2026-"],
+.bc:hover .bc-img img[src*="/2026-"]{
+  transform:none!important;
+}
+.bc-featured:hover .bcf-img img[src*="/2026-"]{
+  transform:translateX(-50%)!important;
+}
+
+@media(max-width:900px){
+  .bc-featured .bcf-img{height:260px!important;min-height:260px!important}
+  .art-hero-img[src*="/2026-"],
+  .art-inner-img[src*="/2026-"]{height:230px!important;max-height:230px!important}
+}
+@media(max-width:700px){
+  .article-gallery img[src*="/2026-"]{
+    height:clamp(135px,38vw,210px)!important;
+    object-fit:cover!important;
+    object-position:center top!important;
+  }
+}
+@media(max-width:600px){
+  .bc-featured .bcf-img{height:220px!important;min-height:220px!important}
+  .art-hero-img[src*="/2026-"],
+  .art-inner-img[src*="/2026-"]{height:210px!important;max-height:210px!important}
+}
+</style>
 </head>
 <body>
 
