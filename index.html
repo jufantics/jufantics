@@ -160,6 +160,26 @@ img{max-width:100%;display:block}
 .nx-btn-quiero{font-family:'Nunito',sans-serif;font-weight:700;font-size:.68rem;padding:.44rem .6rem;border-radius:50px;background:rgba(232,147,106,.88);color:white;border:none;cursor:pointer;transition:background .18s;white-space:nowrap}
 .nx-btn-quiero:hover{background:var(--nar)}
 
+/* CÓMICS */
+.comic-section{padding:5.5rem 0;background:linear-gradient(145deg,#0f213d 0%,#172d50 58%,#203f68 100%);color:white;position:relative;overflow:hidden}
+.comic-section::before{content:'';position:absolute;width:520px;height:520px;border-radius:50%;right:-180px;top:-240px;background:radial-gradient(circle,rgba(246,201,78,.22),transparent 68%);pointer-events:none}
+.comic-showcase{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:3.2rem;align-items:center;position:relative;z-index:1}
+.comic-art{border-radius:18px;overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,.42);border:1px solid rgba(255,255,255,.15);background:#071426}
+.comic-art img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
+.comic-kicker{display:inline-flex;align-items:center;gap:.45rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:.68rem;letter-spacing:1.6px;text-transform:uppercase;color:#f6c94e;margin-bottom:.8rem}
+.comic-copy h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.4vw,3.7rem);line-height:1.02;margin-bottom:.8rem}
+.comic-copy h2 em{color:#f6c94e;font-style:italic}
+.comic-copy>p{color:rgba(255,255,255,.76);font-size:1rem;line-height:1.8;max-width:520px}
+.comic-features{display:flex;flex-wrap:wrap;gap:.55rem;margin:1.4rem 0 1.65rem}
+.comic-feature{font-family:'Nunito',sans-serif;font-weight:700;font-size:.72rem;padding:.42rem .78rem;border-radius:50px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14)}
+.comic-actions{display:flex;flex-wrap:wrap;gap:.7rem}
+.comic-read,.comic-pdf{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:.82rem;padding:.78rem 1.2rem;border-radius:50px;cursor:pointer;text-decoration:none;transition:transform .2s,background .2s}
+.comic-read{border:0;background:#f6c94e;color:#14233d}
+.comic-pdf{border:1px solid rgba(255,255,255,.35);background:transparent;color:white}
+.comic-read:hover,.comic-pdf:hover{transform:translateY(-2px)}
+.comic-pdf:hover{background:rgba(255,255,255,.1)}
+.comic-audio-note{display:flex;gap:.65rem;align-items:flex-start;margin-top:1.25rem;color:rgba(255,255,255,.64);font-size:.76rem;line-height:1.55}
+
 /* VISOR — imagen nunca cortada */
 .nx-viewer{position:fixed;inset:0;z-index:9999;background:rgba(8,5,15,.97);display:none;flex-direction:column}
 .nx-viewer.open{display:flex;animation:nxIn .2s ease}
@@ -282,6 +302,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3.5rem 5% 0}
 /* RESPONSIVE */
 @media(max-width:1280px){.nx-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:1024px){.nx-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:860px){.comic-showcase{grid-template-columns:1fr;gap:2rem}.comic-copy{max-width:680px}}
 @media(max-width:900px){
   .hero{grid-template-columns:1fr;text-align:center;padding-top:6.5rem;gap:2rem}
   .hero-sub,.hero-trust,.hero-btns{margin-left:auto;margin-right:auto;justify-content:center}
@@ -328,6 +349,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3.5rem 5% 0}
   <div class="nav-links" id="navLinks">
     <a href="#how">Cómo funciona</a>
     <a href="#cuentos">Cuentos</a>
+    <a href="#comics">Cómics</a>
     <a href="#libros">Libros</a>
     <a href="blog/#poemas">Poemas</a>
     <a href="#brief">Pedir cuento</a>
@@ -342,6 +364,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3.5rem 5% 0}
 <div class="drawer" id="drawer">
   <a href="#home" onclick="closeD()">Inicio</a>
   <a href="#cuentos" onclick="closeD()">Cuentos</a>
+  <a href="#comics" onclick="closeD()">Cómics</a>
   <a href="#libros" onclick="closeD()">Libros</a>
   <a href="blog/#poemas" onclick="closeD()">Poemas</a>
   <a href="#brief" onclick="closeD()">Pedir cuento</a>
@@ -527,6 +550,32 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3.5rem 5% 0}
       </div>
     </div>
 
+  </div>
+</div>
+</section>
+
+<!-- ══ CÓMICS JUFANTICS ══ -->
+<section class="comic-section" id="comics">
+<div class="wrap">
+  <div class="comic-showcase">
+    <div class="comic-art reveal">
+      <img loading="lazy" src="assets/cuentos/nico-comic/pagina-1.jpg" alt="Portada de Nico, cómic de fútbol, de Patricia B. Albornoz">
+    </div>
+    <div class="comic-copy reveal">
+      <span class="comic-kicker">⚽ Nuevo · Cómics JUFANTICS</span>
+      <h2>Nico, <em>cómic de fútbol</em></h2>
+      <p>Nico estrena unas zapatillas doradas creyendo que todo será más fácil. En el campo descubrirá que los logros se construyen con práctica, paciencia, amistad y el valor de volver a intentarlo.</p>
+      <div class="comic-features">
+        <span class="comic-feature">32 páginas</span>
+        <span class="comic-feature">Lectura digital</span>
+        <span class="comic-feature">Audio página por página</span>
+        <span class="comic-feature">Fútbol y perseverancia</span>
+      </div>
+      <div class="comic-actions">
+        <button class="comic-read" onclick="nxAbrir('nico-comic',32,'Nico · Cómic de fútbol')">📖 Leer y escuchar</button>
+      </div>
+      <p class="comic-audio-note"><span>🔊</span><span>La narración utiliza gratuitamente las voces en español disponibles en tu celular o computadora. Puedes elegir la voz y activar la continuación automática dentro del lector.</span></p>
+    </div>
   </div>
 </div>
 </section>
@@ -721,7 +770,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3.5rem 5% 0}
     </div>
     <div class="fcol">
       <h5>Navegación</h5>
-      <a href="#how">Cómo funciona</a><a href="#cuentos">Cuentos</a>
+      <a href="#how">Cómo funciona</a><a href="#cuentos">Cuentos</a><a href="#comics">Cómics</a>
       <a href="#brief">Pedir cuento</a><a href="#patricia">Creadora</a><a href="blog/">Blog</a>
     </div>
     <div class="fcol">
@@ -849,6 +898,7 @@ function envMail(){var d=getForm();var s=encodeURIComponent('Pedido JUFANTICS �
   window.nxQuiero=function(titulo){var msg='Hola 👋 Vi el cuento "'+titulo+'" en JUFANTICS y quiero uno así 💛\n\nNombre del niño:\nEdad:\nGustos:\nMensaje:';window.open('https://wa.me/51992786715?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');};
 }());
 </script>
+<script src="assets/device-reading.js"></script>
 <script src="assets/narration.js"></script>
 </body>
 </html>
