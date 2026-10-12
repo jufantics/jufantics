@@ -862,7 +862,7 @@ function envMail(){var d=getForm();var s=encodeURIComponent('Pedido JUFANTICS �
     if(window.jufAudio)window.jufAudio.stop();
     elImg.classList.add('nx-fade');
     setTimeout(function(){
-      var cacheVersion=story==='nico-comic'?'?v=20261011-nico-final':'';
+      var cacheVersion=story==='nico-comic'?'?v=20261012-nico-pagina11':'';
       var src='https://jufantics.github.io/jufantics/assets/cuentos/'+story+'/pagina-'+n+'.jpg'+cacheVersion;
       var tmp=new Image();
       tmp.onload=function(){if(version!==loadVersion)return;elImg.src=src;elImg.alt=elTitle.textContent+' — página '+n;elImg.classList.remove('nx-fade');page=n;imprint.hidden=!(n===1&&imprintStories.indexOf(story)!==-1);titlePage.hidden=!(n===1&&story==='juancito-medicina-del-viento');showBackcover(n);elImg.hidden=!imprint.hidden||!titlePage.hidden||!backcover.hidden;sync();if(window.jufAudio)window.jufAudio.page(story,page,total);};
