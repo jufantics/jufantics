@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Misión Ninja de Lectura: actividades inspiradas en El Mapa del Sensei, de JUFANTICS.">
+  <meta name="theme-color" content="#102947">
+  <title>Misión Ninja de Lectura | JUFANTICS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mision-ninja.css">
+</head>
+<body>
+  <a class="skip-link" href="#misiones">Ir a las misiones</a>
+
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="Volver al inicio de JUFANTICS">
+      <img src="../LOGO.jpg" alt="" width="44" height="44">
+      <span><strong>JUFANTICS</strong><small>La imaginación cobra vida</small></span>
+    </a>
+    <a class="back-link" href="../index.html?cuento=aventura-ninja#cuentos">← Volver al cuento</a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="mission-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Una aventura después de la última página</p>
+        <h1 id="mission-title">Misión Ninja<br><em>de Lectura</em></h1>
+        <p class="story-name">El Mapa del Sensei — Misión de Facundo</p>
+        <p class="hero-intro">El tesoro de las palabras sigue abierto. Elige una misión, juega a tu ritmo y deja que cada palabra revele un nuevo camino.</p>
+        <div class="main-actions" aria-label="Accesos principales">
+          <a class="action primary" href="../index.html?cuento=aventura-ninja#cuentos"><span aria-hidden="true">📖</span> Leer la aventura</a>
+          <a class="action gold" href="#misiones"><span aria-hidden="true">🎯</span> Entrenar como Ninja</a>
+          <a class="action quiet" href="#final"><span aria-hidden="true">✍️</span> Crear mi propia aventura</a>
+        </div>
+        <p class="no-pressure">Sin puntos, sin competencia y sin un orden obligatorio.</p>
+      </div>
+      <figure class="hero-art">
+        <img src="../assets/cuentos/aventura-ninja/portada.jpg" alt="Portada original de El Mapa del Sensei: Facundo, el dragón dorado, el mapa y el castillo" width="2000" height="1563">
+        <figcaption>El Ninja de la Lectura · Patricia B. Albornoz</figcaption>
+      </figure>
+    </section>
+
+    <section class="jufantico-intro" aria-labelledby="jufantico-title">
+      <div class="jufantico-media">
+        <video id="jufanticoIntroVideo" controls playsinline preload="metadata" controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture oncontextmenu="return false">
+          <source src="assets/jufantico/jufantico-presentacion.mp4" type="video/mp4">
+          Tu navegador no puede reproducir la presentación de JUFÁNTICO.
+        </video>
+      </div>
+      <div class="jufantico-copy">
+        <p class="eyebrow">Tu compañero de misión</p>
+        <h2 id="jufantico-title">Hola, soy <em>JUFÁNTICO</em></h2>
+        <p>Soy el personaje que acompaña las actividades lúdicas de JUFANTICS. Abro historias, animo cada intento y celebro contigo los descubrimientos, sin convertir la lectura en un examen.</p>
+        <ul class="jufantico-roles" aria-label="Cómo acompaña JUFÁNTICO">
+          <li><span aria-hidden="true">📖</span><strong>Cuentacuentos</strong><small>Abre sus páginas y narra historias.</small></li>
+          <li><span aria-hidden="true">🧭</span><strong>Guía</strong><small>Acompaña, da pistas y deja elegir.</small></li>
+          <li><span aria-hidden="true">✨</span><strong>Compañero</strong><small>Celebra logros con alegría y suavidad.</small></li>
+        </ul>
+        <button class="action jufantico-listen" id="jufanticoWelcome" type="button"><span aria-hidden="true">🔊</span> Escuchar su bienvenida</button>
+      </div>
+    </section>
+
+    <section class="story-path" aria-labelledby="path-title">
+      <div class="section-heading compact">
+        <p class="eyebrow">El camino que ya recorriste</p>
+        <h2 id="path-title">La ruta del mapa</h2>
+      </div>
+      <ol>
+        <li><span>1</span><strong>El Sensei entrega el mapa</strong></li>
+        <li><span>2</span><strong>El Guardián Dorado propone su reto</strong></li>
+        <li><span>3</span><strong>El castillo revela a Ryu</strong></li>
+        <li><span>4</span><strong>Las palabras se vuelven tesoro</strong></li>
+      </ol>
+    </section>
+
+    <section class="missions" id="misiones" aria-labelledby="missions-title">
+      <div class="section-heading">
+        <p class="eyebrow">Continúa la aventura</p>
+        <h2 id="missions-title">Elige tu misión</h2>
+        <p>Las actividades del cuaderno final se convierten aquí en estaciones digitales breves. Puedes entrar en cualquiera; las pequeñas marcas desaparecen al cerrar la página.</p>
+      </div>
+
+      <nav class="mission-tabs" aria-label="Actividades ninja" role="tablist">
+        <button type="button" role="tab" class="mission-tab is-active" data-panel="bank" aria-controls="bank" aria-selected="true"><span>📚</span> Banco de Palabras</button>
+        <button type="button" role="tab" class="mission-tab" data-panel="case" aria-controls="case" aria-selected="false"><span>🔤</span> Letras gemelas</button>
+        <button type="button" role="tab" class="mission-tab" data-panel="vowels" aria-controls="vowels" aria-selected="false"><span>🗝️</span> Cueva de vocales</button>
+        <button type="button" role="tab" class="mission-tab" data-panel="syllables" aria-controls="syllables" aria-selected="false"><span>🐉</span> Sílabas Ninja</button>
+        <button type="button" role="tab" class="mission-tab" data-panel="match" aria-controls="match" aria-selected="false"><span>🗺️</span> Búsqueda secreta</button>
+        <button type="button" role="tab" class="mission-tab" data-panel="move" aria-controls="move" aria-selected="false"><span>🥷</span> Muévete como Ninja</button>
+        <button type="button" role="tab" class="mission-tab" data-panel="length" aria-controls="length" aria-selected="false"><span>⚔️</span> Duelo de palabras</button>
+        <button type="button" role="tab" class="mission-tab" data-panel="final" aria-controls="final" aria-selected="false"><span>✨</span> Gran creador</button>
+        <button type="button" role="tab" class="mission-tab" data-panel="sounds" aria-controls="sounds" aria-selected="false"><span>🌟</span> Sonido inicial</button>
+        <button type="button" role="tab" class="mission-tab" data-panel="diploma" aria-controls="diploma" aria-selected="false"><span>📜</span> Diploma</button>
+      </nav>
+
+      <div class="explored" aria-label="Misiones exploradas durante esta visita">
+        <span class="explored-label">Misiones exploradas</span>
+        <div id="exploredMarks" aria-live="polite"></div>
+      </div>
+
+      <section class="mission-panel is-active" id="bank" role="tabpanel" aria-labelledby="bank-title" tabindex="-1">
+        <div class="panel-copy">
+          <p class="panel-number">Actividades 1 y 2</p>
+          <h3 id="bank-title">Banco de Palabras Ninja</h3>
+          <p>Toca una palabra para descubrir sus pasos de sonido.</p>
+        </div>
+        <div class="bank-layout">
+          <div class="word-bank" id="wordBank" aria-label="Banco de palabras"></div>
+          <div class="word-reveal" id="wordReveal" aria-live="polite">
+            <img class="word-image" src="../assets/cuentos/aventura-ninja/palabras/ninja.jpg" alt="Imagen de ninja" width="364" height="604">
+            <p class="reveal-label">Tu primera palabra de poder</p>
+            <strong>NINJA</strong>
+            <div class="syllable-preview"><span>NIN</span><span>JA</span></div>
+            <p>2 sílabas</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mission-panel" id="case" role="tabpanel" aria-labelledby="case-title" tabindex="-1" hidden>
+        <div class="panel-copy">
+          <p class="panel-number">Actividades 3 y 13</p>
+          <h3 id="case-title">Letras gemelas</h3>
+          <p>Encuentra la misma palabra escrita en minúsculas.</p>
+        </div>
+        <div class="challenge-card">
+          <span class="challenge-label">Busca la pareja de</span>
+          <strong class="challenge-word" id="caseWord">MAPA</strong>
+          <div class="choice-row" id="caseChoices" aria-label="Opciones en minúsculas"></div>
+          <div class="mission-message" id="caseMessage" role="status" aria-live="polite">Mayúscula y minúscula cuentan la misma palabra.</div>
+          <button class="small-action secondary" id="nextCase" type="button" hidden>Otra pareja →</button>
+        </div>
+      </section>
+
+      <section class="mission-panel" id="vowels" role="tabpanel" aria-labelledby="vowels-title" tabindex="-1" hidden>
+        <div class="panel-copy">
+          <p class="panel-number">Actividad 4</p>
+          <h3 id="vowels-title">La cueva de las vocales</h3>
+          <p>Rescata las vocales que desaparecieron de la palabra.</p>
+        </div>
+        <div class="challenge-card">
+          <span class="challenge-icon" id="vowelIcon" aria-hidden="true">🗺️</span>
+          <strong class="challenge-word" id="vowelPuzzle">M_P_</strong>
+          <label class="field-label" for="vowelAnswer">Escribe la palabra completa</label>
+          <input id="vowelAnswer" class="challenge-input" type="text" autocomplete="off" maxlength="14">
+          <div class="inline-actions centered">
+            <button class="small-action" id="checkVowel" type="button">Abrir la cueva</button>
+            <button class="small-action secondary" id="nextVowel" type="button">Otra palabra</button>
+          </div>
+          <div class="mission-message" id="vowelMessage" role="status" aria-live="polite">Puedes probar todas las veces que quieras.</div>
+        </div>
+      </section>
+
+      <section class="mission-panel" id="match" role="tabpanel" aria-labelledby="match-title" tabindex="-1" hidden>
+        <div class="panel-copy">
+          <p class="panel-number">Actividades 8 y 10</p>
+          <h3 id="match-title">La búsqueda secreta</h3>
+          <p>Lee la palabra y elige la escena que guarda su significado.</p>
+        </div>
+        <div class="match-prompt" aria-live="polite">Encuentra: <strong id="matchWord">MAPA</strong></div>
+        <div class="match-grid" id="matchGrid"></div>
+        <div class="mission-message" id="matchMessage" role="status" aria-live="polite">Elige una imagen para comenzar.</div>
+        <button class="small-action" id="nextMatch" type="button" hidden>Siguiente palabra →</button>
+      </section>
+
+      <section class="mission-panel" id="syllables" role="tabpanel" aria-labelledby="syllables-title" tabindex="-1" hidden>
+        <div class="panel-copy">
+          <p class="panel-number">Actividades 5 y 7</p>
+          <h3 id="syllables-title">Sílabas Ninja</h3>
+          <p>Ordena los bloques. También puedes usar Tab y Enter.</p>
+        </div>
+        <div class="syllable-word"><span aria-hidden="true" id="syllableIcon">🐉</span><strong id="syllableName">DRAGÓN</strong></div>
+        <div class="syllable-build" id="syllableBuild" aria-label="Palabra construida" aria-live="polite"></div>
+        <div class="syllable-options" id="syllableOptions" aria-label="Sílabas disponibles"></div>
+        <div class="inline-actions">
+          <button class="small-action" id="resetSyllable" type="button">Reiniciar</button>
+          <button class="small-action secondary" id="changeSyllable" type="button">Otra palabra</button>
+        </div>
+        <div class="mission-message" id="syllableMessage" role="status" aria-live="polite">Toca las sílabas en el orden correcto.</div>
+      </section>
+
+      <section class="mission-panel move-panel" id="move" role="tabpanel" aria-labelledby="move-title" tabindex="-1" hidden>
+        <div class="panel-copy">
+          <p class="panel-number">Actividad 9</p>
+          <h3 id="move-title">Muévete como Ninja</h3>
+          <p>Esta misión sucede fuera de la pantalla. Deja el dispositivo en un lugar seguro y muévete.</p>
+        </div>
+        <div class="move-card" id="moveCard" aria-live="polite">
+          <span class="move-icon" id="moveIcon" aria-hidden="true">🥷</span>
+          <p id="moveWord">NIN–JA</p>
+          <strong id="moveAction">Da 2 saltos</strong>
+          <small>Uno por cada sílaba</small>
+        </div>
+        <div class="inline-actions centered">
+          <button class="small-action" id="didMove" type="button">¡Misión completada!</button>
+          <button class="small-action secondary" id="nextMove" type="button">Otra misión de movimiento</button>
+        </div>
+        <div class="mission-message" id="moveMessage" role="status" aria-live="polite">Respira, prepárate… y adelante.</div>
+      </section>
+
+      <section class="mission-panel" id="length" role="tabpanel" aria-labelledby="length-title" tabindex="-1" hidden>
+        <div class="panel-copy">
+          <p class="panel-number">Actividades 6 y 11</p>
+          <h3 id="length-title">El duelo de las palabras</h3>
+          <p>Observa cuántas letras tiene cada palabra y elige su grupo.</p>
+        </div>
+        <div class="challenge-card">
+          <span class="challenge-label">¿Esta palabra es corta o larga?</span>
+          <strong class="challenge-word" id="lengthWord">MAPA</strong>
+          <div class="choice-row">
+            <button class="choice-button" type="button" data-length="short">Poder de rayo · corta</button>
+            <button class="choice-button" type="button" data-length="long">Poder de sabiduría · larga</button>
+          </div>
+          <div class="mission-message" id="lengthMessage" role="status" aria-live="polite">Cuenta las letras con calma.</div>
+          <button class="small-action secondary" id="nextLength" type="button" hidden>Otra palabra →</button>
+        </div>
+      </section>
+
+      <section class="mission-panel" id="final" role="tabpanel" aria-labelledby="final-title" tabindex="-1" hidden>
+        <div class="panel-copy">
+          <p class="panel-number">Actividades 12 y 14</p>
+          <h3 id="final-title">Crea tu frase ninja</h3>
+          <p>Elige palabras del banco o escribe una frase nacida de tu imaginación.</p>
+        </div>
+        <div class="phrase-chips" id="phraseChips" aria-label="Palabras para añadir a la frase"></div>
+        <label class="field-label" for="ninjaPhrase">Mi frase</label>
+        <textarea id="ninjaPhrase" rows="3" maxlength="180" placeholder="El ninja encontró un mapa…"></textarea>
+        <div class="phrase-preview" id="phrasePreview" aria-live="polite">Tu aventura aparecerá aquí.</div>
+        <article class="creation-card" id="creationPrint" aria-label="Hoja imprimible de mi propia aventura">
+          <p class="creation-brand">JUFANTICS · Misión Ninja de Lectura</p>
+          <h4>Mi propia aventura</h4>
+          <p class="creation-story" id="creationPrintText">Tu aventura aparecerá aquí.</p>
+          <div class="creation-drawing"><span>Dibuja aquí la escena que imaginaste</span></div>
+          <footer><span>Creado por: ____________________</span><span>Fecha: ____________</span></footer>
+        </article>
+        <div class="inline-actions">
+          <button class="small-action" id="celebratePhrase" type="button">Terminar mi frase</button>
+          <button class="small-action" id="printCreation" type="button">🖨️ Imprimir mi aventura</button>
+          <button class="small-action secondary" id="clearPhrase" type="button">Empezar otra</button>
+        </div>
+        <div class="mission-message" id="phraseMessage" role="status" aria-live="polite">No hay una única frase correcta.</div>
+      </section>
+
+      <section class="mission-panel" id="sounds" role="tabpanel" aria-labelledby="sounds-title" tabindex="-1" hidden>
+        <div class="panel-copy">
+          <p class="panel-number">Actividad 15</p>
+          <h3 id="sounds-title">La estrella del sonido inicial</h3>
+          <p>Elige la palabra que comienza con el sonido indicado.</p>
+        </div>
+        <div class="challenge-card">
+          <button class="sound-star" id="soundLetter" type="button" aria-label="Escuchar el sonido M">M</button>
+          <div class="choice-row" id="soundChoices" aria-label="Palabras para elegir"></div>
+          <div class="mission-message" id="soundMessage" role="status" aria-live="polite">Escucha el sonido dentro de ti y elige.</div>
+          <button class="small-action secondary" id="nextSound" type="button" hidden>Otro sonido →</button>
+        </div>
+      </section>
+
+      <section class="mission-panel diploma-panel" id="diploma" role="tabpanel" aria-labelledby="diploma-title" tabindex="-1" hidden>
+        <div class="panel-copy">
+          <p class="panel-number">Celebración final</p>
+          <h3 id="diploma-title">Diploma Ninja de Lectura</h3>
+          <p>La familia decide cuándo es el momento de celebrarlo. No es necesario completar todas las actividades.</p>
+        </div>
+        <div class="diploma-layout">
+          <div class="diploma-controls">
+            <label class="field-label" for="diplomaName">Escribe el nombre</label>
+            <input id="diplomaName" type="text" maxlength="50" autocomplete="off" placeholder="Nombre del ninja">
+            <p class="privacy-note">El nombre se usa solo en esta pantalla. No se guarda ni se envía.</p>
+            <button class="action gold" id="printDiploma" type="button">🖨️ Imprimir mi diploma</button>
+            <div class="jufantico-finale">
+              <p><strong>JUFÁNTICO celebra contigo</strong><br><small>Puedes ver este saludo cuando la familia decida cerrar la misión.</small></p>
+              <video controls playsinline preload="metadata" controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture oncontextmenu="return false" aria-label="Saludo de celebración de JUFÁNTICO">
+                <source src="assets/jufantico/jufantico-celebracion.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <article class="diploma" id="diplomaPreview" aria-label="Previsualización del diploma">
+            <div class="diploma-stars">✦　✦　✦</div>
+            <p class="diploma-kicker">JUFANTICS presenta</p>
+            <h4>Diploma Ninja<br>de Lectura</h4>
+            <p>Se otorga este diploma a:</p>
+            <strong id="diplomaDisplay">TU NOMBRE</strong>
+            <p>por completar su misión de lectura y descubrir que cada palabra puede abrir un mundo.</p>
+            <div class="diploma-seal">🥷</div>
+            <footer><span>Patricia B. Albornoz</span><span>Fecha: ____________</span></footer>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section class="guide" aria-labelledby="guide-title">
+      <details>
+        <summary id="guide-title">👨‍👩‍👧 Guía para acompañar la misión</summary>
+        <div class="guide-content">
+          <div>
+            <h2>Acompañar sin convertirlo en examen</h2>
+            <p>Estas actividades continúan la aventura. Pueden hacerse en pocos minutos, repetirse o dejarse para otro momento.</p>
+          </div>
+          <ul>
+            <li>Comienza por la misión que más curiosidad despierte.</li>
+            <li>Lee las palabras en voz alta y permite que el niño también las diga.</li>
+            <li>Da tiempo para observar, tocar, moverse e intentar de nuevo.</li>
+            <li>Si aparece cansancio, hagan una pausa y regresen después.</li>
+            <li>Celebra el intento, la imaginación y las preguntas.</li>
+            <li>Las actividades se realizan dentro de esta experiencia y no se ofrecen como archivo descargable.</li>
+            <li>Solo la creación personal y el diploma pueden imprimirse.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <div class="reward" id="reward" role="status" aria-live="polite" hidden>
+    <span aria-hidden="true">⭐</span>
+    <strong>¡Misión completada!</strong>
+  </div>
+
+  <div class="print-guard" id="printGuard">La impresión está disponible únicamente desde “Imprimir mi aventura” o “Imprimir mi diploma”.</div>
+
+  <footer class="site-footer">
+    <strong>JUFANTICS</strong>
+    <p>Historias que nacen de la imaginación · Patricia B. Albornoz</p>
+  </footer>
+
+  <script src="mision-ninja.js"></script>
+</body>
+</html>

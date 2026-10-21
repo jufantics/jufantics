@@ -736,63 +736,6 @@
       }
     }
   },
-  "escuadron-verde": {
-    "voice": "Narradora en español peruano",
-    "pages": {
-      "1": {
-        "src": "assets/narration/escuadron-verde/pagina-1.mp3",
-        "label": "Escuchar página 1"
-      },
-      "11": {
-        "src": "assets/narration/escuadron-verde/pagina-11.mp3",
-        "label": "Escuchar página 11"
-      },
-      "2": {
-        "src": "assets/narration/escuadron-verde/pagina-2.mp3",
-        "label": "Escuchar página 2"
-      },
-      "3": {
-        "src": "assets/narration/escuadron-verde/pagina-3.mp3",
-        "label": "Escuchar página 3"
-      },
-      "9": {
-        "src": "assets/narration/escuadron-verde/pagina-9.mp3",
-        "label": "Escuchar página 9"
-      },
-      "13": {
-        "src": "assets/narration/escuadron-verde/pagina-13.mp3",
-        "label": "Escuchar página 13"
-      },
-      "12": {
-        "src": "assets/narration/escuadron-verde/pagina-12.mp3",
-        "label": "Escuchar página 12"
-      },
-      "10": {
-        "src": "assets/narration/escuadron-verde/pagina-10.mp3",
-        "label": "Escuchar página 10"
-      },
-      "4": {
-        "src": "assets/narration/escuadron-verde/pagina-4.mp3",
-        "label": "Escuchar página 4"
-      },
-      "5": {
-        "src": "assets/narration/escuadron-verde/pagina-5.mp3",
-        "label": "Escuchar página 5"
-      },
-      "7": {
-        "src": "assets/narration/escuadron-verde/pagina-7.mp3",
-        "label": "Escuchar página 7"
-      },
-      "8": {
-        "src": "assets/narration/escuadron-verde/pagina-8.mp3",
-        "label": "Escuchar página 8"
-      },
-      "6": {
-        "src": "assets/narration/escuadron-verde/pagina-6.mp3",
-        "label": "Escuchar página 6"
-      }
-    }
-  },
   "aventura-ninja": {
     "voice": "Narradora en español peruano",
     "pages": {
