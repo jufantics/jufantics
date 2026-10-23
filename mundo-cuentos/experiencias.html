@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JUFANTICS · Experiencias después de leer</title>
+  <style>
+    :root{--navy:#122746;--violet:#7556ca;--gold:#d9aa4f;--cream:#fffaf0;--paper:#fff;--ink:#1b2b46;--muted:#66738b;--line:#e5ded2;--ok:#2e7650}
+    *{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#fffaf0,#f3effb 60%,#ecf5f4);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer;touch-action:manipulation}button:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}h1,h2,h3{font-family:Georgia,serif;color:var(--navy)}
+    .quicknav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:10px max(14px,calc((100% - 1180px)/2));background:#fffffff2;border-bottom:1px solid #e5ded2;backdrop-filter:blur(12px)}.quicknav a{padding:9px 13px;border-radius:999px;background:#f0eafa;color:var(--navy);font-weight:850;text-decoration:none}.shell{max-width:1180px;margin:auto;padding:20px}.hero{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center;background:linear-gradient(120deg,#122746,#273b70);color:white;border-radius:26px;padding:22px;box-shadow:0 18px 40px #12274620}.hero img{width:145px;height:145px;object-fit:contain;border-radius:22px;background:#fff8}.hero h1{color:#fff;margin:0 0 7px;font-size:clamp(28px,4vw,46px)}.hero p{margin:0;color:#dde7f3}.tag{display:inline-block;background:#f0c96f;color:#3a2b0e;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:900;margin-bottom:8px}
+    .agebar,.tabs,.actions{display:flex;gap:9px;flex-wrap:wrap}.agebar{margin:18px 0}.agebar button,.tabs button,.actions button{border:1px solid #d7cfdc;background:white;color:var(--navy);border-radius:999px;padding:11px 15px;font-weight:800}.agebar button.active,.tabs button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .notice{padding:14px 17px;border-radius:16px;background:#fff;border:1px solid var(--line);color:var(--muted);margin:12px 0}.panel{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 13px 30px #1227460d;margin:16px 0}.panel h2{margin-top:0}.hidden{display:none!important}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.mission{border:1px solid #e4dceb;background:linear-gradient(150deg,#fff,#f8f3ff);border-radius:18px;padding:16px;min-height:150px}.mission b{display:block;color:var(--navy);font-size:17px;margin:7px 0}.mission span{font-size:28px}.mission small{color:var(--muted);line-height:1.4}.full{width:100%;height:760px;border:0;border-radius:18px;background:#f4f0f8}
+    .question{font-size:19px;font-weight:800}.choices{display:grid;gap:9px;max-width:700px}.choices button{border:1px solid #dcd4e2;background:#fdfcff;border-radius:14px;padding:14px;text-align:left;color:var(--ink)}.choices button:hover{background:#f1ebfb}.feedback{min-height:60px;margin-top:14px;border-radius:15px;background:#f3effa;padding:14px 16px;display:flex;align-items:center;gap:10px}.feedback.ok{background:#e9f7ee;color:#235b3d}.feedback.near{background:#fff5df;color:#765316}.spark{position:fixed;pointer-events:none;font-size:20px;animation:fall 900ms ease-out forwards;z-index:50}@keyframes fall{to{transform:translate(var(--x),120px) rotate(250deg);opacity:0}}
+    textarea{width:100%;min-height:180px;border:1px solid #cfc6da;border-radius:16px;padding:15px;resize:vertical;color:var(--ink)}.creation{border-left:5px solid var(--gold);padding-left:16px}.draw{width:100%;aspect-ratio:16/9;border:1px solid #cfc7d7;border-radius:18px;background:white;touch-action:none;display:block}.palette{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}.color{width:42px;height:42px;border-radius:50%;border:3px solid white;box-shadow:0 0 0 1px #bbb}.color.active{box-shadow:0 0 0 3px var(--navy)}
+    .puzzle-wrap{display:grid;grid-template-columns:minmax(280px,650px) minmax(220px,1fr);gap:20px;align-items:start}.puzzle{--puzzle-image:url('lector/escena1_3d_v34.jpg');display:grid;grid-template-columns:repeat(3,1fr);aspect-ratio:16/10;border:5px solid white;border-radius:18px;overflow:hidden;box-shadow:0 16px 35px #1227461c;background:#e6e9ea}.tile{border:1px solid #fff8;background-image:var(--puzzle-image);background-size:300% 300%;min-width:0}.tile.selected{filter:brightness(1.15);box-shadow:inset 0 0 0 5px #efbf55}.preview{width:100%;border-radius:16px;display:block}.status{font-weight:800;color:var(--navy)}
+    @media(max-width:780px){.hero{grid-template-columns:95px 1fr}.hero img{width:90px;height:90px}.grid{grid-template-columns:repeat(2,1fr)}.puzzle-wrap{grid-template-columns:1fr}.full{height:900px}}
+    @media(max-width:450px){.shell{padding:10px}.hero{padding:14px}.grid{grid-template-columns:1fr}.panel{padding:16px}.agebar button,.tabs button{flex:1}}
+    @media(prefers-reduced-motion:reduce){.spark{display:none}}
+  </style>
+</head>
+<body>
+  <nav class="quicknav" aria-label="Navegación de actividades"><a href="index.html#inicio">⌂ Inicio</a><a href="index.html#biblioteca">📚 Biblioteca</a></nav>
+  <main class="shell">
+    <section class="hero">
+      <img src="jufantico_canon.png" alt="Jufántico acompaña las actividades">
+      <div><span class="tag">Después de leer</span><h1>Tu aventura puede continuar.</h1><p id="heroText">Elige una propuesta. Puedes cambiar o detenerte cuando quieras.</p></div>
+    </section>
+
+    <div class="agebar" aria-label="Etapa lectora">
+      <button data-age="3-5">3–5</button><button data-age="6-8">6–8</button><button data-age="9-12">9–12</button><button data-age="13-16">13–16</button>
+    </div>
+    <div class="notice" id="ageNote"></div>
+
+    <section id="ninjaTrack" class="panel hidden">
+      <h2>Entrenamiento completo · 6 a 8 años</h2>
+      <p>El mismo espíritu dinámico de Misión Ninja, adaptado al cuento: audio, palabras, sílabas, secuencia, movimiento, creación y mensajes amables.</p>
+      <div class="grid" aria-label="Misiones disponibles">
+        <article class="mission"><span>🔎</span><b>Banco de palabras</b><small>Toca, escucha y descubre palabras del cuento.</small></article>
+        <article class="mission"><span>🖼️</span><b>Palabra + imagen</b><small>Relaciona cada palabra con su escena.</small></article>
+        <article class="mission"><span>🔤</span><b>Sonido inicial</b><small>Escucha letras y palabras con apoyo de voz.</small></article>
+        <article class="mission"><span>👏</span><b>Sílabas</b><small>Separa palabras con pasos, palmas o movimiento.</small></article>
+        <article class="mission"><span>🧩</span><b>Ordena la aventura</b><small>Reconstruye la secuencia del cuento.</small></article>
+        <article class="mission"><span>🏡</span><b>Comprende jugando</b><small>Busca detalles importantes de la historia.</small></article>
+        <article class="mission"><span>🥷</span><b>Muévete</b><small>Representa acciones de los personajes.</small></article>
+        <article class="mission"><span>🎨</span><b>Dibuja y crea</b><small>Conserva únicamente tu creación.</small></article>
+      </div>
+      <p><b>Abre el entrenamiento interactivo:</b></p><p><a id="fullMissionLink" class="tag" href="actividades-cuento.html?cuento=cerditos" target="_top">⛶ Abrir las ocho misiones en pantalla completa</a></p>
+      <iframe id="ninjaFrame" class="full" title="Ocho misiones completas para lectores de 6 a 8 años" src="actividades-cuento.html?cuento=cerditos"></iframe>
+    </section>
+
+    <section id="creativeTrack" class="panel">
+      <div class="tabs" role="tablist">
+        <button data-tab="comprehension" class="active">Comprensión</button>
+        <button data-tab="creativity">Creatividad</button>
+        <button data-tab="drawing">Dibujo</button>
+        <button data-tab="puzzle">Rompecabezas</button><button id="critiqueTab" data-tab="critique" class="hidden">Opinión y crítica</button>
+      </div>
+
+      <div data-view="comprehension">
+        <h2>Un secreto del cuento</h2>
+        <p class="question" id="questionText">¿Qué ayudó finalmente a los tres cerditos a sentirse seguros?</p>
+        <div class="choices">
+          <button data-answer="near">Que cada uno pensara solamente en sí mismo.</button>
+          <button id="correctAnswer" data-answer="ok">Que se reunieran, se cuidaran y aprendieran de lo ocurrido.</button>
+          <button data-answer="near">Que el bosque resolviera todo por ellos.</button>
+        </div>
+        <div class="feedback" id="feedback" role="status" aria-live="polite">Escoge la idea que mejor recoge lo vivido por los personajes.</div>
+      </div>
+
+      <div data-view="creativity" class="hidden">
+        <h2>La historia cambia en tus manos</h2>
+        <p class="creation" id="creativePrompt">Imagina una cuarta casa. ¿De qué estaría hecha y qué tendría de especial?</p>
+        <textarea id="storyIdea" placeholder="Escribe aquí tu propia idea..."></textarea>
+        <div class="actions"><button id="hearIdea">🔊 Escuchar</button><button id="printIdea">🖨️ Imprimir mi creación</button></div>
+        <div class="feedback">Tu texto se procesa solo en este dispositivo. No se envía ni se guarda en servidores.</div>
+      </div>
+
+      <div data-view="drawing" class="hidden">
+        <h2>Dibuja una escena nueva</h2>
+        <p>Usa el dedo o el mouse. Puedes descargar únicamente tu dibujo.</p>
+        <div class="palette"><button class="color active" data-color="#263d78" style="background:#263d78" aria-label="Azul"></button><button class="color" data-color="#ef6f61" style="background:#ef6f61" aria-label="Rojo"></button><button class="color" data-color="#e5b94f" style="background:#e5b94f" aria-label="Dorado"></button><button class="color" data-color="#58a66c" style="background:#58a66c" aria-label="Verde"></button><button class="color" data-color="#8d65ca" style="background:#8d65ca" aria-label="Violeta"></button></div>
+        <canvas id="canvas" class="draw" width="960" height="540" aria-label="Lienzo de dibujo"></canvas>
+        <div class="actions"><button id="clearCanvas">Limpiar</button><button id="saveCanvas">Guardar mi dibujo</button></div>
+      </div>
+
+      <div data-view="puzzle" class="hidden">
+        <h2>Arma la escena</h2>
+        <div class="puzzle-wrap"><div id="puzzle" class="puzzle" aria-label="Rompecabezas de nueve piezas"></div><div><img id="puzzlePreview" class="preview" src="lector/escena1_3d_v34.jpg" alt="Imagen de referencia para el rompecabezas"><p class="status" id="puzzleStatus">Toca dos piezas para intercambiarlas.</p><div class="actions"><button id="shufflePuzzle">Mezclar</button><button id="solvePuzzle">Ver orden</button></div></div></div>
+      </div>
+      <div data-view="critique" class="hidden">
+        <h2>Tu mirada también cuenta</h2><p>Para lectores de 13 a 16 años: construye una opinión propia. No hay una respuesta única.</p>
+        <label for="critiqueOpinion"><strong>¿Qué idea, decisión o conflicto te pareció más importante?</strong></label><textarea id="critiqueOpinion" placeholder="Explica tu postura con tus propias palabras..."></textarea>
+        <label for="critiqueEvidence"><strong>¿Qué escena o detalle del libro apoya tu opinión?</strong></label><textarea id="critiqueEvidence" placeholder="Menciona una escena sin copiar páginas completas..."></textarea>
+        <label for="critiqueAlternative"><strong>¿Qué otra interpretación podría tener la historia?</strong></label><textarea id="critiqueAlternative" placeholder="Imagina otra perspectiva o plantea una pregunta..."></textarea>
+        <div class="actions"><button id="hearCritique">🔊 Escuchar mi opinión</button><button id="printCritique">🖨️ Imprimir mi crítica</button></div><div class="feedback">Solo se imprime tu producción personal; el libro original no se descarga.</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="voice-latina.js"></script><script>
+    const params=new URLSearchParams(location.search);let age=params.get('edad')||'6-8';const cuento=params.get('cuento')||'cerditos';let storyData=null;
+    const ageCopy={
+      '3-5':'Escuchar, crear y armar una escena con ayuda de una persona adulta.',
+      '6-8':'Misiones breves como en Misión Ninja: escuchar, descubrir, moverse y crear.',
+      '9-12':'Comprender, imaginar, dibujar y reconstruir una escena sin presión.',
+      '13-16':'Interpretar, tomar postura y crear una versión propia con una presentación más sobria.'
+    };
+    const creativeCopy={
+      '3-5':'Dibuja o cuenta cómo sería una casa inventada por ti.',
+      '9-12':'Imagina una cuarta casa. Explica su material, su ventaja y el problema que podría enfrentar.',
+      '13-16':'Reescribe la decisión de uno de los hermanos. ¿Cómo cambiaría el conflicto y qué nueva idea dejaría la historia?'
+    };
+    function speak(text){if(!text)return;JufanticsVoice.speak(text,{rate:.87,pitch:1.03})}
+    function setAge(next){age=next;document.querySelectorAll('[data-age]').forEach(b=>b.classList.toggle('active',b.dataset.age===age));document.getElementById('ageNote').textContent=ageCopy[age];document.getElementById('ninjaTrack').classList.toggle('hidden',age!=='6-8');document.getElementById('creativeTrack').classList.toggle('hidden',age==='6-8');document.getElementById('critiqueTab').classList.toggle('hidden',age!=='13-16');if(creativeCopy[age])document.getElementById('creativePrompt').textContent=creativeCopy[age]}
+    document.querySelectorAll('[data-age]').forEach(b=>b.onclick=()=>setAge(b.dataset.age));
+    document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('[data-view]').forEach(v=>v.classList.toggle('hidden',v.dataset.view!==b.dataset.tab))});
+    function celebrate(target){const r=target.getBoundingClientRect();['✨','⭐','💜','✦','🌟'].forEach((s,i)=>{const e=document.createElement('span');e.className='spark';e.textContent=s;e.style.left=(r.left+r.width/2)+'px';e.style.top=(r.top+scrollY)+'px';e.style.setProperty('--x',((i-2)*38)+'px');document.body.appendChild(e);setTimeout(()=>e.remove(),950)})}
+    document.querySelectorAll('[data-answer]').forEach(b=>b.onclick=()=>{const ok=b.dataset.answer==='ok',f=document.getElementById('feedback');f.className='feedback '+(ok?'ok':'near');f.textContent=ok?'¡Muy bien observado! Encontraste una idea importante de la historia.':'Casi. Mira qué cambió durante la aventura y prueba otra vez.';speak(f.textContent);if(ok)celebrate(b)});
+    document.getElementById('hearIdea').onclick=()=>speak(document.getElementById('storyIdea').value||document.getElementById('creativePrompt').textContent);
+    document.getElementById('printIdea').onclick=()=>{const text=document.getElementById('storyIdea').value.trim();if(!text){speak('Primero escribe tu creación.');return}const w=open('','_blank');w.document.write(`<title>Mi creación JUFANTICS</title><style>body{font:20px Georgia;max-width:720px;margin:60px auto;line-height:1.7;color:#182944}h1{color:#263d78}</style><h1>Mi aventura continúa</h1><p>${text.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])).replace(/\n/g,'<br>')}</p><p><small>Creación original del lector · JUFANTICS</small></p>`);w.document.close();w.print()};
+    const critiqueText=()=>['Mi opinión',document.getElementById('critiqueOpinion').value,'Evidencia de la historia',document.getElementById('critiqueEvidence').value,'Otra interpretación',document.getElementById('critiqueAlternative').value].join('\n\n');document.getElementById('hearCritique').onclick=()=>speak(critiqueText());document.getElementById('printCritique').onclick=()=>{const text=critiqueText();if(!document.getElementById('critiqueOpinion').value.trim()){speak('Primero escribe tu opinión.');return}const w=open('','_blank');w.document.write(`<title>Mi crítica lectora</title><style>body{font:18px/1.7 Georgia;max-width:760px;margin:55px auto;padding:20px;color:#182944;white-space:pre-wrap}h1{color:#263d78}</style><h1>Mi opinión sobre la lectura</h1>${text.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}<p><small>Producción personal del lector · JUFANTICS</small></p>`);w.document.close();w.print()};
+    const canvas=document.getElementById('canvas'),ctx=canvas.getContext('2d');let drawing=false,color='#263d78';ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.lineCap='round';ctx.lineJoin='round';
+    function point(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*canvas.width/r.width,y:(e.clientY-r.top)*canvas.height/r.height}}
+    canvas.onpointerdown=e=>{drawing=true;canvas.setPointerCapture(e.pointerId);const p=point(e);ctx.beginPath();ctx.moveTo(p.x,p.y)};canvas.onpointermove=e=>{if(!drawing)return;const p=point(e);ctx.strokeStyle=color;ctx.lineWidth=10;ctx.lineTo(p.x,p.y);ctx.stroke()};canvas.onpointerup=canvas.onpointercancel=()=>drawing=false;
+    document.querySelectorAll('[data-color]').forEach(b=>b.onclick=()=>{color=b.dataset.color;document.querySelectorAll('[data-color]').forEach(x=>x.classList.toggle('active',x===b))});document.getElementById('clearCanvas').onclick=()=>{ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height)};document.getElementById('saveCanvas').onclick=()=>{const a=document.createElement('a');a.download='mi_creacion_jufantics.png';a.href=canvas.toDataURL('image/png');a.click()};
+    let order=[0,1,2,3,4,5,6,7,8],selected=null;const puzzle=document.getElementById('puzzle');function renderPuzzle(){puzzle.innerHTML='';order.forEach((piece,pos)=>{const b=document.createElement('button');b.className='tile'+(selected===pos?' selected':'');b.setAttribute('aria-label','Pieza '+(pos+1));b.style.backgroundPosition=`${(piece%3)*-50}% ${Math.floor(piece/3)*-50}%`;b.onclick=()=>{if(selected===null){selected=pos}else{[order[selected],order[pos]]=[order[pos],order[selected]];selected=null;if(order.every((v,i)=>v===i)){document.getElementById('puzzleStatus').textContent='¡La escena está completa!';celebrate(puzzle);speak('¡Misión completada! La escena está completa.')}}renderPuzzle()};puzzle.appendChild(b)})}function shuffle(){order.sort(()=>Math.random()-.5);if(order.every((v,i)=>v===i))[order[0],order[1]]=[order[1],order[0]];selected=null;document.getElementById('puzzleStatus').textContent='Toca dos piezas para intercambiarlas.';renderPuzzle()}document.getElementById('shufflePuzzle').onclick=shuffle;document.getElementById('solvePuzzle').onclick=()=>{order=[0,1,2,3,4,5,6,7,8];selected=null;renderPuzzle();document.getElementById('puzzleStatus').textContent='Este es el orden completo. Puedes mezclar otra vez.'};
+    async function loadStory(){const missionUrl=`actividades-cuento.html?cuento=${encodeURIComponent(cuento)}`;document.getElementById('ninjaFrame').src=missionUrl;document.getElementById('fullMissionLink').href=missionUrl;if(cuento==='cerditos')return;const stories=await fetch('cuentos-propios.json').then(r=>r.json());storyData=stories.find(item=>item.slug===cuento);if(!storyData)return;document.title=`Actividades · ${storyData.title}`;document.querySelector('.hero h1').textContent=`${storyData.title} continúa contigo.`;document.getElementById('questionText').textContent=storyData.question;document.getElementById('correctAnswer').textContent=storyData.answer;document.getElementById('creativePrompt').textContent=`Imagina una escena nueva para “${storyData.title}”. ¿Qué ocurriría y qué decisión tomaría su protagonista?`;const image=`assets/cuentos/${storyData.slug}/pagina-2.jpg`;puzzle.style.setProperty('--puzzle-image',`url('${image}')`);document.getElementById('puzzlePreview').src=image;document.getElementById('puzzlePreview').alt=`Escena de referencia de ${storyData.title}`}
+    loadStory().catch(()=>{}).finally(()=>{shuffle();setAge(age)});
+  </script>
+</body>
+</html>

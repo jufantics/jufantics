@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Misiones JUFANTICS</title>
+  <link rel="stylesheet" href="actividades-cuento.css">
+</head>
+<body>
+  <header class="mission-topbar">
+    <a class="mission-brand" href="index.html#inicio"><img src="logo.jpg" alt="JUFANTICS"><span>JUFANTICS</span></a>
+    <nav aria-label="Navegación principal">
+      <a href="index.html#inicio">⌂ Inicio</a>
+      <a id="storyLink" href="index.html#biblioteca">📖 Volver al cuento</a>
+    </nav>
+  </header>
+
+  <main class="mission-shell">
+    <section class="mission-hero">
+      <img src="jufantico_canon.png" alt="Jufántico acompaña las misiones">
+      <div><span class="mission-tag">Después de leer</span><h1 id="title">Misiones del cuento</h1><p>Escucha, descubre, ordena, muévete y crea. Puedes cambiar de misión cuando quieras.</p></div>
+      <div class="mission-visit"><strong id="visitCount">0 de 8</strong><span>misiones exploradas en esta sesión</span></div>
+    </section>
+
+    <nav class="mission-tabs" aria-label="Misiones del cuento" role="tablist">
+      <button class="active" data-tab="bank" role="tab" aria-selected="true"><span>🔎</span>Banco de palabras</button>
+      <button data-tab="match" role="tab"><span>🖼️</span>Palabra + imagen</button>
+      <button data-tab="sounds" role="tab"><span>🔤</span>Sonido inicial</button>
+      <button data-tab="syllables" role="tab"><span>👏</span>Sílabas</button>
+      <button data-tab="sequence" role="tab"><span>🧩</span>Ordena la aventura</button>
+      <button data-tab="question" role="tab"><span>🏡</span>Comprende jugando</button>
+      <button data-tab="move" role="tab"><span>🥷</span>Muévete</button>
+      <button data-tab="create" role="tab"><span>🎨</span>Dibuja y crea</button>
+    </nav>
+
+    <section class="mission-panel" data-view="bank" role="tabpanel">
+      <div class="mission-heading"><div><span>🔎 MISIÓN 1</span><h2>Banco de palabras</h2><p>Toca, escucha y descubre palabras del cuento.</p></div><button class="voice-button" id="hearBank">🔊 Escuchar consigna</button></div>
+      <div class="word-layout"><div class="word-bank" id="wordButtons"></div><article class="word-reveal"><img id="wordImage" src="jufantico_canon.png" alt="Imagen de la palabra elegida"><small>Palabra descubierta</small><strong id="selectedWord">Elige una palabra</strong><div id="selectedSyllables" class="syllable-preview">Escucha su ritmo</div></article></div>
+    </section>
+
+    <section class="mission-panel hidden" data-view="match" role="tabpanel">
+      <div class="mission-heading"><div><span>🖼️ MISIÓN 2</span><h2>Palabra + imagen</h2><p>Observa una escena y encuentra la palabra preparada para ella.</p></div><button class="voice-button" id="hearMatch">🔊 Escuchar consigna</button></div>
+      <div class="match-layout"><img id="matchImage" alt="Escena del cuento"><div><p class="challenge" id="matchPrompt">¿Qué palabra acompaña esta escena?</p><div class="choice-grid" id="matchChoices"></div><div class="feedback" id="matchFeedback" role="status">Mira con calma y elige una palabra.</div><button class="next-button" id="nextMatch">Siguiente escena →</button></div></div>
+    </section>
+
+    <section class="mission-panel hidden" data-view="sounds" role="tabpanel">
+      <div class="mission-heading"><div><span>🔤 MISIÓN 3</span><h2>Sonido inicial</h2><p>Escucha una palabra y reconoce su primer sonido.</p></div><button class="voice-button" id="repeatSound">🔊 Repetir palabra</button></div>
+      <article class="sound-card"><strong id="soundWord">PALABRA</strong><p id="soundPrompt">¿Con qué letra comienza?</p><div class="choice-grid letters" id="soundChoices"></div></article><div class="feedback" id="soundFeedback" role="status">Escucha la palabra y busca su primera letra.</div><button class="next-button" id="nextSound">Otra palabra →</button>
+    </section>
+
+    <section class="mission-panel hidden" data-view="syllables" role="tabpanel">
+      <div class="mission-heading"><div><span>👏 MISIÓN 4</span><h2>Sílabas</h2><p>Separa la palabra con pasos, palmas o movimiento.</p></div><button class="voice-button" id="hearSyllables">🔊 Escuchar palabra</button></div>
+      <article class="syllable-card"><strong id="syllableWord">AVENTURA</strong><div id="syllableBlocks" class="syllable-blocks"></div><p id="syllableCount"></p><button id="clapSyllables">👏 Marcar el ritmo</button></article><div class="word-bank compact" id="syllableWords"></div>
+    </section>
+
+    <section class="mission-panel hidden" data-view="sequence" role="tabpanel">
+      <div class="mission-heading"><div><span>🧩 MISIÓN 5</span><h2>Ordena la aventura</h2><p>Reconstruye la secuencia del cuento desde el comienzo.</p></div><button class="voice-button" id="hearSequence">🔊 Escuchar consigna</button></div>
+      <div class="sequence" id="sequence"></div><div class="feedback" id="sequenceFeedback" role="status">Empieza por lo que ocurrió primero.</div><button class="next-button" id="resetSequence">Volver a intentar</button>
+    </section>
+
+    <section class="mission-panel hidden" data-view="question" role="tabpanel">
+      <div class="mission-heading"><div><span>🏡 MISIÓN 6</span><h2>Comprende jugando</h2><p>Busca una idea importante de la historia.</p></div><button class="voice-button" id="hearQuestion">🔊 Escuchar pregunta</button></div>
+      <p class="challenge" id="question"></p><div class="choice-grid vertical"><button id="answer"></button><button data-near>Todo ocurrió por casualidad y nadie tuvo que decidir nada.</button><button data-near>La aventura se resolvió sin ayuda ni aprendizaje.</button></div><div class="feedback" id="questionFeedback" role="status">Elige la idea que mejor recoge lo vivido.</div>
+    </section>
+
+    <section class="mission-panel hidden" data-view="move" role="tabpanel">
+      <div class="mission-heading"><div><span>🥷 MISIÓN 7</span><h2>Muévete</h2><p>Representa una acción de los personajes en un espacio seguro.</p></div><button class="voice-button" id="hearMovement">🔊 Escuchar movimiento</button></div>
+      <article class="movement-card"><img src="jufantico_canon.png" alt="Jufántico propone un movimiento"><p id="movement"></p><button id="completeMovement">⭐ Ya lo hice</button></article><div class="feedback" id="moveFeedback" role="status">Hazlo a tu ritmo. También puedes imaginar el movimiento sentado.</div>
+    </section>
+
+    <section class="mission-panel hidden" data-view="create" role="tabpanel">
+      <div class="mission-heading"><div><span>🎨 MISIÓN 8</span><h2>Dibuja y crea</h2><p>Imagina una escena nueva. Solo tu creación puede guardarse o imprimirse.</p></div><button class="voice-button" id="hearCreate">🔊 Escuchar consigna</button></div>
+      <div class="creation-layout"><div><div class="palette" aria-label="Colores"><button class="color active" data-color="#17345a" style="--swatch:#17345a" aria-label="Azul"></button><button class="color" data-color="#e8645a" style="--swatch:#e8645a" aria-label="Rojo"></button><button class="color" data-color="#e7b74d" style="--swatch:#e7b74d" aria-label="Dorado"></button><button class="color" data-color="#4f9b69" style="--swatch:#4f9b69" aria-label="Verde"></button><button class="color" data-color="#7a59c4" style="--swatch:#7a59c4" aria-label="Violeta"></button><button class="color" data-color="#ffffff" style="--swatch:#ffffff" aria-label="Borrador"></button></div><canvas id="creationCanvas" width="900" height="540" aria-label="Lienzo para crear una escena"></canvas><div class="create-actions"><button id="clearCanvas">Limpiar</button><button id="saveCanvas">Guardar mi dibujo</button></div></div><div><label for="creationText"><strong>Cuenta qué sucede en tu escena</strong></label><textarea id="creationText" placeholder="En mi nueva escena..."></textarea><div class="create-actions"><button id="hearCreation">🔊 Escuchar mi historia</button><button id="printCreation">🖨️ Imprimir mi creación</button></div><p class="privacy-note">No se guarda ningún libro ni página original. El texto y el dibujo permanecen en este dispositivo.</p></div></div>
+    </section>
+
+    <nav class="mission-footer-nav" aria-label="Final de las actividades"><a href="index.html#inicio">⌂ Volver a Inicio</a><a href="index.html#biblioteca">📚 Ir a la biblioteca</a><a id="storyLinkBottom" href="index.html#biblioteca">📖 Volver al cuento</a></nav>
+  </main>
+  <script src="voice-latina.js"></script>
+  <script src="actividades-cuento.js"></script>
+</body>
+</html>
