@@ -39,6 +39,11 @@ img{max-width:100%;display:block}
 .nav-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:1.22rem;letter-spacing:-.4px;line-height:1;color:var(--ink)}
 .nj1{color:var(--sky)}.nj2{color:var(--nar)}.nj3{color:var(--lav)}
 .nav-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.67rem;color:var(--ink3);line-height:1}
+.nav-links{display:flex;align-items:center;justify-content:center;gap:1rem;margin-left:auto;margin-right:1rem}
+.nav-links a{font-family:'Nunito',sans-serif;font-size:.69rem;font-weight:800;text-transform:uppercase;letter-spacing:.25px;color:var(--ink2);white-space:nowrap;position:relative;transition:color .2s}
+.nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--nar);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--ink)}
+.nav-links a:hover::after,.nav-links a[aria-current="page"]::after{transform:scaleX(1)}
 .nav-right{display:flex;align-items:center;gap:1rem}
 .nav-back{display:inline-flex;align-items:center;gap:.4rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:.76rem;color:var(--ink2);padding:.46rem 1rem;border-radius:50px;border:2px solid rgba(28,21,40,.15);transition:border-color .2s,color .2s}
 .nav-back:hover{border-color:var(--lav);color:var(--lav)}
@@ -157,10 +162,12 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
 
 /* RESPONSIVE */
 @media(max-width:900px){
+  .nav-links{display:none}
   .bc-featured{grid-template-columns:1fr}
   .bc-featured .bcf-img{min-height:240px}
   .blog-grid{grid-template-columns:1fr 1fr}
 }
+@media(max-width:1550px){.nav-back{display:none}.nav-links{gap:.72rem}.nav-links a{font-size:.63rem}}
 @media(max-width:600px){
   .blog-grid{grid-template-columns:1fr}
   .art-content{padding:1.5rem 1.5rem 2rem}
@@ -204,6 +211,16 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:3rem 5% 0}
       <div class="nav-tag">Historias que nacen de la imaginación</div>
     </div>
   </a>
+  <div class="nav-links" aria-label="Navegación principal">
+    <a href="../index.html#how">Cómo funciona</a>
+    <a href="../index.html#cuentos">Cuentos</a>
+    <a href="../index.html#comics">Cómics</a>
+    <a href="../index.html#libros">Libros</a>
+    <a href="../mundo-cuentos/">Mundo de Cuentos</a>
+    <a href="#poemas">Poemas</a>
+    <a href="#autora">Creadora</a>
+    <a href="#lecturas" aria-current="page">Blog</a>
+  </div>
   <div class="nav-right">
     <a href="../index.html" class="nav-back">← Volver a JUFANTICS</a>
     <a href="../index.html#brief" class="nav-cta">✨ Quiero mi cuento</a>
