@@ -6,6 +6,35 @@
   const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const whatsapp=(message)=>`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
 
+  function cancelStrayVoice(){
+    if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  }
+
+  function silenceReader(){
+    cancelStrayVoice();
+    const frame=document.querySelector('#lector iframe.readerframe');
+    if(!frame||frame.src==='about:blank')return;
+    try{
+      frame.contentWindow?.speechSynthesis?.cancel();
+      frame.contentDocument?.querySelectorAll('audio').forEach(audio=>{audio.pause();audio.currentTime=0});
+    }catch(_){/* Protección adicional para el lector integrado. */}
+  }
+
+  function welcomeVideo(){
+    if(document.getElementById('jufanticoWelcome'))return;
+    document.body.classList.add('welcome-open');
+    document.body.insertAdjacentHTML('afterbegin',`<section id="jufanticoWelcome" class="welcome-video" role="dialog" aria-modal="true" aria-labelledby="welcomeVideoTitle"><div class="welcome-video-card"><div class="welcome-video-copy"><span>JUFANTICS · Mundo de Cuentos</span><h1 id="welcomeVideoTitle">Jufántico te da la bienvenida</h1><p>Primero nos saludamos. Después se abre la plataforma tal como la conoces.</p></div><video id="jufanticoWelcomeVideo" muted playsinline preload="auto" aria-label="Video de bienvenida de Jufántico"><source src="assets/jufantico-bienvenida.mp4" type="video/mp4"></video><div class="welcome-video-actions"><button class="btn gold" id="welcomeListen" type="button">🔊 Escuchar bienvenida</button><button class="btn light" id="welcomeEnter" type="button">Entrar a Mundo de Cuentos →</button></div><p class="welcome-video-note">El navegador necesita un toque para reproducir sonido. Ningún cuento ni voz comienza automáticamente.</p></div></section>`);
+    const overlay=document.getElementById('jufanticoWelcome');
+    const video=document.getElementById('jufanticoWelcomeVideo');
+    const close=()=>{video.pause();overlay.classList.add('closing');setTimeout(()=>{overlay.remove();document.body.classList.remove('welcome-open')},260)};
+    document.getElementById('welcomeListen').onclick=()=>{cancelStrayVoice();video.muted=false;video.currentTime=0;video.play().catch(()=>{});document.getElementById('welcomeListen').textContent='⏸ Reproduciendo saludo'};
+    document.getElementById('welcomeEnter').onclick=close;
+    video.addEventListener('ended',close,{once:true});
+    video.play().catch(()=>{/* La bienvenida permanece visible hasta que la familia elija entrar. */});
+  }
+
+  cancelStrayVoice();
+
   window.requestPremium=function(title='la biblioteca JUFANTICS',plan=''){
     const dialog=document.getElementById('launchAccess');
     const selected=plan?` Me interesa el plan ${plan}.`:'';
@@ -95,6 +124,11 @@
   }
 
   document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{
-    accessDialog();subscription();publicLibrary();publicDomain();launchCopy();
+    cancelStrayVoice();welcomeVideo();accessDialog();subscription();publicLibrary();publicDomain();launchCopy();
+    const frame=document.querySelector('#lector iframe.readerframe');
+    frame?.addEventListener('load',silenceReader);
+    const originalGo=window.go;
+    window.go=function(name){if(name!=='lector')silenceReader();return originalGo(name)};
   },80));
+  window.addEventListener('pagehide',silenceReader);
 })();
