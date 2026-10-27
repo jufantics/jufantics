@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f1e7">
+  <meta name="description" content="Lee y escucha gratuitamente Río, un lugar cerquita, una historia JUFANTICS junto a Gatitos Río Novo.">
+  <title>Río · Un lugar cerquita | JUFANTICS</title>
+  <link rel="stylesheet" href="rio-cuento.css">
+</head>
+<body>
+  <header class="rio-topbar">
+    <a class="rio-brand" href="index.html#biblioteca"><img src="logo.jpg" alt="JUFANTICS"><span>JUFANTICS</span></a>
+    <nav aria-label="Navegación del cuento">
+      <a href="index.html#biblioteca">← Biblioteca</a>
+      <a href="index.html#inicio">Inicio</a>
+    </nav>
+  </header>
+
+  <main class="rio-shell">
+    <section class="rio-intro">
+      <div>
+        <span class="rio-pill">Lectura gratuita · Audio incluido</span>
+        <h1>Río <em>Un lugar cerquita</em></h1>
+        <p>Una historia de Patricia B. Albornoz, realizada por JUFANTICS junto a Gatitos Río Novo para leer y escuchar en familia.</p>
+      </div>
+      <img src="jufantico_canon.png" alt="Jufántico acompaña la lectura">
+    </section>
+
+    <section class="rio-reader" aria-label="Lector de Río, un lugar cerquita">
+      <div class="rio-page-wrap">
+        <div class="rio-page-heading">
+          <span id="pageLabel">Página 1</span>
+          <strong id="pageProgress">1 / 65</strong>
+        </div>
+        <img id="pageImage" src="assets/cuentos/rio-un-lugar-cerquita/pagina-1.jpg" alt="Portada de Río, un lugar cerquita" draggable="false">
+      </div>
+
+      <aside class="rio-controls">
+        <div>
+          <span class="rio-kicker">Lectura protegida en pantalla</span>
+          <h2 id="readerTitle">Río · Un lugar cerquita</h2>
+          <p>Las páginas no se descargan. Puedes avanzar, ampliar la lectura y escuchar cada página con una voz en español disponible en tu dispositivo.</p>
+        </div>
+
+        <div class="rio-nav-buttons">
+          <button id="prevPage" type="button" aria-label="Página anterior">← Anterior</button>
+          <label for="pageNumber">Página
+            <input id="pageNumber" type="number" min="1" max="65" value="1" inputmode="numeric">
+          </label>
+          <button id="nextPage" type="button" aria-label="Página siguiente">Siguiente →</button>
+        </div>
+        <div class="rio-progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+        <section class="rio-audio" aria-labelledby="audioTitle">
+          <h3 id="audioTitle">🎧 Escuchar la lectura</h3>
+          <label for="voiceSelect">Voz en español
+            <select id="voiceSelect" aria-label="Elegir voz para la lectura"><option>Cargando voces…</option></select>
+          </label>
+          <div class="rio-audio-buttons">
+            <button class="primary" id="listenPage" type="button">🔊 Escuchar página</button>
+            <button id="pauseVoice" type="button">⏸ Pausar</button>
+            <button id="stopVoice" type="button">■ Detener</button>
+          </div>
+          <label class="rio-continuous"><input id="continuousReading" type="checkbox"> Continuar automáticamente con la siguiente página</label>
+          <p id="readerStatus" class="rio-status" role="status" aria-live="polite">Lista para comenzar.</p>
+        </section>
+
+        <details class="rio-transcript">
+          <summary>Ver el texto accesible de esta página</summary>
+          <div id="pageText"></div>
+        </details>
+        <p class="rio-note">JUFANTICS — La imaginación cobra vida. Esta edición se ofrece para lectura gratuita en pantalla; conserva sus créditos y derechos.</p>
+      </aside>
+    </section>
+
+    <nav class="rio-bottom-nav" aria-label="Navegación inferior">
+      <a href="index.html#biblioteca">📚 Volver a la biblioteca</a>
+      <button id="backToTop" type="button">↑ Volver arriba</button>
+    </nav>
+  </main>
+  <script src="voice-latina.js"></script>
+  <script src="rio-cuento.js"></script>
+</body>
+</html>

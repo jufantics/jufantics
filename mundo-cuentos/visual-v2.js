@@ -102,7 +102,7 @@
     search.addEventListener('input',filter);genre.addEventListener('change',filter);
   }
 
-  window.openOwnedStory=slug=>{location.href='lector-cuento.html?cuento='+encodeURIComponent(slug)};
+  window.openOwnedStory=slug=>{location.href=slug==='rio-un-lugar-cerquita'?'rio-cuento.html':'lector-cuento.html?cuento='+encodeURIComponent(slug)};
   window.openOwnedActivities=(slug,age)=>{location.href='experiencias.html?cuento='+encodeURIComponent(slug)+'&edad='+encodeURIComponent(age)};
 
   async function loadOwnedStories(){
@@ -110,12 +110,15 @@
     if(!shelf||shelf.querySelector('[data-owned-story]'))return;
     try{
       const stories=await fetch('cuentos-propios.json').then(response=>response.json());
-      stories.forEach(story=>{
+      stories.sort((a,b)=>Number(Boolean(b.free))-Number(Boolean(a.free))).forEach(story=>{
         const article=document.createElement('article');
         article.className='v2-book owned-story';
         article.dataset.ownedStory=story.slug;
         article.dataset.v2Book=`original ${story.title} ${story.subtitle} ${story.genre} ${story.age}`.toLowerCase();
-        article.innerHTML=`<div class="v2-cover" style="background-image:url('assets/cuentos/${story.slug}/portada.jpg'),url('assets/cuentos/${story.slug}/pagina-1.jpg')"><span class="v2-label">${story.genre} · ${story.age} años</span></div><div class="v2-book-body"><span class="v2-status">Cuento propio JUFANTICS</span><h3>${story.title}</h3><p>${story.subtitle}. ${story.pages} páginas ilustradas.</p><div class="actions"><button class="btn" onclick="openOwnedStory('${story.slug}')">Leer</button><button class="btn alt" onclick="openOwnedActivities('${story.slug}','${story.age}')">Actividades</button></div></div>`;
+        const status=story.free?'Lectura gratuita':story.genre==='Deporte'?'Cómic JUFANTICS':'Cuento propio JUFANTICS';
+        const audio=story.audio?' · Audio de lectura':'';
+        const actions=story.free?`<button class="btn" onclick="openOwnedStory('${story.slug}')">📖 Leer y escuchar gratis</button>`:`<button class="btn" onclick="openOwnedStory('${story.slug}')">Leer</button><button class="btn alt" onclick="openOwnedActivities('${story.slug}','${story.age}')">Actividades</button>`;
+        article.innerHTML=`<div class="v2-cover" style="background-image:url('assets/cuentos/${story.slug}/portada.jpg'),url('assets/cuentos/${story.slug}/pagina-1.jpg')"><span class="v2-label">${story.genre} · ${story.age} años</span></div><div class="v2-book-body"><span class="v2-status">${status}</span><h3>${story.title}</h3><p>${story.subtitle}. ${story.pages} páginas ilustradas${audio}.</p><div class="actions">${actions}</div></div>`;
         shelf.appendChild(article);
       });
     }catch(error){console.warn('No se pudo cargar la biblioteca de cuentos propios.',error)}

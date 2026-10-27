@@ -167,5 +167,20 @@
     "question": "¿Qué significa ser resiliente en la historia de Aurum?",
     "answer": "Reconocer el dolor, aceptar compañía y convertir lo vivido en fuerza para cuidar.",
     "movement": "Abre los brazos como alas, respira y realiza un vuelo lento hacia un lugar seguro."
+  },
+  {
+    "slug": "rio-un-lugar-cerquita",
+    "title": "Río — Un lugar cerquita",
+    "subtitle": "Una historia junto a Gatitos Río Novo",
+    "genre": "Familiar",
+    "age": "9-12",
+    "pages": 65,
+    "free": true,
+    "audio": true,
+    "keywords": ["Río", "hogar", "familia", "cuidado", "solidaridad", "amistad"],
+    "sequence": ["Río deja la casa derribada junto a otros gatitos", "Recibe cuidados y vuelve a encontrarse con sus compañeros", "Descubre que el hogar también está en quienes permanecen cerquita"],
+    "question": "¿Cómo cambia la idea de hogar para Río a lo largo de la historia?",
+    "answer": "El hogar deja de ser solo un lugar y se convierte también en cuidado, compañía y personas que vuelven.",
+    "movement": "Muévete con pasos suaves de gato, detente a escuchar y busca un lugar imaginario donde sentirte seguro."
   }
 ]
