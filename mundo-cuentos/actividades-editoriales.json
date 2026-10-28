@@ -1,0 +1,562 @@
+[
+  {
+    "slug": "aventura-ninja",
+    "theme": {
+      "primary": "#153456",
+      "accent": "#d49b31",
+      "soft": "#f6f0e3"
+    },
+    "wordCards": [
+      {
+        "word": "mapa",
+        "page": 2,
+        "image": "assets/actividades/aventura-ninja/mapa.jpg"
+      },
+      {
+        "word": "sensei",
+        "page": 1,
+        "image": "assets/actividades/aventura-ninja/sensei.jpg"
+      },
+      {
+        "word": "misión",
+        "page": 3,
+        "image": "assets/actividades/aventura-ninja/mision.jpg"
+      },
+      {
+        "word": "ninja",
+        "page": 4,
+        "image": "assets/actividades/aventura-ninja/ninja.jpg"
+      },
+      {
+        "word": "aventura",
+        "page": 5,
+        "image": "assets/actividades/aventura-ninja/aventura.jpg"
+      },
+      {
+        "word": "lectura",
+        "page": 6,
+        "image": "assets/actividades/aventura-ninja/lectura.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "cueva-de-cristal",
+    "theme": {
+      "primary": "#27405f",
+      "accent": "#7bc9d5",
+      "soft": "#edf8f7"
+    },
+    "wordCards": [
+      {
+        "word": "cueva",
+        "page": 2,
+        "image": "assets/actividades/cueva-de-cristal/cueva.jpg"
+      },
+      {
+        "word": "cristal",
+        "page": 3,
+        "image": "assets/actividades/cueva-de-cristal/cristal.jpg"
+      },
+      {
+        "word": "cascada",
+        "page": 4,
+        "image": "assets/actividades/cueva-de-cristal/cascada.jpg"
+      },
+      {
+        "word": "mapa",
+        "page": 5,
+        "image": "assets/actividades/cueva-de-cristal/mapa.jpg"
+      },
+      {
+        "word": "amistad",
+        "page": 7,
+        "image": "assets/actividades/cueva-de-cristal/amistad.jpg"
+      },
+      {
+        "word": "tesoro",
+        "page": 9,
+        "image": "assets/actividades/cueva-de-cristal/tesoro.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "escuadron-verde",
+    "theme": {
+      "primary": "#24553c",
+      "accent": "#d3a63c",
+      "soft": "#eef7e9"
+    },
+    "wordCards": [
+      {
+        "word": "parque",
+        "page": 2,
+        "image": "assets/actividades/escuadron-verde/parque.jpg"
+      },
+      {
+        "word": "equipo",
+        "page": 5,
+        "image": "assets/actividades/escuadron-verde/equipo.jpg"
+      },
+      {
+        "word": "naturaleza",
+        "page": 8,
+        "image": "assets/actividades/escuadron-verde/naturaleza.jpg"
+      },
+      {
+        "word": "misión",
+        "page": 12,
+        "image": "assets/actividades/escuadron-verde/mision.jpg"
+      },
+      {
+        "word": "semilla",
+        "page": 18,
+        "image": "assets/actividades/escuadron-verde/semilla.jpg"
+      },
+      {
+        "word": "amistad",
+        "page": 24,
+        "image": "assets/actividades/escuadron-verde/amistad.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "escuadron-verde-guardianes-del-oceano",
+    "theme": {
+      "primary": "#075a7c",
+      "accent": "#efb84c",
+      "soft": "#e9f8fb"
+    },
+    "wordCards": [
+      {
+        "word": "océano",
+        "page": 2,
+        "image": "assets/actividades/escuadron-verde-guardianes-del-oceano/oceano.jpg"
+      },
+      {
+        "word": "ola",
+        "page": 4,
+        "image": "assets/actividades/escuadron-verde-guardianes-del-oceano/ola.jpg"
+      },
+      {
+        "word": "equipo",
+        "page": 6,
+        "image": "assets/actividades/escuadron-verde-guardianes-del-oceano/equipo.jpg"
+      },
+      {
+        "word": "cuidado",
+        "page": 8,
+        "image": "assets/actividades/escuadron-verde-guardianes-del-oceano/cuidado.jpg"
+      },
+      {
+        "word": "aventura",
+        "page": 10,
+        "image": "assets/actividades/escuadron-verde-guardianes-del-oceano/aventura.jpg"
+      },
+      {
+        "word": "naturaleza",
+        "page": 13,
+        "image": "assets/actividades/escuadron-verde-guardianes-del-oceano/naturaleza.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "gran-aventura-familiar",
+    "theme": {
+      "primary": "#45406f",
+      "accent": "#d98b5f",
+      "soft": "#f8f0ea"
+    },
+    "wordCards": [
+      {
+        "word": "familia",
+        "page": 2,
+        "image": "assets/actividades/gran-aventura-familiar/familia.jpg"
+      },
+      {
+        "word": "hermanos",
+        "page": 3,
+        "image": "assets/actividades/gran-aventura-familiar/hermanos.jpg"
+      },
+      {
+        "word": "aventura",
+        "page": 4,
+        "image": "assets/actividades/gran-aventura-familiar/aventura.jpg"
+      },
+      {
+        "word": "mercado",
+        "page": 6,
+        "image": "assets/actividades/gran-aventura-familiar/mercado.jpg"
+      },
+      {
+        "word": "campamento",
+        "page": 8,
+        "image": "assets/actividades/gran-aventura-familiar/campamento.jpg"
+      },
+      {
+        "word": "juntos",
+        "page": 10,
+        "image": "assets/actividades/gran-aventura-familiar/juntos.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "gran-corazon-capitan-julen",
+    "theme": {
+      "primary": "#173f67",
+      "accent": "#dd4f48",
+      "soft": "#eef5fb"
+    },
+    "wordCards": [
+      {
+        "word": "Julen",
+        "page": 2,
+        "image": "assets/actividades/gran-corazon-capitan-julen/julen.jpg"
+      },
+      {
+        "word": "capitán",
+        "page": 3,
+        "image": "assets/actividades/gran-corazon-capitan-julen/capitan.jpg"
+      },
+      {
+        "word": "familia",
+        "page": 5,
+        "image": "assets/actividades/gran-corazon-capitan-julen/familia.jpg"
+      },
+      {
+        "word": "valentía",
+        "page": 6,
+        "image": "assets/actividades/gran-corazon-capitan-julen/valentia.jpg"
+      },
+      {
+        "word": "clínica",
+        "page": 8,
+        "image": "assets/actividades/gran-corazon-capitan-julen/clinica.jpg"
+      },
+      {
+        "word": "corazón",
+        "page": 10,
+        "image": "assets/actividades/gran-corazon-capitan-julen/corazon.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "guardian-colores-infinitos",
+    "theme": {
+      "primary": "#2c315d",
+      "accent": "#8a67c7",
+      "soft": "#f2effb"
+    },
+    "wordCards": [
+      {
+        "word": "colores",
+        "page": 2,
+        "image": "assets/actividades/guardian-colores-infinitos/colores.jpg"
+      },
+      {
+        "word": "pluma",
+        "page": 3,
+        "image": "assets/actividades/guardian-colores-infinitos/pluma.jpg"
+      },
+      {
+        "word": "sombra",
+        "page": 4,
+        "image": "assets/actividades/guardian-colores-infinitos/sombra.jpg"
+      },
+      {
+        "word": "mapa",
+        "page": 6,
+        "image": "assets/actividades/guardian-colores-infinitos/mapa.jpg"
+      },
+      {
+        "word": "imaginación",
+        "page": 8,
+        "image": "assets/actividades/guardian-colores-infinitos/imaginacion.jpg"
+      },
+      {
+        "word": "luz",
+        "page": 10,
+        "image": "assets/actividades/guardian-colores-infinitos/luz.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "juancito-medicina-del-viento",
+    "theme": {
+      "primary": "#24476b",
+      "accent": "#df5146",
+      "soft": "#edf4f9"
+    },
+    "wordCards": [
+      {
+        "word": "Juancito",
+        "page": 2,
+        "image": "assets/actividades/juancito-medicina-del-viento/juancito.jpg"
+      },
+      {
+        "word": "globo",
+        "page": 4,
+        "image": "assets/actividades/juancito-medicina-del-viento/globo.jpg"
+      },
+      {
+        "word": "viento",
+        "page": 7,
+        "image": "assets/actividades/juancito-medicina-del-viento/viento.jpg"
+      },
+      {
+        "word": "empatía",
+        "page": 10,
+        "image": "assets/actividades/juancito-medicina-del-viento/empatia.jpg"
+      },
+      {
+        "word": "ciudad",
+        "page": 15,
+        "image": "assets/actividades/juancito-medicina-del-viento/ciudad.jpg"
+      },
+      {
+        "word": "cuidado",
+        "page": 20,
+        "image": "assets/actividades/juancito-medicina-del-viento/cuidado.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "nico-comic",
+    "theme": {
+      "primary": "#083b75",
+      "accent": "#f2c32f",
+      "soft": "#eef6fd"
+    },
+    "wordCards": [
+      {
+        "word": "Nico",
+        "page": 2,
+        "image": "assets/actividades/nico-comic/nico.jpg"
+      },
+      {
+        "word": "fútbol",
+        "page": 5,
+        "image": "assets/actividades/nico-comic/futbol.jpg"
+      },
+      {
+        "word": "equipo",
+        "page": 8,
+        "image": "assets/actividades/nico-comic/equipo.jpg"
+      },
+      {
+        "word": "pase",
+        "page": 12,
+        "image": "assets/actividades/nico-comic/pase.jpg"
+      },
+      {
+        "word": "esfuerzo",
+        "page": 18,
+        "image": "assets/actividades/nico-comic/esfuerzo.jpg"
+      },
+      {
+        "word": "perseverancia",
+        "page": 24,
+        "image": "assets/actividades/nico-comic/perseverancia.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "tesoros-de-la-costa",
+    "theme": {
+      "primary": "#155c74",
+      "accent": "#e2a34c",
+      "soft": "#edf8fa"
+    },
+    "wordCards": [
+      {
+        "word": "costa",
+        "page": 2,
+        "image": "assets/actividades/tesoros-de-la-costa/costa.jpg"
+      },
+      {
+        "word": "caracola",
+        "page": 3,
+        "image": "assets/actividades/tesoros-de-la-costa/caracola.jpg"
+      },
+      {
+        "word": "arena",
+        "page": 4,
+        "image": "assets/actividades/tesoros-de-la-costa/arena.jpg"
+      },
+      {
+        "word": "mar",
+        "page": 6,
+        "image": "assets/actividades/tesoros-de-la-costa/mar.jpg"
+      },
+      {
+        "word": "recuerdo",
+        "page": 8,
+        "image": "assets/actividades/tesoros-de-la-costa/recuerdo.jpg"
+      },
+      {
+        "word": "tesoro",
+        "page": 10,
+        "image": "assets/actividades/tesoros-de-la-costa/tesoro.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "thiago-defensor-universo",
+    "theme": {
+      "primary": "#193b67",
+      "accent": "#54a8c8",
+      "soft": "#edf3fb"
+    },
+    "wordCards": [
+      {
+        "word": "Thiago",
+        "page": 2,
+        "image": "assets/actividades/thiago-defensor-universo/thiago.jpg"
+      },
+      {
+        "word": "universo",
+        "page": 3,
+        "image": "assets/actividades/thiago-defensor-universo/universo.jpg"
+      },
+      {
+        "word": "defensor",
+        "page": 5,
+        "image": "assets/actividades/thiago-defensor-universo/defensor.jpg"
+      },
+      {
+        "word": "vida",
+        "page": 7,
+        "image": "assets/actividades/thiago-defensor-universo/vida.jpg"
+      },
+      {
+        "word": "misión",
+        "page": 9,
+        "image": "assets/actividades/thiago-defensor-universo/mision.jpg"
+      },
+      {
+        "word": "planeta",
+        "page": 11,
+        "image": "assets/actividades/thiago-defensor-universo/planeta.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "ukumari-sacha-chapaq",
+    "theme": {
+      "primary": "#35512d",
+      "accent": "#c58d45",
+      "soft": "#f1f5e9"
+    },
+    "wordCards": [
+      {
+        "word": "ukumari",
+        "page": 29,
+        "image": "assets/actividades/ukumari-sacha-chapaq/ukumari.jpg"
+      },
+      {
+        "word": "bosque",
+        "page": 13,
+        "image": "assets/actividades/ukumari-sacha-chapaq/bosque.jpg"
+      },
+      {
+        "word": "oso",
+        "page": 9,
+        "image": "assets/actividades/ukumari-sacha-chapaq/oso.jpg"
+      },
+      {
+        "word": "pacto",
+        "page": 35,
+        "image": "assets/actividades/ukumari-sacha-chapaq/pacto.jpg"
+      },
+      {
+        "word": "humanos",
+        "page": 26,
+        "image": "assets/actividades/ukumari-sacha-chapaq/humanos.jpg"
+      },
+      {
+        "word": "conservación",
+        "page": 46,
+        "image": "assets/actividades/ukumari-sacha-chapaq/conservacion.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "vuelo-resiliencia-corazon-oro-hielo",
+    "theme": {
+      "primary": "#304773",
+      "accent": "#d6a23f",
+      "soft": "#eff3fa"
+    },
+    "wordCards": [
+      {
+        "word": "dragón",
+        "page": 2,
+        "image": "assets/actividades/vuelo-resiliencia-corazon-oro-hielo/dragon.jpg"
+      },
+      {
+        "word": "montaña",
+        "page": 3,
+        "image": "assets/actividades/vuelo-resiliencia-corazon-oro-hielo/montana.jpg"
+      },
+      {
+        "word": "refugio",
+        "page": 4,
+        "image": "assets/actividades/vuelo-resiliencia-corazon-oro-hielo/refugio.jpg"
+      },
+      {
+        "word": "amistad",
+        "page": 6,
+        "image": "assets/actividades/vuelo-resiliencia-corazon-oro-hielo/amistad.jpg"
+      },
+      {
+        "word": "dolor",
+        "page": 8,
+        "image": "assets/actividades/vuelo-resiliencia-corazon-oro-hielo/dolor.jpg"
+      },
+      {
+        "word": "resiliencia",
+        "page": 10,
+        "image": "assets/actividades/vuelo-resiliencia-corazon-oro-hielo/resiliencia.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "rio-un-lugar-cerquita",
+    "theme": {
+      "primary": "#31506d",
+      "accent": "#db9f54",
+      "soft": "#f1f6f8"
+    },
+    "wordCards": [
+      {
+        "word": "Río",
+        "page": 18,
+        "image": "assets/actividades/rio-un-lugar-cerquita/rio.jpg"
+      },
+      {
+        "word": "hogar",
+        "page": 27,
+        "image": "assets/actividades/rio-un-lugar-cerquita/hogar.jpg"
+      },
+      {
+        "word": "familia",
+        "page": 41,
+        "image": "assets/actividades/rio-un-lugar-cerquita/familia.jpg"
+      },
+      {
+        "word": "cuidado",
+        "page": 44,
+        "image": "assets/actividades/rio-un-lugar-cerquita/cuidado.jpg"
+      },
+      {
+        "word": "solidaridad",
+        "page": 53,
+        "image": "assets/actividades/rio-un-lugar-cerquita/solidaridad.jpg"
+      },
+      {
+        "word": "amistad",
+        "page": 56,
+        "image": "assets/actividades/rio-un-lugar-cerquita/amistad.jpg"
+      }
+    ]
+  }
+]

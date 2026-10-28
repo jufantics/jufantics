@@ -117,7 +117,7 @@
         article.dataset.v2Book=`original ${story.title} ${story.subtitle} ${story.genre} ${story.age}`.toLowerCase();
         const status=story.free?'Lectura gratuita':story.genre==='Deporte'?'Cómic JUFANTICS':'Cuento propio JUFANTICS';
         const audio=story.audio?' · Audio de lectura':'';
-        const actions=story.free?`<button class="btn" onclick="openOwnedStory('${story.slug}')">📖 Leer y escuchar gratis</button>`:`<button class="btn" onclick="openOwnedStory('${story.slug}')">Leer</button><button class="btn alt" onclick="openOwnedActivities('${story.slug}','${story.age}')">Actividades</button>`;
+        const actions=story.free?`<button class="btn" onclick="openOwnedStory('${story.slug}')">📖 Leer y escuchar gratis</button><button class="btn alt" onclick="openOwnedActivities('${story.slug}','${story.age}')">Actividades</button>`:`<button class="btn" onclick="openOwnedStory('${story.slug}')">Leer</button><button class="btn alt" onclick="openOwnedActivities('${story.slug}','${story.age}')">Actividades</button>`;
         article.innerHTML=`<div class="v2-cover" style="background-image:url('assets/cuentos/${story.slug}/portada.jpg'),url('assets/cuentos/${story.slug}/pagina-1.jpg')"><span class="v2-label">${story.genre} · ${story.age} años</span></div><div class="v2-book-body"><span class="v2-status">${status}</span><h3>${story.title}</h3><p>${story.subtitle}. ${story.pages} páginas ilustradas${audio}.</p><div class="actions">${actions}</div></div>`;
         shelf.appendChild(article);
       });
