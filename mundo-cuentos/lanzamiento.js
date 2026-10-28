@@ -5,6 +5,10 @@
 
   const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const whatsapp=(message)=>`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
+  const hasFamilyAccess=()=>Boolean(window.JufanticsAccount?.hasAccess?.());
+  const isFreeStory=slug=>document.querySelector(`[data-owned-story="${CSS.escape(slug)}"]`)?.dataset.free==='true';
+  const storyUrl=slug=>slug==='rio-un-lugar-cerquita'?'rio-cuento.html':`lector-cuento.html?cuento=${encodeURIComponent(slug)}`;
+  const activityUrl=(slug,age='6-8')=>`experiencias.html?cuento=${encodeURIComponent(slug)}&edad=${encodeURIComponent(age)}`;
 
   function cancelStrayVoice(){
     if('speechSynthesis' in window)window.speechSynthesis.cancel();
@@ -43,10 +47,12 @@
     if(typeof dialog.showModal==='function')dialog.showModal();else dialog.setAttribute('open','');
   };
   window.openOwnedStory=slug=>{
+    if(hasFamilyAccess()||isFreeStory(slug)){location.href=storyUrl(slug);return}
     const card=document.querySelector(`[data-owned-story="${CSS.escape(slug)}"]`);
     requestPremium(card?.querySelector('h3')?.textContent||'este cuento');
   };
-  window.openOwnedActivities=slug=>{
+  window.openOwnedActivities=(slug,age)=>{
+    if(hasFamilyAccess()||isFreeStory(slug)){location.href=activityUrl(slug,age||document.querySelector(`[data-owned-story="${CSS.escape(slug)}"]`)?.dataset.v2Age);return}
     const card=document.querySelector(`[data-owned-story="${CSS.escape(slug)}"]`);
     requestPremium(card?.querySelector('h3')?.textContent||'este cuento');
   };
@@ -65,12 +71,19 @@
 
   function lockPremiumCards(){
     document.querySelectorAll('[data-owned-story]').forEach(card=>{
-      if(card.dataset.launchLocked==='true')return;
-      card.dataset.launchLocked='true';
+      const slug=card.dataset.ownedStory,free=card.dataset.free==='true',active=hasFamilyAccess();
       const status=card.querySelector('.v2-status');
-      if(status)status.textContent='Catálogo propio · Acceso protegido';
       const actions=card.querySelector('.actions');
-      if(actions)actions.innerHTML=`<button class="btn" onclick="requestPremium('${esc(card.querySelector('h3')?.textContent)}')">Ver opciones de acceso</button>`;
+      if(free){if(status)status.textContent='Lectura gratuita';return}
+      if(active){
+        card.dataset.launchLocked='false';
+        if(status)status.textContent='Cuenta familiar activa · Lectura habilitada';
+        if(actions)actions.innerHTML=`<button class="btn" onclick="openOwnedStory('${esc(slug)}')">Leer</button><button class="btn alt" onclick="openOwnedActivities('${esc(slug)}','${esc(card.dataset.v2Age||'6-8')}')">Actividades</button>`;
+      }else{
+        card.dataset.launchLocked='true';
+        if(status)status.textContent='Catálogo propio · Acceso protegido';
+        if(actions)actions.innerHTML=`<button class="btn" onclick="requestPremium('${esc(card.querySelector('h3')?.textContent)}')">Ver opciones de acceso</button>`;
+      }
     });
   }
 
@@ -90,7 +103,7 @@
     const comic=document.querySelector('#comics .v4-card');
     if(comic){
       const comicActions=comic.querySelector('.actions');
-      if(comicActions)comicActions.innerHTML='<button class="btn" onclick="requestPremium(\'Nico · Cómic de fútbol\')">Ver opciones de acceso</button>';
+      if(comicActions)comicActions.innerHTML=hasFamilyAccess()?'<button class="btn" onclick="openOwnedStory(\'nico-comic\')">Leer</button><button class="btn alt" onclick="openOwnedActivities(\'nico-comic\',\'6-8\')">Actividades</button>':'<button class="btn" onclick="requestPremium(\'Nico · Cómic de fútbol\')">Ver opciones de acceso</button>';
     }
   }
 
@@ -130,5 +143,6 @@
     const originalGo=window.go;
     window.go=function(name){if(name!=='lector')silenceReader();return originalGo(name)};
   },80));
+  document.addEventListener('jufantics:account-changed',()=>{lockPremiumCards();publicLibrary()});
   window.addEventListener('pagehide',silenceReader);
 })();

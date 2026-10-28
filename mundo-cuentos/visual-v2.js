@@ -114,6 +114,8 @@
         const article=document.createElement('article');
         article.className='v2-book owned-story';
         article.dataset.ownedStory=story.slug;
+        article.dataset.free=String(Boolean(story.free));
+        article.dataset.v2Age=story.age;
         article.dataset.v2Book=`original ${story.title} ${story.subtitle} ${story.genre} ${story.age}`.toLowerCase();
         const status=story.free?'Lectura gratuita':story.genre==='Deporte'?'Cómic JUFANTICS':'Cuento propio JUFANTICS';
         const audio=story.audio?' · Audio de lectura':'';
