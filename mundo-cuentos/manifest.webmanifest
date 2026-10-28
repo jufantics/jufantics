@@ -1,0 +1,22 @@
+{
+  "name": "JUFANTICS — Mundo de Cuentos",
+  "short_name": "JUFANTICS",
+  "description": "Historias, lectura acompañada y actividades creativas para disfrutar en familia.",
+  "lang": "es-PE",
+  "id": "./index.html",
+  "start_url": "./index.html#inicio",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f8f6ff",
+  "theme_color": "#302a60",
+  "categories": ["education", "books", "kids"],
+  "icons": [
+    {"src": "logo.jpg", "sizes": "2000x2000", "type": "image/jpeg", "purpose": "any"},
+    {"src": "jufantico_canon.png", "sizes": "1254x1254", "type": "image/png", "purpose": "any maskable"}
+  ],
+  "shortcuts": [
+    {"name": "Biblioteca", "short_name": "Biblioteca", "url": "./index.html#biblioteca", "icons": [{"src": "logo.jpg", "sizes": "2000x2000", "type": "image/jpeg"}]},
+    {"name": "Mi cuenta", "short_name": "Cuenta", "url": "./cuenta.html", "icons": [{"src": "jufantico_canon.png", "sizes": "1254x1254", "type": "image/png"}]}
+  ]
+}
