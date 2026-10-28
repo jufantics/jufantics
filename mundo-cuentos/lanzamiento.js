@@ -27,14 +27,17 @@
   function welcomeVideo(){
     if(document.getElementById('jufanticoWelcome'))return;
     document.body.classList.add('welcome-open');
-    document.body.insertAdjacentHTML('afterbegin',`<section id="jufanticoWelcome" class="welcome-video" role="dialog" aria-modal="true" aria-labelledby="welcomeVideoTitle"><div class="welcome-video-card"><div class="welcome-video-copy"><span>JUFANTICS · Mundo de Cuentos</span><h1 id="welcomeVideoTitle">Jufántico te da la bienvenida</h1><p>Primero nos saludamos. Después se abre la plataforma tal como la conoces.</p></div><video id="jufanticoWelcomeVideo" muted playsinline preload="auto" aria-label="Video de bienvenida de Jufántico"><source src="assets/jufantico-bienvenida.mp4" type="video/mp4"></video><div class="welcome-video-actions"><button class="btn gold" id="welcomeListen" type="button">🔊 Escuchar bienvenida</button><button class="btn light" id="welcomeEnter" type="button">Entrar a Mundo de Cuentos →</button></div><p class="welcome-video-note">El navegador necesita un toque para reproducir sonido. Ningún cuento ni voz comienza automáticamente.</p></div></section>`);
+    document.body.insertAdjacentHTML('afterbegin',`<section id="jufanticoWelcome" class="welcome-video" role="dialog" aria-modal="true" aria-labelledby="welcomeVideoTitle"><div class="welcome-video-card"><button class="welcome-close" id="welcomeClose" type="button" aria-label="Cerrar bienvenida">×</button><div class="welcome-video-copy"><span>JUFANTICS · Mundo de Cuentos</span><h1 id="welcomeVideoTitle">Jufántico te da la bienvenida</h1><p>Primero nos saludamos. Después se abre la plataforma tal como la conoces.</p></div><div class="welcome-media"><img src="jufantico_canon.png" alt="Jufántico, compañero lector de JUFANTICS"><video id="jufanticoWelcomeVideo" muted playsinline preload="metadata" poster="jufantico_canon.png" aria-label="Video de bienvenida de Jufántico"><source src="assets/jufantico-bienvenida.mp4" type="video/mp4"></video></div><div class="welcome-video-actions"><button class="btn gold" id="welcomeListen" type="button">🔊 Escuchar bienvenida</button><button class="btn light" id="welcomeEnter" type="button">Entrar a Mundo de Cuentos →</button><a class="btn alt" href="cuenta.html">Mi cuenta de prueba</a></div><p class="welcome-video-note" id="welcomeVideoNote">El navegador necesita un toque para reproducir sonido. Si el video tarda, Jufántico permanece visible y puedes entrar normalmente.</p></div></section>`);
     const overlay=document.getElementById('jufanticoWelcome');
     const video=document.getElementById('jufanticoWelcomeVideo');
     const close=()=>{video.pause();overlay.classList.add('closing');setTimeout(()=>{overlay.remove();document.body.classList.remove('welcome-open')},260)};
-    document.getElementById('welcomeListen').onclick=()=>{cancelStrayVoice();video.muted=false;video.currentTime=0;video.play().catch(()=>{});document.getElementById('welcomeListen').textContent='⏸ Reproduciendo saludo'};
+    document.getElementById('welcomeClose').onclick=close;
+    document.getElementById('welcomeListen').onclick=()=>{cancelStrayVoice();video.muted=false;video.currentTime=0;video.play().then(()=>{document.getElementById('welcomeListen').textContent='⏸ Reproduciendo saludo'}).catch(()=>{document.getElementById('welcomeVideoNote').textContent='Este teléfono no pudo reproducir el saludo. Puedes entrar a Mundo de Cuentos sin perder ninguna función.'})};
     document.getElementById('welcomeEnter').onclick=close;
     video.addEventListener('ended',close,{once:true});
-    video.play().catch(()=>{/* La bienvenida permanece visible hasta que la familia elija entrar. */});
+    video.addEventListener('playing',()=>overlay.classList.add('video-ready'),{once:true});
+    video.addEventListener('error',()=>{overlay.classList.add('video-unavailable');document.getElementById('welcomeVideoNote').textContent='El saludo en video no está disponible en este teléfono. Jufántico sí te acompaña y puedes entrar normalmente.'},{once:true});
+    video.play().catch(()=>{/* La imagen de Jufántico queda visible hasta que la familia elija entrar. */});
   }
 
   cancelStrayVoice();
