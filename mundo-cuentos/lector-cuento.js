@@ -18,7 +18,7 @@
   $('pageNumber').max=story.pages;
   $('activityLink').href=`experiencias.html?edad=${encodeURIComponent(story.age)}&cuento=${encodeURIComponent(story.slug)}`;
 
-  function imagePath(n){return `assets/cuentos/${story.slug}/pagina-${n}.jpg`}
+  function imagePath(n){return `assets/cuentos/${story.slug}/pagina-${n}.jpg?v=20261029-final`}
   function render(){
     image.src=imagePath(page);
     document.documentElement.style.setProperty('--page-bg',`url('${imagePath(page)}')`);
