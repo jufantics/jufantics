@@ -182,5 +182,20 @@
     "question": "¿Cómo cambia la idea de hogar para Río a lo largo de la historia?",
     "answer": "El hogar deja de ser solo un lugar y se convierte también en cuidado, compañía y personas que vuelven.",
     "movement": "Muévete con pasos suaves de gato, detente a escuchar y busca un lugar imaginario donde sentirte seguro."
+  },
+  {
+    "slug": "dino-mordelones",
+    "title": "Dino Mordelones",
+    "subtitle": "Delta y Blue: la leyenda del Valle Perdido",
+    "genre": "Aventura",
+    "age": "7-9",
+    "pages": 44,
+    "free": true,
+    "audio": true,
+    "keywords": ["Delta", "Blue", "Mordelones", "dinosaurios", "valentía", "amistad", "Valle Perdido"],
+    "sequence": ["Delta aprende que la valentía nace del corazón", "Blue descubre que el miedo también puede enseñar", "Los pequeños Mordelones avanzan unidos para proteger su valle"],
+    "question": "¿Qué descubren Delta y Blue sobre la verdadera valentía?",
+    "answer": "Que ser valiente no significa no sentir miedo, sino ayudar, proteger y seguir adelante junto a los demás.",
+    "movement": "Extiende los brazos como alas, respira despacio y avanza con pasos firmes por el Valle Perdido."
   }
 ]

@@ -3,17 +3,40 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#122746">
   <title>Lector JUFANTICS</title>
   <link rel="stylesheet" href="lector-cuento.css">
 </head>
-<body style="min-height:100vh;display:grid;place-items:center;background:#f5f0ff;padding:24px">
-  <main style="max-width:680px;background:white;border-radius:28px;padding:38px;text-align:center;box-shadow:0 24px 70px #2f1d6420">
-    <img src="jufantico_canon.png" alt="Jufántico" style="width:118px;height:118px;object-fit:contain">
-    <p style="color:#7651b5;font-weight:800;letter-spacing:.08em;text-transform:uppercase">Biblioteca protegida</p>
-    <h1>Esta historia se lee dentro de JUFANTICS</h1>
-    <p>Las páginas de los cuentos propios no se ofrecen como archivos públicos ni descargables. Solicita acceso para continuar la lectura.</p>
-    <p><a href="https://wa.me/51992786715?text=Hola%20JUFANTICS.%20Deseo%20informaci%C3%B3n%20para%20acceder%20a%20la%20biblioteca." style="display:inline-block;background:#5f3dc4;color:white;padding:14px 22px;border-radius:999px;text-decoration:none;font-weight:800">Coordinar acceso por WhatsApp</a></p>
-    <p><a href="index.html#biblioteca">← Volver a la biblioteca</a></p>
+<body>
+  <div class="story-background" aria-hidden="true"></div>
+  <header class="reader-head">
+    <a class="brand" href="index.html#biblioteca"><img src="logo.jpg" alt=""><span>JUFANTICS</span></a>
+    <div class="reader-title"><small id="storyGenre">Cuento propio</small><h1 id="storyTitle">Cargando historia…</h1></div>
+    <a class="back" href="index.html#biblioteca">← Biblioteca</a>
+  </header>
+  <main class="reader-shell">
+    <div class="stage">
+      <button class="turn" id="prevPage" type="button" aria-label="Página anterior">‹</button>
+      <figure class="page-wrap">
+        <img id="pageImage" src="" alt="" draggable="false">
+        <figcaption><span id="pageLabel">Página</span><span id="pageProgress"></span></figcaption>
+      </figure>
+      <button class="turn" id="nextPage" type="button" aria-label="Página siguiente">›</button>
+    </div>
+    <section class="reader-controls" aria-label="Controles de lectura">
+      <button id="listenPage" type="button">🔊 Narración suave</button>
+      <button id="stopVoice" type="button">■ Detener</button>
+      <label>Página <input id="pageNumber" type="number" min="1" value="1"></label>
+      <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+    </section>
+    <aside class="jufantico-note">
+      <img src="jufantico_canon.png" alt="Jufántico">
+      <div><strong>Lee a tu ritmo o escucha conmigo</strong><p id="readerStatus" aria-live="polite">Preparando una voz suave en español.</p></div>
+      <a class="activity-link" id="activityLink" href="experiencias.html">✨ Al terminar</a>
+    </aside>
   </main>
+  <div class="jufantico-orb" aria-hidden="true"><img src="jufantico_canon.png" alt=""><span>Jufántico acompaña</span></div>
+  <script src="voice-latina.js"></script>
+  <script src="lector-cuento.js"></script>
 </body>
 </html>

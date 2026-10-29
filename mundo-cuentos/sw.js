@@ -1,4 +1,4 @@
-const CACHE='jufantics-pwa-20261028-2';
+const CACHE='jufantics-pwa-20261028-3';
 const SHELL=['./','./index.html','./cuenta.html','./offline.html','./manifest.webmanifest','./logo.jpg','./jufantico_canon.png','./visual-v2.css','./visual-v4.css','./lanzamiento.css','./cuenta-familiar.css','./visual-v2.js','./visual-v4.js','./voice-latina.js','./cuenta-familiar.js','./lanzamiento.js','./pwa-register.js'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
