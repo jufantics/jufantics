@@ -6,6 +6,9 @@
   const storySamples=await fetch(`assets/cuentos/${story.slug}/lectura.json`).then(r=>r.ok?r.json():{}).catch(()=>({}));
   const sharedSamples=await fetch('assets/reading-samples.json').then(r=>r.json()).catch(()=>({}));
   const samples=Object.keys(storySamples).length?storySamples:(sharedSamples[story.slug]||{});
+  const recordedChapters=story.slug==='dino-mordelones'?new Set([1,2,4,11,14]):new Set();
+  const chapterForPage=n=>(n>=3&&n<=38)?Math.floor((n-3)/2)+1:null;
+  const recordedAudio=new Audio();
   let page=Math.max(1,Math.min(Number(params.get('pagina'))||1,story.pages));
   const $=id=>document.getElementById(id);
   const image=$('pageImage');
@@ -32,11 +35,23 @@
     $('readerStatus').textContent=hasText?'Narración calmada y expresiva, preparada para acompañar la emoción de esta escena.':'Esta página no contiene narración.';
     history.replaceState(null,'',`?cuento=${encodeURIComponent(story.slug)}&pagina=${page}`);
   }
-  function move(delta){page=Math.max(1,Math.min(story.pages,page+delta));speechSynthesis?.cancel();render()}
+  function stopAudio(){recordedAudio.pause();recordedAudio.currentTime=0;speechSynthesis?.cancel()}
+  function move(delta){page=Math.max(1,Math.min(story.pages,page+delta));stopAudio();render()}
   $('prevPage').onclick=()=>move(-1);$('nextPage').onclick=()=>move(1);
   $('pageNumber').onchange=()=>{page=Math.max(1,Math.min(story.pages,Number($('pageNumber').value)||1));render()};
-  $('listenPage').onclick=()=>{const text=samples[String(page)];if(!text||!('speechSynthesis'in window))return;const voice=JufanticsVoice?.choose?.();$('readerStatus').textContent=voice?`Escuchando con una voz suave: ${voice.name}.`:'Buscando una voz suave en español latino.';JufanticsVoice?.speak(text,{rate:.82,pitch:1.01})};
-  $('stopVoice').onclick=()=>speechSynthesis?.cancel();
+  $('listenPage').onclick=()=>{
+    const chapter=chapterForPage(page);
+    stopAudio();
+    if(chapter&&recordedChapters.has(chapter)){
+      recordedAudio.src=`assets/cuentos/dino-mordelones/audio/capitulo-${String(chapter).padStart(2,'0')}.mp3`;
+      recordedAudio.play();
+      $('readerStatus').textContent=`Escuchando el capítulo ${chapter} con narración cálida y expresiva.`;
+      return;
+    }
+    const text=samples[String(page)];if(!text||!('speechSynthesis'in window))return;
+    const voice=JufanticsVoice?.choose?.();$('readerStatus').textContent=voice?`Escuchando con una voz suave: ${voice.name}.`:'Buscando una voz suave en español latino.';JufanticsVoice?.speak(text,{rate:.82,pitch:1.01});
+  };
+  $('stopVoice').onclick=stopAudio;
   document.addEventListener('keydown',event=>{if(event.key==='ArrowLeft')move(-1);if(event.key==='ArrowRight')move(1)});
   image.onerror=()=>{$('readerStatus').textContent='La imagen de esta página está pendiente de revisión editorial.'};
   document.addEventListener('contextmenu',event=>{if(event.target.closest('#pageImage'))event.preventDefault()});
