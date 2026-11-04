@@ -1,0 +1,38 @@
+/* Archivo de autora: estilos limitados a La autora. */
+#panel-autora{--author-gold:#9b762e}
+#panel-autora .author-eyebrow{display:block;font-size:.7rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#634185;margin-bottom:.8rem}
+#panel-autora .author-intro{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(190px,.7fr);gap:3rem;align-items:center;padding:1rem 0 3rem;border-bottom:1px solid #d9dce3}
+#panel-autora .author-intro h2{font-size:clamp(2.6rem,5vw,4rem);line-height:1.04;margin-bottom:1rem}
+#panel-autora .author-deck{font:600 1.4rem/1.5 'Cormorant Garamond',Georgia,serif;color:#634185}
+#panel-autora .author-portrait{margin:0;text-align:center}
+#panel-autora .author-portrait img{width:100%;max-width:280px;height:auto;margin:auto;border-radius:5px;box-shadow:12px 12px 0 #f0ebf5}
+#panel-autora .author-portrait figcaption{margin-top:1.8rem;font-size:.84rem;color:#45516a}
+#panel-autora .author-portrait em{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.1rem;color:#634185}
+#panel-autora .author-local-nav{display:flex;flex-wrap:wrap;gap:.7rem 1.5rem;padding:1.4rem 0;border-bottom:1px solid #d9dce3;margin-bottom:3rem}
+#panel-autora .author-local-nav a{font-size:.87rem;color:#634185;text-decoration:underline;text-underline-offset:5px}
+#panel-autora .author-story,#panel-autora .author-archive{scroll-margin-top:6rem;margin-bottom:4rem}
+#panel-autora .author-story{max-width:790px}
+#panel-autora h3{font:600 clamp(1.9rem,3vw,2.6rem)/1.2 'Cormorant Garamond',Georgia,serif;color:#182842;margin:0 0 1.4rem}
+#panel-autora .author-story>p{font-size:1.04rem;line-height:1.9}
+#panel-autora .juf-cloud{margin:2.4rem 0 3rem}
+#panel-autora .author-archive-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;margin-top:2rem;align-items:start}
+#panel-autora .manuscript-card{min-width:0;border:1px solid #e2e5eb;border-radius:6px;background:white;overflow:hidden}
+#panel-autora .manuscript-image{display:flex;align-items:center;justify-content:center;background:#f4f1ee;padding:1.2rem;border-bottom:1px solid #e2e5eb}
+#panel-autora .manuscript-image img{display:block;width:auto;height:280px;max-width:100%;object-fit:contain;box-shadow:0 5px 18px #1828421a}
+#panel-autora .manuscript-copy{padding:1.5rem}
+#panel-autora h4{font:600 1.65rem/1.2 'Cormorant Garamond',Georgia,serif;color:#182842;margin:0 0 1rem}
+#panel-autora .manuscript-copy p{font-size:.94rem;line-height:1.8}
+#panel-autora .manuscript-copy blockquote{font:600 italic 1.45rem/1.45 'Cormorant Garamond',Georgia,serif;color:#634185;border-left:2px solid #9b762e;padding-left:1rem;margin:1.2rem 0}
+#panel-autora details{margin-top:1.2rem;border-top:1px solid #e2e5eb;padding-top:1rem}
+#panel-autora summary{cursor:pointer;color:#634185;font-size:.87rem;font-weight:600;line-height:1.6}
+#panel-autora details figure{margin:1rem 0 0}
+#panel-autora details img{width:100%;height:auto;border-radius:3px}
+#panel-autora figcaption{font-size:.78rem;color:#626c7d;line-height:1.5;margin-top:.65rem}
+#panel-autora .manuscript-source a{color:#634185;text-decoration:underline;text-underline-offset:3px;font-size:.8rem}
+#panel-autora .author-archive-note{margin-top:1.7rem;padding:1rem 1.2rem;border-left:2px solid #9b762e;background:#f4f5f8;font-size:.84rem;line-height:1.7;color:#626c7d}
+#panel-autora .author-craft{border-top:1px solid #d9dce3;padding-top:3rem}
+#panel-autora .author-next{margin:2rem 0}
+#panel-autora .author-next a{display:inline-block;margin:.5rem .7rem .5rem 0}
+#panel-autora .author-signature{font:600 italic 1.8rem/1.3 'Cormorant Garamond',Georgia,serif;color:#634185;margin-top:2.5rem}
+#panel-autora .author-signature span{font:500 .8rem/1.5 'DM Sans',sans-serif;color:#626c7d}
+@media(max-width:700px){#panel-autora .author-intro{grid-template-columns:1fr;gap:2rem}#panel-autora .author-portrait{max-width:240px}#panel-autora .author-archive-grid{grid-template-columns:1fr}#panel-autora .manuscript-image img{height:300px}#panel-autora .author-local-nav{gap:1rem}#panel-autora .manuscript-copy{padding:1.3rem}}
