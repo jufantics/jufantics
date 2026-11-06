@@ -1,0 +1,7 @@
+# Configuración local del backend. La clave pública puede estar en el navegador,
+# pero este archivo se completa por ambiente y no se versiona.
+mundo-cuentos/auth-config.js
+
+# Archivos temporales de auditoría y pruebas locales.
+tmp/
+

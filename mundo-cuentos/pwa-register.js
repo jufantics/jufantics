@@ -10,7 +10,7 @@
   }
   window.JufanticsPWA={install,isInstalled:standalone};
   if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){
-    let refreshing=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshing)return;refreshing=true;location.reload()});
-    window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(()=>{}));
+    navigator.serviceWorker.addEventListener('controllerchange',()=>document.dispatchEvent(new CustomEvent('jufantics:pwa-updated')));
+    window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).then(registration=>registration.update()).catch(()=>{}));
   }
 })();

@@ -3,8 +3,10 @@
   const slug=params.get('cuento')||'aventura-ninja';
   const $stories=await fetch('cuentos-propios.json').then(r=>r.json());
   const story=$stories.find(item=>item.slug===slug)||$stories[0];
-  const storySamples=await fetch(`assets/cuentos/${story.slug}/lectura.json`).then(r=>r.ok?r.json():{}).catch(()=>({}));
-  const sharedSamples=await fetch('assets/reading-samples.json').then(r=>r.json()).catch(()=>({}));
+  await window.JufanticsAccess?.prepare?.();
+  if(!window.JufanticsAccess?.requireStory(story))return;
+  const storySamples=story.audio?await fetch(`${story.contentRoot||'assets/cuentos'}/${story.slug}/lectura.json`).then(r=>r.ok?r.json():{}).catch(()=>({})):{};
+  const sharedSamples=await fetch('../assets/reading-samples.json').then(r=>r.ok?r.json():{}).catch(()=>({}));
   const samples=Object.keys(storySamples).length?storySamples:(sharedSamples[story.slug]||{});
   const recordedChapters=story.slug==='dino-mordelones'?new Set([1,2,4,11,14]):new Set();
   const chapterForPage=n=>(n>=3&&n<=38)?Math.floor((n-3)/2)+1:null;
@@ -18,7 +20,7 @@
   $('pageNumber').max=story.pages;
   $('activityLink').href=`experiencias.html?edad=${encodeURIComponent(story.age)}&cuento=${encodeURIComponent(story.slug)}`;
 
-  function imagePath(n){return `assets/cuentos/${story.slug}/pagina-${n}.jpg?v=20261029-nube`}
+  function imagePath(n){return `${story.contentRoot||'assets/cuentos'}/${story.slug}/pagina-${n}.jpg?v=20261105-access`}
   function render(){
     image.src=imagePath(page);
     document.documentElement.style.setProperty('--page-bg',`url('${imagePath(page)}')`);

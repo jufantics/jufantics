@@ -5,10 +5,10 @@
 
   const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const whatsapp=(message)=>`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
-  const hasFamilyAccess=()=>Boolean(window.JufanticsAccount?.hasAccess?.());
+  const hasFamilyAccess=()=>Boolean(window.JufanticsAccess?.hasActiveAccount?.()||window.JufanticsAccount?.hasAccess?.());
   const isFreeStory=slug=>document.querySelector(`[data-owned-story="${CSS.escape(slug)}"]`)?.dataset.free==='true';
   const storyUrl=slug=>slug==='rio-un-lugar-cerquita'?'rio-cuento.html':`lector-cuento.html?cuento=${encodeURIComponent(slug)}`;
-  const activityUrl=(slug,age='6-8')=>`experiencias.html?cuento=${encodeURIComponent(slug)}&edad=${encodeURIComponent(age)}`;
+  const activityUrl=(slug,age='6-8',preview=false)=>`${preview?'actividades-cuento.html':'experiencias.html'}?cuento=${encodeURIComponent(slug)}&edad=${encodeURIComponent(age)}${preview?'&modo=prueba':''}`;
 
   function cancelStrayVoice(){
     if('speechSynthesis' in window)window.speechSynthesis.cancel();
@@ -25,19 +25,19 @@
   }
 
   function welcomeVideo(){
-    if(document.getElementById('jufanticoWelcome'))return;
-    document.body.classList.add('welcome-open');
-    document.body.insertAdjacentHTML('afterbegin',`<section id="jufanticoWelcome" class="welcome-video" role="dialog" aria-modal="true" aria-labelledby="welcomeVideoTitle"><div class="welcome-video-card"><button class="welcome-close" id="welcomeClose" type="button" aria-label="Cerrar bienvenida">×</button><div class="welcome-video-copy"><span>JUFANTICS · Mundo de Cuentos</span><h1 id="welcomeVideoTitle">Jufántico te da la bienvenida</h1><p>Primero nos saludamos. Después se abre la plataforma tal como la conoces.</p></div><div class="welcome-media"><img src="jufantico_canon.png" alt="Jufántico, compañero lector de JUFANTICS"><video id="jufanticoWelcomeVideo" muted playsinline preload="metadata" poster="jufantico_canon.png" aria-label="Video de bienvenida de Jufántico"><source src="assets/jufantico-bienvenida.mp4" type="video/mp4"></video></div><div class="welcome-video-actions"><button class="btn gold" id="welcomeListen" type="button">🔊 Escuchar bienvenida</button><button class="btn light" id="welcomeEnter" type="button">Entrar a Mundo de Cuentos →</button><a class="btn alt" href="cuenta.html">Mi cuenta</a></div><p class="welcome-video-note" id="welcomeVideoNote">El navegador necesita un toque para reproducir sonido. Si el video tarda, Jufántico permanece visible y puedes entrar normalmente.</p></div></section>`);
+    const welcomeKey='jufantics_welcome_seen_v2';
+    if(document.getElementById('jufanticoWelcome')||sessionStorage.getItem(welcomeKey)==='1')return;
+    document.body.insertAdjacentHTML('afterbegin',`<aside id="jufanticoWelcome" class="welcome-video" aria-labelledby="welcomeVideoTitle"><div class="welcome-video-card"><button class="welcome-close" id="welcomeClose" type="button" aria-label="Cerrar bienvenida">×</button><div class="welcome-video-copy"><span>JUFANTICS · Mundo de Cuentos</span><h2 id="welcomeVideoTitle">¡Hola! Soy Jufántico</h2><p>La plataforma ya está lista. Puedes explorar ahora o escuchar mi saludo.</p></div><div class="welcome-media" hidden><img src="jufantico_canon.png" alt="Jufántico, compañero lector de JUFANTICS"><video id="jufanticoWelcomeVideo" muted playsinline preload="none" poster="jufantico_canon.png" aria-label="Video de bienvenida de Jufántico"><source src="assets/jufantico-bienvenida.mp4" type="video/mp4"></video></div><div class="welcome-video-actions"><button class="btn gold" id="welcomeListen" type="button">🔊 Escuchar saludo</button><button class="btn light" id="welcomeEnter" type="button">Seguir explorando</button><a class="btn alt" href="cuenta.html">Mi cuenta</a></div><p class="welcome-video-note" id="welcomeVideoNote">El video solo se descarga si eliges escucharlo.</p></div></aside>`);
     const overlay=document.getElementById('jufanticoWelcome');
     const video=document.getElementById('jufanticoWelcomeVideo');
-    const close=()=>{video.pause();overlay.classList.add('closing');setTimeout(()=>{overlay.remove();document.body.classList.remove('welcome-open')},260)};
+    let autoClose=setTimeout(()=>close(),12000);
+    const close=()=>{clearTimeout(autoClose);video.pause();sessionStorage.setItem(welcomeKey,'1');overlay.classList.add('closing');setTimeout(()=>overlay.remove(),260)};
     document.getElementById('welcomeClose').onclick=close;
-    document.getElementById('welcomeListen').onclick=()=>{cancelStrayVoice();video.muted=false;video.currentTime=0;video.play().then(()=>{document.getElementById('welcomeListen').textContent='⏸ Reproduciendo saludo'}).catch(()=>{document.getElementById('welcomeVideoNote').textContent='Este teléfono no pudo reproducir el saludo. Puedes entrar a Mundo de Cuentos sin perder ninguna función.'})};
+    document.getElementById('welcomeListen').onclick=()=>{clearTimeout(autoClose);cancelStrayVoice();overlay.classList.add('video-playing');overlay.querySelector('.welcome-media').hidden=false;video.muted=false;video.currentTime=0;video.play().then(()=>{document.getElementById('welcomeListen').textContent='⏸ Reproduciendo saludo'}).catch(()=>{document.getElementById('welcomeVideoNote').textContent='Este teléfono no pudo reproducir el saludo. La plataforma sigue disponible.'})};
     document.getElementById('welcomeEnter').onclick=close;
     video.addEventListener('ended',close,{once:true});
     video.addEventListener('playing',()=>overlay.classList.add('video-ready'),{once:true});
     video.addEventListener('error',()=>{overlay.classList.add('video-unavailable');document.getElementById('welcomeVideoNote').textContent='El saludo en video no está disponible en este teléfono. Jufántico sí te acompaña y puedes entrar normalmente.'},{once:true});
-    video.play().catch(()=>{/* La imagen de Jufántico queda visible hasta que la familia elija entrar. */});
   }
 
   cancelStrayVoice();
@@ -58,8 +58,8 @@
     const card=document.querySelector(`[data-owned-story="${CSS.escape(slug)}"]`);
     requestPremium(card?.querySelector('h3')?.textContent||'este cuento');
   };
-  window.openOwnedActivities=(slug,age)=>{
-    if(hasFamilyAccess()||isFreeStory(slug)){location.href=activityUrl(slug,age||document.querySelector(`[data-owned-story="${CSS.escape(slug)}"]`)?.dataset.v2Age);return}
+  window.openOwnedActivities=(slug,age,preview=false)=>{
+    if(hasFamilyAccess()||isFreeStory(slug)||preview){location.href=activityUrl(slug,age||document.querySelector(`[data-owned-story="${CSS.escape(slug)}"]`)?.dataset.v2Age,preview&&!hasFamilyAccess()&&!isFreeStory(slug));return}
     const card=document.querySelector(`[data-owned-story="${CSS.escape(slug)}"]`);
     requestPremium(card?.querySelector('h3')?.textContent||'este cuento');
   };
@@ -73,12 +73,15 @@
     const home=document.getElementById('inicio');
     const anchor=home?.querySelector('.v2-quick');
     if(!anchor||home.querySelector('.launch-offer'))return;
-    anchor.insertAdjacentHTML('afterend',`<section class="launch-offer section" aria-labelledby="launchOfferTitle"><div><div class="eyebrow">Elige cómo empezar</div><h2 id="launchOfferTitle">Una historia gratuita. Una biblioteca para seguir creciendo.</h2><p>Conoce <strong>Los tres cerditos</strong> con lectura, voz y actividades. Si deseas continuar con los cuentos propios, coordinamos el acceso contigo.</p></div><div class="launch-plans"><article><span>Cuenta de lector</span><h3>Acceso gratuito</h3><strong>S/ 0.00</strong><p>Cuento inicial y actividades incluidas.</p><button class="btn light" onclick="go('lector')">Comenzar</button></article><article class="recommended"><span>Acceso flexible</span><h3>Mensual</h3><strong>S/ 9.90</strong><p>Cuenta administradora y un perfil lector durante el mes.</p><button class="btn" onclick="requestPremium('la biblioteca completa','mensual de S/ 9.90')">Solicitar acceso</button></article><article><span>Mejor valor familiar</span><h3>Anual</h3><strong>S/ 50.00</strong><p>Cuenta administradora y hasta dos perfiles lectores durante un año.</p><button class="btn gold" onclick="requestPremium('la biblioteca completa','anual de S/ 50')">Elegir anual</button></article></div><div class="actions"><button class="btn alt" type="button" onclick="JufanticsPWA.install()">📲 Instalar JUFANTICS</button></div><p class="fine">Lanzamiento con confirmación manual. No se activa ninguna renovación ni cargo desde esta página.</p></section>`);
+    anchor.insertAdjacentHTML('afterend',`<section class="launch-offer section" aria-labelledby="launchOfferTitle"><div><div class="eyebrow">Elige cómo empezar</div><h2 id="launchOfferTitle">Tres experiencias gratuitas. Una biblioteca para seguir creciendo.</h2><p>Conoce <strong>Los tres cerditos</strong>, <strong>Río</strong> y <strong>Dino Mordelones</strong> con lectura, voz y actividades. Los demás cuentos propios requieren una cuenta familiar activa.</p></div><div class="launch-plans"><article><span>Cuenta de lector</span><h3>Acceso gratuito</h3><strong>S/ 0.00</strong><p>Tres experiencias de lectura y actividades incluidas.</p><button class="btn light" onclick="go('lector')">Comenzar</button></article><article class="recommended"><span>Acceso flexible</span><h3>Mensual</h3><strong>S/ 9.90</strong><p>Cuenta administradora y un perfil lector durante el mes.</p><button class="btn" onclick="requestPremium('la biblioteca completa','mensual de S/ 9.90')">Solicitar acceso</button></article><article><span>Mejor valor familiar</span><h3>Anual</h3><strong>S/ 50.00</strong><p>Cuenta administradora y hasta dos perfiles lectores durante un año.</p><button class="btn gold" onclick="requestPremium('la biblioteca completa','anual de S/ 50')">Elegir anual</button></article></div><div class="actions"><button class="btn alt" type="button" onclick="JufanticsPWA.install()">📲 Instalar JUFANTICS</button></div><p class="fine">Lanzamiento con confirmación manual. No se activa ninguna renovación ni cargo desde esta página.</p></section>`);
   }
 
   function lockPremiumCards(){
     document.querySelectorAll('[data-owned-story]').forEach(card=>{
       const slug=card.dataset.ownedStory,free=card.dataset.free==='true',active=hasFamilyAccess();
+      const mode=free?'free':active?'active':'locked';
+      if(card.dataset.launchMode===mode)return;
+      card.dataset.launchMode=mode;
       const status=card.querySelector('.v2-status');
       const actions=card.querySelector('.actions');
       if(free){if(status)status.textContent='Lectura gratuita';return}
@@ -89,7 +92,7 @@
       }else{
         card.dataset.launchLocked='true';
         if(status)status.textContent='Catálogo propio · Acceso protegido';
-        if(actions)actions.innerHTML=`<button class="btn" onclick="requestPremium('${esc(card.querySelector('h3')?.textContent)}')">Ver opciones de acceso</button>`;
+        if(actions)actions.innerHTML=`<button class="btn alt" onclick="openOwnedActivities('${esc(slug)}','${esc(card.dataset.v2Age||'6-8')}',true)">Probar 2 actividades</button><button class="btn" onclick="requestPremium('${esc(card.querySelector('h3')?.textContent)}')">Ver acceso completo</button>`;
       }
     });
   }
@@ -102,7 +105,7 @@
       new MutationObserver(lockPremiumCards).observe(shelf,{childList:true,subtree:true});
     }
     const note=document.querySelector('.v2-shelf-note');
-    if(note)note.innerHTML='<h3>Una biblioteca cuidada, no una carpeta de descargas</h3><p>Los cuentos propios se leen dentro de la experiencia JUFANTICS. El cuento piloto es gratuito; los demás se habilitan con acceso confirmado. Los libros de terceros solo aparecen como referencias editoriales mientras se verifican derechos.</p><div class="v2-audit"><span>1 experiencia gratuita</span><span>13 historias propias</span><span>0 libros de terceros publicados</span></div>';
+    if(note)note.innerHTML='<h3>Una biblioteca cuidada, no una carpeta de descargas</h3><p>Los cuentos propios se leen dentro de la experiencia JUFANTICS. Los tres cerditos, Río y Dino Mordelones son gratuitos; los otros trece cuentos se habilitan con una cuenta familiar activa. Los libros de terceros solo aparecen como referencias editoriales mientras se verifican derechos.</p><div class="v2-audit"><span>3 experiencias gratuitas</span><span>13 cuentos premium</span><span>0 libros de terceros publicados</span></div>';
     const intro=document.querySelector('#biblioteca .v4-policy');
     if(intro)intro.innerHTML='<strong>Lectura en pantalla.</strong> Los libros no incluyen descarga. Puedes conservar únicamente tus dibujos, textos, diplomas y creaciones propias.';
     const ownStories=document.querySelector('.v2-featured-book .v2-book-body p');

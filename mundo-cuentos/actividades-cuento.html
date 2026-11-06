@@ -20,7 +20,7 @@
     <section class="mission-hero">
       <img src="jufantico_canon.png" alt="Jufántico acompaña las misiones">
       <div><span class="mission-tag">Después de leer</span><h1 id="title">Misiones del cuento</h1><p>Escucha, descubre, ordena, muévete y crea. Puedes cambiar de misión cuando quieras.</p></div>
-      <div class="mission-visit"><strong id="visitCount">0 de 8</strong><span>misiones exploradas en esta sesión</span></div>
+      <div class="mission-visit"><strong id="visitCount">0 de 9</strong><span>misiones exploradas en esta sesión</span></div>
       <div class="age-picker" aria-label="Grupo de edad"><span>Experiencia para</span><div><button data-age="3-5">3–5</button><button class="active" data-age="6-8">6–8</button><button data-age="9-12">9–12</button><button data-age="13-16">13–16</button></div></div>
     </section>
 
@@ -33,6 +33,7 @@
       <button data-tab="question" role="tab"><span>🏡</span>Comprende jugando</button>
       <button data-tab="move" role="tab"><span>🥷</span>Muévete</button>
       <button data-tab="create" role="tab"><span>🎨</span>Dibuja y crea</button>
+      <button data-tab="challenge" role="tab"><span>🌟</span>Reto final</button>
     </nav>
 
     <section class="mission-panel" data-view="bank" role="tabpanel">
@@ -75,9 +76,17 @@
       <div class="creation-layout"><div><div class="paint-toolbar" aria-label="Herramientas de dibujo"><button class="active" data-tool="pencil">✏️ Lápiz</button><button data-tool="marker">🖊️ Plumón</button><button data-tool="brush">🖌️ Pincel</button><button data-tool="bucket">🪣 Balde</button><button data-tool="eraser">◻️ Borrador</button></div><div class="shape-toolbar" aria-label="Figuras geométricas"><span>Figuras</span><button data-tool="line">／ Línea</button><button data-tool="rectangle">▭ Rectángulo</button><button data-tool="circle">◯ Círculo</button><button data-tool="triangle">△ Triángulo</button><button id="coloringMode">🏡 Colorear casitas</button></div><div class="palette" aria-label="12 colores"><button class="color active" data-color="#17345a" style="--swatch:#17345a" aria-label="Azul marino"></button><button class="color" data-color="#3478d4" style="--swatch:#3478d4" aria-label="Azul"></button><button class="color" data-color="#55b9e8" style="--swatch:#55b9e8" aria-label="Celeste"></button><button class="color" data-color="#e8645a" style="--swatch:#e8645a" aria-label="Rojo"></button><button class="color" data-color="#f28b30" style="--swatch:#f28b30" aria-label="Naranja"></button><button class="color" data-color="#e7b74d" style="--swatch:#e7b74d" aria-label="Amarillo"></button><button class="color" data-color="#4f9b69" style="--swatch:#4f9b69" aria-label="Verde"></button><button class="color" data-color="#7a59c4" style="--swatch:#7a59c4" aria-label="Violeta"></button><button class="color" data-color="#ee73ad" style="--swatch:#ee73ad" aria-label="Rosado"></button><button class="color" data-color="#8b5a3c" style="--swatch:#8b5a3c" aria-label="Marrón"></button><button class="color" data-color="#242733" style="--swatch:#242733" aria-label="Negro"></button><button class="color" data-color="#ffffff" style="--swatch:#ffffff" aria-label="Blanco"></button></div><label class="brush-size" for="brushSize">Tamaño <input id="brushSize" type="range" min="3" max="36" value="12"><output id="brushSizeOutput">12</output></label><canvas id="creationCanvas" width="900" height="540" aria-label="Lienzo para crear una escena"></canvas><div class="create-actions"><button id="undoCanvas">↶ Deshacer</button><button id="clearCanvas">Limpiar</button><button id="saveCanvas">Guardar mi dibujo</button></div><p class="paint-status" id="paintStatus" role="status">Lápiz listo. Elige un color y comienza.</p></div><div><label for="creationText"><strong>Cuenta qué sucede en tu escena</strong></label><textarea id="creationText" placeholder="En mi nueva escena..."></textarea><div class="create-actions"><button id="hearCreation">🔊 Escuchar mi historia</button><button id="printCreation">🖨️ Imprimir mi creación</button></div><p class="privacy-note">No se guarda ningún libro ni página original. El texto y el dibujo permanecen en este dispositivo.</p></div></div>
     </section>
 
+    <section class="mission-panel hidden" data-view="challenge" role="tabpanel">
+      <div class="mission-heading"><div><span>🌟 MISIÓN 9</span><h2 id="challengeTitle">Reto final</h2><p id="challengePrompt">Usa lo que descubriste para completar un reto propio.</p></div><button class="voice-button" id="hearChallenge">🔊 Escuchar reto</button></div>
+      <div class="creation-layout"><div><label for="challengeText"><strong>Mi respuesta al reto</strong></label><textarea id="challengeText" placeholder="Escribe, explica o inventa tu respuesta..."></textarea><div class="create-actions"><button id="completeChallenge">⭐ Completar reto</button><button id="printChallenge">🖨️ Imprimir mi reto</button></div><p class="feedback" id="challengeFeedback" role="status">No hay puntaje ni competencia. El reto se completa a tu manera.</p></div><div class="word-reveal"><img id="challengeImage" src="jufantico_canon.png" alt="Jufántico acompaña el reto final"><small>Reto lector</small><strong>Piensa, crea y comparte si deseas</strong></div></div>
+    </section>
+
     <nav class="mission-footer-nav" aria-label="Final de las actividades"><a href="index.html#inicio">⌂ Volver a Inicio</a><a href="index.html#biblioteca">📚 Ir a la biblioteca</a><a id="storyLinkBottom" href="index.html#biblioteca">📖 Volver al cuento</a></nav>
   </main>
   <script src="voice-latina.js"></script>
-  <script src="actividades-cuento.js?v=editorial-20261027"></script>
+  <script src="auth-config.public.js?v=20261105-1"></script>
+  <script src="auth-supabase.js?v=20261105-1"></script>
+  <script src="access-control.js?v=20261105-1"></script>
+  <script src="actividades-cuento.js?v=editorial-20261105"></script>
 </body>
 </html>

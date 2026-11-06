@@ -558,5 +558,45 @@
         "image": "assets/actividades/rio-un-lugar-cerquita/amistad.jpg"
       }
     ]
+  },
+  {
+    "slug": "dino-mordelones",
+    "theme": {
+      "primary": "#315b75",
+      "accent": "#e1aa47",
+      "soft": "#edf6f3"
+    },
+    "wordCards": [
+      {
+        "word": "Delta",
+        "page": 5,
+        "image": "assets/cuentos/dino-mordelones/pagina-5.jpg"
+      },
+      {
+        "word": "Blue",
+        "page": 25,
+        "image": "assets/cuentos/dino-mordelones/pagina-25.jpg"
+      },
+      {
+        "word": "valle",
+        "page": 3,
+        "image": "assets/cuentos/dino-mordelones/pagina-3.jpg"
+      },
+      {
+        "word": "alas",
+        "page": 10,
+        "image": "assets/cuentos/dino-mordelones/pagina-10.jpg"
+      },
+      {
+        "word": "amistad",
+        "page": 8,
+        "image": "assets/cuentos/dino-mordelones/pagina-8.jpg"
+      },
+      {
+        "word": "valentía",
+        "page": 35,
+        "image": "assets/cuentos/dino-mordelones/pagina-35.jpg"
+      }
+    ]
   }
 ]
