@@ -3,7 +3,7 @@
   const slug=params.get('cuento')||'aventura-ninja';
   const $stories=await fetch('cuentos-propios.json').then(r=>r.json());
   const story=$stories.find(item=>item.slug===slug)||$stories[0];
-  await window.JufanticsAccess?.prepare?.();
+  await window.JufanticsAccess?.prepare?.(story);
   if(!window.JufanticsAccess?.requireStory(story))return;
   const storySamples=story.audio?await fetch(`${story.contentRoot||'assets/cuentos'}/${story.slug}/lectura.json`).then(r=>r.ok?r.json():{}).catch(()=>({})):{};
   const sharedSamples=await fetch('../assets/reading-samples.json').then(r=>r.ok?r.json():{}).catch(()=>({}));

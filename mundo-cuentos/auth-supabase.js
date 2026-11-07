@@ -1,11 +1,18 @@
 (function(){
   const config=window.JUFANTICS_AUTH_CONFIG||{};
   const configured=Boolean(config.enabled&&config.supabaseUrl&&config.publishableKey);
-  let client=null,state=null,bootPromise=null;
+  let client=null,state=null,bootPromise=null,recoveryMode=false;
+  const accountUrl=config.accountUrl||new URL('cuenta.html',location.href).href.split('#')[0];
   const emit=()=>document.dispatchEvent(new CustomEvent('jufantics:remote-auth-changed',{detail:state}));
   const loadSdk=()=>new Promise((resolve,reject)=>{
     if(window.supabase?.createClient){resolve();return}
-    const script=document.createElement('script');script.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';script.onload=resolve;script.onerror=()=>reject(new Error('No se pudo cargar el servicio de acceso.'));document.head.appendChild(script);
+    const script=document.createElement('script');
+    const done=callback=>{clearTimeout(timer);script.onload=null;script.onerror=null;callback()};
+    const timer=setTimeout(()=>{script.remove();done(()=>reject(new Error('El servicio de acceso no respondió. La lectura gratuita sigue disponible.')))},8000);
+    script.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';script.async=true;
+    script.onload=()=>done(resolve);
+    script.onerror=()=>done(()=>reject(new Error('No se pudo cargar el servicio de acceso. La lectura gratuita sigue disponible.')));
+    document.head.appendChild(script);
   });
   async function refresh(){
     if(!client)return null;
@@ -17,19 +24,40 @@
       client.rpc('jufantics_has_active_access')
     ]);
     if(profileError)throw profileError;if(householdError)throw householdError;if(accessError)throw accessError;
-    state={user:session.user,profile,household,hasAccess:Boolean(access)};emit();return state;
+    state={user:session.user,profile,household,hasAccess:Boolean(access),recoveryMode};emit();return state;
   }
   async function boot(){
     if(!configured)return null;
+    if(client)return refresh();
     await loadSdk();
     client=window.supabase.createClient(config.supabaseUrl,config.publishableKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
-    client.auth.onAuthStateChange(()=>setTimeout(()=>refresh().catch(error=>document.dispatchEvent(new CustomEvent('jufantics:remote-auth-error',{detail:error}))),0));
+    client.auth.onAuthStateChange(event=>{
+      recoveryMode=event==='PASSWORD_RECOVERY'||recoveryMode&&event!=='SIGNED_OUT';
+      if(event==='SIGNED_OUT')recoveryMode=false;
+      setTimeout(()=>refresh().catch(error=>document.dispatchEvent(new CustomEvent('jufantics:remote-auth-error',{detail:error}))),0);
+    });
     return refresh();
   }
-  const ready=()=>bootPromise||(bootPromise=boot());
+  const ready=()=>bootPromise||(bootPromise=boot().catch(error=>{bootPromise=null;throw error}));
   async function signIn(email,password){await ready();const {error}=await client.auth.signInWithPassword({email,password});if(error)throw error;return refresh()}
   async function signOut(){if(!client)return;const {error}=await client.auth.signOut();if(error)throw error;state=null;emit()}
-  window.JufanticsRemoteAuth={configured,ready,refresh,signIn,signOut,snapshot:()=>state,client:()=>client};
+  async function signUp(displayName,email,password){
+    await ready();
+    const {data,error}=await client.auth.signUp({email,password,options:{data:{display_name:displayName},emailRedirectTo:accountUrl}});
+    if(error)throw error;return data;
+  }
+  async function resetPassword(email){await ready();const {error}=await client.auth.resetPasswordForEmail(email,{redirectTo:accountUrl});if(error)throw error}
+  async function updatePassword(password){await ready();const {error}=await client.auth.updateUser({password});if(error)throw error;recoveryMode=false;return refresh()}
+  async function addChildProfile(alias){
+    await ready();const household=state?.household;if(!household)throw new Error('La cuenta todavía no tiene un plan familiar.');
+    const {error}=await client.from('child_profiles').insert({household_id:household.id,alias});if(error)throw error;return refresh();
+  }
+  async function removeChildProfile(id){await ready();const {error}=await client.from('child_profiles').delete().eq('id',id);if(error)throw error;return refresh()}
+  async function requestPlan(plan){await ready();const {data,error}=await client.rpc('jufantics_request_plan',{requested_plan:plan});if(error)throw error;return data}
+  async function listAccounts(){await ready();const {data,error}=await client.rpc('jufantics_admin_accounts');if(error)throw error;return data||[]}
+  async function adminSetSubscription(userId,plan,status,paymentAmount,verificationReference){
+    await ready();const {data,error}=await client.rpc('jufantics_admin_set_subscription',{target_user:userId,target_plan:plan,target_status:status,payment_amount:paymentAmount,verification_reference:verificationReference});if(error)throw error;return data;
+  }
+  window.JufanticsRemoteAuth={configured,ready,refresh,signIn,signOut,signUp,resetPassword,updatePassword,addChildProfile,removeChildProfile,requestPlan,listAccounts,adminSetSubscription,snapshot:()=>state,client:()=>client};
   ready().catch(error=>document.dispatchEvent(new CustomEvent('jufantics:remote-auth-error',{detail:error})));
 })();
-

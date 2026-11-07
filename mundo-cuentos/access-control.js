@@ -14,7 +14,17 @@
   }
   const tier=story=>story?.access||(story?.free?'free':'premium');
   const canOpen=story=>tier(story)==='free'||hasActiveAccount();
-  const prepare=async()=>{if(window.JufanticsRemoteAuth?.configured)await window.JufanticsRemoteAuth.ready();return hasActiveAccount()};
+  const waitLimit=(promise,milliseconds=6500)=>Promise.race([
+    promise,
+    new Promise((_,reject)=>setTimeout(()=>reject(new Error('El servicio de acceso tarda demasiado en responder.')),milliseconds))
+  ]);
+  const prepare=async story=>{
+    if(tier(story)==='free')return true;
+    if(!window.JufanticsRemoteAuth?.configured)return hasActiveAccount();
+    try{await waitLimit(window.JufanticsRemoteAuth.ready())}
+    catch(error){document.dispatchEvent(new CustomEvent('jufantics:remote-auth-error',{detail:error}))}
+    return hasActiveAccount();
+  };
   function requireStory(story){
     if(canOpen(story))return true;
     alert('Este cuento y sus actividades requieren una cuenta familiar activa.');

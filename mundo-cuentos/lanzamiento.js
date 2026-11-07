@@ -1,10 +1,8 @@
 (function(){
-  const WHATSAPP='51992786715';
   const monthly='S/ 9.90 al mes';
   const annual='S/ 50 al año';
 
   const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-  const whatsapp=(message)=>`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
   const hasFamilyAccess=()=>Boolean(window.JufanticsAccess?.hasActiveAccount?.()||window.JufanticsAccount?.hasAccess?.());
   const isFreeStory=slug=>document.querySelector(`[data-owned-story="${CSS.escape(slug)}"]`)?.dataset.free==='true';
   const storyUrl=slug=>slug==='rio-un-lugar-cerquita'?'rio-cuento.html':`lector-cuento.html?cuento=${encodeURIComponent(slug)}`;
@@ -12,6 +10,11 @@
 
   function cancelStrayVoice(){
     if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  }
+
+  function applyAudience(){
+    const childMode=window.JufanticsAccount?.active?.().type==='minor';
+    document.querySelectorAll('[data-adult-commercial]').forEach(element=>{element.hidden=childMode});
   }
 
   function silenceReader(){
@@ -50,7 +53,9 @@
     const dialog=document.getElementById('launchAccess');
     const selected=plan?` Me interesa el plan ${plan}.`:'';
     document.getElementById('launchStory').textContent=title;
-    document.getElementById('launchWhatsApp').href=whatsapp(`Hola JUFANTICS. Deseo información para acceder a ${title}.${selected}`);
+    const subject=encodeURIComponent('Solicitud de acceso JUFANTICS');
+    const body=encodeURIComponent(`Hola JUFANTICS:\n\nDeseo información privada para acceder a ${title}.${selected}\n\nComprendo que no existe cobro automático.`);
+    document.getElementById('launchWhatsApp').href=`mailto:jufantics@gmail.com?subject=${subject}&body=${body}`;
     if(typeof dialog.showModal==='function')dialog.showModal();else dialog.setAttribute('open','');
   };
   window.openOwnedStory=slug=>{
@@ -66,14 +71,14 @@
 
   function accessDialog(){
     if(document.getElementById('launchAccess'))return;
-    document.body.insertAdjacentHTML('beforeend',`<dialog id="launchAccess" class="launch-dialog" aria-labelledby="launchAccessTitle"><button class="launch-close" aria-label="Cerrar" onclick="this.closest('dialog').close()">×</button><div class="eyebrow">Zona adulta · Acceso acompañado</div><h2 id="launchAccessTitle">Biblioteca JUFANTICS</h2><p><strong id="launchStory">Este cuento</strong> forma parte del catálogo propio. Sus páginas no se publican como archivos descargables.</p><div class="launch-mini-plans"><span>${monthly} · 1 perfil menor</span><span>${annual} · hasta 2 perfiles menores</span></div><p class="fine">El pago y los datos de acceso se gestionan solo con el adulto. La web no realiza cargos automáticos.</p><div class="actions"><a id="launchWhatsApp" class="btn gold" target="_blank" rel="noopener">Coordinar por WhatsApp</a><a class="btn alt" href="mailto:jufantics@gmail.com">Escribir a JUFANTICS</a><button class="btn light" onclick="this.closest('dialog').close()">Seguir explorando</button></div></dialog>`);
+    document.body.insertAdjacentHTML('beforeend',`<dialog id="launchAccess" class="launch-dialog" data-adult-commercial aria-labelledby="launchAccessTitle"><button class="launch-close" aria-label="Cerrar" onclick="this.closest('dialog').close()">×</button><div class="eyebrow">Zona adulta · Acceso acompañado</div><h2 id="launchAccessTitle">Biblioteca JUFANTICS</h2><p><strong id="launchStory">Este cuento</strong> forma parte del catálogo propio. Sus páginas no se publican como archivos descargables.</p><div class="launch-mini-plans"><span>${monthly} · 1 perfil menor</span><span>${annual} · hasta 2 perfiles menores</span></div><p class="fine">La solicitud y la verificación se gestionan de forma privada con la persona adulta. La web no realiza cargos automáticos.</p><div class="actions"><a id="launchWhatsApp" class="btn gold">Solicitar por correo</a><button class="btn light" onclick="this.closest('dialog').close()">Seguir explorando</button></div></dialog>`);
   }
 
   function subscription(){
     const home=document.getElementById('inicio');
     const anchor=home?.querySelector('.v2-quick');
     if(!anchor||home.querySelector('.launch-offer'))return;
-    anchor.insertAdjacentHTML('afterend',`<section class="launch-offer section" aria-labelledby="launchOfferTitle"><div><div class="eyebrow">Elige cómo empezar</div><h2 id="launchOfferTitle">Tres experiencias gratuitas. Una biblioteca para seguir creciendo.</h2><p>Conoce <strong>Los tres cerditos</strong>, <strong>Río</strong> y <strong>Dino Mordelones</strong> con lectura, voz y actividades. Los demás cuentos propios requieren una cuenta familiar activa.</p></div><div class="launch-plans"><article><span>Cuenta de lector</span><h3>Acceso gratuito</h3><strong>S/ 0.00</strong><p>Tres experiencias de lectura y actividades incluidas.</p><button class="btn light" onclick="go('lector')">Comenzar</button></article><article class="recommended"><span>Acceso flexible</span><h3>Mensual</h3><strong>S/ 9.90</strong><p>Cuenta administradora y un perfil lector durante el mes.</p><button class="btn" onclick="requestPremium('la biblioteca completa','mensual de S/ 9.90')">Solicitar acceso</button></article><article><span>Mejor valor familiar</span><h3>Anual</h3><strong>S/ 50.00</strong><p>Cuenta administradora y hasta dos perfiles lectores durante un año.</p><button class="btn gold" onclick="requestPremium('la biblioteca completa','anual de S/ 50')">Elegir anual</button></article></div><div class="actions"><button class="btn alt" type="button" onclick="JufanticsPWA.install()">📲 Instalar JUFANTICS</button></div><p class="fine">Lanzamiento con confirmación manual. No se activa ninguna renovación ni cargo desde esta página.</p></section>`);
+    anchor.insertAdjacentHTML('afterend',`<section class="launch-offer section" data-adult-commercial aria-labelledby="launchOfferTitle"><div><div class="eyebrow">Elige cómo empezar</div><h2 id="launchOfferTitle">Tres experiencias gratuitas. Una biblioteca para seguir creciendo.</h2><p>Conoce <strong>Los tres cerditos</strong>, <strong>Río</strong> y <strong>Dino Mordelones</strong> con lectura, voz y actividades. Los demás cuentos propios requieren una cuenta familiar activa.</p></div><div class="launch-plans"><article><span>Cuenta de lector</span><h3>Acceso gratuito</h3><strong>S/ 0.00</strong><p>Tres experiencias de lectura y actividades incluidas.</p><button class="btn light" onclick="go('lector')">Comenzar</button></article><article class="recommended"><span>Acceso flexible</span><h3>Mensual</h3><strong>S/ 9.90</strong><p>Cuenta adulta y un perfil lector durante el mes.</p><button class="btn" onclick="requestPremium('la biblioteca completa','mensual de S/ 9.90')">Solicitar acceso</button></article><article><span>Mejor valor familiar</span><h3>Anual</h3><strong>S/ 50.00</strong><p>Cuenta adulta y hasta dos perfiles lectores durante un año.</p><button class="btn gold" onclick="requestPremium('la biblioteca completa','anual de S/ 50')">Elegir anual</button></article></div><div class="actions"><button class="btn alt" type="button" onclick="JufanticsPWA.install()">📲 Instalar JUFANTICS</button></div><p class="fine">Solicitud y verificación manual por correo. No se activa ninguna renovación ni cargo desde esta página.</p></section>`);
   }
 
   function lockPremiumCards(){
@@ -141,18 +146,19 @@
     const readerNote=document.querySelector('#lector .fine');
     if(readerNote)readerNote.textContent='La narración utiliza la voz disponible en tu dispositivo. El cuento y sus actividades permanecen dentro de la plataforma.';
     const footer=document.querySelector('.footer');
-    if(footer)footer.innerHTML='JUFANTICS — La imaginación cobra vida · Lectura protegida · <a href="mailto:jufantics@gmail.com">jufantics@gmail.com</a> · <a href="https://wa.me/51992786715" target="_blank" rel="noopener">WhatsApp</a>';
+    if(footer)footer.innerHTML='JUFANTICS — La imaginación cobra vida · Lectura protegida · <a href="legal.html#privacidad">Privacidad</a> · <a href="legal.html#terminos">Términos</a> · <a href="legal.html#soporte">Soporte</a> · <a href="mailto:jufantics@gmail.com">jufantics@gmail.com</a>';
     const guide=document.querySelector('.nav [data-page="lecturas"]');
     if(guide)guide.textContent='Guía de 60';
   }
 
   document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{
-    cancelStrayVoice();welcomeVideo();accessDialog();subscription();publicLibrary();publicDomain();launchCopy();
+    cancelStrayVoice();welcomeVideo();accessDialog();subscription();publicLibrary();publicDomain();launchCopy();applyAudience();
     const frame=document.querySelector('#lector iframe.readerframe');
     frame?.addEventListener('load',silenceReader);
     const originalGo=window.go;
     window.go=function(name){if(name!=='lector')silenceReader();return originalGo(name)};
   },80));
-  document.addEventListener('jufantics:account-changed',()=>{lockPremiumCards();publicLibrary()});
+  document.addEventListener('jufantics:account-changed',()=>{lockPremiumCards();publicLibrary();applyAudience()});
+  document.addEventListener('jufantics:remote-auth-changed',()=>{lockPremiumCards();publicLibrary();applyAudience()});
   window.addEventListener('pagehide',silenceReader);
 })();
