@@ -3,17 +3,23 @@
   const configured=Boolean(config.enabled&&config.supabaseUrl&&config.publishableKey);
   let client=null,state=null,bootPromise=null,recoveryMode=false;
   const accountUrl=config.accountUrl||new URL('cuenta.html',location.href).href.split('#')[0];
+  const moduleUrl=document.currentScript?.src||new URL('auth-supabase.js',location.href).href;
+  const localSdkUrl=new URL('vendor/supabase-2.119.0.min.js',moduleUrl).href;
   const emit=()=>document.dispatchEvent(new CustomEvent('jufantics:remote-auth-changed',{detail:state}));
-  const loadSdk=()=>new Promise((resolve,reject)=>{
-    if(window.supabase?.createClient){resolve();return}
+  const loadScript=(src,timeout)=>new Promise((resolve,reject)=>{
     const script=document.createElement('script');
     const done=callback=>{clearTimeout(timer);script.onload=null;script.onerror=null;callback()};
-    const timer=setTimeout(()=>{script.remove();done(()=>reject(new Error('El servicio de acceso no respondió. La lectura gratuita sigue disponible.')))},8000);
-    script.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';script.async=true;
+    const timer=setTimeout(()=>{script.remove();done(()=>reject(new Error('Tiempo de espera agotado.')))},timeout);
+    script.src=src;script.async=true;
     script.onload=()=>done(resolve);
-    script.onerror=()=>done(()=>reject(new Error('No se pudo cargar el servicio de acceso. La lectura gratuita sigue disponible.')));
+    script.onerror=()=>done(()=>reject(new Error('No se pudo cargar el cliente.')));
     document.head.appendChild(script);
   });
+  const loadSdk=async()=>{
+    if(window.supabase?.createClient)return;
+    try{await loadScript(localSdkUrl,4000)}catch{await loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.0/dist/umd/supabase.min.js',8000)}
+    if(!window.supabase?.createClient)throw new Error('El servicio de acceso no respondió. La lectura gratuita sigue disponible.');
+  };
   async function refresh(){
     if(!client)return null;
     const {data:{session}}=await client.auth.getSession();

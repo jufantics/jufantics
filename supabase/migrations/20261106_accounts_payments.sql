@@ -50,6 +50,10 @@ as $$
 declare new_id uuid; selected_plan public.jufantics_plan;
 begin
   if (select auth.uid()) is null then raise exception 'Debes iniciar sesion'; end if;
+  if not exists (
+    select 1 from public.profiles
+    where user_id=(select auth.uid()) and role='adult'
+  ) then raise exception 'Solo una cuenta adulta puede solicitar un plan'; end if;
   if requested_plan not in ('monthly','annual') then raise exception 'Plan no valido'; end if;
   selected_plan:=requested_plan::public.jufantics_plan;
 
@@ -105,10 +109,13 @@ language plpgsql
 security definer
 set search_path = ''
 as $$
-declare household_id uuid; selected_plan public.jufantics_plan; selected_status public.jufantics_subscription_status;
+declare result_household_id uuid; selected_plan public.jufantics_plan; selected_status public.jufantics_subscription_status;
   regular_amount numeric(8,2); selected_limit smallint; expiry timestamptz;
 begin
   if not public.jufantics_is_admin() then raise exception 'Acceso administrativo requerido'; end if;
+  if not exists (
+    select 1 from public.profiles where user_id=target_user and role='adult'
+  ) then raise exception 'La suscripcion solo puede asignarse a una cuenta adulta'; end if;
   if target_plan not in ('monthly','annual') then raise exception 'Plan no valido'; end if;
   if target_status not in ('pending','active','expired','cancelled') then raise exception 'Estado no valido'; end if;
   if trim(coalesce(verification_reference,''))='' then raise exception 'Registra la referencia privada de verificacion'; end if;
@@ -118,7 +125,12 @@ begin
   selected_status:=target_status::public.jufantics_subscription_status;
   selected_limit:=case when selected_plan='monthly' then 1 else 2 end;
   regular_amount:=case when selected_plan='monthly' then 9.90 else 50.00 end;
-  expiry:=case when selected_plan='monthly' then now()+interval '1 month' else now()+interval '1 year' end;
+  if payment_amount>regular_amount then raise exception 'El monto supera el precio del plan'; end if;
+  expiry:=case
+    when selected_status<>'active' then now()
+    when selected_plan='monthly' then now()+interval '1 month'
+    else now()+interval '1 year'
+  end;
 
   insert into public.households(owner_user_id,plan,profile_limit,status,regular_price_pen,discount_pen,total_paid_pen,starts_at,expires_at)
   values(target_user,selected_plan,selected_limit,selected_status,regular_amount,greatest(regular_amount-payment_amount,0),payment_amount,now(),expiry)
@@ -126,17 +138,33 @@ begin
     plan=excluded.plan,profile_limit=excluded.profile_limit,status=excluded.status,
     regular_price_pen=excluded.regular_price_pen,discount_pen=excluded.discount_pen,total_paid_pen=excluded.total_paid_pen,
     starts_at=excluded.starts_at,expires_at=excluded.expires_at,updated_at=now()
-  returning id into household_id;
+  returning id into result_household_id;
+
+  -- Al bajar al plan mensual se conserva el perfil infantil mas antiguo
+  -- y se desactivan los adicionales sin borrar sus datos.
+  if selected_plan='monthly' then
+    update public.child_profiles
+    set active=false,updated_at=now()
+    where household_id=result_household_id and active
+      and id not in (
+        select id from public.child_profiles
+        where household_id=result_household_id and active
+        order by created_at,id limit 1
+      );
+  end if;
 
   if selected_status='active' then
     update public.payment_requests set status='approved',reviewed_at=now(),reviewed_by=(select auth.uid()),updated_at=now()
+    where id=(select id from public.payment_requests where owner_user_id=target_user and status in ('requested','under_review') order by created_at desc limit 1);
+  elsif selected_status='cancelled' then
+    update public.payment_requests set status='cancelled',reviewed_at=now(),reviewed_by=(select auth.uid()),updated_at=now()
     where id=(select id from public.payment_requests where owner_user_id=target_user and status in ('requested','under_review') order by created_at desc limit 1);
   end if;
 
   insert into public.admin_operations(actor_user_id,target_user_id,action,details)
   values((select auth.uid()),target_user,'subscription_'||selected_status::text,
     jsonb_build_object('plan',selected_plan,'amount',payment_amount,'verification_reference',verification_reference));
-  return household_id;
+  return result_household_id;
 end;
 $$;
 
