@@ -128,14 +128,14 @@
     const family=document.getElementById('familia');
     const section=document.createElement('section');
     section.id='dominio-publico';section.className='page';
-    section.innerHTML='<div class="eyebrow">Biblioteca clásica en preparación</div><h2>Historias que podemos volver a contar con una voz propia.</h2><p class="lead">Estas obras originales son candidatas de dominio público en Perú. Cada edición JUFANTICS tendrá texto adaptado, ilustraciones, narración, música y actividades propias.</p><div class="v4-policy"><strong>Importante:</strong> que la obra original sea de dominio público no autoriza copiar una traducción, portada, ilustración, audio o edición moderna. Cada archivo se revisa antes de publicarse.</div><div id="publicDomainGrid" class="public-domain-grid" aria-live="polite"></div>';
+    section.innerHTML='<div class="public-domain-hero"><div><div class="eyebrow">Biblioteca clásica en preparación</div><h2>Historias que podemos volver a contar con una voz propia.</h2><p class="lead">Estas obras originales son candidatas de dominio público en Perú. Cada edición JUFANTICS tendrá texto adaptado, ilustraciones, narración, música y actividades propias.</p></div><img src="assets/clasicos/biblioteca-clasica-hero.png" alt="Un libro abierto despliega montañas, bosque, mar y mundos de imaginación"></div><div class="v4-policy"><strong>Importante:</strong> que la obra original sea de dominio público no autoriza copiar una traducción, portada, ilustración, audio o edición moderna. Cada archivo se revisa antes de publicarse.</div><div id="publicDomainGrid" class="public-domain-grid" aria-live="polite"></div>';
     main.insertBefore(section,family||main.querySelector('.footer'));
     const nav=document.querySelector('.nav');
     const button=document.createElement('button');button.dataset.page='dominio-publico';button.textContent='Clásicos';button.onclick=()=>go('dominio-publico');
     nav.insertBefore(button,nav.querySelector('[data-page="familia"]')||null);
     try{
       const items=await fetch('dominio-publico.json').then(response=>response.json());
-      document.getElementById('publicDomainGrid').innerHTML=items.map(item=>`<article><span>${esc(item.origin)}</span><h3>${esc(item.title)}</h3><p>${esc(item.author)} · ${esc(item.life)}</p><small>${esc(item.route)}</small><b>Adaptación JUFANTICS en preparación</b></article>`).join('');
+      document.getElementById('publicDomainGrid').innerHTML=items.map((item,index)=>`<article><div class="public-domain-thumb"><img src="assets/clasicos/biblioteca-clasica-hero.png" alt="Referencia visual editorial para ${esc(item.title)}" style="object-position:${20+(index%3)*30}% center"></div><span>${esc(item.origin)}</span><h3>${esc(item.title)}</h3><p>${esc(item.author)} · ${esc(item.life)}</p><small>${esc(item.route)}</small><b>Adaptación JUFANTICS en preparación</b></article>`).join('');
     }catch(error){document.getElementById('publicDomainGrid').textContent='El catálogo clásico no pudo cargarse.'}
   }
 

@@ -29,9 +29,11 @@
     if(story.slug==='cerditos')return pigWordImage(word||story.keywords[index%story.keywords.length]);
     const normalized=String(word).toLocaleLowerCase('es'),cards=story.wordCards||[];
     const card=cards.find(item=>String(item.word).toLocaleLowerCase('es')===normalized)||cards[index%Math.max(1,cards.length)];
-    return card?.image||`assets/cuentos/${story.slug}/pagina-${(index%Math.max(1,story.pages||1))+1}.jpg`;
+    if(card?.image)return new URL(card.image,location.href).href;
+    const base=new URL(`${story.contentRoot||'assets/cuentos'}/${story.slug}/`,location.href);
+    return new URL(`pagina-${(index%Math.max(1,story.pages||1))+1}.jpg`,base).href;
   }
-  function safeImage(image,index,word=''){image.src=storyImage(index,word);image.onerror=()=>{image.onerror=null;image.src=story.slug==='cerditos'?'lector/escena1_3d_v34.jpg':`assets/cuentos/${story.slug}/portada.jpg`}}
+  function safeImage(image,index,word=''){image.src=storyImage(index,word);image.onerror=()=>{image.onerror=null;image.src=story.slug==='cerditos'?'lector/escena1_3d_v34.jpg':new URL(`${story.contentRoot||'assets/cuentos'}/${story.slug}/portada.jpg`,location.href).href}}
   function celebrate(target){const r=target.getBoundingClientRect();['✨','⭐','💜','✦','🌟','🎉'].forEach((symbol,i)=>{const node=document.createElement('span');node.className='spark';node.textContent=symbol;node.style.left=(r.left+r.width/2)+'px';node.style.top=(r.top+r.height/2)+'px';node.style.setProperty('--x',`${(i-2.5)*35}px`);document.body.appendChild(node);setTimeout(()=>node.remove(),950)})}
   function markVisited(tab){visited.add(tab);$('visitCount').textContent=`${Math.min(visited.size,missionTotal)} de ${missionTotal}`}
   function show(tab){all('[data-tab]').forEach(button=>{const active=button.dataset.tab===tab;button.classList.toggle('active',active);button.setAttribute('aria-selected',String(active))});all('[data-view]').forEach(panel=>panel.classList.toggle('hidden',panel.dataset.view!==tab));markVisited(tab);scrollTo({top:document.querySelector('.mission-tabs').offsetTop-65,behavior:'smooth'})}
