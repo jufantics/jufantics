@@ -3,6 +3,7 @@
   const PROFILE_KEY='jufantics_active_profile_v1';
   const TEST_CODE='JUFANTICS-PRUEBA-100';
   const PUBLIC_EMAIL='jufantics@gmail.com';
+  const recoveryRequested=new URLSearchParams(location.search).get('accion')==='recuperar';
   const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const authMessage=(error,fallback)=>{
     const message=String(error?.message||'').toLowerCase();
@@ -101,6 +102,7 @@
     document.getElementById('showRegister')?.addEventListener('click',()=>show(register));
     document.getElementById('showRecovery')?.addEventListener('click',()=>show(recovery));
     document.querySelectorAll('.cancel-auth-panel').forEach(button=>button.onclick=()=>show(login));
+    if(recoveryRequested)show(recovery);
     if(login)login.onsubmit=async event=>{event.preventDefault();const status=document.getElementById('remoteLoginStatus');status.textContent='Comprobando acceso…';try{await window.JufanticsRemoteAuth.signIn(document.getElementById('remoteEmail').value.trim().toLowerCase(),document.getElementById('remotePassword').value);render();notify()}catch(error){status.textContent=authMessage(error,'No se pudo iniciar sesión.')}};
     if(register)register.onsubmit=async event=>{event.preventDefault();const status=document.getElementById('registerStatus'),password=document.getElementById('registerPassword').value,confirmation=document.getElementById('registerPasswordConfirm').value;if(password!==confirmation){status.textContent='Las contraseñas no coinciden.';return}status.textContent='Creando la cuenta…';try{const data=await window.JufanticsRemoteAuth.signUp(document.getElementById('registerName').value.trim(),document.getElementById('registerEmail').value.trim().toLowerCase(),password);status.textContent=data.session?'Cuenta creada. Ya puedes continuar.':'Cuenta creada. Revisa tu correo para confirmarla antes de entrar.';if(data.session){await window.JufanticsRemoteAuth.refresh();render()}}catch(error){status.textContent=authMessage(error,'No se pudo crear la cuenta.')}};
     if(recovery)recovery.onsubmit=async event=>{event.preventDefault();const status=document.getElementById('recoveryStatus');status.textContent='Enviando enlace…';try{await window.JufanticsRemoteAuth.resetPassword(document.getElementById('recoveryEmail').value.trim().toLowerCase());status.textContent='Si el correo está registrado, recibirá un enlace seguro para crear una nueva contraseña.'}catch(error){status.textContent=authMessage(error,'No se pudo enviar el enlace.')}};
