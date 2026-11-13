@@ -77,6 +77,17 @@ const base = process.env.JUFANTICS_BASE_URL || 'http://127.0.0.1:8765';
   if (evidenceDir) await page.screenshot({ path: path.join(evidenceDir, 'actividad-escuadron-verde.png'), fullPage: true });
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto(`${base}/mundo-cuentos/index.html`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => document.querySelectorAll('[data-owned-story]').length === 15);
+  await page.evaluate(() => go('biblioteca'));
+  await page.waitForFunction(() => [...document.querySelectorAll('#biblioteca .v2-cover-image')].every(image => image.complete && image.naturalWidth > 0));
+  const library = await page.evaluate(() => ({
+    cards: document.querySelectorAll('[data-owned-story]').length,
+    images: [...document.querySelectorAll('#biblioteca .v2-cover-image')].map(image => ({
+      alt: image.alt,
+      loaded: image.naturalWidth > 0,
+      size: `${image.naturalWidth}x${image.naturalHeight}`
+    }))
+  }));
   await page.locator('[data-page="dominio-publico"]').waitFor({ state: 'visible' });
   await page.locator('[data-page="dominio-publico"]').click();
   await page.locator('.public-domain-grid article').first().waitFor({ state: 'visible' });
@@ -97,7 +108,7 @@ const base = process.env.JUFANTICS_BASE_URL || 'http://127.0.0.1:8765';
   }));
   await page.locator('#books .book button').first().click();
   guide.detailOpened = await page.locator('#bookDetail h2').isVisible();
-  console.log(JSON.stringify({ readers: results, missions, activity, classics, guide }, null, 2));
+  console.log(JSON.stringify({ readers: results, missions, activity, library, classics, guide }, null, 2));
   await browser.close();
-  if (results.some(item => !item.imageLoaded || item.errorVisible) || missions.some(item => !item.wordImageLoaded || !item.matchImageLoaded) || !activity.imageLoaded || classics.cards === 0 || classics.images.some(value => !value) || guide.cards !== 60 || guide.imagesLoaded < 3 || !guide.detailOpened) process.exitCode = 1;
+  if (results.some(item => !item.imageLoaded || item.errorVisible) || missions.some(item => !item.wordImageLoaded || !item.matchImageLoaded) || !activity.imageLoaded || library.cards !== 15 || library.images.some(image => !image.loaded) || classics.cards === 0 || classics.images.some(value => !value) || guide.cards !== 60 || guide.imagesLoaded < 3 || !guide.detailOpened) process.exitCode = 1;
 })().catch(error => { console.error(error); process.exitCode = 1; });

@@ -64,6 +64,7 @@ body{
 .v2-book{grid-column:span 4;min-height:410px;border-radius:28px;overflow:hidden;background:#fff;border:1px solid #e6dfd3;box-shadow:0 16px 38px rgba(23,39,66,.1);display:flex;flex-direction:column;position:relative}
 .v2-book.featured{grid-column:span 8;display:grid;grid-template-columns:1.15fr .85fr}
 .v2-cover{min-height:235px;background:#e8ecec center/cover no-repeat;position:relative}
+.v2-cover-image{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center}.v2-cover-missing::before{content:"📖";position:absolute;inset:0;display:grid;place-items:center;font-size:64px;color:#6d628f;background:linear-gradient(145deg,#eeeaf7,#dce8ec)}
 .v2-book.featured .v2-cover{min-height:430px}
 .v2-cover::after{content:"";position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(transparent,rgba(9,22,40,.62))}
 .v2-book-body{padding:22px;display:flex;flex-direction:column;align-items:flex-start;gap:10px}

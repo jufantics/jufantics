@@ -81,7 +81,7 @@
           <div class="v2-book-body"><span class="v2-status catalogue">60 fichas investigadas</span><h3>Lecturas para crecer</h3><p>Una selección para descubrir autores y temas. Las fichas no significan que el libro completo esté licenciado.</p><div class="actions"><button class="btn alt" onclick="go('lecturas')">Ver catálogo</button></div></div>
         </article>
         <article class="v2-book" data-v2-book="originales fantasia aventura naturaleza">
-          <div class="v2-cover" style="background-image:url('jufantico.jpg')"><span class="v2-label">Biblioteca propia</span></div>
+          <div class="v2-cover"><img class="v2-cover-image" src="jufantico.jpg?v=20261112-3" alt="Jufántico presenta la biblioteca de historias propias" onerror="this.onerror=null;this.src='jufantico_canon.png?v=20261112-3'"><span class="v2-label">Biblioteca propia</span></div>
           <div class="v2-book-body"><span class="v2-status">13 cuentos integrados</span><h3>Historias JUFANTICS</h3><p>Las obras propias disponibles se muestran a continuación con lector visual, narración cuando existe texto preparado y actividades por edad.</p></div>
         </article>
       </section>
@@ -120,7 +120,7 @@
         const status=story.access==='free'||story.free?'Lectura gratuita':story.genre==='Deporte'?'Cómic JUFANTICS':'Cuento propio JUFANTICS';
         const audio=story.audio?' · Audio de lectura':'';
         const actions=story.access==='free'||story.free?`<button class="btn" onclick="openOwnedStory('${story.slug}')">📖 Leer y escuchar gratis</button><button class="btn alt" onclick="openOwnedActivities('${story.slug}','${story.age}')">Actividades</button>`:`<button class="btn" onclick="openOwnedStory('${story.slug}')">Leer</button><button class="btn alt" onclick="openOwnedActivities('${story.slug}','${story.age}',true)">Probar 2 actividades</button>`;
-        article.innerHTML=`<div class="v2-cover" style="background-image:url('assets/cuentos/${story.slug}/portada.jpg'),url('assets/cuentos/${story.slug}/pagina-1.jpg')"><span class="v2-label">${story.genre} · ${story.age} años</span></div><div class="v2-book-body"><span class="v2-status">${status}</span><h3>${story.title}</h3><p>${story.subtitle}. ${story.pages} páginas ilustradas${audio}.</p><div class="actions">${actions}</div></div>`;
+        article.innerHTML=`<div class="v2-cover"><img class="v2-cover-image" src="assets/cuentos/${story.slug}/portada.jpg?v=20261112-3" alt="Portada de ${story.title}" onerror="if(!this.dataset.fallbackUsed){this.dataset.fallbackUsed='1';this.src='assets/cuentos/${story.slug}/pagina-1.jpg?v=20261112-3'}else{this.hidden=true;this.parentElement.classList.add('v2-cover-missing')}"><span class="v2-label">${story.genre} · ${story.age} años</span></div><div class="v2-book-body"><span class="v2-status">${status}</span><h3>${story.title}</h3><p>${story.subtitle}. ${story.pages} páginas ilustradas${audio}.</p><div class="actions">${actions}</div></div>`;
         shelf.appendChild(article);
       });
     }catch(error){console.warn('No se pudo cargar la biblioteca de cuentos propios.',error)}
