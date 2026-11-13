@@ -7,7 +7,9 @@ const base = process.env.JUFANTICS_BASE_URL || 'http://127.0.0.1:8765';
     headless: true,
     executablePath: process.env.JUFANTICS_CHROME || 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
   });
-  const page = await browser.newPage({ viewport: { width: 1365, height: 900 } });
+  const context = await browser.newContext({ viewport: { width: 1365, height: 900 }, serviceWorkers: 'block' });
+  const page = await context.newPage();
+  page.setDefaultTimeout(15000);
   const result = {};
 
   await page.goto(`${base}/mundo-cuentos/index.html#biblioteca`, { waitUntil: 'domcontentloaded' });
