@@ -29,6 +29,8 @@
 
   function welcomeVideo(){
     const welcomeKey='jufantics_welcome_seen_v2';
+    const requestedPage=location.hash.slice(1);
+    if(requestedPage&&requestedPage!=='inicio')return;
     if(document.getElementById('jufanticoWelcome')||sessionStorage.getItem(welcomeKey)==='1')return;
     document.body.insertAdjacentHTML('afterbegin',`<aside id="jufanticoWelcome" class="welcome-video" aria-labelledby="welcomeVideoTitle"><div class="welcome-video-card"><button class="welcome-close" id="welcomeClose" type="button" aria-label="Cerrar bienvenida">×</button><div class="welcome-video-copy"><span>JUFANTICS · Mundo de Cuentos</span><h2 id="welcomeVideoTitle">¡Hola! Soy Jufántico</h2><p>La plataforma ya está lista. Puedes explorar ahora o escuchar mi saludo.</p></div><div class="welcome-media" hidden><img src="jufantico_canon.png" alt="Jufántico, compañero lector de JUFANTICS"><video id="jufanticoWelcomeVideo" muted playsinline preload="none" poster="jufantico_canon.png" aria-label="Video de bienvenida de Jufántico"><source src="assets/jufantico-bienvenida.mp4" type="video/mp4"></video></div><div class="welcome-video-actions"><button class="btn gold" id="welcomeListen" type="button">🔊 Escuchar saludo</button><button class="btn light" id="welcomeEnter" type="button">Seguir explorando</button><a class="btn alt" href="cuenta.html">Mi cuenta</a></div><p class="welcome-video-note" id="welcomeVideoNote">El video solo se descarga si eliges escucharlo.</p></div></aside>`);
     const overlay=document.getElementById('jufanticoWelcome');

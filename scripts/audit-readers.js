@@ -23,7 +23,10 @@ const base = process.env.JUFANTICS_BASE_URL || 'http://127.0.0.1:8765';
     const url = `${base}/mundo-cuentos/lector-cuento.html?cuento=${encodeURIComponent(story.slug)}`;
     await page.goto(url, { waitUntil: 'domcontentloaded' });
     await page.locator('#pageImage').waitFor({ state: 'visible' });
-    await page.waitForFunction(() => document.querySelector('#pageImage')?.complete);
+    await page.waitForFunction(slug => {
+      const image = document.querySelector('#pageImage');
+      return image?.complete && image.src.includes(`/cuentos/${slug}/`) && Boolean(document.querySelector('#pageProgress')?.textContent.trim());
+    }, story.slug);
     results.push(await page.evaluate(story => {
       const image = document.querySelector('#pageImage');
       return {
@@ -41,7 +44,11 @@ const base = process.env.JUFANTICS_BASE_URL || 'http://127.0.0.1:8765';
   for (const story of stories) {
     await page.goto(`${base}/mundo-cuentos/actividades-cuento.html?cuento=${encodeURIComponent(story.slug)}&edad=${encodeURIComponent(story.age)}`, { waitUntil: 'domcontentloaded' });
     await page.locator('#wordImage').waitFor({ state: 'visible' });
-    await page.waitForFunction(() => document.querySelector('#wordImage')?.complete);
+    await page.waitForFunction(() => {
+      const wordImage = document.querySelector('#wordImage');
+      const matchImage = document.querySelector('#matchImage');
+      return wordImage?.complete && wordImage.naturalWidth > 0 && matchImage?.complete && matchImage.naturalWidth > 0;
+    });
     missions.push(await page.evaluate(story => {
       const wordImage = document.querySelector('#wordImage');
       const matchImage = document.querySelector('#matchImage');

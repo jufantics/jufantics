@@ -2,7 +2,8 @@
   const params=new URLSearchParams(location.search);
   const slug=params.get('cuento')||'aventura-ninja';
   const $=id=>document.getElementById(id);
-  const stories=await fetch(new URL('cuentos-propios.json',location.href)).then(response=>response.json());
+  const catalogUrl=new URL('cuentos-propios.json?v=repair-20261111-2',location.href);
+  const stories=await fetch(catalogUrl,{cache:'reload'}).then(response=>response.json());
   const story=stories.find(item=>item.slug===slug)||stories[0];
   await window.JufanticsAccess?.prepare?.(story);
   if(!window.JufanticsAccess?.requireStory(story))return;
@@ -14,10 +15,28 @@
   let texts={};
   let readingToken=0;
   let paused=false;
+  let imageCandidates=[];
+  let imageAttempt=0;
 
   function pageUrl(number){return new URL(`pagina-${number}.jpg`,baseUrl).href}
+  function pageUrls(number){
+    const file=`${story.slug}/pagina-${number}.jpg`;
+    return [...new Set([
+      pageUrl(number),
+      new URL(`assets/cuentos/${file}`,location.href).href,
+      new URL(`../assets/cuentos/${file}`,location.href).href,
+      new URL(`/assets/cuentos/${file}`,location.origin).href,
+    ])];
+  }
+  function loadPageImage(number,refresh=false){
+    const image=$('pageImage');
+    imageCandidates=pageUrls(number);
+    imageAttempt=0;
+    const url=imageCandidates[0];
+    image.src=refresh?`${url}${url.includes('?')?'&':'?'}retry=${Date.now()}`:url;
+  }
   async function loadTexts(){
-    const candidates=[new URL('lectura.json',baseUrl),new URL('../assets/reading-samples.json',location.href)];
+    const candidates=[new URL('lectura.json',baseUrl),new URL('assets/reading-samples.json',location.href),new URL('../assets/reading-samples.json',location.href)];
     for(const url of candidates){
       try{
         const response=await fetch(url);
@@ -70,7 +89,7 @@
     const image=$('pageImage');
     $('imageError').classList.add('hidden');
     $('retryImage').classList.add('hidden');
-    image.src=pageUrl(page);
+    loadPageImage(page);
     image.alt=`${story.title}, página ${page}`;
     $('pageLabel').textContent=page===1?'Portada':`Página ${page}`;
     $('pageProgress').textContent=`${page} / ${totalPages}`;
@@ -83,7 +102,7 @@
     $('listenPage').disabled=!text;
     $('readerStatus').textContent=text?'Lista para escuchar esta página.':'La imagen está disponible; esta página aún no tiene narración preparada.';
     history.replaceState(null,'',`?cuento=${encodeURIComponent(story.slug)}&pagina=${page}`);
-    if(page<totalPages){const preload=new Image();preload.src=pageUrl(page+1)}
+    if(page<totalPages){const preload=new Image();preload.src=pageUrls(page+1)[0]}
   }
   function move(delta,scroll=true){
     stopReading(false);
@@ -134,9 +153,13 @@
   $('listenPage').onclick=speakCurrent;
   $('pauseVoice').onclick=pauseReading;
   $('stopVoice').onclick=()=>stopReading(true);
-  $('retryImage').onclick=()=>{const image=$('pageImage');image.src=`${pageUrl(page)}${pageUrl(page).includes('?')?'&':'?'}retry=${Date.now()}`};
+  $('retryImage').onclick=()=>loadPageImage(page,true);
   $('pageImage').onload=()=>{$('imageError').classList.add('hidden');$('retryImage').classList.add('hidden')};
-  $('pageImage').onerror=()=>{$('imageError').classList.remove('hidden');$('retryImage').classList.remove('hidden');$('readerStatus').textContent='No se pudo cargar la imagen. Comprueba la conexión y pulsa “Reintentar imagen”.'};
+  $('pageImage').onerror=()=>{
+    imageAttempt++;
+    if(imageAttempt<imageCandidates.length){$('pageImage').src=imageCandidates[imageAttempt];return}
+    $('imageError').classList.remove('hidden');$('retryImage').classList.remove('hidden');$('readerStatus').textContent='No se pudo cargar la imagen. Comprueba la conexión y pulsa “Reintentar imagen”.';
+  };
   document.addEventListener('keydown',event=>{if(event.target.matches('input,select,button,summary'))return;if(event.key==='ArrowLeft')move(-1,false);if(event.key==='ArrowRight')move(1,false)});
   document.addEventListener('contextmenu',event=>{if(event.target.closest('#pageImage'))event.preventDefault()});
   document.addEventListener('dragstart',event=>{if(event.target.closest('#pageImage'))event.preventDefault()});

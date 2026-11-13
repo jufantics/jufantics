@@ -2,8 +2,17 @@
   const params=new URLSearchParams(location.search),slug=params.get('cuento')||'aventura-ninja';
   const $=id=>document.getElementById(id),all=q=>[...document.querySelectorAll(q)];
   const wordAssets='assets/actividades/cerditos';
-  let story,chosenWord='',matchIndex=0,soundIndex=0,sequenceIndex=0,currentAge=params.get('edad')||'6-8',questionIndex=0,movementIndex=0,missionTotal=9,visited=new Set(['bank']);
+  let story,chosenWord='',currentMatchWord='',currentSoundWord='',matchIndex=0,soundIndex=0,sequenceIndex=0,currentAge=params.get('edad')||'6-8',questionIndex=0,movementIndex=0,missionTotal=9,visited=new Set(['bank']);
   const previewRequested=params.get('modo')==='prueba';
+  const activityPages={
+    'aventura-ninja':5,'cueva-de-cristal':9,'escuadron-verde':7,
+    'escuadron-verde-guardianes-del-oceano':2,'gran-aventura-familiar':8,
+    'gran-corazon-capitan-julen':10,'guardian-colores-infinitos':9,
+    'juancito-medicina-del-viento':9,'nico-comic':28,'tesoros-de-la-costa':9,
+    'thiago-defensor-universo':6,'ukumari-sacha-chapaq':37,
+    'vuelo-resiliencia-corazon-oro-hielo':5,'rio-un-lugar-cerquita':53,
+    'dino-mordelones':20
+  };
   const pigQuestions=[
     {prompt:'¿Con quiénes vivían los tres cerditos al comienzo?',choices:['Con su mamá.','Con el lobo.','Solos en una ciudad.'],answer:0},
     {prompt:'¿Qué materiales eligieron para construir sus casas?',choices:['Paja, madera y ladrillo.','Vidrio, metal y hielo.','Tela, papel y arena.'],answer:0},
@@ -27,13 +36,29 @@
   const pigWordImage=word=>`${wordAssets}/${word}.webp`;
   function storyImage(index,word=''){
     if(story.slug==='cerditos')return pigWordImage(word||story.keywords[index%story.keywords.length]);
-    const normalized=String(word).toLocaleLowerCase('es'),cards=story.wordCards||[];
-    const card=cards.find(item=>String(item.word).toLocaleLowerCase('es')===normalized)||cards[index%Math.max(1,cards.length)];
-    if(card?.image)return new URL(card.image,location.href).href;
     const base=new URL(`${story.contentRoot||'assets/cuentos'}/${story.slug}/`,location.href);
-    return new URL(`pagina-${(index%Math.max(1,story.pages||1))+1}.jpg`,base).href;
+    const illustrationPage=Math.min(activityPages[story.slug]||2,Math.max(1,Number(story.pages)||1));
+    return new URL(`pagina-${illustrationPage}.jpg`,base).href;
   }
-  function safeImage(image,index,word=''){image.src=storyImage(index,word);image.onerror=()=>{image.onerror=null;image.src=story.slug==='cerditos'?'lector/escena1_3d_v34.jpg':new URL(`${story.contentRoot||'assets/cuentos'}/${story.slug}/portada.jpg`,location.href).href}}
+  function cropIllustration(image){
+    if(story.slug==='cerditos'||image.dataset.cropped==='true')return;
+    try{
+      const canvas=document.createElement('canvas'),context=canvas.getContext('2d');
+      canvas.width=800;canvas.height=600;
+      const cropWidth=Math.max(1,Math.floor(image.naturalWidth*.5));
+      const cropHeight=Math.max(1,Math.min(image.naturalHeight,Math.floor(cropWidth*3/4)));
+      const cropTop=Math.max(0,Math.floor((image.naturalHeight-cropHeight)/2));
+      context.drawImage(image,0,cropTop,cropWidth,cropHeight,0,0,canvas.width,canvas.height);
+      image.dataset.cropped='true';image.onload=null;image.src=canvas.toDataURL('image/jpeg',.88);
+    }catch(_){/* La ilustración original permanece visible si el navegador no puede recortarla. */}
+  }
+  function safeImage(image,index,word=''){
+    image.dataset.cropped='false';
+    image.alt=`Ilustración de ${story.title}, referencia visual del cuento`;
+    image.onload=()=>cropIllustration(image);
+    image.onerror=()=>{image.onerror=null;image.onload=null;image.src=story.slug==='cerditos'?'lector/escena1_3d_v34.jpg':new URL(`${story.contentRoot||'assets/cuentos'}/${story.slug}/portada.jpg`,location.href).href};
+    image.src=storyImage(index,word);
+  }
   function celebrate(target){const r=target.getBoundingClientRect();['✨','⭐','💜','✦','🌟','🎉'].forEach((symbol,i)=>{const node=document.createElement('span');node.className='spark';node.textContent=symbol;node.style.left=(r.left+r.width/2)+'px';node.style.top=(r.top+r.height/2)+'px';node.style.setProperty('--x',`${(i-2.5)*35}px`);document.body.appendChild(node);setTimeout(()=>node.remove(),950)})}
   function markVisited(tab){visited.add(tab);$('visitCount').textContent=`${Math.min(visited.size,missionTotal)} de ${missionTotal}`}
   function show(tab){all('[data-tab]').forEach(button=>{const active=button.dataset.tab===tab;button.classList.toggle('active',active);button.setAttribute('aria-selected',String(active))});all('[data-view]').forEach(panel=>panel.classList.toggle('hidden',panel.dataset.view!==tab));markVisited(tab);scrollTo({top:document.querySelector('.mission-tabs').offsetTop-65,behavior:'smooth'})}
@@ -41,10 +66,10 @@
   function setFeedback(id,ok,text,target){const box=$(id);box.className=`feedback ${ok?'ok':'near'}`;box.textContent=text;speak(text);if(ok&&target)celebrate(target)}
   function renderBank(){const bank=$('wordButtons'),syllableBank=$('syllableWords');bank.innerHTML='';syllableBank.innerHTML='';story.keywords.forEach((word,index)=>{const make=()=>{const button=document.createElement('button');button.textContent=word;button.onclick=()=>selectWord(word,index,button);return button};bank.appendChild(make());const syllableButton=make();syllableButton.onclick=()=>renderSyllable(word,syllableButton);syllableBank.appendChild(syllableButton)});selectWord(story.keywords[0],0,bank.firstElementChild,false);renderSyllable(story.keywords[0],syllableBank.firstElementChild,false)}
   function selectWord(word,index,button,announce=true){chosenWord=word;all('#wordButtons button').forEach(b=>b.classList.toggle('active',b===button));$('selectedWord').textContent=word;$('selectedSyllables').innerHTML=parts(word).map(part=>`<span>${part}</span>`).join('');safeImage($('wordImage'),index,word);if(announce)speak(word)}
-  function renderMatch(){const correct=story.keywords[matchIndex%story.keywords.length];safeImage($('matchImage'),matchIndex,correct);$('matchPrompt').textContent='¿Qué palabra acompaña esta imagen del cuento?';$('matchFeedback').className='feedback';$('matchFeedback').textContent='Mira con calma y elige una palabra.';const distractors=story.keywords.filter(word=>word!==correct).sort(()=>Math.random()-.5).slice(0,2),choices=[correct,...distractors].sort(()=>Math.random()-.5);$('matchChoices').innerHTML='';choices.forEach(word=>{const button=document.createElement('button');button.textContent=word;button.onclick=()=>word===correct?setFeedback('matchFeedback',true,`¡Descubriste otra palabra! Esta imagen representa ${word}.`,button):setFeedback('matchFeedback',false,'Casi, explorador. Observa otra vez y prueba una palabra diferente.');$('matchChoices').appendChild(button)})}
+  function renderMatch(){const correct=story.keywords[matchIndex%story.keywords.length];currentMatchWord=correct;safeImage($('matchImage'),matchIndex,correct);$('matchPrompt').textContent='Escucha y elige la palabra que oíste.';$('matchFeedback').className='feedback';$('matchFeedback').textContent='La ilustración representa el cuento. Pulsa “Escuchar palabra” y elige la opción correcta.';const distractors=story.keywords.filter(word=>word!==correct).sort(()=>Math.random()-.5).slice(0,2),choices=[correct,...distractors].sort(()=>Math.random()-.5);$('matchChoices').innerHTML='';choices.forEach(word=>{const button=document.createElement('button');button.textContent=word;button.onclick=()=>word===correct?setFeedback('matchFeedback',true,`¡Correcto! La palabra que escuchaste es ${correct}.`,button):setFeedback('matchFeedback',false,'Casi. Escucha la palabra otra vez y prueba una opción diferente.');$('matchChoices').appendChild(button)})}
   $('nextMatch').onclick=()=>{matchIndex=(matchIndex+1)%story.keywords.length;renderMatch()};
-  function renderSound(){chosenWord=story.keywords[soundIndex%story.keywords.length];const letter=chosenWord[0].toLocaleUpperCase('es'),pool='ABCDEFGHIJLMNOPRSTUV'.split('').filter(value=>value!==letter).sort(()=>Math.random()-.5).slice(0,3);$('soundWord').textContent=chosenWord;$('soundPrompt').textContent=`¿Con qué letra comienza “${chosenWord}”?`;$('soundFeedback').className='feedback';$('soundFeedback').textContent='Escucha la palabra y busca su primera letra.';$('soundChoices').innerHTML='';[letter,...pool].sort(()=>Math.random()-.5).forEach(value=>{const button=document.createElement('button');button.textContent=value;button.onclick=()=>value===letter?setFeedback('soundFeedback',true,`¡Sonido descubierto! ${chosenWord} comienza con ${letter}.`,button):setFeedback('soundFeedback',false,'Casi. Escucha el comienzo de la palabra una vez más.');$('soundChoices').appendChild(button)})}
-  $('nextSound').onclick=()=>{soundIndex=(soundIndex+1)%story.keywords.length;renderSound()};$('repeatSound').onclick=()=>speak(chosenWord);
+  function renderSound(){const soundWord=story.keywords[soundIndex%story.keywords.length];currentSoundWord=soundWord;const letter=soundWord[0].toLocaleUpperCase('es'),pool='ABCDEFGHIJLMNOPRSTUV'.split('').filter(value=>value!==letter).sort(()=>Math.random()-.5).slice(0,3);$('soundWord').textContent=soundWord;$('soundPrompt').textContent=`¿Con qué letra comienza “${soundWord}”?`;$('soundFeedback').className='feedback';$('soundFeedback').textContent='Escucha la palabra y busca su primera letra.';$('soundChoices').innerHTML='';[letter,...pool].sort(()=>Math.random()-.5).forEach(value=>{const button=document.createElement('button');button.textContent=value;button.onclick=()=>value===letter?setFeedback('soundFeedback',true,`¡Sonido descubierto! ${soundWord} comienza con ${letter}.`,button):setFeedback('soundFeedback',false,`Casi. Escucha de nuevo ${soundWord} y busca su primera letra.`);$('soundChoices').appendChild(button)})}
+  $('nextSound').onclick=()=>{soundIndex=(soundIndex+1)%story.keywords.length;renderSound()};$('repeatSound').onclick=()=>speak(currentSoundWord);
   function renderSyllable(word,button,announce=true){chosenWord=word;all('#syllableWords button').forEach(b=>b.classList.toggle('active',b===button));const pieces=parts(word);$('syllableWord').textContent=word;$('syllableBlocks').innerHTML=pieces.map(part=>`<span>${part}</span>`).join('');$('syllableCount').textContent=`${pieces.length} ${pieces.length===1?'sílaba':'sílabas'}`;if(announce)speak(word)}
   $('hearSyllables').onclick=()=>speak(chosenWord);$('clapSyllables').onclick=event=>{const pieces=parts(chosenWord);let delay=0;pieces.forEach(piece=>{setTimeout(()=>speak(piece,{rate:.72}),delay);delay+=650});celebrate(event.currentTarget)};
   function renderSequence(){sequenceIndex=0;$('sequenceFeedback').className='feedback';$('sequenceFeedback').textContent='Empieza por lo que ocurrió primero.';const shuffled=[...story.sequence].sort(()=>Math.random()-.5);$('sequence').innerHTML='';shuffled.forEach(text=>{const button=document.createElement('button');button.textContent=text;button.onclick=()=>{if(text===story.sequence[sequenceIndex]){button.classList.add('done');button.disabled=true;sequenceIndex++;speak('¡Bien! Encontraste la siguiente parte.');if(sequenceIndex===story.sequence.length)setFeedback('sequenceFeedback',true,'¡Misión completada! Reconstruiste la aventura.',button)}else setFeedback('sequenceFeedback',false,'Casi. Piensa qué ocurrió antes. Puedes volver a probar.')};$('sequence').appendChild(button)})}
@@ -104,7 +129,7 @@
     document.querySelector('.mission-tag').textContent='Prueba gratuita · 2 misiones';
     document.querySelector('.mission-hero').insertAdjacentHTML('afterend','<aside class="feedback ok"><strong>Modo de prueba:</strong> banco de palabras y palabra + imagen. La cuenta familiar abre las nueve misiones, el reto final y las creaciones.</aside>');
   }
-  $('hearBank').onclick=()=>speak('Toca, escucha y descubre palabras del cuento.');$('hearMatch').onclick=()=>speak('Observa la imagen y encuentra la palabra preparada para ella.');$('hearCreate').onclick=()=>speak('Imagina una escena nueva. Puedes dibujar, colorear y contar qué sucede.');
+  $('hearBank').onclick=()=>speak('Toca, escucha y descubre palabras del cuento.');$('hearMatch').onclick=()=>speak(currentMatchWord);$('hearCreate').onclick=()=>speak('Imagina una escena nueva. Puedes dibujar, colorear y contar qué sucede.');
   function normalizeStory(item){item.keywords=item.wordCards?.map(card=>card.word)||(item.keywords?.length?item.keywords:['aventura','personaje','camino','amigo','descubrimiento','final']);item.sequence=item.sequence?.length?item.sequence:[`Comienza ${item.title}`,'Los personajes toman una decisión','La aventura encuentra un nuevo camino'];return item}
   async function init(){try{const [items,presets]=await Promise.all([fetch('cuentos-propios.json').then(response=>response.json()),fetch('actividades-editoriales.json?v=editorial-20261105').then(response=>response.json())]);await window.JufanticsAccess?.prepare?.();const base=slug==='cerditos'?pigStory:(items.find(item=>item.slug===slug)||items[0]),previewMode=slug!=='cerditos'&&previewRequested&&window.JufanticsAccess?.tier(base)==='premium'&&!window.JufanticsAccess?.hasActiveAccount();if(slug!=='cerditos'&&!previewMode&&!window.JufanticsAccess?.requireStory(base))return;const preset=presets.find(item=>item.slug===base.slug)||{};story=normalizeStory({...base,...preset});story.previewMode=previewMode}catch{story=pigStory}currentAge=normalizeAge(params.get('edad')||story.age||'6-8');if(story.theme){document.documentElement.style.setProperty('--story-primary',story.theme.primary);document.documentElement.style.setProperty('--story-accent',story.theme.accent);document.documentElement.style.setProperty('--story-soft',story.theme.soft)}document.body.dataset.story=story.slug;applyAccessMode(story.previewMode);all('[data-age]').forEach(button=>{button.classList.toggle('active',button.dataset.age===currentAge);button.onclick=()=>{currentAge=button.dataset.age;all('[data-age]').forEach(item=>item.classList.toggle('active',item===button));questionIndex=0;renderQuestion();speak(`Actividades para ${currentAge} años.`)}});$('title').textContent=`Misiones · ${story.title}`;document.title=`Misiones · ${story.title}`;const link=`lector-cuento.html?cuento=${encodeURIComponent(story.slug)}`;$('storyLink').href=story.slug==='cerditos'?'lector/index.html':story.previewMode?'index.html#biblioteca':link;$('storyLinkBottom').href=$('storyLink').href;renderBank();renderMatch();renderSound();renderSequence();renderQuestion();renderMovement();renderChallenge();setupDrawing()}
   init();
